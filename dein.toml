@@ -1,0 +1,51 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'leico/autodate.vim'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_add = '''
+let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-toml', 'coc-yaml']
+'''
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+hook_add = '''
+  let NERDTreeShowHidden = 1
+  map <C-n> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+  nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
+  tnoremap <ESC>   <C-\><C-n>
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+  let g:airline_theme = 'codedark'
+'''
+
+[[plugins]]
+repo = 'tomasiser/vim-code-dark'
+hook_add = '''
+  autocmd! VimEnter * nested colorscheme codedark
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'inkarkat/vim-SyntaxRange'
