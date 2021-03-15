@@ -46,6 +46,7 @@ hook_add = '''
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
   let g:fern#renderer = "nerdfont"
+  let g:fern#disable_drawer_smart_quit = 1
   nmap <silent><C-e> :Fern . -drawer -toggle<CR>
 '''
 [[plugins]]
@@ -67,7 +68,7 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-  nnoremap <silent><C-o> :<C-u>Deol -split=floating<CR>
+  nnoremap <silent><C-t> :<C-u>Deol -split=floating<CR>
   tnoremap <ESC>   <C-\><C-n>
 '''
 
@@ -106,7 +107,11 @@ repo = 'thaerkh/vim-workspace'
 repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-
+[[plugins]]
+repo = 'kdheepak/lazygit.nvim'
+hook_add = '''
+  nnoremap <silent> <leader>lg :LazyGit<CR>
+'''
 # Common plugins
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'

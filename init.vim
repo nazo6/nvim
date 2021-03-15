@@ -1,6 +1,6 @@
 " Dein.vim ----------------
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
+let mapleader = "\<Space>"
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
@@ -44,3 +44,9 @@ function! s:syntax_range_dein() abort
   call SyntaxRange#Include(printf(start, "'''"), "'''", 'vim', '')
   call SyntaxRange#Include(printf(start, '"""'), '"""', 'vim', '')
 endfunction
+
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
+endif
