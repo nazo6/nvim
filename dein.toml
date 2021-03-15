@@ -33,11 +33,35 @@ hook_add = '''
 '''
 
 # System plugins
+# [[plugins]]
+#  repo = 'preservim/nerdtree'
+#  hook_add = '''
+#    let NERDTreeShowHidden = 1
+#    map <C-n> :NERDTreeToggle<CR>
+#  '''
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
+
 [[plugins]]
-repo = 'preservim/nerdtree'
+repo = 'lambdalisue/fern.vim'
 hook_add = '''
-  let NERDTreeShowHidden = 1
-  map <C-n> :NERDTreeToggle<CR>
+  let g:fern#renderer = "nerdfont"
+  nmap <silent><C-e> :Fern . -drawer -toggle<CR>
+'''
+[[plugins]]
+repo = 'antoinemadec/FixCursorHold.nvim'
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_add = '''
+  augroup my-glyph-palette
+    autocmd! *
+    autocmd FileType fern call glyph_palette#apply()
+    autocmd FileType nerdtree,startify call glyph_palette#apply()
+  augroup END
 '''
 
 [[plugins]]
@@ -75,7 +99,7 @@ hook_add = '''
 repo = 'inkarkat/vim-SyntaxRange'
 
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
+repo = 'thaerkh/vim-workspace'
 
 # Git
 [[plugins]]
