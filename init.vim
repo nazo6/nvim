@@ -24,8 +24,12 @@ set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set sh=pwsh
-
+if has("win32")
+  set shell=pwsh
+  set shellcmdflag=-c
+  set shellquote=\"
+  set shellxquote=
+endif
 augroup MyVimrc
     autocmd!
 augroup END
