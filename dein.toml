@@ -83,7 +83,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'puremourning/vimspector'
-on_ft = ["python", "javascript","typescript"]
+on_ft = ["javascript","typescript","typescriptreact"]
 build = "./install_gadget.py --enable-python --force-enable-chrome --force-enable-node"
 hook_add = '''
   let g:vimspector_enable_mappings='HUMAN'
@@ -133,3 +133,4 @@ on_ft = 'toml'
 
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
+
