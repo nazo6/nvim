@@ -2,11 +2,6 @@ nnoremap <leader>s :source $MYVIMRC<CR>
 " Space二回で単語ハイライト
 nnoremap <silent> <Space><Space> :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
 
-nnoremap ij <C-w>j
-nnoremap ik <C-w>k
-nnoremap il <C-w>l
-nnoremap ih <C-w>h
-
 nnoremap <silent> <leader>w :w<CR>
 
 inoremap <silent> jj <ESC>
@@ -14,8 +9,15 @@ inoremap <silent> jj <ESC>
 " Plugins keymaps
 nmap <silent><C-e> :Fern . -drawer -toggle<CR>
 
-nnoremap <silent><C-t> :<C-u>Deol -split=floating<CR>
 tnoremap <ESC>   <C-\><C-n>
+nnoremap <silent><C-t>n :FloatermNew<CR>
+tnoremap <silent><C-t>h <C-\><C-n>:FloatermHide<CR>
+tnoremap <silent><C-t>x <C-\><C-n>:FloatermKill<CR>
+nnoremap <silent><C-t>s :FloatermShow<CR>
+nnoremap <silent><C-t>k :FloatermPrev<CR>
+nnoremap <silent><C-t>j :FloatermNext<CR>
+nnoremap <silent><C-t>k <C-\><C-n>:FloatermPrev<CR>
+tnoremap <silent><C-t>j <C-\><C-n>:FloatermNext<CR>
 
 let g:vimspector_enable_mappings='HUMAN'
 

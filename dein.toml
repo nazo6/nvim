@@ -29,8 +29,10 @@ repo = 'lambdalisue/nerdfont.vim'
 repo = 'lambdalisue/glyph-palette.vim'
 hook_add = 'runtime! ./pluginconfigs/glyph-palette.vim'
 
+# [[plugins]]
+# repo = 'Shougo/deol.nvim'
 [[plugins]]
-repo = 'Shougo/deol.nvim'
+repo = 'voldikss/vim-floaterm'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
