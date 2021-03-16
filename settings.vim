@@ -11,4 +11,6 @@ if has("win32")
   set shellxquote=
 endif
 
+set clipboard=unnamedplus
+
 au ucmd VimEnter * nested colorscheme codedark
