@@ -2,6 +2,11 @@ nnoremap <leader>s :source $MYVIMRC<CR>
 " Space二回で単語ハイライト
 nnoremap <silent> <Space><Space> :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
 
+nnoremap ij <C-w>j
+nnoremap ik <C-w>k
+nnoremap il <C-w>l
+nnoremap ih <C-w>h
+
 nnoremap <silent> <leader>w :w<CR>
 
 inoremap <silent> jj <ESC>
