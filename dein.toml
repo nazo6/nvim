@@ -20,6 +20,8 @@ hook_add = 'runtime! ./pluginconfigs/fern.vim'
 [[plugins]]
 repo = 'antoinemadec/FixCursorHold.nvim'
 [[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+[[plugins]]
 repo = 'lambdalisue/fern-renderer-nerdfont.vim'
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'

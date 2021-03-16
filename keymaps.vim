@@ -7,3 +7,5 @@ nnoremap <silent><C-t> :<C-u>Deol -split=floating<CR>
 tnoremap <ESC>   <C-\><C-n>
 
 let g:vimspector_enable_mappings='HUMAN'
+
+nnoremap <silent><C-p> :Clap files<CR>
