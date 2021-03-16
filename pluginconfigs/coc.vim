@@ -1,4 +1,4 @@
-let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-toml', 'coc-yaml']
+let g:coc_global_extensions = ['coc-lists', 'coc-json', 'coc-css', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-toml', 'coc-yaml']
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)

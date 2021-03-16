@@ -4,10 +4,15 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'leico/autodate.vim'
 
+# coc.nvim
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 hook_add = 'runtime! ./pluginconfigs/coc.vim'
+[[plugins]]
+repo = 'liuchengxu/vim-clap'
+[[plugins]]
+repo = 'vn-ki/coc-clap'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
