@@ -1,9 +1,3 @@
-# Required
-[[plugins]]
-repo = 'Shougo/dein.vim'
-[[plugins]]
-repo = 'leico/autodate.vim'
-
 # coc.nvim
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -61,6 +55,10 @@ repo = 'kdheepak/lazygit.nvim'
 hook_add = '''
   nnoremap <silent> <leader>lg :LazyGit<CR>
 '''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
 # Common plugins
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'

@@ -1,24 +1,28 @@
-nnoremap <leader>s :source $MYVIMRC<CR>
 " Space二回で単語ハイライト
 nnoremap <silent> <Space><Space> :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
 
-nnoremap <silent> <leader>w :w<CR>
+if exists('g:vscode')
+  nnoremap <leader>s :source $MYVIMRC<CR>
+  nnoremap <silent> <leader>w :call VSCodeNotify('workbench.action.files.save')<CR>
+else
+  " Plugins keymaps
+  nnoremap <leader>s :source $MYVIMRC<CR>
+  nnoremap <silent> <leader>w :w<CR>
 
-inoremap <silent> jj <ESC>
+  inoremap <silent> jj <ESC>
+  nmap <silent><C-e> :Fern . -drawer -toggle<CR>
 
-" Plugins keymaps
-nmap <silent><C-e> :Fern . -drawer -toggle<CR>
+  tnoremap <ESC>   <C-\><C-n>
+  nnoremap <silent><C-t>n :FloatermNew<CR>
+  tnoremap <silent><C-t>h <C-\><C-n>:FloatermHide<CR>
+  tnoremap <silent><C-t>x <C-\><C-n>:FloatermKill<CR>
+  nnoremap <silent><C-t>s :FloatermShow<CR>
+  nnoremap <silent><C-t>k :FloatermPrev<CR>
+  nnoremap <silent><C-t>j :FloatermNext<CR>
+  nnoremap <silent><C-t>k <C-\><C-n>:FloatermPrev<CR>
+  tnoremap <silent><C-t>j <C-\><C-n>:FloatermNext<CR>
 
-tnoremap <ESC>   <C-\><C-n>
-nnoremap <silent><C-t>n :FloatermNew<CR>
-tnoremap <silent><C-t>h <C-\><C-n>:FloatermHide<CR>
-tnoremap <silent><C-t>x <C-\><C-n>:FloatermKill<CR>
-nnoremap <silent><C-t>s :FloatermShow<CR>
-nnoremap <silent><C-t>k :FloatermPrev<CR>
-nnoremap <silent><C-t>j :FloatermNext<CR>
-nnoremap <silent><C-t>k <C-\><C-n>:FloatermPrev<CR>
-tnoremap <silent><C-t>j <C-\><C-n>:FloatermNext<CR>
+  let g:vimspector_enable_mappings='HUMAN'
 
-let g:vimspector_enable_mappings='HUMAN'
-
-nnoremap <silent><C-p> :Clap files<CR>
+  nnoremap <silent><C-p> :Clap files<CR>
+endif

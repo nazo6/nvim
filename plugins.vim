@@ -1,13 +1,23 @@
+if exists('g:vscode')
+  let s:dein_path = '~/.cache/dein-vscode'
+  set runtimepath+=~/.cache/dein-vscode/repos/github.com/Shougo/dein.vim
+else
+  let s:dein_path = '~/.cache/dein'
+  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+endif
 
-" Dein.vim ----------------
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+if dein#load_state(s:dein_path)
+  call dein#begin(s:dein_path)
+  
+  let s:toml_common = '~/.config/nvim/plugins-common.toml'
+  let s:toml_native = '~/.config/nvim/plugins-native.toml'
 
-  let s:toml_dir = $HOME . '/.config/nvim'
-  let s:toml = s:toml_dir . '/dein.toml'
-
-  call dein#load_toml(s:toml, {})
+  call dein#load_toml(s:toml_common, {})
+  if exists('g:vscode')
+    call dein#load_toml('~/.config/nvim/plugins-vscode.toml', {})
+  else
+    call dein#load_toml(s:toml_native, {})
+  endif
   call dein#end()
   call dein#save_state()
 endif

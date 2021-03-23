@@ -1,16 +1,19 @@
-set number
-
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-if has("win32")
-  set shell=pwsh
-  set shellcmdflag=-c
-  set shellquote=\"
-  set shellxquote=
-endif
-
 set clipboard=unnamedplus
 
-au ucmd VimEnter * nested colorscheme codedark
+if exists('g:vscode')
+else
+  set number
+  
+
+  au ucmd VimEnter * nested colorscheme codedark
+
+  if has("win32")
+    set shell=pwsh
+    set shellcmdflag=-c
+    set shellquote=\"
+    set shellxquote=
+  endif
+endif
