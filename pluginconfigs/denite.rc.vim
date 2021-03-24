@@ -20,6 +20,7 @@ let s:denite_win_height_percent = 0.7
 
 " Change denite default options
 call denite#custom#option('default', {
+    \ 'auto_action': 'preview',
     \ 'split': 'floating',
     \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
     \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),

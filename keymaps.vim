@@ -1,6 +1,5 @@
 nnoremap <leader>s :source $MYVIMRC<CR>
 " Space二回で単語ハイライト
-nnoremap <silent> <Space><Space> :let @/ = '\<' . expand('<cword>') . '\>'<CR>:set hlsearch<CR>
 
 nnoremap <silent> <leader>w :w<CR>
 
@@ -27,3 +26,5 @@ tnoremap <silent><C-t>j <C-\><C-n>:FloatermNext<CR>
 let g:vimspector_enable_mappings='HUMAN'
 
 nnoremap <silent><C-p> :Clap files<CR>
+
+nnoremap <silent> <Space><Space> :HopWord<CR>

@@ -20,9 +20,9 @@ build = "./install_gadget.py --enable-python --force-enable-chrome --force-enabl
 # Denite
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+hook_add = 'runtime! ./pluginconfigs/denite.rc.vim'
 [[plugins]]
 repo = 'neoclide/coc-denite'
-hook_add = 'runtime! ./pluginconfigs/denite.rc.vim'
 
 # Look and feel
 [[plugins]]
@@ -49,6 +49,9 @@ repo = 'rbong/vim-flog'
 
 # Common plugins
 [[plugins]]
+repo = 'phaazon/hop.nvim'
+
+[[plugins]]
 repo = 'jiangmiao/auto-pairs'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
@@ -58,3 +61,8 @@ hook_add = 'runtime! ./pluginconfigs/indentLine.rc.vim'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+
+# Other utils
+[[plugins]]
+repo = 'skanehira/translate.vim'
+hook_add = 'runtime! ./pluginconfig/translate.rc.vim'
