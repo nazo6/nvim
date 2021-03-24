@@ -1,8 +1,6 @@
 # Required
 [[plugins]]
 repo = 'Shougo/dein.vim'
-[[plugins]]
-repo = 'leico/autodate.vim'
 
 # coc.nvim
 [[plugins]]
@@ -14,42 +12,23 @@ repo = 'liuchengxu/vim-clap'
 [[plugins]]
 repo = 'vn-ki/coc-clap'
 
-# [[plugins]]
-# repo = 'lambdalisue/fern.vim'
-# hook_add = 'runtime! ./pluginconfigs/fern.vim'
-# [[plugins]]
-# repo = 'antoinemadec/FixCursorHold.nvim'
-# [[plugins]]
-# repo = 'lambdalisue/fern-git-status.vim'
-# [[plugins]]
-# repo = 'lambdalisue/fern-renderer-nerdfont.vim'
-# [[plugins]]
-# repo = 'lambdalisue/nerdfont.vim'
-# [[plugins]]
-# repo = 'lambdalisue/glyph-palette.vim'
-# hook_add = 'runtime! ./pluginconfigs/glyph-palette.vim'
-
-# [[plugins]]
-# repo = 'Shougo/deol.nvim'
 [[plugins]]
 repo = 'voldikss/vim-floaterm'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-hook_add = 'runtime! ./pluginconfigs/airline-themes.vim'
 
 [[plugins]]
 repo = 'puremourning/vimspector'
 on_ft = ["javascript","typescript","typescriptreact"]
 build = "./install_gadget.py --enable-python --force-enable-chrome --force-enable-node"
 
-# Theme and colorscheme
+# Look and feel
 [[plugins]]
 repo = 'tomasiser/vim-code-dark'
+
 [[plugins]]
-repo = 'thaerkh/vim-workspace'
+repo = 'vim-airline/vim-airline'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = 'runtime! ./pluginconfigs/airline-themes.vim'
 
 # Git
 [[plugins]]
@@ -61,6 +40,9 @@ repo = 'kdheepak/lazygit.nvim'
 hook_add = '''
   nnoremap <silent> <leader>lg :LazyGit<CR>
 '''
+[[plugins]]
+repo = 'rbong/vim-flog'
+
 # Common plugins
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
@@ -72,5 +54,3 @@ hook_add = 'runtime! ./pluginconfigs/indentLine.vim'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
-# [[plugins]]
-# repo = 'HerringtonDarkholme/yats.vim'

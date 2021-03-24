@@ -1,4 +1,6 @@
 {
   "diagnostic.checkCurrentLine": true,
-  "explorer.icon.enableNerdfont": true
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "json"]
 }
