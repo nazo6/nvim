@@ -6,19 +6,23 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
-hook_add = 'runtime! ./pluginconfigs/coc.vim'
-[[plugins]]
-repo = 'liuchengxu/vim-clap'
-[[plugins]]
-repo = 'vn-ki/coc-clap'
+hook_add = 'runtime! ./pluginconfigs/coc.rc.vim'
 
 [[plugins]]
 repo = 'voldikss/vim-floaterm'
 
+# Debugger
 [[plugins]]
 repo = 'puremourning/vimspector'
 on_ft = ["javascript","typescript","typescriptreact"]
 build = "./install_gadget.py --enable-python --force-enable-chrome --force-enable-node"
+
+# Denite
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+[[plugins]]
+repo = 'neoclide/coc-denite'
+hook_add = 'runtime! ./pluginconfigs/denite.rc.vim'
 
 # Look and feel
 [[plugins]]
@@ -28,7 +32,7 @@ repo = 'tomasiser/vim-code-dark'
 repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-hook_add = 'runtime! ./pluginconfigs/airline-themes.vim'
+hook_add = 'runtime! ./pluginconfigs/airline-themes.rc.vim'
 
 # Git
 [[plugins]]
@@ -48,7 +52,7 @@ repo = 'rbong/vim-flog'
 repo = 'jiangmiao/auto-pairs'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-hook_add = 'runtime! ./pluginconfigs/indentLine.vim'
+hook_add = 'runtime! ./pluginconfigs/indentLine.rc.vim'
 
 # Language specific plugins
 [[plugins]]
