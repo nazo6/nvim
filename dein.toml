@@ -14,20 +14,20 @@ repo = 'liuchengxu/vim-clap'
 [[plugins]]
 repo = 'vn-ki/coc-clap'
 
-[[plugins]]
-repo = 'lambdalisue/fern.vim'
-hook_add = 'runtime! ./pluginconfigs/fern.vim'
-[[plugins]]
-repo = 'antoinemadec/FixCursorHold.nvim'
-[[plugins]]
-repo = 'lambdalisue/fern-git-status.vim'
-[[plugins]]
-repo = 'lambdalisue/fern-renderer-nerdfont.vim'
-[[plugins]]
-repo = 'lambdalisue/nerdfont.vim'
-[[plugins]]
-repo = 'lambdalisue/glyph-palette.vim'
-hook_add = 'runtime! ./pluginconfigs/glyph-palette.vim'
+# [[plugins]]
+# repo = 'lambdalisue/fern.vim'
+# hook_add = 'runtime! ./pluginconfigs/fern.vim'
+# [[plugins]]
+# repo = 'antoinemadec/FixCursorHold.nvim'
+# [[plugins]]
+# repo = 'lambdalisue/fern-git-status.vim'
+# [[plugins]]
+# repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+# [[plugins]]
+# repo = 'lambdalisue/nerdfont.vim'
+# [[plugins]]
+# repo = 'lambdalisue/glyph-palette.vim'
+# hook_add = 'runtime! ./pluginconfigs/glyph-palette.vim'
 
 # [[plugins]]
 # repo = 'Shougo/deol.nvim'
@@ -72,5 +72,5 @@ hook_add = 'runtime! ./pluginconfigs/indentLine.vim'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
-[[plugins]]
-repo = 'HerringtonDarkholme/yats.vim'
+# [[plugins]]
+# repo = 'HerringtonDarkholme/yats.vim'

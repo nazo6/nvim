@@ -6,8 +6,13 @@ nnoremap <silent> <leader>w :w<CR>
 
 inoremap <silent> jj <ESC>
 
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
+
 " Plugins keymaps
-nmap <silent><C-e> :Fern . -drawer -toggle<CR>
+nmap <silent><C-e> :CocCommand explorer<CR>
 
 tnoremap <ESC>   <C-\><C-n>
 nnoremap <silent><C-t>n :FloatermNew<CR>
