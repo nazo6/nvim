@@ -1,0 +1,60 @@
+vim.g                                                   *vim.g*
+        Global (|g:|) editor variables.
+        Key with no value returns `nil`.
+
+
+vim.b                                                   *vim.b*
+        Buffer-scoped (|b:|) variables for the current buffer.
+        Invalid or unset key returns `nil`.
+
+
+vim.w                                                   *vim.w*
+        Window-scoped (|w:|) variables for the current window.
+        Invalid or unset key returns `nil`.
+
+
+vim.t                                                   *vim.t*
+        Tabpage-scoped (|t:|) variables for the current tabpage.
+        Invalid or unset key returns `nil`.
+
+
+vim.v                                                   *vim.v*
+        |v:| variables.
+        Invalid or unset key returns `nil`.
+
+
+vim.env                                                 *vim.env*
+        Environment variables defined in the editor session.
+        See |expand-env| and |:let-environment| for the Vimscript behavior.
+        Invalid or unset key returns `nil`.
+        Example:
+            vim.env.FOO = 'bar'
+            print(vim.env.TERM)
+ 
+
+
+                                                        *lua-vim-options*
+From Lua you can work with editor |options| by reading and setting items in
+these Lua tables:
+
+
+vim.o                                                   *vim.o*
+        Get or set editor options, like |:set|. Invalid key is an error.
+        Example:
+            vim.o.cmdheight = 4
+            print(vim.o.columns)
+
+
+vim.bo                                                  *vim.bo*
+        Get or set buffer-scoped |local-options|. Invalid key is an error.
+        Example:
+            vim.bo.buflisted = true
+            print(vim.bo.comments)
+
+
+vim.wo                                                  *vim.wo*
+        Get or set window-scoped |local-options|. Invalid key is an error.
+        Example:
+            vim.wo.cursorcolumn = true
+            print(vim.wo.foldmarker)
+

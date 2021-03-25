@@ -3,10 +3,10 @@
     "target": "esnext",
     "lib": ["esnext"],
     "moduleResolution": "node",
-    "types": [],
     "strict": true,
     "rootDir": "./ts",
-    "outDir": "./dist"
+    "outDir": "./lua",
+    "types": ["lua-types/5.3"]
   },
   "tstl": {
     "luaTarget": "JIT"

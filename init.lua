@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
 
-require("dein")
-require("keymaps")
-require("settings")
+require("tsinit")
+require("old.keymaps")
+require("old.settings")
