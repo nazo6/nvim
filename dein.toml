@@ -32,7 +32,9 @@ repo = 'tomasiser/vim-code-dark'
 repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-hook_add = 'runtime! ./pluginconfigs/airline-themes.rc.vim'
+hook_add = '''
+let g:airline_theme = 'codedark'
+'''
 
 # Git
 [[plugins]]
@@ -55,7 +57,7 @@ repo = 'phaazon/hop.nvim'
 repo = 'jiangmiao/auto-pairs'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-hook_add = 'runtime! ./pluginconfigs/indentLine.rc.vim'
+hook_add = 'lua require("rc.indentLine")'
 
 # Language specific plugins
 [[plugins]]
@@ -65,4 +67,4 @@ on_ft = 'toml'
 # Other utils
 [[plugins]]
 repo = 'skanehira/translate.vim'
-hook_add = 'runtime! ./pluginconfig/translate.rc.vim'
+hook_add = 'lua require("rc.translate")'

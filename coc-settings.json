@@ -2,5 +2,11 @@
   "diagnostic.checkCurrentLine": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.file.showHiddenFiles": true,
-  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "json"]
+  "coc.preferences.formatOnSaveFiletypes": ["html", "css", "json"],
+  "Lua.workspace.library": {
+    "C:/Users/nazo/scoop/apps/neovim-nightly/current/share/nvim/runtime/lua": true,
+    "C:/Users/nazo/scoop/apps/neovim-nightly/current/share/nvim/runtime/lua/vim": true,
+    "C:/Users/nazo/scoop/apps/neovim-nightly/current/share/nvim/runtime/lua/vim/lsp": true
+  },
+  "Lua.diagnostics.globals": ["vim"]
 }

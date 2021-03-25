@@ -1,4 +1,4 @@
-let g:coc_global_extensions = ['coc-lists', 'coc-deno', 'coc-json', 'coc-css', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-explorer']
+let g:coc_global_extensions = ['coc-lists', 'coc-deno', 'coc-json', 'coc-css', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-explorer', 'coc-lua']
 
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
