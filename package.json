@@ -1,0 +1,23 @@
+{
+  "name": "nvim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ts/index.js",
+  "devDependencies": {
+    "typescript-to-lua": "^0.39.0"
+  },
+  "scripts": {
+    "build": "tstl",
+    "dev": "tstl --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://nazo6@github.com/nazo6/nvim.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nazo6/nvim/issues"
+  },
+  "homepage": "https://github.com/nazo6/nvim#readme"
+}
