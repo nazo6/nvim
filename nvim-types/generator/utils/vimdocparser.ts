@@ -1,4 +1,4 @@
-import { SectionDataType } from "./types";
+import { SectionDataType } from "../types";
 
 export const vimdocParser = (text: string) => {
   const sectionSplitMatcher = /^(=======================.*===)|(--------------------.*---)$/;
@@ -98,7 +98,7 @@ export const vimdocParser = (text: string) => {
               : rightTitle,
             description: propDescription,
             argsType: paramsString,
-            returnType: "string",
+            returnType: "any",
           });
         } else {
           sectionData.data.push({

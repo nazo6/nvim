@@ -1,5 +1,5 @@
 {
-  "name": "vim-types",
+  "name": "nvim-types",
   "version": "1.0.0",
   "description": "Generate vim api type from vim doc",
   "scripts": {

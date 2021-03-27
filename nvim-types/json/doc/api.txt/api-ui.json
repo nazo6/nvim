@@ -8,49 +8,49 @@
    "name": "nvim_ui_attach",
    "description": "Activates UI events on the channel.",
    "argsType": "{width}, {height}, {options}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_ui_detach",
    "description": "Deactivates UI events on the channel.",
    "argsType": "",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_ui_pum_set_bounds",
    "description": "Tells Nvim the geometry of the popumenu, to align floating\n                windows with an external popup menu.",
    "argsType": "{width}, {height}, {row}, {col}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_ui_pum_set_height",
    "description": "Tells Nvim the number of elements displaying in the popumenu,\n                to decide <PageUp> and <PageDown> movement.",
    "argsType": "{height}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_ui_set_option",
    "description": "TODO: Documentation",
    "argsType": "{name}, {value}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_ui_try_resize",
    "description": "TODO: Documentation",
    "argsType": "{width}, {height}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_ui_try_resize_grid",
    "description": "Tell Nvim to resize a grid. Triggers a grid_resize event with\n                the requested grid size or the maximum size if it exceeds size\n                limits.",
    "argsType": "{grid}, {width}, {height}",
-   "returnType": "string"
+   "returnType": "any"
   }
  ]
 }

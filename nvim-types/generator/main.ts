@@ -1,22 +1,5 @@
-import { promises as fs } from "fs";
-import { vimdocParser } from "./vimdocparser";
-import * as path from "path";
-
-const readSource = async (fileName: string) => {
-  return await fs.readFile(`${__dirname}/../sources/${fileName}`, {
-    encoding: "utf-8",
-  });
-};
-const writeOutput = async (
-  filePath: string,
-  fileName: string,
-  data: string
-) => {
-  await fs.writeFile(
-    path.join(__dirname, "../output", filePath, fileName),
-    data
-  );
-};
+import { readSource, writeOutput } from "./utils/utils";
+import { vimdocParser } from "./utils/vimdocparser";
 
 const generateJson = async (fileName: string, validSections: string[]) => {
   const data = vimdocParser(await readSource(fileName));

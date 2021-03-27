@@ -8,21 +8,21 @@
    "name": "vim.api",
    "description": "Invokes Nvim |API| function {func} with arguments {...}.\n        Example: call the \"nvim_get_current_line()\" API function: >\n            print(tostring(vim.api.nvim_get_current_line()))",
    "argsType": "{...}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.version",
    "description": "Returns the version of the current neovim build.",
    "argsType": "",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.in_fast_event",
    "description": "Returns true if the code is executing as part of a \"fast\" event\n        handler, where most of the API is disabled. These are low-level events\n        (e.g. |lua-loop-callbacks|) which can be invoked whenever Nvim polls\n        for input.  When this is `false` most API functions are callable (but\n        may be subject to other restrictions such as |textlock|).",
    "argsType": "",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "value",
@@ -35,77 +35,77 @@
    "name": "vim.empty_dict",
    "description": "Creates a special table which will be converted to an empty\n\tdictionary when converting lua values to vimL or API types. The\n\ttable is empty, and this property is marked using a metatable. An\n\tempty table `{}` without this metatable will default to convert to\n\tan array/list.",
    "argsType": "",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.region",
    "description": "Converts a selection specified by the buffer ({bufnr}), starting\n        position ({pos1}, a zero-indexed pair `{line1,column1}`), ending\n        position ({pos2}, same format as {pos1}), the type of the register\n        for the selection ({type}, see |regtype|), and a boolean indicating\n        whether the selection is inclusive or not, into a zero-indexed table \n        of linewise selections of the form `{linenr = {startcol, endcol}}` .",
    "argsType": "{bufnr}, {pos1}, {pos2}, {type}, {inclusive}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.register_keystroke_callback",
    "description": "Register a lua {fn} with an {ns_id} to be run after every keystroke.",
    "argsType": "{fn}, {ns_id}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.rpcnotify",
    "description": "Sends {event} to {channel} via |RPC| and returns immediately.\n\tIf {channel} is 0, the event is broadcast to all channels.",
    "argsType": "{channel}, {method}[, {args}...]",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.rpcrequest",
    "description": "Sends a request to {channel} to invoke {method} via\n\t|RPC| and blocks until a response is received.",
    "argsType": "{channel}, {method}[, {args}...]",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.stricmp",
    "description": "Compares strings case-insensitively.  Returns 0, 1 or -1 if strings\n        are equal, {a} is greater than {b} or {a} is lesser than {b},\n        respectively.",
    "argsType": "{a}, {b}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.str_utfindex",
    "description": "Convert byte index to UTF-32 and UTF-16 indicies. If {index} is not\n        supplied, the length of the string is used. All indicies are zero-based.\n        Returns two values: the UTF-32 and UTF-16 indicies respectively.",
    "argsType": "{str}[, {index}]",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.str_byteindex",
    "description": "Convert UTF-32 or UTF-16 {index} to byte index. If {use_utf16} is not\n        supplied, it defaults to false (use UTF-32). Returns the byte index.",
    "argsType": "{str}, {index}[, {use_utf16}]",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.schedule",
    "description": "Schedules {callback} to be invoked soon by the main event-loop. Useful\n        to avoid |textlock| or other temporary restrictions.",
    "argsType": "{callback}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.defer_fn",
    "description": "Defers calling {fn} until {timeout} ms passes.  Use to do a one-shot timer\n    that calls {fn}.",
    "argsType": "{fn}, {timeout}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.wait",
    "description": "Wait for {time} in milliseconds until {callback} returns `true`.",
    "argsType": "{time} [, {callback}, {interval}, {fast_only}]",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "value",

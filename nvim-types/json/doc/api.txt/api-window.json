@@ -8,140 +8,140 @@
    "name": "nvim_win_close",
    "description": "Closes the window (like |:close| with a |window-ID|).",
    "argsType": "{window}, {force}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_del_var",
    "description": "Removes a window-scoped (w:) variable",
    "argsType": "{window}, {name}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_buf",
    "description": "Gets the current buffer in a window",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_config",
    "description": "Gets window configuration.",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_cursor",
    "description": "Gets the (1,0)-indexed cursor position in the window.\n                |api-indexing|",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_height",
    "description": "Gets the window height",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_number",
    "description": "Gets the window number",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_option",
    "description": "Gets a window option value",
    "argsType": "{window}, {name}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_position",
    "description": "Gets the window position in display cells. First position is\n                zero.",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_tabpage",
    "description": "Gets the window tabpage",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_var",
    "description": "Gets a window-scoped (w:) variable",
    "argsType": "{window}, {name}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_get_width",
    "description": "Gets the window width",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_is_valid",
    "description": "Checks if a window is valid",
    "argsType": "{window}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_set_buf",
    "description": "Sets the current buffer in a window, without side-effects",
    "argsType": "{window}, {buffer}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_set_config",
    "description": "Configures window layout. Currently only for floating and\n                external windows (including changing a split window to those\n                layouts).",
    "argsType": "{window}, {config}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_set_cursor",
    "description": "Sets the (1,0)-indexed cursor position in the window.\n                |api-indexing|",
    "argsType": "{window}, {pos}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_set_height",
    "description": "Sets the window height. This will only succeed if the screen\n                is split horizontally.",
    "argsType": "{window}, {height}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_set_option",
    "description": "Sets a window option value. Passing 'nil' as value deletes the\n                option(only works if there's a global fallback)",
    "argsType": "{window}, {name}, {value}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_set_var",
    "description": "Sets a window-scoped (w:) variable",
    "argsType": "{window}, {name}, {value}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "nvim_win_set_width",
    "description": "Sets the window width. This will only succeed if the screen is\n                split vertically.",
    "argsType": "{window}, {width}",
-   "returnType": "string"
+   "returnType": "any"
   }
  ]
 }

@@ -4,7 +4,7 @@ export type PropertyDataType =
       name: string;
       description: string;
       argsType: string;
-      returnType: "string";
+      returnType: string;
     }
   | {
       type: "value";

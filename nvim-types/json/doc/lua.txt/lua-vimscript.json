@@ -8,21 +8,21 @@
    "name": "vim.call",
    "description": "Invokes |vim-function| or |user-function| {func} with arguments {...}.\n        See also |vim.fn|.\n        Equivalent to: >\n            vim.fn[func]({...})",
    "argsType": "{func}, {...}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.cmd",
    "description": "Invokes an Ex command (the \":\" commands, Vimscript statements).\n        See also |ex-cmd-index|.\n        Example: >\n            vim.cmd('echo 42')",
    "argsType": "{cmd}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.fn",
    "description": "Invokes |vim-function| or |user-function| {func} with arguments {...}.\n        To call autoload functions, use the syntax: >\n            vim.fn['some#function']({...})\n<\n        Unlike vim.api.|nvim_call_function| this converts directly between Vim\n        objects and Lua objects. If the Vim function returns a float, it will\n        be represented directly as a Lua number. Empty lists and dictionaries\n        both are represented by an empty table.",
    "argsType": "{...}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "value",

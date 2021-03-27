@@ -8,196 +8,196 @@
    "name": "vim.inspect",
    "description": "Return a human-readable representation of the given object.",
    "argsType": "{object}, {options}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.make_meta_accessor",
    "description": "TODO: Documentation",
    "argsType": "{get}, {set}, {del}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.paste",
    "description": "Paste handler, invoked by |nvim_paste()| when a conforming UI\n                (such as the |TUI|) pastes text into the editor.",
    "argsType": "{lines}, {phase}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.schedule_wrap",
    "description": "Defers callback `cb` until the Nvim API is safe to call.",
    "argsType": "{cb}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.deep_equal",
    "description": "TODO: Documentation",
    "argsType": "{a}, {b}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.deepcopy",
    "description": "Returns a deep copy of the given object. Non-table objects are\n                copied as in a typical Lua assignment, whereas table objects\n                are copied recursively. Functions are naively copied, so\n                functions in the copied table point to the same functions as\n                those in the input table. Userdata and threads are not copied\n                and will throw an error.",
    "argsType": "{orig}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.endswith",
    "description": "Tests if `s` ends with `suffix` .",
    "argsType": "{s}, {suffix}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.gsplit",
    "description": "Splits a string at each instance of a separator.",
    "argsType": "{s}, {sep}, {plain}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.is_callable",
    "description": "Returns true if object `f` can be called as a function.",
    "argsType": "{f}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.is_valid",
    "description": "TODO: Documentation",
    "argsType": "{opt}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.list_extend",
    "description": "Extends a list-like table with the values of another list-like\n                table.",
    "argsType": "{dst}, {src}, {start}, {finish}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.pesc",
    "description": "Escapes magic chars in a Lua pattern.",
    "argsType": "{s}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.split",
    "description": "Splits a string at each instance of a separator.",
    "argsType": "{s}, {sep}, {plain}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.startswith",
    "description": "Tests if `s` starts with `prefix` .",
    "argsType": "{s}, {prefix}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_add_reverse_lookup",
    "description": "Add the reverse lookup values to an existing table. For\n                example: tbl_add_reverse_lookup { A = 1 } == { [1] = 'A , A = 1 }`",
    "argsType": "{o}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_contains",
    "description": "Checks if a list-like (vector) table contains `value` .",
    "argsType": "{t}, {value}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_count",
    "description": "Counts the number of non-nil values in table `t` .\n>",
    "argsType": "{t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_deep_extend",
    "description": "Merges recursively two or more map-like tables.",
    "argsType": "{behavior}, {...}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_extend",
    "description": "Merges two or more map-like tables.",
    "argsType": "{behavior}, {...}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_filter",
    "description": "Filter a table using a predicate function",
    "argsType": "{func}, {t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_flatten",
    "description": "Creates a copy of a list-like table such that any nested\n                tables are \"unrolled\" and appended to the result.",
    "argsType": "{t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_isempty",
    "description": "Checks if a table is empty.",
    "argsType": "{t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_islist",
    "description": "Tests if a Lua table can be treated as an array.",
    "argsType": "{t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_keys",
    "description": "Return a list of all keys used in a table. However, the order\n                of the return table of keys is not guaranteed.",
    "argsType": "{t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_map",
    "description": "Apply a function to all values of a table.",
    "argsType": "{func}, {t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.tbl_values",
    "description": "Return a list of all values used in a table. However, the\n                order of the return table of values is not guaranteed.",
    "argsType": "{t}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.trim",
    "description": "Trim whitespace (Lua pattern \"%s\") from both sides of a\n                string.",
    "argsType": "{s}",
-   "returnType": "string"
+   "returnType": "any"
   },
   {
    "type": "func",
    "name": "vim.validate",
    "description": "Validates a parameter specification (types and values).",
    "argsType": "{opt}",
-   "returnType": "string"
+   "returnType": "any"
   }
  ]
 }
