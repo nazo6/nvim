@@ -1,0 +1,1066 @@
+[
+ {
+  "leftTitle": "",
+  "rightTitle": "",
+  "description": "",
+  "data": [
+   {
+    "type": "value",
+    "name": "lua* *Lua",
+    "description": "",
+    "valuetype": "any"
+   }
+  ]
+ },
+ {
+  "leftTitle": "INTRODUCTION",
+  "rightTitle": "lua-intro",
+  "description": "",
+  "data": []
+ },
+ {
+  "leftTitle": "IMPORTING LUA MODULES",
+  "rightTitle": "lua-require",
+  "description": "",
+  "data": [
+   {
+    "type": "value",
+    "name": "lua-package-path",
+    "description": "Nvim automatically adjusts `package.path` and `package.cpath` according to\neffective 'runtimepath' value.  Adjustment happens whenever 'runtimepath' is\nchanged.  `package.path` is adjusted by simply appending `/lua/?.lua` and\n`/lua/?/init.lua` to each directory from 'runtimepath' (`/` is actually the\nfirst character of `package.config`).",
+    "valuetype": "any"
+   }
+  ]
+ },
+ {
+  "leftTitle": "Lua Syntax Information",
+  "rightTitle": "lua-syntax-help",
+  "description": "",
+  "data": [
+   {
+    "type": "value",
+    "name": "lua-syntax-call-function",
+    "description": "",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "lua-require-example",
+    "description": "",
+    "valuetype": "any"
+   }
+  ]
+ },
+ {
+  "leftTitle": "COMMANDS",
+  "rightTitle": "lua-commands",
+  "description": "",
+  "data": [
+   {
+    "type": "value",
+    "name": ":lua",
+    "description": ":[range]lua {chunk}\n                        Executes Lua chunk {chunk}.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": ":lua-heredoc",
+    "description": ":[range]lua << [endmarker]\n{script}\n{endmarker}\n                        Executes Lua script {script} from within Vimscript.\n                        {endmarker} must NOT be preceded by whitespace. You\n                        can omit [endmarker] after the \"<<\" and use a dot \".\"\n                        after {script} (similar to |:append|, |:insert|).",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": ":luado",
+    "description": ":[range]luado {body}    Executes Lua chunk \"function(line, linenr) {body} end\"\n                        for each buffer line in [range], where `line` is the\n                        current line text (without <EOL>), and `linenr` is the\n                        current line number. If the function returns a string\n                        that becomes the text of the corresponding buffer\n                        line. Default [range] is the whole file: \"1,$\".",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": ":luafile",
+    "description": ":[range]luafile {file}\n\t\t\tExecute Lua script in {file}.\n\t\t\tThe whole argument is used as a single file name.",
+    "valuetype": "any"
+   }
+  ]
+ },
+ {
+  "leftTitle": "luaeval()",
+  "rightTitle": "lua-eval* *luaeval()",
+  "description": "",
+  "data": [
+   {
+    "type": "value",
+    "name": "lua-special-tbl",
+    "description": "4. Table with `vim.type_idx` key may be a dictionary, a list or floating-point \n   value:\n   - `{[vim.type_idx]=vim.types.float, [vim.val_idx]=1}` is converted to \n     a floating-point 1.0. Note that by default integral Lua numbers are \n     converted to |Number|s, non-integral are converted to |Float|s. This \n     variant allows integral |Float|s.\n   - `{[vim.type_idx]=vim.types.dictionary}` is converted to an empty \n     dictionary, `{[vim.type_idx]=vim.types.dictionary, [42]=1, a=2}` is \n     converted to a dictionary `{'a': 42}`: non-string keys are ignored. \n     Without `vim.type_idx` key tables with keys not fitting in 1., 2. or 3. \n     are errors.\n   - `{[vim.type_idx]=vim.types.list}` is converted to an empty list. As well \n     as `{[vim.type_idx]=vim.types.list, [42]=1}`: integral keys that do not \n     form a 1-step sequence from 1 to N are ignored, as well as all \n     non-integral keys.",
+    "valuetype": "any"
+   }
+  ]
+ },
+ {
+  "leftTitle": "Vimscript v:lua interface",
+  "rightTitle": "v:lua-call",
+  "description": "",
+  "data": []
+ },
+ {
+  "leftTitle": "Lua standard modules",
+  "rightTitle": "lua-stdlib",
+  "description": "",
+  "data": [
+   {
+    "type": "value",
+    "name": "lua-loop* *vim.loop",
+    "description": "",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "E5560* *lua-loop-callbacks",
+    "description": "It is an error to directly invoke `vim.api` functions (except |api-fast|) in\n`vim.loop` callbacks.  For example, this is an error: >",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "watch-file",
+    "description": "1. Save this code to a file.\n    2. Execute it with \":luafile %\".\n    3. Use \":Watch %\" to watch any file.\n    4. Try editing the file from another text editor.\n    5. Observe that the file reloads in Nvim (because on_change() calls\n       |:checktime|). >",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "tcp-server",
+    "description": "1. Save this code to a file.\n    2. Execute it with \":luafile %\".\n    3. Note the port number.\n    4. Connect from any TCP client (e.g. \"nc 0.0.0.0 36795\"): >",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "lua-highlight",
+    "description": "",
+    "valuetype": "any"
+   },
+   {
+    "type": "func",
+    "name": "vim.highlight.on_yank",
+    "description": "Highlights the yanked text. The fields of the optional dict {opts}\n        control the highlight:\n          - {higroup} highlight group for yanked region (default `\"IncSearch\"`)\n          - {timeout} time in ms before highlight is cleared (default `150`)\n          - {on_macro} highlight when executing macro (default `false`)\n          - {on_visual} highlight when yanking visual selection (default `true`)\n          - {event} event structure (default `vim.v.event`)",
+    "argsType": [
+     {
+      "name": "opts",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.highlight.range",
+    "description": "Highlights the range between {start} and {finish} (tuples of {line,col})\n        in buffer {bufnr} with the highlight group {higroup} using the namespace\n        {ns}. Optional arguments are the type of range (characterwise, linewise,\n        or blockwise, see |setreg|; default to characterwise) and whether the\n        range is inclusive (default false).",
+    "argsType": [
+     {
+      "name": "",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "value",
+    "name": "lua-regex",
+    "description": "",
+    "valuetype": "any"
+   },
+   {
+    "type": "func",
+    "name": "vim.regex",
+    "description": "",
+    "argsType": [
+     {
+      "name": "re",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "regex:match_str",
+    "description": "Match the string against the regex. If the string should match the\n        regex precisely, surround the regex with `^` and `$`.\n        If the was a match, the byte indices for the beginning and end of\n        the match is returned. When there is no match, `nil` is returned.\n        As any integer is truth-y, `regex:match()` can be directly used\n        as a condition in an if-statement.",
+    "argsType": [
+     {
+      "name": "str",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "regex:match_line",
+    "description": "Match line {line_idx} (zero-based) in buffer {bufnr}. If {start} and\n        {end} are supplied, match only this byte index range. Otherwise see\n        |regex:match_str()|. If {start} is used, then the returned byte\n        indices will be relative {start}.",
+    "argsType": [
+     {
+      "name": "bufnr",
+      "type": "any"
+     },
+     {
+      "name": "line_idx}",
+      "type": "any"
+     },
+     {
+      "name": "start",
+      "type": "any"
+     },
+     {
+      "name": "end}",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "value",
+    "name": "lua-builtin",
+    "description": "",
+    "valuetype": "any"
+   },
+   {
+    "type": "func",
+    "name": "vim.api",
+    "description": "Invokes Nvim |API| function {func} with arguments {...}.\n        Example: call the \"nvim_get_current_line()\" API function: >\n            print(tostring(vim.api.nvim_get_current_line()))",
+    "argsType": [
+     {
+      "name": "...",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.version",
+    "description": "Returns the version of the current neovim build.",
+    "argsType": [
+     {
+      "name": "",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.in_fast_event",
+    "description": "Returns true if the code is executing as part of a \"fast\" event\n        handler, where most of the API is disabled. These are low-level events\n        (e.g. |lua-loop-callbacks|) which can be invoked whenever Nvim polls\n        for input.  When this is `false` most API functions are callable (but\n        may be subject to other restrictions such as |textlock|).",
+    "argsType": [
+     {
+      "name": "",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "value",
+    "name": "vim.NIL",
+    "description": "Special value used to represent NIL in msgpack-rpc and |v:null| in\n\tvimL interaction, and similar cases. Lua `nil` cannot be used as\n\tpart of a lua table representing a Dictionary or Array, as it\n\tis equivalent to a missing value: `{\"foo\", nil}` is the same as \n\t`{\"foo\"}`",
+    "valuetype": "any"
+   },
+   {
+    "type": "func",
+    "name": "vim.empty_dict",
+    "description": "Creates a special table which will be converted to an empty\n\tdictionary when converting lua values to vimL or API types. The\n\ttable is empty, and this property is marked using a metatable. An\n\tempty table `{}` without this metatable will default to convert to\n\tan array/list.",
+    "argsType": [
+     {
+      "name": "",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.region",
+    "description": "Converts a selection specified by the buffer ({bufnr}), starting\n        position ({pos1}, a zero-indexed pair `{line1,column1}`), ending\n        position ({pos2}, same format as {pos1}), the type of the register\n        for the selection ({type}, see |regtype|), and a boolean indicating\n        whether the selection is inclusive or not, into a zero-indexed table \n        of linewise selections of the form `{linenr = {startcol, endcol}}` .",
+    "argsType": [
+     {
+      "name": "bufnr",
+      "type": "any"
+     },
+     {
+      "name": "pos1",
+      "type": "any"
+     },
+     {
+      "name": "pos2",
+      "type": "any"
+     },
+     {
+      "name": "type",
+      "type": "any"
+     },
+     {
+      "name": "inclusive",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.register_keystroke_callback",
+    "description": "vim.register_keystroke_callback({fn}, {ns_id})\n        Register a lua {fn} with an {ns_id} to be run after every keystroke.",
+    "argsType": [
+     {
+      "name": "",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.rpcnotify",
+    "description": "Sends {event} to {channel} via |RPC| and returns immediately.\n\tIf {channel} is 0, the event is broadcast to all channels.",
+    "argsType": [
+     {
+      "name": "channel",
+      "type": "any"
+     },
+     {
+      "name": "method}",
+      "type": "any"
+     },
+     {
+      "name": "args}...",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.rpcrequest",
+    "description": "Sends a request to {channel} to invoke {method} via\n\t|RPC| and blocks until a response is received.",
+    "argsType": [
+     {
+      "name": "channel",
+      "type": "any"
+     },
+     {
+      "name": "method}",
+      "type": "any"
+     },
+     {
+      "name": "args}...",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.stricmp",
+    "description": "Compares strings case-insensitively.  Returns 0, 1 or -1 if strings\n        are equal, {a} is greater than {b} or {a} is lesser than {b},\n        respectively.",
+    "argsType": [
+     {
+      "name": "a",
+      "type": "any"
+     },
+     {
+      "name": "b",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.str_utfindex",
+    "description": "Convert byte index to UTF-32 and UTF-16 indicies. If {index} is not\n        supplied, the length of the string is used. All indicies are zero-based.\n        Returns two values: the UTF-32 and UTF-16 indicies respectively.",
+    "argsType": [
+     {
+      "name": "str}",
+      "type": "any"
+     },
+     {
+      "name": "index}",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.str_byteindex",
+    "description": "Convert UTF-32 or UTF-16 {index} to byte index. If {use_utf16} is not\n        supplied, it defaults to false (use UTF-32). Returns the byte index.",
+    "argsType": [
+     {
+      "name": "str",
+      "type": "any"
+     },
+     {
+      "name": "index}",
+      "type": "any"
+     },
+     {
+      "name": "use_utf16}",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.schedule",
+    "description": "Schedules {callback} to be invoked soon by the main event-loop. Useful\n        to avoid |textlock| or other temporary restrictions.",
+    "argsType": [
+     {
+      "name": "callback",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.defer_fn",
+    "description": "Defers calling {fn} until {timeout} ms passes.  Use to do a one-shot timer\n    that calls {fn}.",
+    "argsType": [
+     {
+      "name": "fn",
+      "type": "any"
+     },
+     {
+      "name": "timeout",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.wait",
+    "description": "Wait for {time} in milliseconds until {callback} returns `true`.",
+    "argsType": [
+     {
+      "name": "time} ",
+      "type": "any"
+     },
+     {
+      "name": "callback",
+      "type": "any"
+     },
+     {
+      "name": "interval",
+      "type": "any"
+     },
+     {
+      "name": "fast_only}",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "value",
+    "name": "vim.type_idx",
+    "description": "Type index for use in |lua-special-tbl|.  Specifying one of the \n\tvalues from |vim.types| allows typing the empty table (it is \n\tunclear whether empty Lua table represents empty list or empty array) \n\tand forcing integral numbers to be |Float|.  See |lua-special-tbl| for \n\tmore details.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.val_idx",
+    "description": "Value index for tables representing |Float|s.  A table representing \n\tfloating-point value 1.0 looks like this: >\n            {\n              [vim.type_idx] = vim.types.float,\n              [vim.val_idx] = 1.0,\n            }\n<\tSee also |vim.type_idx| and |lua-special-tbl|.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.types",
+    "description": "Table with possible values for |vim.type_idx|.  Contains two sets \n\tof key-value pairs: first maps possible values for |vim.type_idx| \n\tto human-readable strings, second maps human-readable type names to \n\tvalues for |vim.type_idx|.  Currently contains pairs for `float`, \n\t`array` and `dictionary` types.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "lua-vimscript",
+    "description": "",
+    "valuetype": "any"
+   },
+   {
+    "type": "func",
+    "name": "vim.call",
+    "description": "Invokes |vim-function| or |user-function| {func} with arguments {...}.\n        See also |vim.fn|.\n        Equivalent to: >\n            vim.fn[func]({...})",
+    "argsType": [
+     {
+      "name": "func",
+      "type": "any"
+     },
+     {
+      "name": "...",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.cmd",
+    "description": "Invokes an Ex command (the \":\" commands, Vimscript statements).\n        See also |ex-cmd-index|.\n        Example: >\n            vim.cmd('echo 42')",
+    "argsType": [
+     {
+      "name": "cmd",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.fn",
+    "description": "Invokes |vim-function| or |user-function| {func} with arguments {...}.\n        To call autoload functions, use the syntax: >\n            vim.fn['some#function']({...})\n<\n        Unlike vim.api.|nvim_call_function| this converts directly between Vim\n        objects and Lua objects. If the Vim function returns a float, it will\n        be represented directly as a Lua number. Empty lists and dictionaries\n        both are represented by an empty table.",
+    "argsType": [
+     {
+      "name": "...",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "value",
+    "name": "lua-vim-variables",
+    "description": "The Vim editor global dictionaries |g:| |w:| |b:| |t:| |v:| can be accessed\nfrom Lua conveniently and idiomatically by referencing the `vim.*` Lua tables\ndescribed below. In this way you can easily read and modify global Vimscript\nvariables from Lua.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.g",
+    "description": "Global (|g:|) editor variables.\n        Key with no value returns `nil`.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.b",
+    "description": "Buffer-scoped (|b:|) variables for the current buffer.\n        Invalid or unset key returns `nil`.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.w",
+    "description": "Window-scoped (|w:|) variables for the current window.\n        Invalid or unset key returns `nil`.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.t",
+    "description": "Tabpage-scoped (|t:|) variables for the current tabpage.\n        Invalid or unset key returns `nil`.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.v",
+    "description": "|v:| variables.\n        Invalid or unset key returns `nil`.",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.env",
+    "description": "Environment variables defined in the editor session.\n        See |expand-env| and |:let-environment| for the Vimscript behavior.\n        Invalid or unset key returns `nil`.\n        Example: >\n            vim.env.FOO = 'bar'\n            print(vim.env.TERM)\n<",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "lua-vim-options",
+    "description": "From Lua you can work with editor |options| by reading and setting items in\nthese Lua tables:",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.o",
+    "description": "Get or set editor options, like |:set|. Invalid key is an error.\n        Example: >\n            vim.o.cmdheight = 4\n            print(vim.o.columns)",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.bo",
+    "description": "Get or set buffer-scoped |local-options|. Invalid key is an error.\n        Example: >\n            vim.bo.buflisted = true\n            print(vim.bo.comments)",
+    "valuetype": "any"
+   },
+   {
+    "type": "value",
+    "name": "vim.wo",
+    "description": "Get or set window-scoped |local-options|. Invalid key is an error.\n        Example: >\n            vim.wo.cursorcolumn = true\n            print(vim.wo.foldmarker)",
+    "valuetype": "any"
+   }
+  ]
+ },
+ {
+  "leftTitle": "Lua module: vim",
+  "rightTitle": "lua-vim",
+  "description": "",
+  "data": [
+   {
+    "type": "func",
+    "name": "vim.inspect",
+    "description": "Return a human-readable representation of the given object.",
+    "argsType": [
+     {
+      "name": "object",
+      "type": "any"
+     },
+     {
+      "name": "options",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.make_meta_accessor",
+    "description": "TODO: Documentation",
+    "argsType": [
+     {
+      "name": "get",
+      "type": "any"
+     },
+     {
+      "name": "set",
+      "type": "any"
+     },
+     {
+      "name": "del",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.paste",
+    "description": "Paste handler, invoked by |nvim_paste()| when a conforming UI\n                (such as the |TUI|) pastes text into the editor.",
+    "argsType": [
+     {
+      "name": "lines",
+      "type": "any"
+     },
+     {
+      "name": "phase",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.schedule_wrap",
+    "description": "Defers callback `cb` until the Nvim API is safe to call.",
+    "argsType": [
+     {
+      "name": "cb",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.deep_equal",
+    "description": "TODO: Documentation",
+    "argsType": [
+     {
+      "name": "a",
+      "type": "any"
+     },
+     {
+      "name": "b",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.deepcopy",
+    "description": "Returns a deep copy of the given object. Non-table objects are\n                copied as in a typical Lua assignment, whereas table objects\n                are copied recursively. Functions are naively copied, so\n                functions in the copied table point to the same functions as\n                those in the input table. Userdata and threads are not copied\n                and will throw an error.",
+    "argsType": [
+     {
+      "name": "orig",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.endswith",
+    "description": "Tests if `s` ends with `suffix` .",
+    "argsType": [
+     {
+      "name": "s",
+      "type": "any"
+     },
+     {
+      "name": "suffix",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.gsplit",
+    "description": "Splits a string at each instance of a separator.",
+    "argsType": [
+     {
+      "name": "s",
+      "type": "any"
+     },
+     {
+      "name": "sep",
+      "type": "any"
+     },
+     {
+      "name": "plain",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.is_callable",
+    "description": "Returns true if object `f` can be called as a function.",
+    "argsType": [
+     {
+      "name": "f",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.is_valid",
+    "description": "TODO: Documentation",
+    "argsType": [
+     {
+      "name": "opt",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.list_extend",
+    "description": "Extends a list-like table with the values of another list-like\n                table.",
+    "argsType": [
+     {
+      "name": "dst",
+      "type": "any"
+     },
+     {
+      "name": "src",
+      "type": "any"
+     },
+     {
+      "name": "start",
+      "type": "any"
+     },
+     {
+      "name": "finish",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.pesc",
+    "description": "Escapes magic chars in a Lua pattern.",
+    "argsType": [
+     {
+      "name": "s",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.split",
+    "description": "Splits a string at each instance of a separator.",
+    "argsType": [
+     {
+      "name": "s",
+      "type": "any"
+     },
+     {
+      "name": "sep",
+      "type": "any"
+     },
+     {
+      "name": "plain",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.startswith",
+    "description": "Tests if `s` starts with `prefix` .",
+    "argsType": [
+     {
+      "name": "s",
+      "type": "any"
+     },
+     {
+      "name": "prefix",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_add_reverse_lookup",
+    "description": "Add the reverse lookup values to an existing table. For\n                example: tbl_add_reverse_lookup { A = 1 } == { [1] = 'A , A = 1 }`",
+    "argsType": [
+     {
+      "name": "o",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_contains",
+    "description": "Checks if a list-like (vector) table contains `value` .",
+    "argsType": [
+     {
+      "name": "t",
+      "type": "any"
+     },
+     {
+      "name": "value",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_count",
+    "description": "Counts the number of non-nil values in table `t` .\n>",
+    "argsType": [
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_deep_extend",
+    "description": "Merges recursively two or more map-like tables.",
+    "argsType": [
+     {
+      "name": "behavior",
+      "type": "any"
+     },
+     {
+      "name": "...",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_extend",
+    "description": "Merges two or more map-like tables.",
+    "argsType": [
+     {
+      "name": "behavior",
+      "type": "any"
+     },
+     {
+      "name": "...",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_filter",
+    "description": "Filter a table using a predicate function",
+    "argsType": [
+     {
+      "name": "func",
+      "type": "any"
+     },
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_flatten",
+    "description": "Creates a copy of a list-like table such that any nested\n                tables are \"unrolled\" and appended to the result.",
+    "argsType": [
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_isempty",
+    "description": "Checks if a table is empty.",
+    "argsType": [
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_islist",
+    "description": "Tests if a Lua table can be treated as an array.",
+    "argsType": [
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_keys",
+    "description": "Return a list of all keys used in a table. However, the order\n                of the return table of keys is not guaranteed.",
+    "argsType": [
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_map",
+    "description": "Apply a function to all values of a table.",
+    "argsType": [
+     {
+      "name": "func",
+      "type": "any"
+     },
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.tbl_values",
+    "description": "Return a list of all values used in a table. However, the\n                order of the return table of values is not guaranteed.",
+    "argsType": [
+     {
+      "name": "t",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.trim",
+    "description": "Trim whitespace (Lua pattern \"%s\") from both sides of a\n                string.",
+    "argsType": [
+     {
+      "name": "s",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.validate",
+    "description": "Validates a parameter specification (types and values).",
+    "argsType": [
+     {
+      "name": "opt",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   }
+  ]
+ },
+ {
+  "leftTitle": "Lua module: uri",
+  "rightTitle": "lua-uri",
+  "description": "",
+  "data": [
+   {
+    "type": "func",
+    "name": "vim.uri_from_bufnr",
+    "description": "Get a URI from a bufnr",
+    "argsType": [
+     {
+      "name": "bufnr",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.uri_from_fname",
+    "description": "Get a URI from a file path.",
+    "argsType": [
+     {
+      "name": "path",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.uri_to_bufnr",
+    "description": "Return or create a buffer for a uri.",
+    "argsType": [
+     {
+      "name": "uri",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   },
+   {
+    "type": "func",
+    "name": "vim.uri_to_fname",
+    "description": "Get a filename from a URI",
+    "argsType": [
+     {
+      "name": "uri",
+      "type": "any"
+     }
+    ],
+    "returnType": "string"
+   }
+  ]
+ }
+]
