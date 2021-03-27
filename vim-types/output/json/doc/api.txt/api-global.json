@@ -1,0 +1,581 @@
+{
+ "leftTitle": "Global Functions",
+ "rightTitle": "api-global",
+ "description": "",
+ "data": [
+  {
+   "type": "func",
+   "name": "nvim__get_hl_defs",
+   "description": "TODO: Documentation",
+   "argsType": "{ns_id}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__get_lib_dir",
+   "description": "TODO: Documentation",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__id",
+   "description": "Returns object given as argument.",
+   "argsType": "{obj}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__id_array",
+   "description": "Returns array given as argument.",
+   "argsType": "{arr}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__id_dictionary",
+   "description": "Returns dictionary given as argument.",
+   "argsType": "{dct}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__id_float",
+   "description": "Returns floating-point value given as argument.",
+   "argsType": "{flt}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__inspect_cell",
+   "description": "TODO: Documentation",
+   "argsType": "{grid}, {row}, {col}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__screenshot",
+   "description": "TODO: Documentation",
+   "argsType": "{path}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim__stats",
+   "description": "Gets internal stats.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_call_atomic",
+   "description": "Calls many API methods atomically.",
+   "argsType": "{calls}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_call_dict_function",
+   "description": "Calls a VimL |Dictionary-function| with the given arguments.",
+   "argsType": "{dict}, {fn}, {args}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_call_function",
+   "description": "Calls a VimL function with the given arguments.",
+   "argsType": "{fn}, {args}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_command",
+   "description": "Executes an ex-command.",
+   "argsType": "{command}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_create_buf",
+   "description": "Creates a new, empty, unnamed buffer.",
+   "argsType": "{listed}, {scratch}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_create_namespace",
+   "description": "Creates a new namespace, or gets an existing one.",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_del_current_line",
+   "description": "Deletes the current line.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_del_keymap",
+   "description": "Unmaps a global |mapping| for the given mode.",
+   "argsType": "{mode}, {lhs}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_del_var",
+   "description": "Removes a global (g:) variable.",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_echo",
+   "description": "Echo a message.",
+   "argsType": "{chunks}, {history}, {opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_err_write",
+   "description": "Writes a message to the Vim error buffer. Does not append\n                \"\\n\", the message is buffered (won't display) until a linefeed\n                is written.",
+   "argsType": "{str}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_err_writeln",
+   "description": "Writes a message to the Vim error buffer. Appends \"\\n\", so the\n                buffer is flushed (and displayed).",
+   "argsType": "{str}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_eval",
+   "description": "Evaluates a VimL |expression|. Dictionaries and Lists are\n                recursively expanded.",
+   "argsType": "{expr}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_exec",
+   "description": "Executes Vimscript (multiline block of Ex-commands), like\n                anonymous |:source|.",
+   "argsType": "{src}, {output}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_exec_lua",
+   "description": "Execute Lua code. Parameters (if any) are available as `...`\n                inside the chunk. The chunk can return a value.",
+   "argsType": "{code}, {args}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_feedkeys",
+   "description": "Sends input-keys to Nvim, subject to various quirks controlled\n                by `mode` flags. This is a blocking call, unlike\n                |nvim_input()|.",
+   "argsType": "{keys}, {mode}, {escape_csi}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_all_options_info",
+   "description": "Gets the option information for all options.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_api_info",
+   "description": "Returns a 2-tuple (Array), where item 0 is the current channel\n                id and item 1 is the |api-metadata| map (Dictionary).",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_chan_info",
+   "description": "Get information about a channel.",
+   "argsType": "{chan}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_color_by_name",
+   "description": "Returns the 24-bit RGB value of a |nvim_get_color_map()| color\n                name or \"#rrggbb\" hexadecimal string.",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_color_map",
+   "description": "Returns a map of color names and RGB values.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_commands",
+   "description": "Gets a map of global (non-buffer-local) Ex commands.",
+   "argsType": "{opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_context",
+   "description": "Gets a map of the current editor state.",
+   "argsType": "{opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_current_buf",
+   "description": "Gets the current buffer.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_current_line",
+   "description": "Gets the current line.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_current_tabpage",
+   "description": "Gets the current tabpage.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_current_win",
+   "description": "Gets the current window.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_hl_by_id",
+   "description": "Gets a highlight definition by id. |hlID()|",
+   "argsType": "{hl_id}, {rgb}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_hl_by_name",
+   "description": "Gets a highlight definition by name.",
+   "argsType": "{name}, {rgb}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_hl_id_by_name",
+   "description": "Gets a highlight group by name",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_keymap",
+   "description": "Gets a list of global (non-buffer-local) |mapping|\n                definitions.",
+   "argsType": "{mode}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_mode",
+   "description": "Gets the current mode. |mode()| \"blocking\" is true if Nvim is\n                waiting for input.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_namespaces",
+   "description": "Gets existing, non-anonymous namespaces.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_option",
+   "description": "Gets an option value string.",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_option_info",
+   "description": "Gets the option information for one option",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_proc",
+   "description": "Gets info describing process `pid` .",
+   "argsType": "{pid}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_proc_children",
+   "description": "Gets the immediate children of process `pid` .",
+   "argsType": "{pid}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_runtime_file",
+   "description": "Find files in runtime directories",
+   "argsType": "{name}, {all}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_var",
+   "description": "Gets a global (g:) variable.",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_get_vvar",
+   "description": "Gets a v: variable.",
+   "argsType": "{name}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_input",
+   "description": "Queues raw user-input. Unlike |nvim_feedkeys()|, this uses a\n                low-level input buffer and the call is non-blocking (input is\n                processed asynchronously by the eventloop).",
+   "argsType": "{keys}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_input_mouse",
+   "description": "Send mouse event from GUI.",
+   "argsType": "{button}, {action}, {modifier}, {grid}, {row}, {col}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_list_bufs",
+   "description": "Gets the current list of buffer handles",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_list_chans",
+   "description": "Get information about all open channels.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_list_runtime_paths",
+   "description": "Gets the paths contained in 'runtimepath'.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_list_tabpages",
+   "description": "Gets the current list of tabpage handles.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_list_uis",
+   "description": "Gets a list of dictionaries representing attached UIs.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_list_wins",
+   "description": "Gets the current list of window handles.",
+   "argsType": "",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_load_context",
+   "description": "Sets the current editor state from the given |context| map.",
+   "argsType": "{dict}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_notify",
+   "description": "Notify the user with a message",
+   "argsType": "{msg}, {log_level}, {opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_open_win",
+   "description": "Open a new window.",
+   "argsType": "{buffer}, {enter}, {config}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_out_write",
+   "description": "Writes a message to the Vim output buffer. Does not append\n                \"\\n\", the message is buffered (won't display) until a linefeed\n                is written.",
+   "argsType": "{str}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_parse_expression",
+   "description": "Parse a VimL expression.",
+   "argsType": "{expr}, {flags}, {highlight}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_paste",
+   "description": "Pastes at cursor, in any mode.",
+   "argsType": "{data}, {crlf}, {phase}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_put",
+   "description": "Puts text at cursor, in any mode.",
+   "argsType": "{lines}, {type}, {after}, {follow}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_replace_termcodes",
+   "description": "Replaces terminal codes and |keycodes| (<CR>, <Esc>, ...) in a\n                string with the internal representation.",
+   "argsType": "{str}, {from_part}, {do_lt}, {special}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_select_popupmenu_item",
+   "description": "Selects an item in the completion popupmenu.",
+   "argsType": "{item}, {insert}, {finish}, {opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_client_info",
+   "description": "Self-identifies the client.",
+   "argsType": "{name}, {version}, {type}, {methods}, {attributes}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_current_buf",
+   "description": "Sets the current buffer.",
+   "argsType": "{buffer}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_current_dir",
+   "description": "Changes the global working directory.",
+   "argsType": "{dir}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_current_line",
+   "description": "Sets the current line.",
+   "argsType": "{line}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_current_tabpage",
+   "description": "Sets the current tabpage.",
+   "argsType": "{tabpage}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_current_win",
+   "description": "Sets the current window.",
+   "argsType": "{window}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_decoration_provider",
+   "description": "Set or change decoration provider for a namespace",
+   "argsType": "{ns_id}, {opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_hl",
+   "description": "Set a highlight group.",
+   "argsType": "{ns_id}, {name}, {val}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_hl_ns",
+   "description": "Set active namespace for highlights.",
+   "argsType": "{ns_id}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_keymap",
+   "description": "Sets a global |mapping| for the given mode.",
+   "argsType": "{mode}, {lhs}, {rhs}, {opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_option",
+   "description": "Sets an option value.",
+   "argsType": "{name}, {value}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_var",
+   "description": "Sets a global (g:) variable.",
+   "argsType": "{name}, {value}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_set_vvar",
+   "description": "Sets a v: variable, if it is not readonly.",
+   "argsType": "{name}, {value}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_strwidth",
+   "description": "Calculates the number of display cells occupied by `text` .\n                <Tab> counts as one cell.",
+   "argsType": "{text}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_subscribe",
+   "description": "Subscribes to event broadcasts.",
+   "argsType": "{event}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "nvim_unsubscribe",
+   "description": "Unsubscribes to event broadcasts.",
+   "argsType": "{event}",
+   "returnType": "string"
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 import { SectionDataType } from "./types";
 
 export const vimdocParser = (text: string) => {
-  const sectionSplitMatcher = /^===.*===$/;
+  const sectionSplitMatcher = /^(=======================.*===)|(--------------------.*---)$/;
   let sectionStrings: string[][] = [];
   let currentSectionStrings: string[] = [];
   text.split(/\r\n|\n/).forEach((value) => {
@@ -61,9 +61,16 @@ export const vimdocParser = (text: string) => {
       }
       const match = headerMatcherFunc(lines[crrLine]);
       if (match) {
-        const functionMatcher = /.+?\((.*?)\)/u;
+        let leftTitle = match[0];
+        let rightTitle = match[1];
+        if (leftTitle === " ") {
+          //2行に分かれているとき
+          crrLine++;
+          leftTitle = lines[crrLine];
+        }
+        const functionMatcher = /.+?\((.*?)\)/;
         const propType =
-          functionMatcher.test(match[0]) || functionMatcher.test(match[1])
+          functionMatcher.test(leftTitle) || functionMatcher.test(rightTitle)
             ? "func"
             : "value";
         let propDescription = "";
@@ -81,12 +88,14 @@ export const vimdocParser = (text: string) => {
         }
         propDescription = propDescription.trim();
         if (propType === "func") {
-          const functionMatch = functionMatcher.exec(match[0]);
+          const functionMatch = functionMatcher.exec(leftTitle);
           const paramsString =
             !functionMatch || functionMatch[1] === "" ? "" : functionMatch[1];
           sectionData.data.push({
             type: "func",
-            name: match[1].endsWith("()") ? match[1].slice(0, -2) : match[1],
+            name: rightTitle.endsWith("()")
+              ? rightTitle.slice(0, -2)
+              : rightTitle,
             description: propDescription,
             argsType: paramsString,
             returnType: "string",
@@ -94,7 +103,7 @@ export const vimdocParser = (text: string) => {
         } else {
           sectionData.data.push({
             type: "value",
-            name: match[1],
+            name: rightTitle,
             description: propDescription,
             valuetype: "any",
           });

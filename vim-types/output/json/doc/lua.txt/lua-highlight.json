@@ -1,0 +1,21 @@
+{
+ "leftTitle": "VIM.HIGHLIGHT",
+ "rightTitle": "lua-highlight",
+ "description": "",
+ "data": [
+  {
+   "type": "func",
+   "name": "vim.highlight.on_yank",
+   "description": "Highlights the yanked text. The fields of the optional dict {opts}\n        control the highlight:\n          - {higroup} highlight group for yanked region (default `\"IncSearch\"`)\n          - {timeout} time in ms before highlight is cleared (default `150`)\n          - {on_macro} highlight when executing macro (default `false`)\n          - {on_visual} highlight when yanking visual selection (default `true`)\n          - {event} event structure (default `vim.v.event`)",
+   "argsType": "{opts}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "vim.highlight.range",
+   "description": "in buffer {bufnr} with the highlight group {higroup} using the namespace\n        {ns}. Optional arguments are the type of range (characterwise, linewise,\n        or blockwise, see |setreg|; default to characterwise) and whether the\n        range is inclusive (default false).",
+   "argsType": "tuples of {line,col}",
+   "returnType": "string"
+  }
+ ]
+}

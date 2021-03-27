@@ -1,0 +1,37 @@
+{
+ "leftTitle": "Buffer update events",
+ "rightTitle": "api-buffer-updates",
+ "description": "",
+ "data": [
+  {
+   "type": "value",
+   "name": "nvim_buf_lines_event",
+   "description": "",
+   "valuetype": "any"
+  },
+  {
+   "type": "value",
+   "name": "nvim_buf_changedtick_event",
+   "description": "",
+   "valuetype": "any"
+  },
+  {
+   "type": "value",
+   "name": "nvim_buf_detach_event",
+   "description": "",
+   "valuetype": "any"
+  },
+  {
+   "type": "value",
+   "name": "api-buffer-updates-lua",
+   "description": "callbacks. These callbacks are called frequently in various contexts;\n|textlock| prevents changing buffer contents and window layout (use\n|vim.schedule| to defer such operations to the main loop instead).",
+   "valuetype": "any"
+  },
+  {
+   "type": "value",
+   "name": "api-lua-detach",
+   "description": "callbacks attached with the same |nvim_buf_attach()| call.",
+   "valuetype": "any"
+  }
+ ]
+}

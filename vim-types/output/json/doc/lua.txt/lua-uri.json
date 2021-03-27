@@ -1,0 +1,35 @@
+{
+ "leftTitle": "Lua module: uri",
+ "rightTitle": "lua-uri",
+ "description": "",
+ "data": [
+  {
+   "type": "func",
+   "name": "vim.uri_from_bufnr",
+   "description": "Get a URI from a bufnr",
+   "argsType": "{bufnr}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "vim.uri_from_fname",
+   "description": "Get a URI from a file path.",
+   "argsType": "{path}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "vim.uri_to_bufnr",
+   "description": "Return or create a buffer for a uri.",
+   "argsType": "{uri}",
+   "returnType": "string"
+  },
+  {
+   "type": "func",
+   "name": "vim.uri_to_fname",
+   "description": "Get a filename from a URI",
+   "argsType": "{uri}",
+   "returnType": "string"
+  }
+ ]
+}
