@@ -5,7 +5,8 @@
   "main": "ts/index.js",
   "devDependencies": {
     "lua-types": "^2.9.1",
-    "typescript-to-lua": "^0.39.0"
+    "nvim-types": "^0.0.4",
+    "typescript-to-lua": "^0.39.1"
   },
   "scripts": {
     "build": "tstl",

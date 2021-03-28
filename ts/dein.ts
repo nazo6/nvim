@@ -15,7 +15,7 @@ const loadDein = () => {
     const toml = rc_dir + "/dein.toml";
     vim.fn["dein#load_toml"](toml);
     vim.fn["dein#end"]();
-    vim.fn["dein#save_statel"];
+    vim.fn["dein#save_state"];
   }
 
   if (vim.fn["dein#check_install"]() != 0) {

@@ -1,6 +1,7 @@
 devDependencies:
   lua-types: 2.9.1
-  typescript-to-lua: 0.39.0
+  nvim-types: 0.0.4
+  typescript-to-lua: 0.39.1
 lockfileVersion: 5.2
 packages:
   /function-bind/1.1.1:
@@ -23,10 +24,14 @@ packages:
       integrity: sha512-XRAfAdyyY5F5cOXn7hYQDqh2Xmii+DEfIcQGxK/uNwMHhIkPWO0g8msXcbzLe+MpGoR951MlqM/2iIlU4vKDdQ==
   /lua-types/2.9.1:
     dependencies:
-      typescript-to-lua: 0.39.0
+      typescript-to-lua: 0.39.1
     dev: true
     resolution:
       integrity: sha512-wicY5qAscJv7IH+XYbfwrlp1/TXcB5MQNvoZgUAQsougHIijw/aXf2dciYsWIs5ODClSG6NXz0fJxeguzG6Dyw==
+  /nvim-types/0.0.4:
+    dev: true
+    resolution:
+      integrity: sha512-A/F7jD/JJknJd/KrbkmJR4xXAHtDH+HpE6QqwHU5oRAziWPTu82xI9LpZe+Yt4pSB16UJb/rbJYDPYNzv+piKw==
   /path-parse/1.0.6:
     dev: true
     resolution:
@@ -44,7 +49,7 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
-  /typescript-to-lua/0.39.0:
+  /typescript-to-lua/0.39.1:
     dependencies:
       resolve: 1.20.0
       source-map: 0.7.3
@@ -54,7 +59,7 @@ packages:
       node: '>=12.13.0'
     hasBin: true
     resolution:
-      integrity: sha512-Qu10RU03egiL4AkTkCUFXANh/kPQ3BGCSxkh6nKsnKAP59jOqzm1fodqMbIKkwuOnAvLLkU7+bY2NASQD/N4kw==
+      integrity: sha512-Gw+hpE5N4Qw9hakr6JAH5ZkAftg0tbGG+IoxOsgYR/9rHomX8cWNEdYqX3kJJ5iRGb1lN1mJ/vHgkgoWVdlVig==
   /typescript/4.2.3:
     dev: true
     engines:
@@ -64,4 +69,5 @@ packages:
       integrity: sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
 specifiers:
   lua-types: ^2.9.1
-  typescript-to-lua: ^0.39.0
+  nvim-types: ^0.0.4
+  typescript-to-lua: ^0.39.1

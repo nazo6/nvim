@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["esnext"],
+    "lib": [
+      "esnext"
+    ],
     "moduleResolution": "node",
     "strict": true,
-    "rootDir": "./ts",
-    "outDir": "./lua",
-    "types": ["lua-types/5.3"]
+    "outDir": "../lua",
+    "types": [
+      "lua-types/5.3",
+      "nvim-types/0.5.0-nightly"
+    ]
   },
   "tstl": {
     "luaTarget": "JIT"
