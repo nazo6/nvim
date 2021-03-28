@@ -5,7 +5,7 @@
   "main": "ts/index.js",
   "devDependencies": {
     "lua-types": "^2.9.1",
-    "nvim-types": "^0.0.4",
+    "nvim-types": "0.0.5",
     "typescript-to-lua": "^0.39.1"
   },
   "scripts": {
