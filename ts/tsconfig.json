@@ -6,6 +6,7 @@
     ],
     "moduleResolution": "node",
     "strict": true,
+    "rootDir": "./src",
     "outDir": "../lua",
     "types": [
       "lua-types/5.3",
