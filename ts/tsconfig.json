@@ -14,6 +14,7 @@
     ]
   },
   "tstl": {
-    "luaTarget": "JIT"
+    "luaTarget": "JIT",
+    "noImplicitSelf": true
   }
 }
