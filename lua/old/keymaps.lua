@@ -1,4 +1,4 @@
-local m = require('utils').map
+local m = require('old.utils').map
 
 local n = {noremap = true}
 local ns = {noremap = true, silent = true}
