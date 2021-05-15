@@ -21,7 +21,7 @@ export const autocmd: (args: AutoCmdArgs) => void = ({ id, events, filetypes, co
   const eventsText = typeof events === 'string' ? events : events.join(',');
   const fileTypesText = typeof filetypes === 'string' ? filetypes : filetypes.join(',');
 
-  vim.cmd('augroup myautocmd');
+  vim.cmd('augroup ' + id);
   vim.cmd('autocmd!');
   vim.cmd(`autocmd ${eventsText} ${fileTypesText} ${commandText}`);
   vim.cmd('augroup END');
