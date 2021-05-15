@@ -2,7 +2,7 @@
 My neovim config.
 
 ## Notes
-- Before use it you need to execute following commands
+- Before using, you need to execute following commands
    ```shell
    $ pnpm i
    $ pnpm builf
