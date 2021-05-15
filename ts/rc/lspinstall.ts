@@ -1,5 +1,5 @@
 import { cmd } from '../utils';
-import { serverCfgs } from './lspconfig';
+import { serverCfgs } from './lspconfigdata';
 
 const setup_servers = () => {
   require('lspinstall').setup();
