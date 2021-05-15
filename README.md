@@ -3,9 +3,9 @@ My neovim config.
 
 ## Notes
 - Before using, you need to execute following commands
-   ```shell
+   ```sh
    $ pnpm i
-   $ pnpm builf
+   $ pnpm builｄ
    ```
 
 - To use deno lsp, create `.nvim-lsp-denols` in project root folder.
