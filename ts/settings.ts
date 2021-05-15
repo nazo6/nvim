@@ -49,6 +49,13 @@ const doSettings = () => {
     set('termguicolors', true);
   }
 
+  autocmd({
+    id: 'SetJsonc',
+    events: ['BufRead', 'BufNewFile'],
+    filetypes: '{tsconfig,tsconfig.*}.json',
+    command: 'setfiletype jsonc'
+  });
+
   //Windows settings
   if (vim.fn.has('win32') == 1) {
     set('shell', 'pwsh');

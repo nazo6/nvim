@@ -13,15 +13,65 @@ autocmd({
 });
 map.nmap('<leader>f', ':lua vim.lsp.buf.formatting()<CR>', map.ns);
 
+const noFormatting = (client: any) => {
+  client.resolved_capabilities.document_formatting = false;
+};
+
 export const serverCfgs = {
   deno: {
     root_dir: root_pattern('.nvim-lsp-denols')
   },
+  css: {
+    on_attach: noFormatting
+  },
+  html: {
+    on_attach: noFormatting
+  },
+  json: {
+    filetypes: ['json', 'jsonc'],
+    settings: {
+      json: {
+        schemas: [
+          {
+            fileMatch: ['package.json'],
+            url: 'https://json.schemastore.org/package.json'
+          },
+          {
+            fileMatch: ['tsconfig*.json'],
+            url: 'https://json.schemastore.org/tsconfig.json'
+          },
+          {
+            fileMatch: ['.prettierrc', '.prettierrc.json', 'prettier.config.json'],
+            url: 'https://json.schemastore.org/prettierrc.json'
+          },
+          {
+            fileMatch: ['.eslintrc', '.eslintrc.json'],
+            url: 'https://json.schemastore.org/eslintrc.json'
+          },
+          {
+            fileMatch: ['.babelrc', '.babelrc.json', 'babel.config.json'],
+            url: 'https://json.schemastore.org/babelrc.json'
+          },
+          {
+            fileMatch: ['lerna.json'],
+            url: 'https://json.schemastore.org/lerna.json'
+          },
+          {
+            fileMatch: ['now.json', 'vercel.json'],
+            url: 'https://json.schemastore.org/now.json'
+          },
+          {
+            fileMatch: ['.stylelintrc', '.stylelintrc.json', 'stylelint.config.json'],
+            url: 'http://json.schemastore.org/stylelintrc.json'
+          }
+        ]
+      }
+    },
+    on_attach: noFormatting
+  },
   typescript: {
     root_dir: root_pattern('package.json', 'tsconfig.json'),
-    on_attach: (client: any) => {
-      client.resolved_capabilities.document_formatting = false;
-    }
+    on_attach: noFormatting
   },
   tailwindcss: {
     root_dir: root_pattern('tailwind.config.js', 'tailwind.config.ts')
@@ -33,7 +83,6 @@ export const serverCfgs = {
       filetypes: {
         javascript: 'eslint',
         javascriptreact: 'eslint',
-        json: 'eslint',
         typescript: 'eslint',
         typescriptreact: 'eslint',
         'typescript.tsx': 'eslint'
@@ -42,6 +91,7 @@ export const serverCfgs = {
         javascript: 'prettier',
         javascriptreact: 'prettier',
         json: 'prettier',
+        jsonc: 'prettier',
         typescript: 'prettier',
         typescriptreact: 'prettier',
         'typescript.tsx': 'prettier'
