@@ -13,6 +13,12 @@ const doSettings = () => {
     filetypes: '*',
     command: 'set clipboard+=unnamed'
   });
+  autocmd({
+    id: 'SetJsonc',
+    events: ['BufRead', 'BufNewFile'],
+    filetypes: '{tsconfig,tsconfig.*}.json',
+    command: 'setfiletype jsonc'
+  });
 
   const undodir = vim.fn.stdpath('data') + '/undo';
   if (vim.fn.isdirectory(undodir) !== 1) {
@@ -48,13 +54,6 @@ const doSettings = () => {
   if (vim.fn.has('termguicolors') === 1) {
     set('termguicolors', true);
   }
-
-  autocmd({
-    id: 'SetJsonc',
-    events: ['BufRead', 'BufNewFile'],
-    filetypes: '{tsconfig,tsconfig.*}.json',
-    command: 'setfiletype jsonc'
-  });
 
   //Windows settings
   if (vim.fn.has('win32') == 1) {

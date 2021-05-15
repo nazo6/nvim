@@ -77,7 +77,7 @@ export const serverCfgs = {
     root_dir: root_pattern('tailwind.config.js', 'tailwind.config.ts')
   },
   diagnosticls: {
-    filetypes: ['javascript', 'javascriptreact', 'json', 'typescript', 'typescript.tsx', 'typescriptreact'],
+    filetypes: ['javascript', 'javascriptreact', 'json', 'jsonc', 'typescript', 'typescript.tsx', 'typescriptreact'],
     root_dir: root_pattern('.git', 'package.json', 'tsconfig.json'),
     init_options: {
       filetypes: {
