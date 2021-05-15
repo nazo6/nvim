@@ -39,6 +39,7 @@ const loadPlugins = () => {
     }
   });
   use('folke/lsp-colors.nvim');
+  use("nvim-lua/lsp-status.nvim")
 
   use('hrsh7th/nvim-compe', {
     config: () => {
