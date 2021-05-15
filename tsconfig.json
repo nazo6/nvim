@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "esnext"
+    ],
+    "moduleResolution": "node",
+    "strict": false,
+    "rootDir": "./ts",
+    "outDir": "./lua",
+    "types": [
+      "nvim-types/0.5.0-nightly",
+    ]
+  },
+  "tstl": {
+    "luaTarget": "JIT",
+    "noImplicitSelf": true,
+  }
+}

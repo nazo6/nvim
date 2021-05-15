@@ -1,0 +1,74 @@
+lockfileVersion: 5.3
+
+specifiers:
+  lua-types: ^2.9.1
+  nvim-types: ^0.0.7
+  typescript-to-lua: ^0.39.1
+
+dependencies:
+  nvim-types: 0.0.7
+
+devDependencies:
+  lua-types: 2.9.1
+  typescript-to-lua: 0.39.1
+
+packages:
+
+  /function-bind/1.1.1:
+    resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
+    dev: true
+
+  /has/1.0.3:
+    resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      function-bind: 1.1.1
+    dev: true
+
+  /is-core-module/2.2.0:
+    resolution: {integrity: sha512-XRAfAdyyY5F5cOXn7hYQDqh2Xmii+DEfIcQGxK/uNwMHhIkPWO0g8msXcbzLe+MpGoR951MlqM/2iIlU4vKDdQ==}
+    dependencies:
+      has: 1.0.3
+    dev: true
+
+  /lua-types/2.9.1:
+    resolution: {integrity: sha512-wicY5qAscJv7IH+XYbfwrlp1/TXcB5MQNvoZgUAQsougHIijw/aXf2dciYsWIs5ODClSG6NXz0fJxeguzG6Dyw==}
+    dependencies:
+      typescript-to-lua: 0.39.1
+    dev: true
+
+  /nvim-types/0.0.7:
+    resolution: {integrity: sha512-/Ssi3DDRJ/J89Utw0UP8zpHRGj6u7ikmHl7kwctkvnEUHimjGaMtrJDUQ1kRCFkJxKwja/vrniMY44rVFyESYA==}
+    dev: false
+
+  /path-parse/1.0.6:
+    resolution: {integrity: sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==}
+    dev: true
+
+  /resolve/1.20.0:
+    resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
+    dependencies:
+      is-core-module: 2.2.0
+      path-parse: 1.0.6
+    dev: true
+
+  /source-map/0.7.3:
+    resolution: {integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==}
+    engines: {node: '>= 8'}
+    dev: true
+
+  /typescript-to-lua/0.39.1:
+    resolution: {integrity: sha512-Gw+hpE5N4Qw9hakr6JAH5ZkAftg0tbGG+IoxOsgYR/9rHomX8cWNEdYqX3kJJ5iRGb1lN1mJ/vHgkgoWVdlVig==}
+    engines: {node: '>=12.13.0'}
+    hasBin: true
+    dependencies:
+      resolve: 1.20.0
+      source-map: 0.7.3
+      typescript: 4.2.3
+    dev: true
+
+  /typescript/4.2.3:
+    resolution: {integrity: sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
