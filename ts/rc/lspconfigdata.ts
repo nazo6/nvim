@@ -52,7 +52,7 @@ export const serverCfgs = {
       linters: {
         eslint: {
           command: 'eslint_d',
-          rootPatterns: ['.eslintrc', '.eslintrc.js', '.eslintrc.yml'],
+          rootPatterns: ['.eslintrc', '.eslintrc.js', '.eslintrc.json', '.eslintrc.yml'],
           debounce: 100,
           args: ['--stdin', '--stdin-filename', '%filepath', '--format', 'json'],
           sourceName: 'eslint',
