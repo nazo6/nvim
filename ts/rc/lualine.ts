@@ -4,7 +4,7 @@ require('lualine').setup({
   },
   sections: {
     lualine_a: [['mode', { upper: true }]],
-    lualine_b: [require('lsp-status').status, ['diagnostics', { sources: ['nvim_lsp'] }]],
+    lualine_b: [['diagnostics', { sources: ['nvim_lsp'] }]],
     lualine_c: [['filename', { file_status: true, path: 1 }]],
     lualine_x: ['fileformat', 'encoding'],
     lualine_y: ['filetype'],
