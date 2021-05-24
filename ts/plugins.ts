@@ -6,6 +6,8 @@ const loadPlugins = () => {
   packer.reset();
   use('wbthomason/packer.nvim', {});
 
+  use('vim-jp/vimdoc-ja');
+
   use('famiu/nvim-reload');
 
   // Lsp
