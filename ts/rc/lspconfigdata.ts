@@ -79,7 +79,7 @@ export const serverCfgs = {
       formatters: {
         prettier: {
           command: 'prettier',
-          args: ['--fix'],
+          args: ['--stdin-filepath', '%filepath'],
           rootPatterns: ['.prettierrc', '.prettierrc.js', 'prettierrc.yml']
         }
       }
