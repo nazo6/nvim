@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "tstl",
-    "dev": "tstl --watch"
+    "dev": "tstl --watch",
+    "format": "prettier --write ./ts"
   },
   "repository": {
     "type": "git",
