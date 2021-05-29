@@ -116,6 +116,9 @@ const loadPlugins = () => {
       vim.g.closetag_shortcut = '>';
     }
   });
+  use('RRethy/vim-hexokinase', {
+    run: 'make hexokinase'
+  });
 
   //Tools
   use('nvim-telescope/telescope.nvim', {
