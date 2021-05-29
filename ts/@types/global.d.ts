@@ -11,7 +11,7 @@ declare namespace vim {
   /** @noSelf **/
   let lsp: {
     [prop: string]: {
-      [prop: string]: (args?: any[]) => any
-    } & ((args?: any[]) => any)
-  }
+      [prop: string]: (args?: any[]) => any;
+    } & ((args?: any[]) => any);
+  };
 }
