@@ -16,12 +16,12 @@ const loadPlugins = () => {
       require('rc.lspconfig');
     }
   });
-  use('kabouzeid/nvim-lspinstall', {
+  /*use('kabouzeid/nvim-lspinstall', {
     requires: ['folke/lua-dev.nvim'],
     config: () => {
       require('rc.lspinstall');
     }
-  });
+  });*/
   use('folke/trouble.nvim', {
     requires: 'kyazdani42/nvim-web-devicons',
     cmd: ['TroubleToggle', 'Trouble'],

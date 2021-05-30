@@ -1,14 +1,21 @@
-import { ServerConfigType, ServerNamesType } from './constants';
+import { ServerConfigType, ServerNamesType, SERVERS } from './constants';
+import { getServerDir } from './utils';
 
+const getServerConfig = (name: ServerNamesType) => {
+  return require(`lsp.servers.${name}`).config as any as ServerConfigType;
+};
 export const installServer = (serverName: ServerNamesType) => {
-  const serverconfig: ServerConfigType = require(`lsp.servers.${serverName}`);
-  serverconfig.installer();
+  getServerConfig(serverName).installer();
 };
 
-export const setupServer = (serverName: ServerNamesType, options: any) => {
-  const serverconfig: ServerConfigType = require(`lsp.servers.${serverName}`);
+export const setupServer = (serverName: ServerNamesType, options?: any) => {
+  const serverconfig = getServerConfig(serverName);
   serverconfig.installer();
   (require('lspconfig')[serverName] as any as NoColonType).setup(
     vim.tbl_deep_extend('force', serverconfig.defaultOptions, options)
   );
+};
+
+export const getInstalledServers = () => {
+  return SERVERS.filter((v) => vim.fn.isdirectory(getServerDir(v)) !== 0);
 };
