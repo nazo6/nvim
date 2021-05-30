@@ -4,7 +4,3 @@ export const executeShell = (cmd: string, cwd: string) => {
     cwd
   });
 };
-
-export const npm = (packageName: string, installPath: string) => {
-  executeShell(`npm install ${packageName}`, installPath);
-};

@@ -1,10 +1,12 @@
 import { ServerConfigType } from '../constants';
 import { getServerDir } from '../utils';
+import { npm } from '../installers/npm';
 
+const serverName = "tsserver"
 export const config: ServerConfigType = {
-  name: 'tsserver',
-  installer: () => {},
+  name: serverName,
+  installer: () => npm("typescript-language-server", getServerDir(serverName)),
   defaultOptions: {
-    cmd: [getServerDir('tsserver') + '/node_modules/.bin/typescript-language-server', '--stdio']
+    cmd: [getServerDir(serverName) + '/node_modules/.bin/diagnostic-language-server', '--stdio']
   }
-};
+}

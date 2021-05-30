@@ -11,11 +11,7 @@ const loadPlugins = () => {
   use('famiu/nvim-reload');
 
   // Lsp
-  use('neovim/nvim-lspconfig', {
-    config: () => {
-      require('rc.lspconfig');
-    }
-  });
+  use('neovim/nvim-lspconfig');
   /*use('kabouzeid/nvim-lspinstall', {
     requires: ['folke/lua-dev.nvim'],
     config: () => {
@@ -91,7 +87,7 @@ const loadPlugins = () => {
 
   //operate
   use('phaazon/hop.nvim', {
-    config: () => {}
+    config: () => { }
   });
 
   //code common
