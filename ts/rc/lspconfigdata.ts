@@ -10,7 +10,7 @@ export const serverCfgs = {
   deno: {
     root_dir: root_pattern('.nvim-lsp-denols')
   },
-  css: {
+  cssls: {
     on_attach: noFormatting
   },
   html: {
@@ -24,7 +24,7 @@ export const serverCfgs = {
     },
     lspconfig: {}
   }),*/
-  json: {
+  jsonls: {
     filetypes: ['json', 'jsonc'],
     settings: {
       json: { schemas }

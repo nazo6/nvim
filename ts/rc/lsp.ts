@@ -3,7 +3,6 @@ import { serverCfgs } from './lspconfigdata';
 import { map } from '../utils';
 import { autocmd } from '../utils/autocmd';
 
-
 autocmd({
   id: 'LspFormat',
   events: 'BufWritePre',
@@ -14,7 +13,18 @@ autocmd({
 });
 map.nmap('<leader>f', ':lua vim.lsp.buf.formatting()<CR>', map.ns);
 
-lsp.ensureInstallServers(['tsserver', 'diagnosticls']);
+lsp.ensureInstallServers([
+  'cssls',
+  'html',
+  'jsonls',
+  'tsserver',
+  'diagnosticls',
+  'svelte',
+  'vimls',
+  'vuels',
+  'yamlls',
+  'bashls'
+]);
 
 const setup = () => {
   const servers = lsp.getInstalledServers();
