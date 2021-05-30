@@ -6,6 +6,7 @@ export const SERVERS = [
   'jsonls',
   'sumneko_lua',
   'svelte',
+  'tailwindcss',
   'tsserver',
   'vimls',
   'vuels',

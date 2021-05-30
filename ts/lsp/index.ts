@@ -1,5 +1,6 @@
 import { ServerConfigType, ServerNamesType, SERVERS } from './constants';
 import { getServerDir } from './utils';
+const configs = require('lspconfig/configs') as any;
 
 const getServerConfig = (name: ServerNamesType) => {
   return require(`lsp.configs.${name}`).config as any as ServerConfigType;
@@ -24,6 +25,16 @@ export const uninstallServer = (serverName: ServerNamesType) => {
   if (result !== 0) {
     print(`Failed to uninstall. Please delete "${getServerDir(serverName)}" manually.`);
   }
+};
+
+export const setup = () => {
+  getInstalledServers().forEach((server) => {
+    if (server === 'tailwindcss') {
+      configs[server] = {
+        default_config: getServerConfig(server).defaultOptions
+      };
+    }
+  });
 };
 
 export const setupServer = (serverName: ServerNamesType, options?: any) => {

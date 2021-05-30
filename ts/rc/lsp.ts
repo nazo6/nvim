@@ -13,6 +13,8 @@ autocmd({
 });
 map.nmap('<leader>f', ':lua vim.lsp.buf.formatting()<CR>', map.ns);
 
+lsp.setup()
+
 lsp.ensureInstallServers([
   'cssls',
   'html',
@@ -23,7 +25,8 @@ lsp.ensureInstallServers([
   'vimls',
   'vuels',
   'yamlls',
-  'bashls'
+  'bashls',
+  'tailwindcss'
 ]);
 
 const setup = () => {
