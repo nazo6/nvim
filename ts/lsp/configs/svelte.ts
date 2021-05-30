@@ -1,7 +1,8 @@
 import { createNodeConfig } from './common-node';
 
 export const config = createNodeConfig({
-  serverName: 'yamls',
-  packageName: 'yaml-language-server',
+  serverName: 'svelte',
+  packageName: 'svelte-language-server',
+  binName: 'svelteserver',
   args: ['--stdio']
 });

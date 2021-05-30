@@ -1,12 +1,8 @@
-import { ServerConfigType } from '../constants';
-import { npm } from '../installers/npm';
-import { getServerDir } from '../utils';
+import { createNodeConfig } from './common-node';
 
-const name = 'diagnosticls';
-export const config: ServerConfigType = {
-  name,
-  installer: () => npm('diagnostic-languageserver', getServerDir(name)),
-  defaultOptions: {
-    cmd: [getServerDir(name) + '/node_modules/.bin/diagnostic-languageserver', '--stdio']
-  }
-};
+export const config = createNodeConfig({
+  serverName: 'cssls',
+  packageName: 'vscode-langservers-extracted',
+  binName: 'vscode-css-language-server',
+  args: ['--stdio']
+});
