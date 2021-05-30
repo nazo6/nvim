@@ -2,14 +2,16 @@ lockfileVersion: 5.3
 
 specifiers:
   lua-types: ^2.10.1
-  nvim-types: ^0.1.1
+  nvim-types: ^0.1.2
+  typescript: 4.2.4
   typescript-to-lua: ^0.39.3
 
 dependencies:
-  nvim-types: 0.1.1
+  nvim-types: 0.1.2
 
 devDependencies:
   lua-types: 2.10.1
+  typescript: 4.2.4
   typescript-to-lua: 0.39.3
 
 packages:
@@ -37,8 +39,8 @@ packages:
       typescript-to-lua: 0.39.3
     dev: true
 
-  /nvim-types/0.1.1:
-    resolution: {integrity: sha512-bAJIDo6Vdw/rI3729zd4wkxZZwVlscQmrn4gmubqe/O6qizLUpywd72+2p8WKjEtqDJVXxAefDbrHYP4tpX/Zg==}
+  /nvim-types/0.1.2:
+    resolution: {integrity: sha512-wW5Hs49hYO6FEVn8FBm442EC1DzfOu3nd7Zx3WtLLzKBlEwT59GHA6xRan8zI65fLLNPD0tkzLzyPWWk1jNo2A==}
     dev: false
 
   /path-parse/1.0.7:
@@ -64,7 +66,13 @@ packages:
     dependencies:
       resolve: 1.20.0
       source-map: 0.7.3
-      typescript: 4.3.2
+      typescript: 4.2.4
+    dev: true
+
+  /typescript/4.2.4:
+    resolution: {integrity: sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
 
   /typescript/4.3.2:
