@@ -1,21 +1,17 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports":true,
+    "allowSyntheticDefaultImports": true,
     "target": "esnext",
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "moduleResolution": "node",
     "strict": false,
     "rootDir": "./ts",
     "outDir": "./lua",
-    "types": [
-      "nvim-types/0.5.0-nightly",
-    ],
+    "types": ["nvim-types/0.5.0-nightly"],
     "resolveJsonModule": true
   },
   "tstl": {
     "luaTarget": "JIT",
-    "noImplicitSelf": true,
+    "noImplicitSelf": true
   }
 }
