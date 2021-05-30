@@ -16,7 +16,7 @@ export type ServerNamesType = typeof SERVERS[number];
 /** @noSelf */
 export interface ServerConfigType {
   name: string;
-  installer: () => void;
+  installer: (onExit: (exitCode: number) => void) => void;
   installChecker?: () => void;
   defaultOptions: any;
 }
