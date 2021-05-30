@@ -4,6 +4,7 @@ export const SERVERS = [
   'cssls',
   'denols',
   'dockerls',
+  'diagnosticls',
   'eslintls',
   'gopls',
   'graphql',
@@ -19,9 +20,10 @@ export const SERVERS = [
 ] as const;
 export type ServerNamesType = typeof SERVERS[number];
 
-export type ServerConfigType = {
+/** @noSelf */
+export interface ServerConfigType {
   name: string;
   installer: () => void;
   installChecker?: () => void;
   defaultOptions: any;
-};
+}

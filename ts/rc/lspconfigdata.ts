@@ -16,14 +16,14 @@ export const serverCfgs = {
   html: {
     on_attach: noFormatting
   },
-  lua: require('lua-dev').setup({
+  /*lua: require('lua-dev').setup({
     library: {
       vimruntime: true,
       types: true,
       plugins: true
     },
     lspconfig: {}
-  }),
+  }),*/
   json: {
     filetypes: ['json', 'jsonc'],
     settings: {
