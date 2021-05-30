@@ -19,3 +19,12 @@ export const setupServer = (serverName: ServerNamesType, options?: any) => {
 export const getInstalledServers = () => {
   return SERVERS.filter((v) => vim.fn.isdirectory(getServerDir(v)) !== 0);
 };
+
+export const ensureInstallServers = (serverNames: ServerNamesType[]) => {
+  const installed = getInstalledServers()
+  serverNames.forEach((serverName) => {
+    if (!installed.includes(serverName)) {
+      installServer(serverName)
+    }
+  })
+};
