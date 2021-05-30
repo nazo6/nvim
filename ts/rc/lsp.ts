@@ -32,7 +32,7 @@ const setup = () => {
     servers.push(servers.splice(servers.indexOf('diagnosticls'), 1)[0]);
   }
   servers.forEach((serverName) => {
-    const cfg: NoColonType = serverCfgs[serverName];
+    const cfg: NoColonType = (serverCfgs as any)[serverName];
     lsp.setupServer(serverName, {
       ...cfg,
       on_attach: (client: any) => {

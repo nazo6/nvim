@@ -5,7 +5,7 @@
     "module": "ESNext",
     "lib": ["esnext"],
     "moduleResolution": "node",
-    "strict": false,
+    "strict": true,
     "rootDir": "./ts",
     "outDir": "./lua",
     "types": ["nvim-types/0.5.0-nightly"],
