@@ -10,7 +10,6 @@ export const installServer = (serverName: ServerNamesType) => {
 
 export const setupServer = (serverName: ServerNamesType, options?: any) => {
   const serverconfig = getServerConfig(serverName);
-  serverconfig.installer();
   (require('lspconfig')[serverName] as any as NoColonType).setup(
     vim.tbl_deep_extend('force', serverconfig.defaultOptions, options)
   );
@@ -21,10 +20,10 @@ export const getInstalledServers = () => {
 };
 
 export const ensureInstallServers = (serverNames: ServerNamesType[]) => {
-  const installed = getInstalledServers()
+  const installed = getInstalledServers();
   serverNames.forEach((serverName) => {
     if (!installed.includes(serverName)) {
-      installServer(serverName)
+      installServer(serverName);
     }
-  })
+  });
 };
