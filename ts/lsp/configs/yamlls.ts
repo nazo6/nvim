@@ -1,7 +1,7 @@
 import { createNodeConfig } from './common-node';
 
 export const config = createNodeConfig({
-  serverName: 'yamls',
+  serverName: 'yamlls',
   packageName: 'yaml-language-server',
   args: ['--stdio']
 });
