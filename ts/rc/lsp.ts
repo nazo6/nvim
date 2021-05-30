@@ -13,9 +13,7 @@ autocmd({
 });
 map.nmap('<leader>f', ':lua vim.lsp.buf.formatting()<CR>', map.ns);
 
-lsp.ensureInstallServers([
-  "tsserver", "diagnosticls"
-]);
+lsp.ensureInstallServers(['tsserver', 'diagnosticls']);
 
 const setup = () => {
   const servers = lsp.getInstalledServers();
@@ -23,9 +21,26 @@ const setup = () => {
     servers.push(servers.splice(servers.indexOf('diagnosticls'), 1)[0]);
   }
   servers.forEach((serverName) => {
-    lsp.setupServer(serverName, serverCfgs[serverName] ?? {});
+    const cfg: NoColonType = serverCfgs[serverName];
+    lsp.setupServer(serverName, {
+      ...cfg,
+      on_attach: (client: any) => {
+        require('lsp_signature').on_attach({
+          bind: true,
+          doc_lines: 10,
+          hint_enable: true,
+          hint_scheme: 'String',
+          handler_opts: {
+            border: 'shadow'
+          },
+          decorator: ['`', '`']
+        });
+        if (cfg.on_attach) {
+          cfg.on_attach(client);
+        }
+      }
+    });
   });
 };
 
 setup();
-

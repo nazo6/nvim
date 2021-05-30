@@ -30,7 +30,7 @@ export const serverCfgs = {
       json: { schemas }
     }
   },
-  typescript: {
+  tsserver: {
     root_dir: root_pattern('package.json', 'tsconfig.json'),
     on_attach: noFormatting
   },
