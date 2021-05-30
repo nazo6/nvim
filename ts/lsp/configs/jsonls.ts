@@ -1,7 +1,7 @@
 import { createNodeConfig } from './common-node';
 
 export const config = createNodeConfig({
-  serverName: 'cssls',
+  serverName: 'jsonls',
   packageName: 'vscode-langservers-extracted',
   binName: 'vscode-json-language-server',
   args: ['--stdio']

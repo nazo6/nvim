@@ -13,16 +13,16 @@ type configType = {
 const win = vim.fn.has('win32') !== 0;
 
 export const createNodeConfig = (config: configType) => {
+  const binName = config.binName ? config.binName : config.packageName
   return {
     name: config.serverName,
     installer: () => npm(config.packageName, getServerDir(config.serverName)),
     defaultOptions: {
       cmd: [
-        getServerDir(config.serverName) + '/node_modules/.bin/' + config.binName ??
-          config.packageName + (win ? '.cmd' : ''),
-        ...config.args
+        getServerDir(config.serverName) + '/node_modules/.bin/' + binName + (win ? '.cmd' : ''),
+        ...(config.args ?? [])
       ],
-      ...config.defaultOptions
+        ...(config.defaultOptions ?? {})
     }
   } as ServerConfigType;
 };
