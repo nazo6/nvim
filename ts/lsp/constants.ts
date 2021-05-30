@@ -1,10 +1,11 @@
 export const SERVERS = [
+  'bashls',
   'cssls',
-  'denols',
   'diagnosticls',
   'html',
   'jsonls',
   'sumneko_lua',
+  'svelte',
   'tsserver',
   'vimls',
   'vuels',

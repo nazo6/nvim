@@ -5,6 +5,7 @@ import { npm } from '../installers/npm';
 type configType = {
   serverName: string;
   packageName: string;
+  binName?: string;
   args?: string[];
   defaultOptions?: any;
 };
@@ -17,7 +18,8 @@ export const createNodeConfig = (config: configType) => {
     installer: () => npm(config.packageName, getServerDir(config.serverName)),
     defaultOptions: {
       cmd: [
-        getServerDir(config.serverName) + '/node_modules/.bin/' + config.packageName + (win ? '.cmd' : ''),
+        getServerDir(config.serverName) + '/node_modules/.bin/' + config.binName ??
+          config.packageName + (win ? '.cmd' : ''),
         ...config.args
       ],
       ...config.defaultOptions
