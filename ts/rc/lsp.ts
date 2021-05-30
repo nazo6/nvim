@@ -3,6 +3,7 @@ import { serverCfgs } from './lspconfigdata';
 import { map } from '../utils';
 import { autocmd } from '../utils/autocmd';
 
+
 autocmd({
   id: 'LspFormat',
   events: 'BufWritePre',

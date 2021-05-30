@@ -2,7 +2,7 @@ import { ServerConfigType, ServerNamesType, SERVERS } from './constants';
 import { getServerDir } from './utils';
 
 const getServerConfig = (name: ServerNamesType) => {
-  return require(`lsp.servers.${name}`).config as any as ServerConfigType;
+  return require(`lsp.configs.${name}`).config as any as ServerConfigType;
 };
 export const installServer = (serverName: ServerNamesType) => {
   getServerConfig(serverName).installer();
