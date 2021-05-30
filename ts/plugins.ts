@@ -87,7 +87,7 @@ const loadPlugins = () => {
 
   //operate
   use('phaazon/hop.nvim', {
-    config: () => { }
+    config: () => {}
   });
 
   //code common

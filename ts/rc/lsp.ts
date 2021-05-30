@@ -13,7 +13,7 @@ autocmd({
 });
 map.nmap('<leader>f', ':lua vim.lsp.buf.formatting()<CR>', map.ns);
 
-lsp.setup()
+lsp.setup();
 
 lsp.ensureInstallServers([
   'cssls',
