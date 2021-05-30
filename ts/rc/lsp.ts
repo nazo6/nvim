@@ -4,6 +4,13 @@ import { map } from '../utils';
 import { autocmd } from '../utils/autocmd';
 
 autocmd({
+  id: 'StartServer',
+  events: 'BufRead',
+  filetypes: '*',
+  command: ':LspStart'
+});
+
+autocmd({
   id: 'LspFormat',
   events: 'BufWritePre',
   filetypes: '*',
