@@ -4,8 +4,26 @@ import { getServerDir } from './utils';
 const getServerConfig = (name: ServerNamesType) => {
   return require(`lsp.configs.${name}`).config as any as ServerConfigType;
 };
+
 export const installServer = (serverName: ServerNamesType) => {
-  getServerConfig(serverName).installer();
+  getServerConfig(serverName).installer((exitCode) => {
+    if (exitCode !== 0) {
+      print(`Failed to install "${serverName}"`);
+      const result = vim.fn.delete(getServerDir(serverName), 'rf');
+      if (result !== 0) {
+        print(`Failed to delete garbage. Please delete "${getServerDir(serverName)}" manually.`);
+      }
+    } else {
+      print(`Succeed to install "${serverName}"`);
+    }
+  });
+};
+
+export const uninstallServer = (serverName: ServerNamesType) => {
+  const result = vim.fn.delete(getServerDir(serverName), 'rf');
+  if (result !== 0) {
+    print(`Failed to uninstall. Please delete "${getServerDir(serverName)}" manually.`);
+  }
 };
 
 export const setupServer = (serverName: ServerNamesType, options?: any) => {

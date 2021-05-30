@@ -1,6 +1,6 @@
-import { executeShell } from "./term";
+import { executeShell } from './term';
 
-export const npm = (packageName: string, installPath: string) => {
-  vim.fn.mkdir(installPath, "p")
-  executeShell(`npm install ${packageName}`, installPath);
+export const npm = (packageName: string, installPath: string, onExit: (exitCode: number) => void) => {
+  vim.fn.mkdir(installPath, 'p');
+  executeShell(`npm install ${packageName}`, installPath, onExit);
 };
