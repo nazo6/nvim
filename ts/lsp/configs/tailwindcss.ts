@@ -18,7 +18,7 @@ export const config: ServerConfigType = {
       'curl -s https://api.github.com/repos/tailwindlabs/tailwindcss-intellisense/releases/latest'
     );
     const downloadUrl: any = vim.fn.json_decode(repoInfo)['assets'][1]['browser_download_url'];
-    //vim.fn.delete(cwd + '/tailwindcss-intellisense', 'rf');
+    vim.fn.delete(cwd + '/tailwindcss-intellisense', 'rf');
     executeShell(
       `
       curl -L -o tailwindcss-intellisense.zip ${downloadUrl} &&
@@ -27,7 +27,7 @@ export const config: ServerConfigType = {
       `,
       cwd,
       (exitCode) => {
-        //vim.fn.delete(cwd + 'tailwindcss-intellisense.zip');
+        vim.fn.delete(cwd + 'tailwindcss-intellisense.zip');
         onExit(exitCode);
       }
     );

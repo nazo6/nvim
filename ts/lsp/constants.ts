@@ -4,6 +4,7 @@ export const SERVERS = [
   'diagnosticls',
   'html',
   'jsonls',
+  'rust_analyzer',
   'sumneko_lua',
   'svelte',
   'tailwindcss',
