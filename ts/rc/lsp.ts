@@ -33,7 +33,8 @@ lsp.ensureInstallServers([
   'vuels',
   'yamlls',
   'bashls',
-  'tailwindcss'
+  'tailwindcss',
+  'rust_analyzer'
 ]);
 
 const setup = () => {
