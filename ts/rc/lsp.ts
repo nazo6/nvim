@@ -44,7 +44,10 @@ const manualServersSetup = () => {
   servers.forEach((serverName) => {
     const cfg: NoColonType = (serverCfgs as any)[serverName];
     (require('lspconfig')[serverName] as any as NoColonType).setup({
-      ...cfg
+      ...cfg,
+      on_attach: () => {
+        require('lsp_signature').on_attach();
+      }
     });
   });
 };
@@ -56,21 +59,13 @@ const setup = () => {
   servers.forEach((serverName) => {
     const cfg: NoColonType = (serverCfgs as any)[serverName];
     lsp.setupServer(serverName, {
-      ...cfg
+      ...cfg,
+      on_attach: () => {
+        require('lsp_signature').on_attach();
+      }
     });
   });
 };
 
 manualServersSetup();
 setup();
-
-require('lsp_signature').on_attach({
-  bind: true,
-  doc_lines: 10,
-  hint_enable: true,
-  hint_scheme: 'String',
-  handler_opts: {
-    border: 'shadow'
-  },
-  decorator: ['`', '`']
-});

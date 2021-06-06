@@ -11,13 +11,17 @@ const loadPlugins = () => {
   use('famiu/nvim-reload');
 
   // Lsp
-  use('neovim/nvim-lspconfig');
-  /*use('kabouzeid/nvim-lspinstall', {
-    requires: ['folke/lua-dev.nvim'],
+  use('neovim/nvim-lspconfig', {
+    requires: ['glepnir/lspsaga.nvim', 'ray-x/lsp_signature.nvim', 'onsails/lspkind-nvim'],
     config: () => {
-      require('rc.lspinstall');
+      require('rc.lspsaga');
+      require('rc.lsp');
+      require('lspkind').init({});
+      require('lsp_signature').on_attach();
     }
-  });*/
+  });
+  use('folke/lsp-colors.nvim');
+
   use('folke/trouble.nvim', {
     requires: 'kyazdani42/nvim-web-devicons',
     cmd: ['TroubleToggle', 'Trouble'],
@@ -26,19 +30,6 @@ const loadPlugins = () => {
       require('rc.trouble');
     }
   });
-  use('glepnir/lspsaga.nvim', {
-    config: () => {
-      require('rc.lspsaga');
-    }
-  });
-  use('ray-x/lsp_signature.nvim');
-  use('onsails/lspkind-nvim', {
-    config: () => {
-      require('lspkind').init({});
-    }
-  });
-  use('folke/lsp-colors.nvim');
-  use('nvim-lua/lsp-status.nvim');
 
   use('hrsh7th/nvim-compe', {
     config: () => {
