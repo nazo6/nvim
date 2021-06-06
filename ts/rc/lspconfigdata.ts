@@ -7,7 +7,7 @@ const noFormatting = (client: any) => {
 };
 
 export const serverCfgs = {
-  deno: {
+  denols: {
     root_dir: root_pattern('.nvim-lsp-denols')
   },
   cssls: {
