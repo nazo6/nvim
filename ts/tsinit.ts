@@ -7,5 +7,3 @@ vim.g.mapleader = ' ';
 loadPlugins();
 setKeymaps();
 doSettings();
-
-require('rc.lsp');
