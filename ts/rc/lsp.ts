@@ -60,8 +60,9 @@ const setup = () => {
     const cfg: NoColonType = (serverCfgs as any)[serverName];
     lsp.setupServer(serverName, {
       ...cfg,
-      on_attach: () => {
+      on_attach: (client: any) => {
         require('lsp_signature').on_attach();
+        cfg.on_attach ? cfg.on_attach(client) : '';
       }
     });
   });
