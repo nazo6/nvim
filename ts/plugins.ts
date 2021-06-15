@@ -63,6 +63,12 @@ const loadPlugins = () => {
     }
   });
   use('dstein64/nvim-scrollview');
+  use('akinsho/nvim-bufferline.lua', {
+    requires: 'kyazdani42/nvim-web-devicons',
+    config: () => {
+      require('rc.bufferline');
+    }
+  });
 
   //git
   use('tpope/vim-fugitive');
