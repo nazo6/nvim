@@ -17,7 +17,7 @@ const setKeymaps = () => {
   map.nmap('<C-e>', ':NvimTreeToggle<CR>', map.ns);
 
   map.tmap('<ESC>', `<C-\\><C-n>`, map.n);
-  map.nmap('<C-t>n', ':FloatermNew<CR>', map.ns);
+  map.nmap('<C-t>n', ':FloatermNew --wintype=split --height=0.3<CR>', map.ns);
   map.tmap('<C-t>h', `<C-\\><C-n>:FloatermHide<CR>`, map.ns);
   map.tmap('<C-t>x', `<C-\\><C-n>:FloatermKill<CR>`, map.ns);
   map.nmap('<C-t>s', ':FloatermShow<CR>', map.ns);

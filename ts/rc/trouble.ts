@@ -1,5 +1,3 @@
-import { map } from '../utils';
+import { map } from '../utils/map';
 
-require('trouble').setup({});
-
-map.nmap('<leader>x', '<cmd>TroubleToggle<CR>', map.ns);
+map('trouble-toggle', '<leader>x', { mode: 'n', silent: true, noremap: true }, ':TroubleToggle<CR>');
