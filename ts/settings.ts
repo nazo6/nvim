@@ -49,7 +49,7 @@ const doSettings = () => {
   cmd('hi Pmenu guifg=#2e3440 guibg=#a3be8c');
 
   vim.g.tokyonight_style = 'night';
-  vim.g.tokyonight_sidebars = ['coc-explorer'];
+  vim.g.tokyonight_sidebars = ['fern'];
   cmd('colorscheme tokyonight');
   if (vim.fn.has('termguicolors') === 1) {
     set('termguicolors', true);
