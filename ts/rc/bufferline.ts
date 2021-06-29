@@ -1,6 +1,6 @@
 require('bufferline').setup({
   options: {
-    offsets: [{ filetype: 'NvimTree', text: 'NvimTree', text_align: 'center' }],
+    offsets: [{ filetype: 'fern', text: 'fern', text_align: 'center' }],
     diagnostics: 'nvim_lsp'
   }
 });
