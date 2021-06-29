@@ -22,15 +22,6 @@ const loadPlugins = () => {
   });
   use('folke/lsp-colors.nvim');
 
-  use('folke/trouble.nvim', {
-    requires: 'kyazdani42/nvim-web-devicons',
-    cmd: ['TroubleToggle', 'Trouble'],
-    keys: ['<leader>x'],
-    config: () => {
-      require('rc.trouble');
-    }
-  });
-
   use('hrsh7th/nvim-compe', {
     config: () => {
       require('rc.compe');
@@ -127,6 +118,23 @@ const loadPlugins = () => {
   });
   use('kyazdani42/nvim-tree.lua', {
     requires: 'kyazdani42/nvim-web-devicons'
+  });
+
+  use('folke/trouble.nvim', {
+    requires: 'kyazdani42/nvim-web-devicons',
+    config: () => {
+      require('rc.trouble');
+      require('trouble').setup({});
+    }
+  });
+
+  use('kristijanhusak/orgmode.nvim', {
+    config: () => {
+      require('orgmode').setup({
+        org_agenda_files: ['~/org/**/*'],
+        org_default_notes_file: '~/org/refile.org'
+      });
+    }
   });
 
   //Language specific plugins
