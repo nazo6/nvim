@@ -1,0 +1,12 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "html",
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "json",
+    "markdown"
+  ],
+  "explorer.icon.enableNerdfont": true
+}

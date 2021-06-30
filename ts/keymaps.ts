@@ -14,7 +14,7 @@ const setKeymaps = () => {
 
   map.nmap('<C-p>', ':Telescope find_files<CR>', map.ns);
   map.nmap('<leader>p', ':Telescope live_grep<CR>', map.ns);
-  map.nmap('<C-e>', ':Fern . -reveal=% -drawer -toggle -width=30<CR>', map.ns);
+  map.nmap('<C-e>', ':CocCommand explorer<CR>', map.ns);
 
   map.tmap('<ESC>', `<C-\\><C-n>`, map.n);
   map.nmap('<C-t>n', ':FloatermNew --wintype=split --height=0.3<CR>', map.ns);

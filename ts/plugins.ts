@@ -10,28 +10,15 @@ const loadPlugins = () => {
 
   use('famiu/nvim-reload');
 
-  // Lsp
-  use('neovim/nvim-lspconfig', {
-    requires: ['glepnir/lspsaga.nvim', 'ray-x/lsp_signature.nvim', 'onsails/lspkind-nvim'],
-    config: () => {
-      require('rc.lspsaga');
-      require('rc.lsp');
-      require('lspkind').init({});
-      require('lsp_signature').on_attach();
-    }
-  });
-  use('folke/lsp-colors.nvim');
-
-  use('folke/nvim-compe', {
-    branch: 'stylize_markdown',
-    config: () => {
-      require('rc.compe');
-    }
-  });
-
   use('nvim-treesitter/nvim-treesitter', {
     config: () => {
       require('rc.treesitter');
+    }
+  });
+  use('neoclide/coc.nvim', {
+    branch: 'release',
+    config: () => {
+      require('rc.coc');
     }
   });
 
@@ -63,17 +50,11 @@ const loadPlugins = () => {
   });
 
   //git
-  use('tpope/vim-fugitive');
   use('airblade/vim-gitgutter');
   use('TimUntersberger/neogit', {
     config: () => {
       require('neogit').setup({});
     }
-  });
-
-  //operate
-  use('phaazon/hop.nvim', {
-    config: () => {}
   });
 
   //code common
@@ -109,31 +90,9 @@ const loadPlugins = () => {
       require('telescope').setup();
     }
   });
-  use('numToStr/Navigator.nvim', {
+  use('fannheyward/telescope-coc.nvim', {
     config: () => {
-      require('rc.Navigator');
-    }
-  });
-  /*use('kyazdani42/nvim-tree.lua', {
-    requires: 'kyazdani42/nvim-web-devicons'
-  });*/
-  use('lambdalisue/fern.vim', {
-    requires: [
-      'lambdalisue/fern-git-status.vim',
-      'lambdalisue/nerdfont.vim',
-      'lambdalisue/fern-renderer-nerdfont.vim',
-      'lambdalisue/glyph-palette.vim'
-    ],
-    config: () => {
-      require('rc.fern');
-    }
-  });
-
-  use('folke/trouble.nvim', {
-    requires: 'kyazdani42/nvim-web-devicons',
-    config: () => {
-      require('rc.trouble');
-      require('trouble').setup({});
+      require('telescope').load_extension('coc');
     }
   });
 
