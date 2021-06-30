@@ -22,7 +22,8 @@ const loadPlugins = () => {
   });
   use('folke/lsp-colors.nvim');
 
-  use('hrsh7th/nvim-compe', {
+  use('folke/nvim-compe', {
+    branch: 'stylize_markdown',
     config: () => {
       require('rc.compe');
     }
