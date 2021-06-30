@@ -6,7 +6,9 @@
     "typescriptreact",
     "javascript",
     "json",
-    "markdown"
+    "markdown",
+    "dart"
   ],
-  "explorer.icon.enableNerdfont": true
+  "explorer.icon.enableNerdfont": true,
+  "flutter.sdk.path": "C:\\flutter"
 }
