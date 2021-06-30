@@ -65,8 +65,10 @@ const loadPlugins = () => {
   //git
   use('tpope/vim-fugitive');
   use('airblade/vim-gitgutter');
-  use('rbong/vim-flog', {
-    cmd: ['Flog', 'FlogSplit']
+  use('TimUntersberger/neogit', {
+    config: () => {
+      require('neogit').setup({});
+    }
   });
 
   //operate
