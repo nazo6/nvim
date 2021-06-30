@@ -11,6 +11,7 @@ vim.g.coc_global_extensions = [
   'coc-deno',
   'coc-flutter',
   'coc-rust-analyzer',
+  'coc-lua',
   'coc-yaml',
   'coc-explorer'
 ];
@@ -22,4 +23,6 @@ luamap('hover', 'K', { mode: 'n', noremap: true, silent: true }, () => {
 });
 
 map.nmap('<leader>rn', '<Plug>(coc-rename)', map.s);
-map.nmap('<leader>ac', '<Plug>(coc-rename)', map.s);
+map.nmap('<leader>ac', '<Plug>(coc-codeaction)', map.s);
+
+map.imap('<Tab>', 'pumvisible() ? coc#_select_confirm() : "<C-g>u<Tab>"', { noremap: true, silent: true, expr: true });
