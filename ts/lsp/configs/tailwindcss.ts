@@ -20,10 +20,7 @@ export const config: ServerConfigType = {
     const downloadUrl: any = vim.fn.json_decode(repoInfo)['assets'][1]['browser_download_url'];
     vim.fn.delete(cwd + '/tailwindcss-intellisense', 'rf');
     executeShell(
-      `
-      curl -L -o tailwindcss-intellisense.zip ${downloadUrl} &&
-      mkdir ./tailwindcss-intellisense &&
-      ${win ? 'tar' : 'bsdtar'} -C ./tailwindcss-intellisense -xvf tailwindcss-intellisense.zip
+      `curl -L -o tailwindcss-intellisense.zip ${downloadUrl} && mkdir tailwindcss-intellisense && ${win ? 'tar' : 'bsdtar'} -C ./tailwindcss-intellisense -xvf tailwindcss-intellisense.zip
       `,
       cwd,
       (exitCode) => {
