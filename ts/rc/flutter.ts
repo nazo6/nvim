@@ -14,7 +14,7 @@ require('flutter-tools').setup({
     enabled: true
   },
   dev_log: {
-    open_cmd: '20new'
+    open_cmd: 'tabedit'
   },
   dev_tools: {
     autostart: true,
@@ -27,7 +27,6 @@ require('flutter-tools').setup({
     settings: {
       showTodos: true,
       completeFunctionCalls: true
-    },
-    debug: 1
+    }
   }
 });

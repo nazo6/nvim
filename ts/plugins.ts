@@ -83,7 +83,11 @@ const loadPlugins = () => {
       require('rc.indentLine');
     }
   });
-  use('rstacruz/vim-closer');
+  use('windwp/nvim-autopairs', {
+    config: () => {
+      require('rc.autopairs');
+    }
+  });
   use('alvan/vim-closetag', {
     config: () => {
       vim.cmd('autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact');

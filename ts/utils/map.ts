@@ -14,7 +14,11 @@ type OptionsType = {
 };
 export const map = (id: string, key: string, options: OptionsType, command: string | (() => void)) => {
   const { mode, ...opts } = options;
-  const commandText = typeof command === 'string' ? command : `lua callmapFunction("${id}")`;
+  // prettier-ignore
+  const commandText = 
+    typeof command === 'string' 
+      ? command 
+      : `<C-O>:lua callmapFunction("${id}")<CR>`;
   if (typeof command !== 'string') {
     mapFunctions[id] = command;
   }
