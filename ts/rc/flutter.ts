@@ -5,14 +5,13 @@ require('flutter-tools').setup({
   debugger: {
     enabled: true
   },
-  flutter_path: 'C:\\flutter\\bin\\flutter.bat',
   widget_guides: {
     enabled: true
   },
   closing_tags: {
     highlight: 'ErrorMsg',
     prefix: '>',
-    enabled: false
+    enabled: true
   },
   dev_log: {
     open_cmd: '20new'
@@ -28,6 +27,7 @@ require('flutter-tools').setup({
     settings: {
       showTodos: true,
       completeFunctionCalls: true
-    }
+    },
+    debug: 1
   }
 });

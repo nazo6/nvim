@@ -29,12 +29,6 @@ const loadPlugins = () => {
     }
   });
 
-  use('nvim-treesitter/nvim-treesitter', {
-    config: () => {
-      require('rc.treesitter');
-    }
-  });
-
   use('puremourning/vimspector', {
     ft: ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
     config: () => {
@@ -164,6 +158,12 @@ const loadPlugins = () => {
   });
   use('dag/vim-fish', {
     ft: ['fish']
+  });
+
+  use('nvim-treesitter/nvim-treesitter', {
+    config: () => {
+      require('rc.treesitter');
+    }
   });
 
   vim.cmd('PackerCompile');

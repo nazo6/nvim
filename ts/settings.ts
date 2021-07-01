@@ -40,7 +40,6 @@ const doSettings = () => {
   //Appearance settings
   cmd('set number');
   cmd('set signcolumn=number');
-  cmd('syntax on');
   cmd('set cursorline');
 
   set('winblend', 15);
