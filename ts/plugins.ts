@@ -42,6 +42,12 @@ const loadPlugins = () => {
       vim.g.vimspector_enable_mappings = 'HUMAN';
     }
   });
+  use('mfussenegger/nvim-dap');
+  use('rcarriga/nvim-dap-ui', {
+    config: () => {
+      require('dapui').setup();
+    }
+  });
 
   use('voldikss/vim-floaterm', {
     cmd: ['FloatermNew', 'FloatermHide', 'FloatermShow']
@@ -147,6 +153,12 @@ const loadPlugins = () => {
   });
 
   //Language specific plugins
+  use('akinsho/flutter-tools.nvim', {
+    requires: ['akinsho/plenary.nvim'],
+    config: () => {
+      require('rc.flutter');
+    }
+  });
   use('chrisbra/csv.vim', {
     ft: ['csv']
   });
