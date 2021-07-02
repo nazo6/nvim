@@ -47,9 +47,7 @@ const doSettings = () => {
   cmd('hi NormalFloat guifg=#2e3440 guibg=#a3be8c');
   cmd('hi Pmenu guifg=#2e3440 guibg=#a3be8c');
 
-  vim.g.tokyonight_style = 'night';
-  vim.g.tokyonight_sidebars = ['fern'];
-  cmd('colorscheme tokyonight');
+  cmd('colorscheme nvcode');
   if (vim.fn.has('termguicolors') === 1) {
     set('termguicolors', true);
   }

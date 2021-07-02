@@ -48,7 +48,7 @@ const loadPlugins = () => {
   });
 
   //Appearance
-  use('folke/tokyonight.nvim');
+  use('ChristianChiarulli/nvcode-color-schemes.vim');
   use('hoob3rt/lualine.nvim', {
     config: () => {
       require('rc.lualine');
