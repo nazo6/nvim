@@ -2,7 +2,7 @@ require('flutter-tools').setup({
   ui: {
     border: 'rounded'
   },
-  flutter_path: 'C:\\flutter\\bin\\flutter.cmd',
+  flutter_path: 'C:\\flutter\\bin\\flutter.bat',
   debugger: {
     enabled: true
   },
