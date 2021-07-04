@@ -10,6 +10,11 @@ const loadPlugins = () => {
 
   use('famiu/nvim-reload');
 
+  use('nvim-treesitter/nvim-treesitter', {
+    config: () => {
+      require('rc.treesitter');
+    }
+  });
   // Lsp
   use('neovim/nvim-lspconfig', {
     requires: ['glepnir/lspsaga.nvim', 'ray-x/lsp_signature.nvim', 'onsails/lspkind-nvim'],
@@ -162,12 +167,6 @@ const loadPlugins = () => {
   });
   use('dag/vim-fish', {
     ft: ['fish']
-  });
-
-  use('nvim-treesitter/nvim-treesitter', {
-    config: () => {
-      require('rc.treesitter');
-    }
   });
 
   vim.cmd('PackerCompile');
