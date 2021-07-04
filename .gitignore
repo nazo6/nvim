@@ -1,4 +1,4 @@
 node_modules/
 *.log
 lua/
-plugin/packer_compiled.vim
+plugin/packer_compiled.lua

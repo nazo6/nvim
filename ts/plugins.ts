@@ -27,8 +27,7 @@ const loadPlugins = () => {
   });
   use('folke/lsp-colors.nvim');
 
-  use('folke/nvim-compe', {
-    branch: 'stylize_markdown',
+  use('hrsh7th/nvim-compe', {
     config: () => {
       require('rc.compe');
     }
@@ -83,7 +82,6 @@ const loadPlugins = () => {
 
   //code common
   use('lukas-reineke/indent-blankline.nvim', {
-    branch: 'lua',
     config: () => {
       require('rc.indentLine');
     }
