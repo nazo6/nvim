@@ -7,7 +7,7 @@ return function(args)
   local id = args.id
   local command = args.command
   local events = args.events
-  local filetypes = args.filetypes or ""
+  local filetypes = args.filetypes or ''
   local bufonly = args.bufonly or false
 
   local commandText = ((type(command) == 'string') and command) or (('lua callAutoCmdFunction("' .. id) .. '")')
