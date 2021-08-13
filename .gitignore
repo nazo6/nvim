@@ -1,4 +1,2 @@
-node_modules/
 *.log
-lua/
 plugin/packer_compiled.lua
