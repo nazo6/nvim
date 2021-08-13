@@ -1,13 +1,13 @@
-local config = require"lspinstall/util".extract_config("terraformls")
-local lsp_util = require"lspinstall/util"
+local config = require('lspinstall/util').extract_config 'terraformls'
+local lsp_util = require 'lspinstall/util'
 
 local script_to_use = nil
 
 if lsp_util.is_windows() then
   --TODO somebody implement this if possible for windows
 else
-  config.default_config.cmd[1] = "./terraform-ls"
-  script_to_use  = [[
+  config.default_config.cmd[1] = './terraform-ls'
+  script_to_use = [[
   os=$(uname -s | tr "[:upper:]" "[:lower:]")
   arch=$(uname -m | tr "[:upper:]" "[:lower:]")
 
@@ -49,7 +49,6 @@ else
   ]]
 end
 
-
 return vim.tbl_extend('error', config, {
-  install_script = script_to_use
+  install_script = script_to_use,
 })

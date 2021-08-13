@@ -1,13 +1,13 @@
-local lsp_util = require"lspinstall/util"
+local lsp_util = require 'lspinstall/util'
 
 local script_to_use = nil
-local cmd_to_use = ""
+local cmd_to_use = ''
 
 if lsp_util.is_windows() then
   --TODO somebody implement this if possible for windows
 else
-  cmd_to_use = { "node", "./vscode-html/html-language-features/server/dist/node/htmlServerMain.js", "--stdio" }
-  script_to_use  = [[
+  cmd_to_use = { 'node', './vscode-html/html-language-features/server/dist/node/htmlServerMain.js', '--stdio' }
+  script_to_use = [[
   curl -L -o vscode.tar.gz https://update.code.visualstudio.com/latest/linux-x64/stable
   rm -rf vscode
   mkdir vscode
@@ -26,7 +26,7 @@ end
 return {
   install_script = script_to_use,
   default_config = {
-    cmd = cmd_to_use ,
+    cmd = cmd_to_use,
     filetypes = {
       -- html
       'aspnetcorerazor',
@@ -57,9 +57,9 @@ return {
       'vue',
       'svelte',
     },
-    root_dir = require'lspconfig'.util.root_pattern(".git", vim.fn.getcwd()),
+    root_dir = require('lspconfig').util.root_pattern('.git', vim.fn.getcwd()),
     init_options = {
       provideFormatter = true,
     },
-  }
+  },
 }
