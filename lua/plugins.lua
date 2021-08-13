@@ -1,55 +1,62 @@
-local packer = require 'packer'
+local packer = require "packer"
 local use = packer.use
 packer.init { config = { profile = { enable = true } } }
 packer.reset()
-use { 'wbthomason/packer.nvim' }
+use { "wbthomason/packer.nvim" }
 
-use { 'vim-jp/vimdoc-ja' }
+use { "vim-jp/vimdoc-ja" }
+
+use {
+  "rcarriga/nvim-notify",
+  config = function()
+    vim.notify = require "notify"
+  end,
+}
 
 ----------
 -- Code --
 ----------
 use {
-  'nvim-treesitter/nvim-treesitter',
+  "nvim-treesitter/nvim-treesitter",
   config = function()
-    require 'rc.treesitter'
+    require "rc.treesitter"
   end,
 }
-use 'folke/lua-dev.nvim'
-use { 'neovim/nvim-lspconfig' }
-use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+use "folke/lua-dev.nvim"
+use { "neovim/nvim-lspconfig" }
+use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
 use {
-  vim.fn.stdpath 'config' .. '/lspinstall',
+  vim.fn.stdpath "config" .. "/lspinstall",
   requires = {
-    'glepnir/lspsaga.nvim',
-    'ray-x/lsp_signature.nvim',
-    'onsails/lspkind-nvim',
+    "glepnir/lspsaga.nvim",
+    "ray-x/lsp_signature.nvim",
+    "onsails/lspkind-nvim",
   },
   config = function()
-    require 'rc.lsp.setup'
+    require "rc.lsp.setup"
   end,
 }
 
-use { 'folke/lsp-colors.nvim' }
+use { "folke/lsp-colors.nvim" }
 use {
-  'hrsh7th/nvim-compe',
+  "hrsh7th/nvim-compe",
   config = function()
-    require 'rc.compe'
+    require "rc.compe"
   end,
 }
 use {
-  'puremourning/vimspector',
-  ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  "puremourning/vimspector",
+  ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   config = function()
-    vim.g.vimspector_install_gadgets = { 'vscode-node-debug2' }
-    vim.g.vimspector_enable_mappings = 'HUMAN'
+    vim.g.vimspector_install_gadgets = { "vscode-node-debug2" }
+    vim.g.vimspector_enable_mappings = "HUMAN"
   end,
 }
-use { 'mfussenegger/nvim-dap' }
+use { "mfussenegger/nvim-dap" }
 use {
-  'rcarriga/nvim-dap-ui',
+  "rcarriga/nvim-dap-ui",
   config = function()
-    require('dapui').setup()
+    require("dapui").setup()
   end,
 }
 
@@ -57,30 +64,30 @@ use {
 -- Edits --
 -----------
 use {
-  'lukas-reineke/indent-blankline.nvim',
+  "lukas-reineke/indent-blankline.nvim",
   config = function()
-    require 'rc.indentLine'
+    require "rc.indentLine"
   end,
 }
 use {
-  'windwp/nvim-autopairs',
+  "windwp/nvim-autopairs",
   config = function()
-    require 'rc.autopairs'
+    require "rc.autopairs"
   end,
 }
 use {
-  'alvan/vim-closetag',
+  "alvan/vim-closetag",
   config = function()
-    vim.cmd 'autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact'
-    vim.g.closetag_filenames = '*.html,*.jsx,*.tsx'
+    vim.cmd "autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact"
+    vim.g.closetag_filenames = "*.html,*.jsx,*.tsx"
     vim.g.closetag_emptyTags_caseSensitive = 1
     vim.g.closetag_regions = {
-      ['typescript.tsx'] = 'jsxRegion,tsxRegion',
-      ['javascript.jsx'] = 'jsxRegion',
-      typescriptreact = 'jsxRegion,tsxRegion',
-      javascriptreact = 'jsxRegion',
+      ["typescript.tsx"] = "jsxRegion,tsxRegion",
+      ["javascript.jsx"] = "jsxRegion",
+      typescriptreact = "jsxRegion,tsxRegion",
+      javascriptreact = "jsxRegion",
     }
-    vim.g.closetag_shortcut = '>'
+    vim.g.closetag_shortcut = ">"
   end,
 }
 
@@ -88,62 +95,62 @@ use {
 -- Utils --
 -----------
 use {
-  'nvim-telescope/telescope.nvim',
-  requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
+  "nvim-telescope/telescope.nvim",
+  requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
   config = function()
-    require('telescope').setup()
+    require("telescope").setup()
   end,
 }
 use {
-  'lambdalisue/fern.vim',
+  "lambdalisue/fern.vim",
   requires = {
-    'lambdalisue/fern-git-status.vim',
-    'lambdalisue/nerdfont.vim',
-    'lambdalisue/fern-renderer-nerdfont.vim',
-    'lambdalisue/glyph-palette.vim',
+    "lambdalisue/fern-git-status.vim",
+    "lambdalisue/nerdfont.vim",
+    "lambdalisue/fern-renderer-nerdfont.vim",
+    "lambdalisue/glyph-palette.vim",
   },
   config = function()
-    require 'rc.fern'
+    require "rc.fern"
   end,
 }
 use {
-  'folke/trouble.nvim',
-  requires = 'kyazdani42/nvim-web-devicons',
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
   config = function()
-    require 'rc.trouble'
-    require('trouble').setup {}
+    require "rc.trouble"
+    require("trouble").setup {}
   end,
 }
 use {
-  'kristijanhusak/orgmode.nvim',
+  "kristijanhusak/orgmode.nvim",
   config = function()
-    require('orgmode').setup { org_agenda_files = { '~/org/**/*' }, org_default_notes_file = '~/org/refile.org' }
-  end,
-}
-
-use { 'voldikss/vim-floaterm', cmd = { 'FloatermNew', 'FloatermHide', 'FloatermShow' } }
-use { 'folke/tokyonight.nvim' }
-use {
-  'hoob3rt/lualine.nvim',
-  config = function()
-    require 'rc.lualine'
-  end,
-}
-use { 'dstein64/nvim-scrollview' }
-use {
-  'akinsho/nvim-bufferline.lua',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = function()
-    require 'rc.bufferline'
+    require("orgmode").setup { org_agenda_files = { "~/org/**/*" }, org_default_notes_file = "~/org/refile.org" }
   end,
 }
 
-use { 'tpope/vim-fugitive' }
-use { 'airblade/vim-gitgutter' }
+use { "voldikss/vim-floaterm", cmd = { "FloatermNew", "FloatermHide", "FloatermShow" } }
+use { "folke/tokyonight.nvim" }
 use {
-  'TimUntersberger/neogit',
+  "hoob3rt/lualine.nvim",
   config = function()
-    require('neogit').setup {}
+    require "rc.lualine"
+  end,
+}
+use { "dstein64/nvim-scrollview" }
+use {
+  "akinsho/nvim-bufferline.lua",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require "rc.bufferline"
+  end,
+}
+
+use { "tpope/vim-fugitive" }
+use { "airblade/vim-gitgutter" }
+use {
+  "TimUntersberger/neogit",
+  config = function()
+    require("neogit").setup {}
   end,
 }
 
@@ -151,15 +158,15 @@ use {
 -- Language specific plugins --
 -------------------------------
 use {
-  'akinsho/flutter-tools.nvim',
-  requires = { 'akinsho/plenary.nvim' },
+  "akinsho/flutter-tools.nvim",
+  requires = { "akinsho/plenary.nvim" },
   config = function()
-    require 'rc.flutter'
+    require "rc.flutter"
   end,
 }
-use { 'chrisbra/csv.vim', ft = { 'csv' } }
-use { 'dag/vim-fish', ft = { 'fish' } }
+use { "chrisbra/csv.vim", ft = { "csv" } }
+use { "dag/vim-fish", ft = { "fish" } }
 
-vim.cmd 'PackerCompile'
-vim.cmd 'PackerClean'
-vim.cmd 'PackerInstall'
+vim.cmd "PackerCompile"
+vim.cmd "PackerClean"
+vim.cmd "PackerInstall"
