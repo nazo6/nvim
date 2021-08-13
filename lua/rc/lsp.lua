@@ -12,8 +12,10 @@ local function setup_servers()
     local config = lspConfigs[server]
     if config == nil then
       config = {}
+    else
+      -- print(inspect(config))
     end
-    require('lspconfig')[server].setup {}
+    require('lspconfig')[server].setup(config)
   end
 end
 

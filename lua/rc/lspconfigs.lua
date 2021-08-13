@@ -5,6 +5,7 @@ local function noFormatting(client)
   client.resolved_capabilities.document_formatting = false
 end
 
+vim.lsp.set_log_level 'info'
 return {
   denols = {
     root_dir = root_pattern '.nvim-lsp-denols',
@@ -31,71 +32,9 @@ return {
     lspconfig = {
       settings = {
         Lua = {
-          diagnosticls = {
+          diagnostics = {
             globals = { 'vim' },
           },
-        },
-      },
-    },
-  },
-  diagnosticls = {
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'json',
-      'jsonc',
-      'typescript',
-      'typescript.tsx',
-      'typescriptreact',
-      'lua',
-    },
-    root_dir = root_pattern('.git', 'package.json', 'tsconfig.json'),
-    init_options = {
-      filetypes = {
-        javascript = 'eslint',
-        javascriptreact = 'eslint',
-        typescript = 'eslint',
-        typescriptreact = 'eslint',
-        ['typescript.tsx'] = 'eslint',
-      },
-      formatFiletypes = {
-        javascript = 'prettier',
-        javascriptreact = 'prettier',
-        json = 'prettier',
-        jsonc = 'prettier',
-        typescript = 'prettier',
-        typescriptreact = 'prettier',
-        ['typescript.tsx'] = 'prettier',
-        lua = 'luaformat',
-      },
-      linters = {
-        eslint = {
-          command = 'eslint_d',
-          rootPatterns = { '.eslintrc', '.eslintrc.js', '.eslintrc.json', '.eslintrc.yml' },
-          debounce = 100,
-          args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
-          sourceName = 'eslint',
-          parseJson = {
-            errorsRoot = '[0].messages',
-            line = 'line',
-            column = 'column',
-            endLine = 'endLine',
-            endColumn = 'endColumn',
-            message = '[eslint] ${message} [${ruleId}]',
-            security = 'severity',
-          },
-          securities = { 'info', 'warning', 'error' },
-        },
-      },
-      formatters = {
-        prettier = {
-          command = 'prettier',
-          args = { '--stdin-filepath', '%filepath' },
-          rootPatterns = { '.prettierrc', '.prettierrc.js', 'prettierrc.yml' },
-        },
-        luaformat = {
-          command = 'lua-format',
-          args = { '-i' },
         },
       },
     },
