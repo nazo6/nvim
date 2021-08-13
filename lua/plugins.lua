@@ -3,8 +3,12 @@ local use = packer.use
 packer.init { config = { profile = { enable = true } } }
 packer.reset()
 use { 'wbthomason/packer.nvim' }
+
 use { 'vim-jp/vimdoc-ja' }
-use { 'famiu/nvim-reload' }
+
+----------
+-- Code --
+----------
 use {
   'nvim-treesitter/nvim-treesitter',
   config = function()
@@ -16,12 +20,13 @@ use { 'neovim/nvim-lspconfig' }
 use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 use {
   vim.fn.stdpath 'config' .. '/lspinstall',
-  requires = { 'glepnir/lspsaga.nvim', 'ray-x/lsp_signature.nvim', 'onsails/lspkind-nvim' },
+  requires = {
+    'glepnir/lspsaga.nvim',
+    'ray-x/lsp_signature.nvim',
+    'onsails/lspkind-nvim',
+  },
   config = function()
-    require 'rc.lspsaga'
-    require 'rc.lsp'
-    require('lspkind').init {}
-    require('lsp_signature').on_attach()
+    require 'rc.lsp.setup'
   end,
 }
 
@@ -47,31 +52,10 @@ use {
     require('dapui').setup()
   end,
 }
-use { 'voldikss/vim-floaterm', cmd = { 'FloatermNew', 'FloatermHide', 'FloatermShow' } }
-use { 'folke/tokyonight.nvim' }
-use {
-  'hoob3rt/lualine.nvim',
-  config = function()
-    require 'rc.lualine'
-  end,
-}
-use { 'dstein64/nvim-scrollview' }
-use {
-  'akinsho/nvim-bufferline.lua',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = function()
-    require 'rc.bufferline'
-  end,
-}
-use { 'tpope/vim-fugitive' }
-use { 'airblade/vim-gitgutter' }
-use {
-  'TimUntersberger/neogit',
-  config = function()
-    require('neogit').setup {}
-  end,
-}
-use { 'phaazon/hop.nvim', config = function() end }
+
+-----------
+-- Edits --
+-----------
 use {
   'lukas-reineke/indent-blankline.nvim',
   config = function()
@@ -99,6 +83,10 @@ use {
     vim.g.closetag_shortcut = '>'
   end,
 }
+
+-----------
+-- Utils --
+-----------
 use {
   'nvim-telescope/telescope.nvim',
   requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' },
@@ -132,6 +120,36 @@ use {
     require('orgmode').setup { org_agenda_files = { '~/org/**/*' }, org_default_notes_file = '~/org/refile.org' }
   end,
 }
+
+use { 'voldikss/vim-floaterm', cmd = { 'FloatermNew', 'FloatermHide', 'FloatermShow' } }
+use { 'folke/tokyonight.nvim' }
+use {
+  'hoob3rt/lualine.nvim',
+  config = function()
+    require 'rc.lualine'
+  end,
+}
+use { 'dstein64/nvim-scrollview' }
+use {
+  'akinsho/nvim-bufferline.lua',
+  requires = 'kyazdani42/nvim-web-devicons',
+  config = function()
+    require 'rc.bufferline'
+  end,
+}
+
+use { 'tpope/vim-fugitive' }
+use { 'airblade/vim-gitgutter' }
+use {
+  'TimUntersberger/neogit',
+  config = function()
+    require('neogit').setup {}
+  end,
+}
+
+-------------------------------
+-- Language specific plugins --
+-------------------------------
 use {
   'akinsho/flutter-tools.nvim',
   requires = { 'akinsho/plenary.nvim' },
@@ -141,6 +159,7 @@ use {
 }
 use { 'chrisbra/csv.vim', ft = { 'csv' } }
 use { 'dag/vim-fish', ft = { 'fish' } }
+
 vim.cmd 'PackerCompile'
 vim.cmd 'PackerClean'
 vim.cmd 'PackerInstall'

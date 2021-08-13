@@ -11,4 +11,9 @@ return {
   n = { noremap = true },
   ns = { noremap = true, silent = true },
   s = { silent = true },
+  get_buf_map = function(bufnr, mode)
+    return function(key, action, options)
+      vim.api.nvim_buf_set_keymap(bufnr, mode, key, action, options)
+    end
+  end,
 }

@@ -1,20 +1,25 @@
-local autocmd = require 'utils.autocmd'
-local map = require 'utils.map'
-
-local inspect = require 'lib.inspect'
-
-local lspConfigs = require 'rc.lspconfigs'
+local serverConfigs = require 'rc.lsp.serverconfigs'
+local commonConfigs = require 'rc.lsp.config'
 
 local function setup_servers()
   require('lspinstall').setup()
   local servers = require('lspinstall').installed_servers()
   for _, server in pairs(servers) do
-    local config = lspConfigs[server]
+    local config = serverConfigs[server]
     if config == nil then
       config = {}
     else
       -- print(inspect(config))
     end
+
+    local server_on_attach = config.on_attach
+    config.on_attach = function()
+      if server_on_attach ~= nil then
+        server_on_attach()
+      end
+      commonConfigs.on_attach()
+    end
+
     require('lspconfig')[server].setup(config)
   end
 end
@@ -32,16 +37,10 @@ nullls.config {
   sources = {
     nullls.builtins.formatting.stylua,
     nullls.builtins.formatting.eslint_d,
+    nullls.builtins.formatting.prettier,
   },
 }
 require('lspconfig')['null-ls'].setup {}
 
-autocmd {
-  id = 'LspFormat',
-  events = 'BufWritePre',
-  filetypes = '*',
-  command = function()
-    vim.lsp.buf.formatting_sync()
-  end,
-}
-map.nmap('<leader>f', ':lua vim.lsp.buf.formatting()<CR>', map.ns)
+require('lspkind').init {}
+require('lspsaga').init_lsp_saga()
