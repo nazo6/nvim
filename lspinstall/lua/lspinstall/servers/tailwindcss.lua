@@ -3,29 +3,32 @@ local lsp_util = require "lspinstall/util"
 
 local cmd_to_use = { "node", "./tailwindcss-intellisense/extension/dist/server/tailwindServer.js", "--stdio" }
 
+local version = "0.6.13"
+local download_url = "https://github.com/tailwindlabs/tailwindcss-intellisense/releases/download/v"
+  .. version
+  .. "/vscode-tailwindcss-"
+  .. version
+  .. ".vsix"
+
 return {
   install_script = function()
-    local repoInfo =
-      vim.fn.system "curl -s https://api.github.com/repos/tailwindlabs/tailwindcss-intellisense/releases/latest"
-    local download_url = vim.fn.json_decode(repoInfo)["assets"][1]["browser_download_url"]
-
     if lsp_util.is_windows() then
       return lsp_util.concat {
-        "cmd.exe /c",
-        "rd /s /q tailwindcss-intellisense",
-        "curl -L -o tailwindcss-intellisense.vsix " .. download_url,
-        "tar -C ./tailwindcss-intellisense -xvf tailwindcss-intellisense.vsix",
-        "del /q tailwind-intellisense.vsix",
+        "cmd.exe /c curl -L -o tailwindcss-intellisense.vsix " .. download_url,
+        "&& rd /s /q tailwindcss-intellisense",
+        "&& mkdir tailwindcss-intellisense",
+        "& tar --directory tailwindcss-intellisense -xvf tailwindcss-intellisense.vsix",
+        "&& del /q tailwindcss-intellisense.vsix",
       }
     else
-      return lsp_util.concat{
+      return lsp_util.concat {
         "curl -L -o tailwindcss-intellisense.vsix " .. download_url,
-        "rm -rf tailwindcss-intellisense",
-        "unzip tailwindcss-intellisense.vsix -d tailwindcss-intellisense",
-        "rm tailwindcss-intellisense.vsix",
-        [[echo "#!/usr/bin/env bash" > tailwindcss-intellisense.sh]],
-        [[echo "node \$(dirname \$0)/tailwindcss-intellisense/extension/dist/server/tailwindServer.js \$*" >> tailwindcss-intellisense.sh]],
-        "chmod +x tailwindcss-intellisense.sh",
+        "&& rm -rf tailwindcss-intellisense",
+        "& unzip tailwindcss-intellisense.vsix -d tailwindcss-intellisense",
+        "&& rm tailwindcss-intellisense.vsix",
+        [[&& echo "#!/usr/bin/env bash" > tailwindcss-intellisense.sh]],
+        [[&& echo "node \$(dirname \$0)/tailwindcss-intellisense/extension/dist/server/tailwindServer.js \$*" >> tailwindcss-intellisense.sh]],
+        "&& chmod +x tailwindcss-intellisense.sh",
       }
     end
   end,
