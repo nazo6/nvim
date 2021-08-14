@@ -24,6 +24,8 @@ end
 set("undodir", undodir)
 set("undofile", true)
 
+set("hidden", true)
+
 set("smartcase", true)
 set("ignorecase", true)
 set("inccommand", "split")

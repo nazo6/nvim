@@ -128,8 +128,24 @@ use {
     require "rc.trouble"
   end,
 }
+use {
+  "akinsho/nvim-toggleterm.lua",
+  config = function()
+    require "rc.toggleterm"
+  end,
+}
 
-use { "voldikss/vim-floaterm", cmd = { "FloatermNew", "FloatermHide", "FloatermShow" } }
+use { "airblade/vim-gitgutter" }
+use {
+  "TimUntersberger/neogit",
+  config = function()
+    require("neogit").setup {}
+  end,
+}
+
+------------------------
+-- Appearance plugins --
+------------------------
 use { "folke/tokyonight.nvim" }
 use {
   "hoob3rt/lualine.nvim",
@@ -143,15 +159,6 @@ use {
   requires = "kyazdani42/nvim-web-devicons",
   config = function()
     require "rc.bufferline"
-  end,
-}
-
-use { "tpope/vim-fugitive" }
-use { "airblade/vim-gitgutter" }
-use {
-  "TimUntersberger/neogit",
-  config = function()
-    require("neogit").setup {}
   end,
 }
 
