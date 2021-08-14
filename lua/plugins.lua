@@ -106,7 +106,7 @@ use {
   "nvim-telescope/telescope.nvim",
   requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
   config = function()
-    require("telescope").setup()
+    require "rc.telescope"
   end,
 }
 use {
