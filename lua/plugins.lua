@@ -31,19 +31,27 @@ use {
     "glepnir/lspsaga.nvim",
     "ray-x/lsp_signature.nvim",
     "onsails/lspkind-nvim",
+    "folke/lsp-colors.nvim",
   },
   config = function()
     require "rc.lsp.setup"
   end,
 }
 
-use { "folke/lsp-colors.nvim" }
+use { "hrsh7th/vim-vsnip" }
 use {
-  "hrsh7th/nvim-compe",
+  "hrsh7th/nvim-cmp",
+  requires = {
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-calc",
+    "hrsh7th/cmp-path",
+  },
   config = function()
-    require "rc.compe"
+    require "rc.cmp"
   end,
 }
+
 use {
   "puremourning/vimspector",
   ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
