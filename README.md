@@ -5,3 +5,4 @@ My neovim config.
 - stylua
 - eslint_d
 - prettier
+- stylua

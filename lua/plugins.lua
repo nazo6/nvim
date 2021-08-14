@@ -118,13 +118,6 @@ use {
   requires = "kyazdani42/nvim-web-devicons",
   config = function()
     require "rc.trouble"
-    require("trouble").setup {}
-  end,
-}
-use {
-  "kristijanhusak/orgmode.nvim",
-  config = function()
-    require("orgmode").setup { org_agenda_files = { "~/org/**/*" }, org_default_notes_file = "~/org/refile.org" }
   end,
 }
 
