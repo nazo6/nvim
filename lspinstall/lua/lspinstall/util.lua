@@ -44,7 +44,7 @@ end
 --- Combine commands to single string
 --@return string
 function M.concat(t)
-  return table.concat(t, " && ")
+  return table.concat(t, " ")
 end
 
 --- Sets the shell to be used as bash, if not on windows
