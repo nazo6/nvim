@@ -24,7 +24,7 @@ return {
       return lsp_util.concat {
         "curl -L -o tailwindcss-intellisense.vsix " .. download_url,
         "&& rm -rf tailwindcss-intellisense",
-        "& unzip tailwindcss-intellisense.vsix -d tailwindcss-intellisense",
+        "; unzip tailwindcss-intellisense.vsix -d tailwindcss-intellisense",
         "&& rm tailwindcss-intellisense.vsix",
         [[&& echo "#!/usr/bin/env bash" > tailwindcss-intellisense.sh]],
         [[&& echo "node \$(dirname \$0)/tailwindcss-intellisense/extension/dist/server/tailwindServer.js \$*" >> tailwindcss-intellisense.sh]],
