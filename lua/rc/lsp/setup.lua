@@ -13,11 +13,11 @@ local function setup_servers()
     end
 
     local server_on_attach = config.on_attach
-    config.on_attach = function()
+    config.on_attach = function(client, bufnr)
       if server_on_attach ~= nil then
-        server_on_attach()
+        server_on_attach(client, bufnr)
       end
-      commonConfigs.on_attach()
+      commonConfigs.on_attach(client, bufnr)
     end
     config.capabilities = commonConfigs.capabilities
 
