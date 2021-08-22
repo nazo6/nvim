@@ -54,7 +54,7 @@ end
 
 if vim.fn.has "win32" == 1 then
   set("shell", "pwsh")
-  set("shellcmdflag", "-c")
+  set("shellcmdflag", "-NoProfile -c")
   set("shellquote", '\\"')
   set("shellxquote", "")
 end
