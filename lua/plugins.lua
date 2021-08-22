@@ -129,9 +129,9 @@ use {
   end,
 }
 use {
-  "akinsho/nvim-toggleterm.lua",
+  "voldikss/vim-floaterm",
   config = function()
-    require "rc.toggleterm"
+    require "rc.floaterm"
   end,
 }
 

@@ -35,7 +35,9 @@ set("tabstop", 2)
 set("shiftwidth", 2)
 set("expandtab", true)
 
-cmd "set number"
+set "confirm"
+
+set("number", "relativenumber")
 cmd "set signcolumn=number"
 cmd "set cursorline"
 
