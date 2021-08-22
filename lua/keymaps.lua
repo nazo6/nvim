@@ -5,8 +5,9 @@ map.nmap("gk", "k", map.ns)
 map.nmap("j", "gj", map.ns)
 map.nmap("gj", "j", map.ns)
 
-map.map("d", [["_d]], map.ns)
-map.map("c", [["_c]], map.ns)
+map.nmap("dd", [["_dd]], map.ns)
+map.vmap("d", [["_d"]], map.ns)
+map.vmap("c", [["_c]], map.ns)
 
 map.map("<leader>s", [[<CMD>%s/]], map.ns)
 

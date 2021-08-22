@@ -104,8 +104,16 @@ use "jbyuki/venn.nvim"
 -- Utils --
 -----------
 use {
+  "AckslD/nvim-neoclip.lua",
+  config = function()
+    require("neoclip").setup()
+  end,
+}
+use {
   "nvim-telescope/telescope.nvim",
-  requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+  requires = {
+    "nvim-lua/plenary.nvim",
+  },
   config = function()
     require "rc.telescope"
   end,
