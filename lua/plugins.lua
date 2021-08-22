@@ -28,7 +28,7 @@ use "folke/lua-dev.nvim"
 use { "neovim/nvim-lspconfig" }
 use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
 use {
-  vim.fn.stdpath "config" .. "/lspinstall",
+  vim.fn.stdpath "config" .. "/lspinstall.nvim",
   requires = {
     "glepnir/lspsaga.nvim",
     "ray-x/lsp_signature.nvim",
@@ -98,6 +98,7 @@ use {
     vim.g.closetag_shortcut = ">"
   end,
 }
+use "jbyuki/venn.nvim"
 
 -----------
 -- Utils --

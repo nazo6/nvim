@@ -9,7 +9,7 @@ autocmd {
   id = "clipboard",
   events = { "BufNewFile", "BufRead" },
   filetypes = "*",
-  command = "set clipboard+=unnamed",
+  command = "set clipboard+=unnamedplus",
 }
 autocmd {
   id = "SetJsonc",
