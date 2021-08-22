@@ -41,7 +41,11 @@ nullls.config {
     nullls.builtins.formatting.prettier,
   },
 }
-require("lspconfig")["null-ls"].setup {}
+
+require("lspconfig")["null-ls"].setup {
+  capabilities = commonConfigs.capabilities,
+  on_attach = commonConfigs.on_attach,
+}
 
 require("lspkind").init {}
 require("lspsaga").init_lsp_saga()
