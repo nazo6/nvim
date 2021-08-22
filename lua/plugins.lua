@@ -34,6 +34,7 @@ use {
     "ray-x/lsp_signature.nvim",
     "onsails/lspkind-nvim",
     "folke/lsp-colors.nvim",
+    "jose-elias-alvarez/nvim-lsp-ts-utils",
   },
   config = function()
     require "rc.lsp.setup"

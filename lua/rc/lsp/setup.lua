@@ -1,6 +1,8 @@
 local serverConfigs = require "rc.lsp.serverconfigs"
 local commonConfigs = require "rc.lsp.config"
 
+require("rc.lsp.null-ls").setup(commonConfigs)
+
 local function setup_servers()
   require("lspinstall").setup()
   local servers = require("lspinstall").installed_servers()
@@ -32,20 +34,6 @@ require("lspinstall").post_install_hook = function()
   setup_servers() -- reload installed servers
   vim.cmd "bufdo e"
 end
-
-local nullls = require "null-ls"
-nullls.config {
-  sources = {
-    nullls.builtins.formatting.stylua,
-    nullls.builtins.formatting.eslint_d,
-    nullls.builtins.formatting.prettier,
-  },
-}
-
-require("lspconfig")["null-ls"].setup {
-  capabilities = commonConfigs.capabilities,
-  on_attach = commonConfigs.on_attach,
-}
 
 require("lspkind").init {}
 require("lspsaga").init_lsp_saga()
