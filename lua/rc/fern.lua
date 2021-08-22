@@ -11,7 +11,7 @@ autocmd {
   events = "FileType",
   filetypes = "fern",
   command = function()
-    vim.cmd "set nonumber"
+    vim.cmd "set norelativenumber"
   end,
 }
 autocmd {

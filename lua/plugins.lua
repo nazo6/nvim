@@ -6,12 +6,14 @@ use { "wbthomason/packer.nvim" }
 
 use { "vim-jp/vimdoc-ja" }
 
+-- [[
 use {
   "rcarriga/nvim-notify",
   config = function()
     vim.notify = require "notify"
   end,
 }
+-- ]]
 
 ----------
 -- Code --
@@ -85,15 +87,13 @@ use {
 }
 use {
   "alvan/vim-closetag",
+  ft = { "html", "javascriptreact", "typescriptreact" },
   config = function()
-    vim.cmd "autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact"
     vim.g.closetag_filenames = "*.html,*.jsx,*.tsx"
     vim.g.closetag_emptyTags_caseSensitive = 1
     vim.g.closetag_regions = {
       ["typescript.tsx"] = "jsxRegion,tsxRegion",
       ["javascript.jsx"] = "jsxRegion",
-      typescriptreact = "jsxRegion,tsxRegion",
-      javascriptreact = "jsxRegion",
     }
     vim.g.closetag_shortcut = ">"
   end,
