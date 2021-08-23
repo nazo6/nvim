@@ -9,7 +9,7 @@ return {
     vim.api.nvim_set_keymap("t", key, action, options)
   end,
   vmap = function(key, action, options)
-    vim.api.nvim_set_keymap("", key, action, options)
+    vim.api.nvim_set_keymap("v", key, action, options)
   end,
   map = function(key, action, options)
     vim.api.nvim_set_keymap("", key, action, options)
