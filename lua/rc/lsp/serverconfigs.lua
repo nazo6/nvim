@@ -9,14 +9,14 @@ return {
   denols = {
     root_dir = root_pattern ".nvim-lsp-denols",
   },
-  css = { on_attach = no_formatting },
+  cssls = { on_attach = no_formatting },
   html = { on_attach = no_formatting },
-  json = {
+  jsonls = {
     on_attach = no_formatting,
     filetypes = { "json", "jsonc" },
     settings = { json = { schemas = schemas } },
   },
-  typescript = {
+  tsserver = {
     root_dir = root_pattern("package.json", "tsconfig.json"),
     on_attach = function(client, bufnr)
       -- disable tsserver formatting if you plan on formatting via null-ls
@@ -79,7 +79,7 @@ return {
   tailwindcss = {
     root_dir = root_pattern("tailwind.config.js", "tailwind.config.ts"),
   },
-  lua = require("lua-dev").setup {
+  sumneko_lua = require("lua-dev").setup {
     library = {
       vimruntime = true,
       types = true,
