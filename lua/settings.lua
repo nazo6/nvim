@@ -51,10 +51,3 @@ cmd "colorscheme tokyonight"
 if vim.fn.has "termguicolors" == 1 then
   set("termguicolors", true)
 end
-
-if vim.fn.has "win32" == 1 then
-  set("shell", "pwsh")
-  set("shellcmdflag", "-NoProfile -c")
-  set("shellquote", '\\"')
-  set("shellxquote", "")
-end
