@@ -155,7 +155,15 @@ packer.startup {
       end,
     }
 
-    use { "airblade/vim-gitgutter" }
+    use {
+      "lewis6991/gitsigns.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+      },
+      config = function()
+        require("gitsigns").setup()
+      end,
+    }
     use {
       "TimUntersberger/neogit",
       config = function()
@@ -181,6 +189,10 @@ packer.startup {
         require "rc.bufferline"
       end,
     }
+    -----------
+    -- Tools --
+    -----------
+    use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
 
     -------------------------------
     -- Language specific plugins --
