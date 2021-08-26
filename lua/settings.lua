@@ -9,7 +9,7 @@ autocmd {
   id = "clipboard",
   events = { "BufNewFile", "BufRead" },
   filetypes = "*",
-  command = "set clipboard+=unnamedplus",
+  command = "set clipboard^=unnamedplus",
 }
 autocmd {
   id = "SetJsonc",
@@ -17,6 +17,7 @@ autocmd {
   filetypes = "{tsconfig,tsconfig.*}.json",
   command = "setfiletype jsonc",
 }
+
 local undodir = tostring(vim.fn.stdpath "data") .. "/undo"
 if vim.fn.isdirectory(undodir) ~= 1 then
   vim.fn.mkdir(undodir, "p")
@@ -37,7 +38,7 @@ set("expandtab", true)
 
 set("confirm", true)
 
-cmd "set relativenumber"
+cmd "set number"
 cmd "set signcolumn=number"
 cmd "set cursorline"
 
