@@ -16,14 +16,14 @@ packer.startup {
 
     use { "vim-jp/vimdoc-ja" }
 
-    -- [[
+    --[[
     use {
       "rcarriga/nvim-notify",
       config = function()
         vim.notify = require "notify"
       end,
     }
-    -- ]]
+    ]]
 
     ----------
     -- Code --
@@ -125,6 +125,8 @@ packer.startup {
       requires = {
         "nvim-lua/plenary.nvim",
       },
+      cmd = { "Telescope" },
+      module = { "telescope" },
       config = function()
         require "rc.telescope"
       end,
@@ -144,6 +146,8 @@ packer.startup {
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
+      cmd = { "Trouble*" },
+      module = { "trouble" },
       config = function()
         require "rc.trouble"
       end,
@@ -166,6 +170,8 @@ packer.startup {
     }
     use {
       "TimUntersberger/neogit",
+      cmd = { "Neogit" },
+      module = { "neogit" },
       config = function()
         require("neogit").setup {}
       end,
@@ -200,6 +206,7 @@ packer.startup {
     use {
       "akinsho/flutter-tools.nvim",
       requires = { "akinsho/plenary.nvim" },
+      ft = { "dart" },
       config = function()
         require "rc.flutter"
       end,
