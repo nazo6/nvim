@@ -1,2 +1,2 @@
 profile:
-	pwsh scripts/profile.ps1
+	pwsh -NoProfile scripts/profile.ps1

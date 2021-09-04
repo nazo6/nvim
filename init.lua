@@ -1,4 +1,4 @@
-﻿local profile = false
+local profile = false
 
 if profile then
   require("plenary.profile").start("profile.log", { flame = true })
