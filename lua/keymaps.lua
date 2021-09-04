@@ -5,8 +5,6 @@ map.nmap("gk", "k", map.ns)
 map.nmap("j", "gj", map.ns)
 map.nmap("gj", "j", map.ns)
 
-map.nmap("dd", [["_dd]], map.ns)
-map.map("d", [["_d]], map.ns)
 map.vmap("c", [["_c]], map.ns)
 map.vmap("p", [[_dp]], map.ns)
 
