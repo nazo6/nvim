@@ -47,18 +47,16 @@ return {
         eslint_enable_disable_comments = true,
         eslint_bin = "eslint",
         eslint_enable_diagnostics = true,
-        eslint_opts = {
-          diagnostics_format = "#{m} [#{c}]",
-        },
+        eslint_opts = {},
 
         -- formatting
         enable_formatting = true,
         formatter = "prettier",
-        formatter_config_fallback = nil,
+        formatter_opts = {},
 
         -- update imports on file move
-        update_imports_on_move = true,
-        require_confirmation_on_move = true,
+        update_imports_on_move = false,
+        require_confirmation_on_move = false,
         watch_dir = nil,
 
         -- filter diagnostics
@@ -72,7 +70,6 @@ return {
       -- no default maps, so you may want to define some here
       local opts = { silent = true }
       vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
-      vim.api.nvim_buf_set_keymap(bufnr, "n", "qq", ":TSLspFixCurrent<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
     end,

@@ -5,7 +5,6 @@ return {
       sources = {
         nullls.builtins.formatting.stylua,
       },
-      debug = true,
     }
 
     require("lspconfig")["null-ls"].setup {
