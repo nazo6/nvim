@@ -1,3 +1,5 @@
+pcall(require, "impatient")
+
 local profile = false
 
 if profile then
