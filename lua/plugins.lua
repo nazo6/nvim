@@ -38,7 +38,7 @@ packer.startup {
     use { "neovim/nvim-lspconfig" }
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
     use {
-      vim.fn.stdpath "config" .. "/lspinstall.nvim",
+      vim.fn.stdpath "config" .. "/installer.nvim",
       requires = {
         "glepnir/lspsaga.nvim",
         "ray-x/lsp_signature.nvim",
