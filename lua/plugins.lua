@@ -40,7 +40,7 @@ packer.startup {
     use { "neovim/nvim-lspconfig" }
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
     use {
-      vim.fn.stdpath "config" .. "/installer.nvim",
+      vim.fn.stdpath "config" .. "/lspinstall.nvim",
       requires = {
         "glepnir/lspsaga.nvim",
         "ray-x/lsp_signature.nvim",
@@ -51,6 +51,9 @@ packer.startup {
       config = function()
         require "rc.lsp.setup"
       end,
+    }
+    use {
+      vim.fn.stdpath "config" .. "/installer.nvim",
     }
 
     use { "hrsh7th/vim-vsnip" }
@@ -215,6 +218,14 @@ packer.startup {
     }
     use { "chrisbra/csv.vim", ft = { "csv" } }
     use { "dag/vim-fish", ft = { "fish" } }
+    use {
+      "bfredl/nvim-luadev",
+      cmd = { "Luadev" },
+      config = function()
+        vim.api.nvim_set_keymap("n", "<Leader>l", "<Plug>(Luadev-RunLine)", {})
+        vim.api.nvim_set_keymap("n", "<Leader>r", "<Plug>(Luadev-RunLine)", {})
+      end,
+    }
   end,
   config = {
     profile = {
