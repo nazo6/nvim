@@ -7,6 +7,9 @@ if profile then
 end
 
 vim.g.mapleader = " "
+inspect = function(...)
+  print(require("lib/inspect").inspect(...))
+end
 require "plugins"
 require "keymaps"
 require "settings"
