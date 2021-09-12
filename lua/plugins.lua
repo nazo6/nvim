@@ -40,9 +40,14 @@ packer.startup {
     use { "neovim/nvim-lspconfig" }
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
     use {
+      "RishabhRD/nvim-lsputils",
+      requires = {
+        "RishabhRD/popfix",
+      },
+    }
+    use {
       vim.fn.stdpath "config" .. "/lspinstall.nvim",
       requires = {
-        "glepnir/lspsaga.nvim",
         "ray-x/lsp_signature.nvim",
         "onsails/lspkind-nvim",
         "folke/lsp-colors.nvim",
