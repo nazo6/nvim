@@ -17,6 +17,7 @@ end
 require("installer").setup {}
 require("installer.integrations.ls").setup {
   configs = server_configs,
+  enable_install_hook = true,
 }
 
 require("lspkind").init {}
