@@ -45,20 +45,15 @@ packer.startup {
         "RishabhRD/popfix",
       },
     }
+    use { "ray-x/lsp_signature.nvim" }
+    use { "onsails/lspkind-nvim" }
+    use { "folke/lsp-colors.nvim" }
+    use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
     use {
-      vim.fn.stdpath "config" .. "/lspinstall.nvim",
-      requires = {
-        "ray-x/lsp_signature.nvim",
-        "onsails/lspkind-nvim",
-        "folke/lsp-colors.nvim",
-        "jose-elias-alvarez/nvim-lsp-ts-utils",
-      },
+      vim.fn.stdpath "config" .. "/installer.nvim",
       config = function()
         require "rc.lsp.setup"
       end,
-    }
-    use {
-      vim.fn.stdpath "config" .. "/installer.nvim",
     }
 
     use { "hrsh7th/vim-vsnip" }
