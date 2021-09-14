@@ -14,7 +14,6 @@ for key, _ in pairs(server_configs) do
   server_configs.capabilities = common_config.capabilities
 end
 
-require("installer").setup {}
 require("installer.integrations.ls").setup {
   configs = server_configs,
   enable_install_hook = true,

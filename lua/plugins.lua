@@ -52,6 +52,7 @@ packer.startup {
     use {
       vim.fn.stdpath "config" .. "/installer.nvim",
       config = function()
+        require "rc.installer"
         require "rc.lsp.setup"
       end,
     }

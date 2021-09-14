@@ -2,9 +2,8 @@ return {
   setup = function(config)
     local nullls = require "null-ls"
     nullls.config {
-      sources = {
-        nullls.builtins.formatting.stylua,
-      },
+      sources = require("installer/integrations/null_ls").get_all(),
+      debug = true
     }
 
     require("lspconfig")["null-ls"].setup {
