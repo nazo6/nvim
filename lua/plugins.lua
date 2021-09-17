@@ -219,14 +219,7 @@ packer.startup {
     }
     use { "chrisbra/csv.vim", ft = { "csv" } }
     use { "dag/vim-fish", ft = { "fish" } }
-    use {
-      "bfredl/nvim-luadev",
-      cmd = { "Luadev" },
-      config = function()
-        vim.api.nvim_set_keymap("n", "<Leader>l", "<Plug>(Luadev-RunLine)", {})
-        vim.api.nvim_set_keymap("n", "<Leader>r", "<Plug>(Luadev-RunLine)", {})
-      end,
-    }
+    use "rafcamlet/nvim-luapad"
   end,
   config = {
     profile = {
