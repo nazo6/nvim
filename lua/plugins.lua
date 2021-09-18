@@ -185,6 +185,9 @@ packer.startup {
     use {
       "windwp/nvim-spectre",
       module = { "spectre" },
+      config = function()
+        require "rc.spectre"
+      end,
     }
 
     ------------------------
