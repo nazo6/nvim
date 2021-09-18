@@ -182,6 +182,10 @@ packer.startup {
         require("neogit").setup {}
       end,
     }
+    use {
+      "windwp/nvim-spectre",
+      module = { "spectre" },
+    }
 
     ------------------------
     -- Appearance plugins --

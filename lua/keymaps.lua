@@ -16,3 +16,5 @@ map.nmap("<C-p>", "<cmd>Telescope neoclip<CR>", map.ns)
 map.nmap("<leader>p", "<cmd>Telescope live_grep<CR>", map.ns)
 
 map.nmap("<leader>x", ":TroubleToggle<CR>", { noremap = true, silent = true })
+
+map.nmap("<leader>S", ":lua require('spectre').open()<CR>", { noremap = true, silent = true })
