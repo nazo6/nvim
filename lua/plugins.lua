@@ -39,12 +39,6 @@ packer.startup {
     use "folke/lua-dev.nvim"
     use { "neovim/nvim-lspconfig" }
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
-    use {
-      "RishabhRD/nvim-lsputils",
-      requires = {
-        "RishabhRD/popfix",
-      },
-    }
     use { "ray-x/lsp_signature.nvim" }
     use { "onsails/lspkind-nvim" }
     use { "folke/lsp-colors.nvim" }
