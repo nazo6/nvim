@@ -1,5 +1,5 @@
-local autocmd = require("utils.autocmd")
-local map = require("utils.map")
+local autocmd = require "utils.autocmd"
+local map = require "utils.map"
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown" }
@@ -46,14 +46,14 @@ return {
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-    autocmd({
+    autocmd {
       id = "LspFormat",
       events = "BufWritePre",
       bufonly = true,
       command = function()
         vim.lsp.buf.formatting_sync()
       end,
-    })
+    }
   end,
   capabilities = capabilities,
 }

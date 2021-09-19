@@ -10,9 +10,9 @@ vim.g.mapleader = " "
 inspect = function(...)
   print(require("lib/inspect").inspect(...))
 end
-require("plugins")
-require("keymaps")
-require("settings")
+require "plugins"
+require "keymaps"
+require "settings"
 
 if profile then
   require("plenary.profile").stop()

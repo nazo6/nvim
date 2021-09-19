@@ -1,22 +1,22 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-  execute("packadd packer.nvim")
+  fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
+  execute "packadd packer.nvim"
 end
 
-local packer = require("packer")
+local packer = require "packer"
 
-packer.startup({
+packer.startup {
   function(use)
-    use({ "wbthomason/packer.nvim" })
+    use { "wbthomason/packer.nvim" }
 
-    use({ "lewis6991/impatient.nvim" })
+    use { "lewis6991/impatient.nvim" }
 
-    use({ "vim-jp/vimdoc-ja" })
+    use { "vim-jp/vimdoc-ja" }
 
     --[[
     use {
@@ -30,35 +30,35 @@ packer.startup({
     ----------
     -- Code --
     ----------
-    use({
+    use {
       "nvim-treesitter/nvim-treesitter",
       config = function()
-        require("rc.treesitter")
+        require "rc.treesitter"
       end,
-    })
-    use("folke/lua-dev.nvim")
-    use({ "neovim/nvim-lspconfig" })
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } })
-    use({
+    }
+    use "folke/lua-dev.nvim"
+    use { "neovim/nvim-lspconfig" }
+    use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
+    use {
       "RishabhRD/nvim-lsputils",
       requires = {
         "RishabhRD/popfix",
       },
-    })
-    use({ "ray-x/lsp_signature.nvim" })
-    use({ "onsails/lspkind-nvim" })
-    use({ "folke/lsp-colors.nvim" })
-    use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
-    use({
-      vim.fn.stdpath("config") .. "/installer.nvim",
+    }
+    use { "ray-x/lsp_signature.nvim" }
+    use { "onsails/lspkind-nvim" }
+    use { "folke/lsp-colors.nvim" }
+    use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
+    use {
+      vim.fn.stdpath "config" .. "/installer.nvim",
       config = function()
-        require("rc.installer")
-        require("rc.lsp.setup")
+        require "rc.installer"
+        require "rc.lsp.setup"
       end,
-    })
+    }
 
-    use({ "hrsh7th/vim-vsnip" })
-    use({
+    use { "hrsh7th/vim-vsnip" }
+    use {
       "hrsh7th/nvim-cmp",
       requires = {
         "hrsh7th/cmp-buffer",
@@ -67,42 +67,42 @@ packer.startup({
         "hrsh7th/cmp-path",
       },
       config = function()
-        require("rc.cmp")
+        require "rc.cmp"
       end,
-    })
+    }
 
-    use({
+    use {
       "puremourning/vimspector",
       ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
       config = function()
         vim.g.vimspector_install_gadgets = { "vscode-node-debug2" }
         vim.g.vimspector_enable_mappings = "HUMAN"
       end,
-    })
-    use({ "mfussenegger/nvim-dap" })
-    use({
+    }
+    use { "mfussenegger/nvim-dap" }
+    use {
       "rcarriga/nvim-dap-ui",
       config = function()
         require("dapui").setup()
       end,
-    })
+    }
 
     -----------
     -- Edits --
     -----------
-    use({
+    use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
-        require("rc.indentLine")
+        require "rc.indentLine"
       end,
-    })
-    use({
+    }
+    use {
       "windwp/nvim-autopairs",
       config = function()
-        require("rc.autopairs")
+        require "rc.autopairs"
       end,
-    })
-    use({
+    }
+    use {
       "alvan/vim-closetag",
       ft = { "html", "javascriptreact", "typescriptreact" },
       config = function()
@@ -114,19 +114,18 @@ packer.startup({
         }
         vim.g.closetag_shortcut = ">"
       end,
-    })
-    use("jbyuki/venn.nvim")
+    }
 
     -----------
     -- Utils --
     -----------
-    use({
+    use {
       "AckslD/nvim-neoclip.lua",
       config = function()
         require("neoclip").setup()
       end,
-    })
-    use({
+    }
+    use {
       "nvim-telescope/telescope.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
@@ -134,10 +133,10 @@ packer.startup({
       cmd = { "Telescope" },
       module = { "telescope" },
       config = function()
-        require("rc.telescope")
+        require "rc.telescope"
       end,
-    })
-    use({
+    }
+    use {
       "lambdalisue/fern.vim",
       requires = {
         "lambdalisue/fern-git-status.vim",
@@ -146,26 +145,26 @@ packer.startup({
         "lambdalisue/glyph-palette.vim",
       },
       config = function()
-        require("rc.fern")
+        require "rc.fern"
       end,
-    })
-    use({
+    }
+    use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       cmd = { "Trouble*" },
       module = { "trouble" },
       config = function()
-        require("rc.trouble")
+        require "rc.trouble"
       end,
-    })
-    use({
+    }
+    use {
       "voldikss/vim-floaterm",
       config = function()
-        require("rc.floaterm")
+        require "rc.floaterm"
       end,
-    })
+    }
 
-    use({
+    use {
       "lewis6991/gitsigns.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
@@ -173,68 +172,77 @@ packer.startup({
       config = function()
         require("gitsigns").setup()
       end,
-    })
-    use({
+    }
+    use {
       "TimUntersberger/neogit",
       cmd = { "Neogit" },
       module = { "neogit" },
       config = function()
-        require("neogit").setup({})
+        require("neogit").setup {}
       end,
-    })
-    use({
+    }
+    use {
       "windwp/nvim-spectre",
       module = { "spectre" },
       config = function()
-        require("rc.spectre")
+        require "rc.spectre"
       end,
-    })
+    }
+    use {
+      "SmiteshP/nvim-gps",
+      requires = "nvim-treesitter/nvim-treesitter",
+      config = function()
+        require("nvim-gps").setup {
+          separator = " > ",
+        }
+      end,
+    }
 
     ------------------------
     -- Appearance plugins --
     ------------------------
-    use({ "folke/tokyonight.nvim" })
-    use({
-      "hoob3rt/lualine.nvim",
+    use { "folke/tokyonight.nvim" }
+    use {
+      "windwp/windline.nvim",
       config = function()
-        require("rc.lualine")
+        require "rc.windline"
       end,
-    })
-    use({ "dstein64/nvim-scrollview" })
-    use({
+    }
+    use { "dstein64/nvim-scrollview" }
+    use {
       "akinsho/nvim-bufferline.lua",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-        require("rc.bufferline")
+        require "rc.bufferline"
       end,
-    })
+    }
     -----------
     -- Tools --
     -----------
-    use({ "sbulav/nredir.nvim", cmd = { "Nredir" } })
+    use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
 
     -------------------------------
     -- Language specific plugins --
     -------------------------------
-    use({
+    use {
       "akinsho/flutter-tools.nvim",
       requires = { "akinsho/plenary.nvim" },
       ft = { "dart" },
       config = function()
-        require("rc.flutter")
+        require "rc.flutter"
       end,
-    })
-    use({ "chrisbra/csv.vim", ft = { "csv" } })
-    use({ "dag/vim-fish", ft = { "fish" } })
-    use("rafcamlet/nvim-luapad")
+    }
+    use { "chrisbra/csv.vim", ft = { "csv" } }
+    use { "dag/vim-fish", ft = { "fish" } }
+    use "rafcamlet/nvim-luapad"
   end,
   config = {
     profile = {
       enable = false,
     },
   },
-})
+}
 
-vim.cmd("PackerCompile")
-vim.cmd("PackerClean")
-vim.cmd("PackerInstall")
+vim.cmd "PackerCompile"
+vim.cmd "PackerClean"
+vim.cmd "PackerInstall"

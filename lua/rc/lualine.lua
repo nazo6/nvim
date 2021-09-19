@@ -1,4 +1,4 @@
-require("lualine").setup({
+require("lualine").setup {
   options = { theme = "tokyonight" },
   sections = {
     lualine_a = { { "mode", { upper = true } } },
@@ -16,4 +16,4 @@ require("lualine").setup({
     lualine_y = {},
     lualine_z = {},
   },
-})
+}

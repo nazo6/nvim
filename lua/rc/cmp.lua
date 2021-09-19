@@ -1,5 +1,5 @@
-local cmp = require("cmp")
-cmp.setup({
+local cmp = require "cmp"
+cmp.setup {
   snippet = {
     expand = function(args)
       -- You must install `vim-vsnip` if you set up as same as the following.
@@ -13,10 +13,10 @@ cmp.setup({
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm({
+    ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    }),
+    },
   },
   sources = {
     { name = "nvim_lsp" },
@@ -24,7 +24,7 @@ cmp.setup({
     { name = "path" },
     { name = "calc" },
   },
-})
+}
 
 require("cmp_nvim_lsp").setup()
 for index, value in ipairs(vim.lsp.protocol.CompletionItemKind) do

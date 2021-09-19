@@ -1,4 +1,4 @@
-require("flutter-tools").setup({
+require("flutter-tools").setup {
   ui = { border = "rounded" },
   flutter_path = "C:\\flutter\\bin\\flutter.bat",
   debugger = { enabled = true },
@@ -8,4 +8,4 @@ require("flutter-tools").setup({
   dev_tools = { autostart = true, autoopen_browser = true },
   outline = { open_cmd = "30vnew" },
   lsp = { settings = { showTodos = true, completeFunctionCalls = true } },
-})
+}

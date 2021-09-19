@@ -23,5 +23,5 @@ return function(args)
   vim.cmd("augroup " .. tostring(id))
   vim.cmd("autocmd!" .. (bufonly and " * <buffer>" or ""))
   vim.cmd("autocmd " .. eventsText .. " " .. fileTypesText .. " " .. commandText)
-  vim.cmd("augroup END")
+  vim.cmd "augroup END"
 end
