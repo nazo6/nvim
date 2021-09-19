@@ -77,15 +77,21 @@ local icon_comp = b_components.cache_file_icon { default = "", hl_colors = { 
 basic.file = {
   hl_colors = {
     default = { "white", "black_light" },
+    icon = { "black_light", "black" },
   },
   text = function(bufnr)
     return {
       { " ", "default" },
-      icon_comp(bufnr),
-      { " ", "default" },
       { b_components.cache_file_name("[No Name]", ""), "" },
       { b_components.file_modified " ", "" },
       { b_components.cache_file_size(), "" },
+      { sep.right_rounded, "icon" },
+      { " ", { "blue", "black" } },
+      { sep.left_rounded, "icon" },
+      { b_components.cache_file_type { default = "[No filetype]" } },
+      { " ", "default" },
+      icon_comp(bufnr),
+      { " ", "default" },
     }
   end,
 }
@@ -97,7 +103,7 @@ basic.right = {
   },
   text = function()
     return {
-      -- { b_components.line_col, 'text' },
+      { sep.left_rounded, "sep_after" },
       { b_components.progress, "text" },
       { sep.right_rounded, "sep_after" },
     }
@@ -116,7 +122,7 @@ basic.git = {
         { " ", "" },
         { git_comps.diff_added { format = " %s" }, "green" },
         { git_comps.diff_removed { format = "  %s" }, "red" },
-        { git_comps.diff_changed { format = " 柳%s" }, "blue" },
+        { git_comps.diff_changed { format = " 柳 %s" }, "blue" },
       }
     end
     return ""
@@ -130,7 +136,8 @@ basic.logo = {
   text = function()
     return {
       { sep.left_rounded, "sep_before" },
-      { " ", "default" },
+      { b_components.file_format { icon = true } },
+      { " ", "default" },
     }
   end,
 }
