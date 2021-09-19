@@ -1,9 +1,9 @@
-local map = require "utils.map"
+local map = require("utils.map")
 
-require("telescope").setup {
+require("telescope").setup({
   defaults = {
     vimgrep_arguments = {
-      require("installer.integrations.tools").get "ripgrep",
+      require("installer.integrations.tools").get("ripgrep"),
       "--color=never",
       "--no-heading",
       "--with-filename",
@@ -12,6 +12,6 @@ require("telescope").setup {
       "--smart-case",
     },
   },
-}
+})
 
-require("telescope").load_extension "neoclip"
+require("telescope").load_extension("neoclip")

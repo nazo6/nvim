@@ -1,3 +1,3 @@
-local map = require "utils.map"
+local map = require("utils.map")
 
-require("trouble").setup {}
+require("trouble").setup({})

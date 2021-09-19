@@ -1,4 +1,4 @@
-local map = require "utils.map"
+local map = require("utils.map")
 
 map.nmap("k", "gk", map.ns)
 map.nmap("gk", "k", map.ns)

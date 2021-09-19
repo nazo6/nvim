@@ -1,6 +1,6 @@
-local map = require "utils.map"
+local map = require("utils.map")
 
-if vim.fn.has "win32" == 1 then
+if vim.fn.has("win32") == 1 then
   vim.g.floaterm_shell = "pwsh.exe"
 end
 

@@ -7,7 +7,7 @@ end
 
 return {
   denols = {
-    root_dir = root_pattern ".nvim-lsp-denols",
+    root_dir = root_pattern(".nvim-lsp-denols"),
   },
   cssls = { on_attach = no_formatting },
   html = { on_attach = no_formatting },
@@ -23,10 +23,10 @@ return {
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
 
-      local ts_utils = require "nvim-lsp-ts-utils"
+      local ts_utils = require("nvim-lsp-ts-utils")
 
       -- defaults
-      ts_utils.setup {
+      ts_utils.setup({
         debug = false,
         disable_commands = false,
         enable_import_on_completion = false,
@@ -62,7 +62,7 @@ return {
         -- filter diagnostics
         filter_out_diagnostics_by_severity = {},
         filter_out_diagnostics_by_code = {},
-      }
+      })
 
       -- required to fix code action ranges and filter diagnostics
       ts_utils.setup_client(client)
@@ -77,7 +77,7 @@ return {
   tailwindcss = {
     root_dir = root_pattern("tailwind.config.js", "tailwind.config.ts"),
   },
-  sumneko_lua = require("lua-dev").setup {
+  sumneko_lua = require("lua-dev").setup({
     library = {
       vimruntime = true,
       types = true,
@@ -92,5 +92,5 @@ return {
         },
       },
     },
-  },
+  }),
 }
