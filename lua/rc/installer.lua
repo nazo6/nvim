@@ -3,6 +3,6 @@ require("installer").setup {
   ensure_install = {
     ls = { "tsserver", "html", "jsonls", "cssls", "sumneko_lua" },
     null_ls = { "stylua" },
-    tools = { "ripgrep" },
+    tools = { "ripgrep", "sed" },
   },
 }
