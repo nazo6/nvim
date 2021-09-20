@@ -1,5 +1,5 @@
 *.log
 flame.svg
 plugin/packer_compiled.lua
-lspinstall.nvim/
 installer.nvim/
+installer.nvim_dev/

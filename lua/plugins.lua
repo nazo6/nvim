@@ -73,13 +73,13 @@ packer.startup {
         vim.g.vimspector_enable_mappings = "HUMAN"
       end,
     }
-    use { "mfussenegger/nvim-dap" }
     use {
-      "rcarriga/nvim-dap-ui",
+      "mfussenegger/nvim-dap",
       config = function()
-        require("dapui").setup()
+        require "rc.dap"
       end,
     }
+    use { "rcarriga/nvim-dap-ui" }
 
     -----------
     -- Edits --

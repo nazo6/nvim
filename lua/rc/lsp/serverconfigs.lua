@@ -52,7 +52,23 @@ return {
         -- formatting
         enable_formatting = true,
         formatter = "prettier",
-        formatter_opts = {},
+        formatter_opts = {
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "vue",
+            "svelte",
+            "css",
+            "scss",
+            "html",
+            "json",
+            "jsonc",
+            "yaml",
+            "markdown",
+          },
+        },
 
         -- update imports on file move
         update_imports_on_move = false,
