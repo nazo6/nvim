@@ -54,6 +54,7 @@ packer.startup {
     use { "hrsh7th/vim-vsnip" }
     use {
       "hrsh7th/nvim-cmp",
+      branch = "custom-menu",
       requires = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
