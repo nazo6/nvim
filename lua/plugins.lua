@@ -132,15 +132,10 @@ packer.startup {
       end,
     }
     use {
-      "lambdalisue/fern.vim",
-      requires = {
-        "lambdalisue/fern-git-status.vim",
-        "lambdalisue/nerdfont.vim",
-        "lambdalisue/fern-renderer-nerdfont.vim",
-        "lambdalisue/glyph-palette.vim",
-      },
+      "kyazdani42/nvim-tree.lua",
+      requires = "kyazdani42/nvim-web-devicons",
       config = function()
-        require "rc.fern"
+        require "rc.nvim-tree"
       end,
     }
     use {
