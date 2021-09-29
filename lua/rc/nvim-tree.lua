@@ -1,8 +1,7 @@
 local map = require "utils.map"
 
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
-vim.g.nvim_tree_disable_default_keybindings = 1
-vim.g.nvim_tree_bindings = {
+local keymaps = {
   { key = { "l", "<2-LeftMouse>" }, cb = tree_cb "edit" },
   { key = "L", cb = tree_cb "vsplit" },
   { key = "h", cb = tree_cb "close_node" },
@@ -47,6 +46,12 @@ require("nvim-tree").setup {
   system_open = {
     cmd = nil,
     args = {},
+  },
+  view = {
+    mappings = {
+      list = keymaps,
+      custom_only = true,
+    },
   },
 }
 
