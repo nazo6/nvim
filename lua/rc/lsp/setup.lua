@@ -39,12 +39,15 @@ for key, _ in pairs(server_configs) do
     end
     common_config.on_attach(client, bufnr)
   end
-  server_configs.capabilities = common_config.capabilities
 end
 
 require("installer.integrations.ls").setup {
   configs = server_configs,
   enable_hook = true,
+  global_config = {
+    on_attach = common_config.on_attach,
+    capabilities = common_config.capabilities,
+  },
 }
 
 require("lspkind").init {}
