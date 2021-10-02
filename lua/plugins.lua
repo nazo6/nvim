@@ -141,8 +141,6 @@ packer.startup {
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      cmd = { "Trouble*" },
-      module = { "trouble" },
       config = function()
         require "rc.trouble"
       end,
