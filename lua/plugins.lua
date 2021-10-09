@@ -44,7 +44,7 @@ packer.startup {
     use { "folke/lsp-colors.nvim" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
     use {
-      vim.fn.stdpath "config" .. "/installer.nvim",
+      "nazo6/installer.nvim",
       config = function()
         require "rc.installer"
         require "rc.lsp.setup"
@@ -54,7 +54,6 @@ packer.startup {
     use { "hrsh7th/vim-vsnip" }
     use {
       "hrsh7th/nvim-cmp",
-      branch = "custom-menu",
       requires = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
@@ -231,6 +230,12 @@ packer.startup {
   },
 }
 
-vim.cmd "PackerCompile"
+require "utils.autocmd" {
+  id = "PackerCompile",
+  events = { "BufWritePost" },
+  filetypes = "plugins.lua",
+  command = "source <afile> | PackerCompile",
+}
+
 vim.cmd "PackerClean"
 vim.cmd "PackerInstall"
