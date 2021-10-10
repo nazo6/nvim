@@ -172,6 +172,7 @@ packer.startup {
       module = { "neogit" },
       config = function()
         require("neogit").setup {
+          enhanced_diff_hl = true,
           integrations = {
             diffview = true,
           },

@@ -22,6 +22,10 @@ opt.smartcase = true
 opt.ignorecase = true
 opt.inccommand = "split"
 
+opt.foldlevel = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 --- Editing
 
 opt.completeopt = "menuone,noselect"
