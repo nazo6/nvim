@@ -171,7 +171,11 @@ packer.startup {
       cmd = { "Neogit" },
       module = { "neogit" },
       config = function()
-        require("neogit").setup {}
+        require("neogit").setup {
+          integrations = {
+            diffview = true,
+          },
+        }
       end,
     }
     use {
