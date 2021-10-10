@@ -175,6 +175,10 @@ packer.startup {
           integrations = {
             diffview = true,
           },
+          signs = {
+            section = { "", "" },
+            item = { "", "" },
+          },
         }
       end,
     }
