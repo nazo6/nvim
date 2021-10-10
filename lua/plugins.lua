@@ -1,11 +1,7 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
-  execute "packadd packer.nvim"
+local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
+  vim.api.nvim_command "packadd packer.nvim"
 end
 
 local packer = require "packer"
@@ -18,14 +14,12 @@ packer.startup {
 
     use { "vim-jp/vimdoc-ja" }
 
-    --[[
     use {
       "rcarriga/nvim-notify",
       config = function()
         vim.notify = require "notify"
       end,
     }
-    ]]
 
     ----------
     -- Code --
@@ -75,11 +69,12 @@ packer.startup {
     }
     use {
       "mfussenegger/nvim-dap",
+      module = { "dap" },
       config = function()
         require "rc.dap"
       end,
     }
-    use { "rcarriga/nvim-dap-ui" }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, module = { "dapui" } }
 
     -----------
     -- Edits --
@@ -97,16 +92,25 @@ packer.startup {
       end,
     }
     use {
-      "alvan/vim-closetag",
-      ft = { "html", "javascriptreact", "typescriptreact" },
+      "windwp/nvim-ts-autotag",
+      ft = {
+        "html",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "svelte",
+        "vue",
+        "tsx",
+        "jsx",
+        "xml",
+        "php",
+        "glimmer",
+        "handlebars",
+        "hbs",
+      },
       config = function()
-        vim.g.closetag_filenames = "*.html,*.jsx,*.tsx"
-        vim.g.closetag_emptyTags_caseSensitive = 1
-        vim.g.closetag_regions = {
-          ["typescript.tsx"] = "jsxRegion,tsxRegion",
-          ["javascript.jsx"] = "jsxRegion",
-        }
-        vim.g.closetag_shortcut = ">"
+        require("nvim-ts-autotag").setup()
       end,
     }
 
@@ -124,8 +128,6 @@ packer.startup {
       requires = {
         "nvim-lua/plenary.nvim",
       },
-      cmd = { "Telescope" },
-      module = { "telescope" },
       config = function()
         require "rc.telescope"
       end,
@@ -133,6 +135,7 @@ packer.startup {
     use {
       "kyazdani42/nvim-tree.lua",
       requires = "kyazdani42/nvim-web-devicons",
+      cmd = { "NvimTree*" },
       config = function()
         require "rc.nvim-tree"
       end,
@@ -146,6 +149,7 @@ packer.startup {
     }
     use {
       "voldikss/vim-floaterm",
+      cmd = "Floaterm*",
       config = function()
         require "rc.floaterm"
       end,
@@ -188,7 +192,15 @@ packer.startup {
     ------------------------
     -- Appearance plugins --
     ------------------------
-    use { "folke/tokyonight.nvim" }
+    use {
+      "folke/tokyonight.nvim",
+      config = function()
+        vim.g.tokyonight_style = "night"
+        vim.g.tokyonight_sidebars = { "NvimTree" }
+
+        vim.cmd "colorscheme tokyonight"
+      end,
+    }
     use {
       "windwp/windline.nvim",
       config = function()
@@ -207,6 +219,14 @@ packer.startup {
     -- Tools --
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
+    use {
+      "rmagatti/auto-session",
+      config = function()
+        require("auto-session").setup {
+          pre_save_cmds = { "NvimTreeClose" },
+        }
+      end,
+    }
 
     -------------------------------
     -- Language specific plugins --
@@ -221,13 +241,15 @@ packer.startup {
     }
     use { "chrisbra/csv.vim", ft = { "csv" } }
     use { "dag/vim-fish", ft = { "fish" } }
-    use "rafcamlet/nvim-luapad"
+    use {
+      "Saecki/crates.nvim",
+      event = { "BufRead Cargo.toml" },
+      requires = { { "nvim-lua/plenary.nvim" } },
+      config = function()
+        require("crates").setup()
+      end,
+    }
   end,
-  config = {
-    profile = {
-      enable = false,
-    },
-  },
 }
 
 require "utils.autocmd" {

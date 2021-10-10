@@ -46,9 +46,6 @@ set("winblend", 15)
 set("pumblend", 15)
 cmd "hi NormalFloat guifg=#2e3440 guibg=#a3be8c"
 cmd "hi Pmenu guifg=#2e3440 guibg=#a3be8c"
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_sidebars = { "NvimTree" }
-cmd "colorscheme tokyonight"
 if vim.fn.has "termguicolors" == 1 then
   set("termguicolors", true)
 end

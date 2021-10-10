@@ -54,5 +54,3 @@ require("nvim-tree").setup {
     },
   },
 }
-
-map.nmap("<C-e>", "<cmd>NvimTreeToggle<CR>", map.ns)
