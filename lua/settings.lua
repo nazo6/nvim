@@ -1,51 +1,57 @@
 local cmd = vim.cmd
-local set = vim.api.nvim_set_option
+local opt = vim.opt
 local autocmd = require "utils.autocmd"
 
-set("autoread", true)
-set("mouse", "a")
+--- Behavior
+opt.autoread = true
+opt.mouse = "a"
+opt.clipboard:append "unnamedplus"
 
-autocmd {
-  id = "clipboard",
-  events = { "BufNewFile", "BufRead" },
-  filetypes = "*",
-  command = "set clipboard^=unnamedplus",
-}
+opt.confirm = true
+
+opt.hidden = true
+
+local undodir = tostring(vim.fn.stdpath "data") .. "/undo"
+if vim.fn.isdirectory(undodir) ~= 1 then
+  vim.fn.mkdir(undodir, "p")
+end
+opt.undodir = undodir
+opt.undofile = true
+
+opt.smartcase = true
+opt.ignorecase = true
+opt.inccommand = "split"
+
+--- Editing
+
+opt.completeopt = "menuone,noselect"
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+
+--- Appearance
+opt.number = true
+opt.signcolumn = "number"
+opt.cursorline = true
+
+opt.winblend = 15
+opt.pumblend = 15
+
+cmd "hi NormalFloat guifg=#2e3440 guibg=#a3be8c"
+cmd "hi Pmenu guifg=#2e3440 guibg=#a3be8c"
+if vim.fn.has "termguicolors" == 1 then
+  opt.termguicolors = true
+end
+
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_sidebars = { "NvimTree" }
+
+vim.cmd "colorscheme tokyonight"
+
+-- Type specific
 autocmd {
   id = "SetJsonc",
   events = { "BufRead", "BufNewFile" },
   filetypes = "{tsconfig,tsconfig.*}.json",
   command = "setfiletype jsonc",
 }
-
-local undodir = tostring(vim.fn.stdpath "data") .. "/undo"
-if vim.fn.isdirectory(undodir) ~= 1 then
-  vim.fn.mkdir(undodir, "p")
-end
-set("undodir", undodir)
-set("undofile", true)
-
-set("hidden", true)
-
-set("smartcase", true)
-set("ignorecase", true)
-set("inccommand", "split")
-
-set("completeopt", "menuone,noselect")
-set("tabstop", 2)
-set("shiftwidth", 2)
-set("expandtab", true)
-
-set("confirm", true)
-
-cmd "set number"
-cmd "set signcolumn=number"
-cmd "set cursorline"
-
-set("winblend", 15)
-set("pumblend", 15)
-cmd "hi NormalFloat guifg=#2e3440 guibg=#a3be8c"
-cmd "hi Pmenu guifg=#2e3440 guibg=#a3be8c"
-if vim.fn.has "termguicolors" == 1 then
-  set("termguicolors", true)
-end

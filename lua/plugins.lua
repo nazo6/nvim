@@ -11,6 +11,7 @@ packer.startup {
     use { "wbthomason/packer.nvim" }
 
     use { "lewis6991/impatient.nvim" }
+    use { "nathom/filetype.nvim" }
 
     use { "vim-jp/vimdoc-ja" }
 
@@ -173,6 +174,11 @@ packer.startup {
       end,
     }
     use {
+      "sindrets/diffview.nvim",
+      cmd = "Diffview*",
+      module = "diffview",
+    }
+    use {
       "windwp/nvim-spectre",
       module = { "spectre" },
       config = function()
@@ -194,12 +200,6 @@ packer.startup {
     ------------------------
     use {
       "folke/tokyonight.nvim",
-      config = function()
-        vim.g.tokyonight_style = "night"
-        vim.g.tokyonight_sidebars = { "NvimTree" }
-
-        vim.cmd "colorscheme tokyonight"
-      end,
     }
     use {
       "windwp/windline.nvim",
@@ -219,15 +219,6 @@ packer.startup {
     -- Tools --
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
-    use {
-      "rmagatti/auto-session",
-      config = function()
-        require("auto-session").setup {
-          pre_save_cmds = { "NvimTreeClose" },
-        }
-      end,
-    }
-
     -------------------------------
     -- Language specific plugins --
     -------------------------------
