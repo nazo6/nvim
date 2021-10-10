@@ -8,6 +8,7 @@ opt.mouse = "a"
 opt.clipboard:append "unnamedplus"
 
 opt.confirm = true
+opt.wildmenu = true
 
 opt.hidden = true
 
@@ -41,15 +42,13 @@ opt.cursorline = true
 opt.winblend = 15
 opt.pumblend = 15
 
-cmd "hi NormalFloat guifg=#2e3440 guibg=#a3be8c"
-cmd "hi Pmenu guifg=#2e3440 guibg=#a3be8c"
-if vim.fn.has "termguicolors" == 1 then
-  opt.termguicolors = true
-end
-
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_sidebars = { "NvimTree" }
 
+if vim.fn.has "termguicolors" == 1 then
+  opt.termguicolors = true
+end
+cmd "autocmd ColorScheme * highlight MatchParen ctermbg=6 gui=bold guifg=#ff9e64 guibg=#eeeeee"
 vim.cmd "colorscheme tokyonight"
 
 -- Type specific
