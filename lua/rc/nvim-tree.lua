@@ -1,5 +1,3 @@
-local map = require "utils.map"
-
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local keymaps = {
   { key = { "l", "<2-LeftMouse>" }, cb = tree_cb "edit" },

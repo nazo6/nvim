@@ -8,6 +8,7 @@ local packer = require "packer"
 
 packer.startup {
   function(use)
+    use { "b0o/mapx.nvim" }
     use { "wbthomason/packer.nvim" }
 
     use { "lewis6991/impatient.nvim" }

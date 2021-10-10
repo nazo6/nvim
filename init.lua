@@ -1,4 +1,9 @@
 pcall(require, "impatient")
+local ok, mapx = pcall(require, "mapx")
+if ok then
+  mapx.setup { global = true }
+end
+
 vim.g.did_load_filetypes = 1
 
 local profile = false
