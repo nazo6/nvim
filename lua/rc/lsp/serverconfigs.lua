@@ -1,4 +1,3 @@
-local schemas = require("data.catalog").schemas
 local root_pattern = require("lspconfig").util.root_pattern
 
 local function no_formatting(client)
@@ -18,7 +17,7 @@ configs.html = { on_attach = no_formatting }
 configs.jsonls = {
   on_attach = no_formatting,
   filetypes = { "json", "jsonc" },
-  settings = { json = { schemas = schemas } },
+  settings = { json = { schemas = require("data.catalog").schemas } },
 }
 
 configs.tsserver = {
