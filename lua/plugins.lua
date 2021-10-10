@@ -193,9 +193,12 @@ packer.startup {
     -- Appearance plugins --
     ------------------------
     use {
-      "monsonjeremy/onedark.nvim",
+      "folke/tokyonight.nvim",
       config = function()
-        require("onedark").setup()
+        vim.g.tokyonight_style = "night"
+        vim.g.tokyonight_sidebars = { "NvimTree" }
+
+        vim.cmd "colorscheme tokyonight"
       end,
     }
     use {
@@ -216,6 +219,15 @@ packer.startup {
     -- Tools --
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
+    use {
+      "rmagatti/auto-session",
+      config = function()
+        require("auto-session").setup {
+          pre_save_cmds = { "NvimTreeClose" },
+        }
+      end,
+    }
+
     -------------------------------
     -- Language specific plugins --
     -------------------------------
