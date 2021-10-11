@@ -254,6 +254,11 @@ packer.startup {
   end,
 }
 
+-- Suppress notify on packercompile
+require("packer").on_compile_done = function()
+  vim.cmd [[doautocmd User PackerCompileDone]]
+end
+
 require "utils.autocmd" {
   id = "PackerCompile",
   events = { "BufWritePost" },
@@ -262,4 +267,5 @@ require "utils.autocmd" {
 }
 
 vim.cmd "PackerClean"
+vim.cmd "PackerCompile"
 vim.cmd "PackerInstall"
