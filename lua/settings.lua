@@ -48,7 +48,7 @@ vim.g.tokyonight_sidebars = { "NvimTree" }
 if vim.fn.has "termguicolors" == 1 then
   opt.termguicolors = true
 end
-cmd "autocmd ColorScheme * highlight MatchParen ctermbg=6 gui=bold guifg=#ff9e64 guibg=#eeeeee"
+cmd "autocmd ColorScheme * highlight MatchParen ctermbg=6 gui=bold,underline guifg=#ff9e64"
 vim.cmd "colorscheme tokyonight"
 
 -- Type specific

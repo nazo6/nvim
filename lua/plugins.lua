@@ -38,6 +38,7 @@ packer.startup {
     use { "ray-x/lsp_signature.nvim" }
     use { "onsails/lspkind-nvim" }
     use { "folke/lsp-colors.nvim" }
+    use { "nvim-lua/lsp-status.nvim" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
     use {
       "nazo6/installer.nvim",

@@ -1,10 +1,18 @@
+local lsp_status = require "lsp-status"
+lsp_status.config {
+  diagnostics = false,
+}
+lsp_status.register_progress()
+
 local autocmd = require "utils.autocmd"
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities = vim.tbl_extend("keep", capabilities or {}, lsp_status.capabilities)
 
 return {
-  on_attach = function(_, bufnr)
+  on_attach = function(client, bufnr)
     require("lsp_signature").on_attach()
+    lsp_status.on_attach(client)
 
     local opts = { silent = true, buffer = bufnr }
     nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
