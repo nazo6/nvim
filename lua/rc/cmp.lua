@@ -2,7 +2,6 @@ local cmp = require "cmp"
 cmp.setup {
   snippet = {
     expand = function(args)
-      -- You must install `vim-vsnip` if you set up as same as the following.
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
@@ -24,9 +23,16 @@ cmp.setup {
     { name = "path" },
     { name = "calc" },
   },
+  formatting = {
+    format = require("lspkind").cmp_format {
+      with_text = true,
+      menu = {
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+      },
+    },
+  },
 }
-
-require("cmp_nvim_lsp").setup()
-for index, value in ipairs(vim.lsp.protocol.CompletionItemKind) do
-  cmp.lsp.CompletionItemKind[index] = value
-end

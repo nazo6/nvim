@@ -49,5 +49,3 @@ require("installer.integrations.ls").setup {
     capabilities = common_config.capabilities,
   },
 }
-
-require("lspkind").init {}

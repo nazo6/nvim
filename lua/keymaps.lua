@@ -35,3 +35,5 @@ nnoremap("<C-t>k", "<C-\\><C-n>:FloatermPrev<CR>", "silent")
 tnoremap("<C-t>j", "<C-\\><C-n>:FloatermNext<CR>", "silent")
 
 nnoremap("<leader>g", "<cmd>Neogit<CR>", "silent")
+
+nnoremap("<Tab>", "<cmd>JABSOpen<CR>", "silent")
