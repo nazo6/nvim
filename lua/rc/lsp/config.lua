@@ -25,13 +25,22 @@ return {
     nnoremap("<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
     nnoremap("<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     nnoremap("<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    nnoremap("<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    nnoremap("<space>ca", "<cmd>CodeActionMenu<CR>", opts)
     nnoremap("gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     nnoremap("<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
     nnoremap("[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
     nnoremap("]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     nnoremap("<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
     nnoremap("<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+    autocmd {
+      id = "UpdateLightbulb",
+      events = { "CursorHold", "CursorHoldI" },
+      bufonly = true,
+      command = function()
+        require("nvim-lightbulb").update_lightbulb()
+      end,
+    }
 
     autocmd {
       id = "LspFormat",

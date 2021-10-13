@@ -36,6 +36,9 @@ packer.startup {
     use { "neovim/nvim-lspconfig" }
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
     use { "ray-x/lsp_signature.nvim" }
+    use { "kosayoda/nvim-lightbulb" }
+    use { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }
+    use { "jubnzv/virtual-types.nvim" }
     use { "onsails/lspkind-nvim" }
     use { "folke/lsp-colors.nvim" }
     use { "nvim-lua/lsp-status.nvim" }
@@ -128,6 +131,8 @@ packer.startup {
     }
     use {
       "nvim-telescope/telescope.nvim",
+      cmd = "Telescope",
+      module = "telescope",
       requires = {
         "nvim-lua/plenary.nvim",
       },
@@ -135,6 +140,7 @@ packer.startup {
         require "rc.telescope"
       end,
     }
+
     use {
       "kyazdani42/nvim-tree.lua",
       requires = "kyazdani42/nvim-web-devicons",
