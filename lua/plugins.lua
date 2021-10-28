@@ -58,6 +58,7 @@ packer.startup {
         "hrsh7th/cmp-calc",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-nvim-lsp-document-symbol",
       },
       config = function()
         require "rc.cmp"
