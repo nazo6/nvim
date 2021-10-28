@@ -33,18 +33,16 @@ packer.startup {
       end,
     }
     use "folke/lua-dev.nvim"
-    use { "neovim/nvim-lspconfig" }
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
     use { "ray-x/lsp_signature.nvim" }
-    use { "kosayoda/nvim-lightbulb" }
-    use { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }
-    use { "jubnzv/virtual-types.nvim" }
+    use { "tami5/lspsaga.nvim" }
     use { "onsails/lspkind-nvim" }
     use { "folke/lsp-colors.nvim" }
     use { "nvim-lua/lsp-status.nvim" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
+    use { "nazo6/installer.nvim" }
     use {
-      "nazo6/installer.nvim",
+      "neovim/nvim-lspconfig",
       config = function()
         require "rc.installer"
         require "rc.lsp.setup"
@@ -96,7 +94,7 @@ packer.startup {
     use {
       "windwp/nvim-autopairs",
       config = function()
-        require "rc.autopairs"
+        require("nvim-autopairs").setup()
       end,
     }
     use {

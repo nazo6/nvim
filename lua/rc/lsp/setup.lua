@@ -1,39 +1,9 @@
-local server_configs = require "rc.lsp.serverconfigs"
+local server_config = require "rc.lsp.server-config"
 local common_config = require "rc.lsp.config"
 
-require("installer.integrations.null_ls").setup {
-  configs = {
-    debug = true,
-  },
-  with = {
-    prettier = {
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "svelte",
-        "css",
-        "scss",
-        "html",
-        "json",
-        "jsonc",
-        "yaml",
-        "markdown",
-      },
-    },
-  },
-  enable_hook = true,
-}
-require("lspconfig")["null-ls"].setup {
-  capabilities = common_config.capabilities,
-  on_attach = common_config.on_attach,
-}
-
-for key, _ in pairs(server_configs) do
-  local server_on_attach = server_configs[key].on_attach
-  server_configs[key].on_attach = function(client, bufnr)
+for key, _ in pairs(server_config) do
+  local server_on_attach = server_config[key].on_attach
+  server_config[key].on_attach = function(client, bufnr)
     if server_on_attach ~= nil then
       server_on_attach(client, bufnr)
     end
@@ -42,10 +12,12 @@ for key, _ in pairs(server_configs) do
 end
 
 require("installer.integrations.ls").setup {
-  configs = server_configs,
+  configs = server_config,
   enable_hook = true,
   global_config = {
     on_attach = common_config.on_attach,
     capabilities = common_config.capabilities,
   },
 }
+
+require "rc.lsp.null-ls"
