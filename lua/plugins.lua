@@ -82,6 +82,8 @@ packer.startup {
     }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, module = { "dapui" } }
 
+    use { "github/copilot.vim" }
+
     -----------
     -- Edits --
     -----------
