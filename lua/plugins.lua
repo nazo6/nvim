@@ -82,7 +82,7 @@ packer.startup {
     }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, module = { "dapui" } }
 
-    use { "github/copilot.vim" }
+    use { "github/copilot.vim", event = { "BufEnter" } }
 
     -----------
     -- Edits --
