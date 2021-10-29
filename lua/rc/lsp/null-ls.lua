@@ -1,9 +1,6 @@
 local common_config = require "rc.lsp.config"
 
 require("installer.integrations.null_ls").setup {
-  configs = {
-    debug = true,
-  },
   with = {
     prettier = {
       filetypes = {
@@ -22,6 +19,9 @@ require("installer.integrations.null_ls").setup {
         "markdown",
       },
     },
+  },
+  configs = {
+    default_timeout = 10000,
   },
   enable_hook = true,
 }

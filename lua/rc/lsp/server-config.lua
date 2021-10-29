@@ -30,6 +30,7 @@ configs.tsserver = {
     local ts_utils = require "nvim-lsp-ts-utils"
 
     -- defaults
+    local prettierd_path = require("installer.integrations.null_ls").get_path "prettierd"
     ts_utils.setup {
       debug = false,
       disable_commands = false,
@@ -47,16 +48,16 @@ configs.tsserver = {
       import_all_select_source = false,
 
       -- eslint
-      eslint_enable_code_actions = true,
-      eslint_enable_disable_comments = true,
-      eslint_bin = "eslint",
-      eslint_enable_diagnostics = true,
-      eslint_opts = {},
+      eslint_enable_code_actions = false,
+      eslint_enable_disable_comments = false,
+      eslint_enable_diagnostics = false,
 
       -- formatting
       enable_formatting = true,
-      formatter = "prettier",
+      formatter = "prettierd",
+
       formatter_opts = {
+        command = prettierd_path,
         filetypes = {
           "javascript",
           "javascriptreact",
