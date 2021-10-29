@@ -88,7 +88,7 @@ basic.file = {
       { sep.right_rounded, "icon" },
       { " ", { "blue", "black" } },
       { sep.left_rounded, "icon" },
-      { b_components.cache_file_type { default = "[No filetype]" } },
+      { b_components.cache_file_type { default = "[No filetype]" }, "default" },
       { " ", "default" },
       icon_comp(bufnr),
       { " ", "default" },
@@ -136,7 +136,7 @@ basic.logo = {
   text = function()
     return {
       { sep.left_rounded, "sep_before" },
-      { b_components.file_format { icon = true } },
+      { b_components.file_format { icon = true }, { "black", "blue" } },
       { " ", "default" },
     }
   end,
