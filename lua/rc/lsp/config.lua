@@ -18,17 +18,18 @@ return {
     nnoremap("gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
     nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    nnoremap("gd", "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
-    nnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+    nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    -- nnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     nnoremap("gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 
     nnoremap("K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
-    nnoremap("C-f", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
-    nnoremap("C-b", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
+
+    nnoremap("C-n", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
+    nnoremap("C-p", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
 
     nnoremap("<leader>rn", "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
-    nnoremap("<leader>ca", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-    vnoremap("<leader>ca", "<cmd>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
+    nnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts)
+    vnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts)
     nnoremap("<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
 
     nnoremap("[d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", opts)

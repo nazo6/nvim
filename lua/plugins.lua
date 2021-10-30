@@ -36,6 +36,10 @@ packer.startup {
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
     use { "ray-x/lsp_signature.nvim" }
     use { "tami5/lspsaga.nvim" }
+    use {
+      "weilbith/nvim-code-action-menu",
+      cmd = "CodeActionMenu",
+    }
     use { "onsails/lspkind-nvim" }
     use { "folke/lsp-colors.nvim" }
     use { "nvim-lua/lsp-status.nvim" }
