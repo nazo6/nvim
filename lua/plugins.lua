@@ -44,7 +44,7 @@ packer.startup {
     use { "folke/lsp-colors.nvim" }
     use { "nvim-lua/lsp-status.nvim" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
-    use { "williamboman/nvim-lsp-installer"}
+    use { "williamboman/nvim-lsp-installer" }
     use { "nazo6/installer.nvim" }
     use { "b0o/schemastore.nvim" }
     use {
@@ -144,8 +144,11 @@ packer.startup {
       requires = {
         "nvim-lua/plenary.nvim",
       },
+      setup = function()
+        require("rc.telescope").keymaps()
+      end,
       config = function()
-        require "rc.telescope"
+        require("rc.telescope").setup()
       end,
     }
 
@@ -153,8 +156,11 @@ packer.startup {
       "kyazdani42/nvim-tree.lua",
       requires = "kyazdani42/nvim-web-devicons",
       cmd = { "NvimTree*" },
+      setup = function()
+        require("rc.nvim-tree").keymap()
+      end,
       config = function()
-        require "rc.nvim-tree"
+        require("rc.nvim-tree").setup()
       end,
     }
     use {
@@ -165,10 +171,9 @@ packer.startup {
       end,
     }
     use {
-      "voldikss/vim-floaterm",
-      cmd = "Floaterm*",
+      "akinsho/toggleterm.nvim",
       config = function()
-        require "rc.floaterm"
+        require "rc.toggleterm"
       end,
     }
 
@@ -206,8 +211,11 @@ packer.startup {
     use {
       "windwp/nvim-spectre",
       module = { "spectre" },
+      setup = function()
+        require("rc.spectre").keymap()
+      end,
       config = function()
-        require "rc.spectre"
+        require("rc.spectre").setup()
       end,
     }
     use {
@@ -222,22 +230,11 @@ packer.startup {
     use {
       "matbme/JABS.nvim",
       cmd = "JABSOpen",
+      setup = function()
+        require("rc.JABS").keymaps()
+      end,
       config = function()
-        local ui = vim.api.nvim_list_uis()[1]
-        require("jabs").setup {
-          position = "corner",
-          width = 50,
-          height = 10,
-          border = "shadow",
-          preview_position = "left",
-          preview = {
-            width = 40,
-            height = 30,
-            border = "double",
-          },
-          col = ui.width,
-          row = ui.height / 2,
-        }
+        require("rc.JABS").setup()
       end,
     }
     use {
@@ -294,18 +291,9 @@ packer.startup {
   end,
 }
 
--- Suppress notify on packercompile
-require("packer").on_compile_done = function()
-  vim.cmd [[doautocmd User PackerCompileDone]]
-end
-
 require "utils.autocmd" {
   id = "PackerCompile",
   events = { "BufWritePost" },
   filetypes = "plugins.lua",
   command = "source <afile> | PackerCompile",
 }
-
-vim.cmd "PackerClean"
-vim.cmd "PackerCompile"
-vim.cmd "PackerInstall"
