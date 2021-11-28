@@ -26,7 +26,7 @@ cmp.setup {
   },
   formatting = {
     format = require("lspkind").cmp_format {
-      with_text = true,
+      with_text = false,
       menu = {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
@@ -35,6 +35,7 @@ cmp.setup {
         latex_symbols = "[Latex]",
       },
     },
+    fields = { "kind", "abbr", "menu" },
   },
 }
 
