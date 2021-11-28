@@ -5,7 +5,7 @@ nnoremap("<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", "silent")
 tnoremap("<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", "silent")
 
 local gitui = require("toggleterm.terminal").Terminal:new {
-  cmd = "gitui",
+  cmd = require("installer.integrations.tools").get "gitui",
   direction = "float",
   hidden = true,
 }
