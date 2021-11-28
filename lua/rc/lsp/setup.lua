@@ -11,13 +11,11 @@ for key, _ in pairs(server_config) do
   end
 end
 
-require("installer.integrations.ls").setup {
-  configs = server_config,
-  enable_hook = true,
-  global_config = {
-    on_attach = common_config.on_attach,
-    capabilities = common_config.capabilities,
-  },
-}
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.on_server_ready(function(server)
+    local opts = server_config[server.name] or common_config
+    server:setup(opts)
+end)
 
 require "rc.lsp.null-ls"

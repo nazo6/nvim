@@ -17,7 +17,7 @@ configs.html = { on_attach = no_formatting }
 configs.jsonls = {
   on_attach = no_formatting,
   filetypes = { "json", "jsonc" },
-  settings = { json = { schemas = require("data.catalog").schemas } },
+  settings = { json = { schemas = require("schemastore").json.schemas() } },
 }
 
 configs.tsserver = {

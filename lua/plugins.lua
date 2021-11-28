@@ -44,7 +44,9 @@ packer.startup {
     use { "folke/lsp-colors.nvim" }
     use { "nvim-lua/lsp-status.nvim" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
+    use { "williamboman/nvim-lsp-installer"}
     use { "nazo6/installer.nvim" }
+    use { "b0o/schemastore.nvim" }
     use {
       "neovim/nvim-lspconfig",
       config = function()
