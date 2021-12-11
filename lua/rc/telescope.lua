@@ -1,6 +1,6 @@
 return {
   keymaps = function()
-    nnoremap("<C-p>", "<cmd>Telescope neoclip<CR>", "silent")
+    nnoremap("<C-p>", "<cmd>Telescope<CR>", "silent")
     nnoremap("<leader>p", "<cmd>Telescope live_grep<CR>", "silent")
   end,
   setup = function()

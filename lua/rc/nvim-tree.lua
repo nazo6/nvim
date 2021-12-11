@@ -50,6 +50,9 @@ return {
         cmd = nil,
         args = {},
       },
+      git = {
+        ignore = false,
+      },
       view = {
         mappings = {
           list = keymaps,

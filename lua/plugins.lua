@@ -27,11 +27,18 @@ packer.startup {
     -- Code --
     ----------
     use {
+      "romgrk/nvim-treesitter-context",
+      config = function()
+        require("treesitter-context").setup {}
+      end,
+    }
+    use {
       "nvim-treesitter/nvim-treesitter",
       config = function()
         require "rc.treesitter"
       end,
     }
+
     use "folke/lua-dev.nvim"
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
     use { "ray-x/lsp_signature.nvim" }
@@ -40,6 +47,7 @@ packer.startup {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
     }
+    use { "simrat39/symbols-outline.nvim" }
     use { "onsails/lspkind-nvim" }
     use { "folke/lsp-colors.nvim" }
     use { "nvim-lua/lsp-status.nvim" }
@@ -166,8 +174,12 @@ packer.startup {
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
+      module = "trouble",
+      setup = function()
+        require("rc.trouble").keymap()
+      end,
       config = function()
-        require "rc.trouble"
+        require("rc.trouble").setup()
       end,
     }
     use {
@@ -242,6 +254,11 @@ packer.startup {
       cmd = "Registers",
       keys = { [["]], "<C-r>" },
     }
+    use {
+      "NTBBloodbath/rest.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      ft = { "http" },
+    }
 
     ------------------------
     -- Appearance plugins --
@@ -267,6 +284,12 @@ packer.startup {
     -- Tools --
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
+    use {
+      "luukvbaal/stabilize.nvim",
+      config = function()
+        require("stabilize").setup()
+      end,
+    }
     -------------------------------
     -- Language specific plugins --
     -------------------------------
@@ -280,6 +303,7 @@ packer.startup {
     }
     use { "chrisbra/csv.vim", ft = { "csv" } }
     use { "dag/vim-fish", ft = { "fish" } }
+    use { "kevinoid/vim-jsonc", ft = { "json" } }
     use {
       "Saecki/crates.nvim",
       event = { "BufRead Cargo.toml" },

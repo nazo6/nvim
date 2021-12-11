@@ -20,6 +20,7 @@ treesitter.setup {
     "cpp",
     "dart",
     "jsdoc",
+    "http",
   },
   highlight = { enable = true },
   indent = { enable = true },

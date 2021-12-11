@@ -57,20 +57,3 @@ opt.cursorline = true
 
 opt.winblend = 15
 opt.pumblend = 15
-
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_sidebars = { "NvimTree" }
-
-if vim.fn.has "termguicolors" == 1 then
-  opt.termguicolors = true
-end
-cmd "autocmd ColorScheme * highlight MatchParen ctermbg=6 gui=bold,underline guifg=#ff9e64"
-vim.cmd "colorscheme tokyonight"
-
--- Type specific
-autocmd {
-  id = "SetJsonc",
-  events = { "BufRead", "BufNewFile" },
-  filetypes = "{tsconfig,tsconfig.*}.json",
-  command = "setfiletype jsonc",
-}

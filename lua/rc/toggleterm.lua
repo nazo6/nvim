@@ -1,6 +1,5 @@
 tnoremap("<ESC>", "<C-\\><C-n>")
 
-nnoremap("<C-t>n", "<cmd>ToggleTerm<CR>", "silent")
 nnoremap("<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", "silent")
 tnoremap("<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", "silent")
 
@@ -14,6 +13,7 @@ nnoremap("<leader>g", function()
 end, "silent")
 
 require("toggleterm").setup {
+  open_mapping = [[<c-\>]],
   hide_numbers = false,
   shade_filetypes = {},
   shade_terminals = true,

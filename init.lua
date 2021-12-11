@@ -21,6 +21,7 @@ end
 require "plugins"
 require "keymaps"
 require "settings"
+require "colors"
 
 if profile then
   require("plenary.profile").stop()

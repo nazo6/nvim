@@ -12,5 +12,3 @@ vnoremap("c", [["_c]], "silent")
 vnoremap("p", [[_dp]], "silent")
 
 noremap("<leader>s", [[:%s/]], "silent")
-
-nnoremap("<leader>g", "<cmd>Neogit<CR>", "silent")
