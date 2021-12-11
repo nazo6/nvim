@@ -29,7 +29,9 @@ packer.startup {
     use {
       "romgrk/nvim-treesitter-context",
       config = function()
-        require("treesitter-context").setup {}
+        require("treesitter-context").setup {
+          max_lines = 2,
+        }
       end,
     }
     use {
@@ -47,7 +49,12 @@ packer.startup {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
     }
-    use { "simrat39/symbols-outline.nvim" }
+    use {
+      "ldelossa/calltree.nvim",
+      config = function()
+        require("calltree").setup {}
+      end,
+    }
     use { "onsails/lspkind-nvim" }
     use { "folke/lsp-colors.nvim" }
     use { "nvim-lua/lsp-status.nvim" }
@@ -284,12 +291,6 @@ packer.startup {
     -- Tools --
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
-    use {
-      "luukvbaal/stabilize.nvim",
-      config = function()
-        require("stabilize").setup()
-      end,
-    }
     -------------------------------
     -- Language specific plugins --
     -------------------------------
