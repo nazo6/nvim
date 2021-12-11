@@ -312,6 +312,10 @@ packer.startup {
         require("crates").setup()
       end,
     }
+    use {
+      "vuki656/package-info.nvim",
+      requires = "MunifTanjim/nui.nvim",
+    }
   end,
 }
 
