@@ -22,10 +22,8 @@ require("installer.integrations.null_ls").setup {
   },
   configs = {
     default_timeout = 10000,
+    capabilities = common_config.capabilities,
+    on_attach = common_config.on_attach,
   },
   enable_hook = true,
-}
-require("lspconfig")["null-ls"].setup {
-  capabilities = common_config.capabilities,
-  on_attach = common_config.on_attach,
 }
