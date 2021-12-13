@@ -8,18 +8,25 @@ local packer = require "packer"
 
 packer.startup {
   function(use)
-    use { "b0o/mapx.nvim" }
     use { "wbthomason/packer.nvim" }
 
+    ------------------
+    -- Global / default alternative plugins
     use { "lewis6991/impatient.nvim" }
-    use { "nathom/filetype.nvim" }
-
-    use { "vim-jp/vimdoc-ja" }
-
+    use { "b0o/mapx.nvim" }
     use {
       "rcarriga/nvim-notify",
       config = function()
         vim.notify = require "notify"
+      end,
+    }
+
+    use { "vim-jp/vimdoc-ja" }
+    use { "nathom/filetype.nvim" }
+    use {
+      "monkoose/matchparen.nvim",
+      config = function()
+        require("matchparen").setup()
       end,
     }
 

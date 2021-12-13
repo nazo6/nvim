@@ -4,11 +4,7 @@ My neovim config.
 
 ## Requirements
 
-### null-ls
-
 - stylua
-- eslint
-- prettier
 
 ## Memo
 

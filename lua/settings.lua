@@ -2,6 +2,8 @@ local cmd = vim.cmd
 local opt = vim.opt
 local autocmd = require "utils.autocmd"
 
+vim.g.mapleader = " "
+
 --- Behavior
 opt.autoread = true
 opt.mouse = "a"
