@@ -34,18 +34,11 @@ packer.startup {
     -- Code --
     ----------
     use {
-      "romgrk/nvim-treesitter-context",
-      config = function()
-        require("treesitter-context").setup {
-          max_lines = 2,
-        }
-      end,
-    }
-    use {
       "nvim-treesitter/nvim-treesitter",
       config = function()
         require "rc.treesitter"
       end,
+      requires = "romgrk/nvim-treesitter-context",
     }
 
     use "folke/lua-dev.nvim"
@@ -110,8 +103,6 @@ packer.startup {
     }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, module = { "dapui" } }
 
-    -- use { "github/copilot.vim", event = { "BufEnter" } }
-
     -----------
     -- Edits --
     -----------
@@ -137,13 +128,8 @@ packer.startup {
         "typescriptreact",
         "svelte",
         "vue",
-        "tsx",
-        "jsx",
         "xml",
         "php",
-        "glimmer",
-        "handlebars",
-        "hbs",
       },
       config = function()
         require("nvim-ts-autotag").setup()
@@ -277,9 +263,7 @@ packer.startup {
     ------------------------
     -- Appearance plugins --
     ------------------------
-    use {
-      "folke/tokyonight.nvim",
-    }
+    use { "folke/tokyonight.nvim" }
     use {
       "windwp/windline.nvim",
       config = function()
@@ -322,6 +306,7 @@ packer.startup {
     }
     use {
       "vuki656/package-info.nvim",
+      event = { "BufRead package.json" },
       requires = "MunifTanjim/nui.nvim",
     }
   end,
