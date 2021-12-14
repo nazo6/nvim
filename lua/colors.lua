@@ -11,10 +11,11 @@ function! CustomHighlights() abort
 
   highlight TreesitterContext guibg=#3c3d37
 
-  highlight NvimTreeGitDeleted guifg=red
+  highlight NvimTreeGitIgnored guifg=#8C8C8C
+  highlight NvimTreeGitDeleted guifg=#C74E39
   highlight NvimTreeGitRenamed guifg=yellow
-  highlight NvimTreeGitNew guifg=green
-  highlight NvimTreeGitDirty guifg=red
+  highlight NvimTreeGitNew guifg=#81B88B
+  highlight NvimTreeGitDirty guifg=#E2C08D
 	highlight NvimTreeGitStaged guifg=yellow
 	highlight NvimTreeGitMerge guifg=cyan
 endfunction

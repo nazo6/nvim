@@ -1,6 +1,4 @@
-local cmd = vim.cmd
 local opt = vim.opt
-local autocmd = require "utils.autocmd"
 
 vim.g.mapleader = " "
 
@@ -44,6 +42,9 @@ opt.inccommand = "split"
 opt.foldlevel = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+--- Key
+opt.timeoutlen = 400
 
 --- Editing
 

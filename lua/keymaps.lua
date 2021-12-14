@@ -11,4 +11,4 @@ nmap("<S-Down>", "<C-w>-", "silent")
 vnoremap("c", [["_c]], "silent")
 vnoremap("p", [[_dp]], "silent")
 
-noremap("<leader>s", [[:%s/]], "silent")
+noremap("<leader>s", [[:%s/]], "silent", "Replace")

@@ -1,6 +1,6 @@
 return {
   keymaps = function()
-    nnoremap("<Tab>", "<cmd>JABSOpen<CR>", "silent")
+    nnoremap("<Tab>", "<cmd>JABSOpen<CR>", "silent", "Open buffer list")
   end,
   setup = function()
     local ui = vim.api.nvim_list_uis()[1]

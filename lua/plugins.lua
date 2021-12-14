@@ -15,6 +15,12 @@ packer.startup {
     use { "lewis6991/impatient.nvim" }
     use { "b0o/mapx.nvim" }
     use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {}
+      end,
+    }
+    use {
       "rcarriga/nvim-notify",
       config = function()
         vim.notify = require "notify"

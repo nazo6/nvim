@@ -16,26 +16,26 @@ return {
 
     local opts = { silent = true, buffer = bufnr }
     nnoremap("gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
-    nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts, "LSP: Go declaration")
+    nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts, "LSP: Go implementation")
+    nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts, "LSP: Go definition")
     -- nnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-    nnoremap("gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    nnoremap("gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts, "LSP: Go references")
 
     nnoremap("K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
 
     nnoremap("C-n", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
     nnoremap("C-p", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
 
-    nnoremap("<leader>rn", "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
-    nnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts)
-    vnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts)
-    nnoremap("<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+    nnoremap("<leader>rn", "<cmd>lua require('lspsaga.rename').rename()<CR>", opts, "LSP: Rename")
+    nnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts, "LSP: Open code action menu")
+    vnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts, "LSP: Open code action menu")
+    nnoremap("<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts, "LSP: Show line diagnostics")
 
     nnoremap("[d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", opts)
     nnoremap("]d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", opts)
 
-    nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts, "LSP: Format")
 
     nnoremap("<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
     nnoremap("<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
@@ -47,7 +47,7 @@ return {
       events = "BufWritePre",
       bufonly = true,
       command = function()
-        vim.lsp.buf.formatting_sync()
+        vim.lsp.buf.formatting_sync({}, 7000)
       end,
     }
   end,

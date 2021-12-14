@@ -37,6 +37,13 @@ return {
       { key = "?", cb = tree_cb "toggle_help" },
     }
 
+    vim.g.nvim_tree_git_hl = 1
+    vim.g.nvim_tree_show_icons = {
+      git = 0,
+      folders = 1,
+      files = 1,
+    }
+
     require("nvim-tree").setup {
       disable_netrw = true,
       hijack_netrw = true,
@@ -52,6 +59,9 @@ return {
       },
       git = {
         ignore = false,
+      },
+      diagnostics = {
+        enable = true,
       },
       view = {
         mappings = {
