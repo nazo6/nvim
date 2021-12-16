@@ -1,3 +1,5 @@
+local nullls = require "null-ls"
+
 local common_config = require "rc.lsp.config"
 
 require("installer.integrations.null_ls").setup {
@@ -24,6 +26,9 @@ require("installer.integrations.null_ls").setup {
     default_timeout = 10000,
     capabilities = common_config.capabilities,
     on_attach = common_config.on_attach,
+    sources = {
+      nullls.builtins.diagnostics.teal,
+    },
   },
   enable_hook = true,
 }

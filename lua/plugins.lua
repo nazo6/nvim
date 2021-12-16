@@ -10,8 +10,9 @@ packer.startup {
   function(use)
     use { "wbthomason/packer.nvim" }
 
-    ------------------
-    -- Global / default alternative plugins
+    ------------------------------------------
+    -- Global / default alternative plugins --
+    ------------------------------------------
     use { "lewis6991/impatient.nvim" }
     use { "b0o/mapx.nvim" }
     use {
@@ -297,17 +298,11 @@ packer.startup {
     -------------------------------
     -- Language specific plugins --
     -------------------------------
-    use {
-      "akinsho/flutter-tools.nvim",
-      requires = { "akinsho/plenary.nvim" },
-      ft = { "dart" },
-      config = function()
-        require "rc.flutter"
-      end,
-    }
+    use { "teal-language/vim-teal", ft = { "teal" } }
     use { "chrisbra/csv.vim", ft = { "csv" } }
     use { "dag/vim-fish", ft = { "fish" } }
     use { "kevinoid/vim-jsonc", ft = { "json" } }
+
     use {
       "Saecki/crates.nvim",
       event = { "BufRead Cargo.toml" },
@@ -321,6 +316,19 @@ packer.startup {
       event = { "BufRead package.json" },
       requires = "MunifTanjim/nui.nvim",
     }
+
+    use {
+      "akinsho/flutter-tools.nvim",
+      requires = { "akinsho/plenary.nvim" },
+      ft = { "dart" },
+      config = function()
+        require "rc.flutter"
+      end,
+    }
+    ---------
+    -- Dev --
+    ---------
+    use { "nazo6/dui.nvim" }
   end,
 }
 
