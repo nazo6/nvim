@@ -76,7 +76,12 @@ packer.startup {
       end,
     }
 
-    use { "hrsh7th/vim-vsnip" }
+    use {
+      "L3MON4D3/LuaSnip",
+      config = function()
+        require "rc.luasnip"
+      end,
+    }
     use {
       "hrsh7th/nvim-cmp",
       requires = {
@@ -86,6 +91,7 @@ packer.startup {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-nvim-lsp-document-symbol",
+        "saadparwaiz1/cmp_luasnip",
       },
       config = function()
         require "rc.cmp"
