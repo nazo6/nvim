@@ -2,8 +2,13 @@
 pcall(require, "impatient")
 
 local ok, mapx = pcall(require, "mapx")
+local wk_ok = pcall(require, "which-key")
 if ok then
-  mapx.setup { global = true, whichkey = true }
+  if wk_ok then
+    mapx.setup { global = true, whichkey = true }
+  else
+    mapx.setup { global = true }
+  end
 end
 
 inspect = function(...)
