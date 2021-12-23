@@ -57,9 +57,9 @@ packer.startup {
       cmd = "CodeActionMenu",
     }
     use {
-      "ldelossa/calltree.nvim",
+      "ldelossa/litee.nvim",
       config = function()
-        require("calltree").setup {}
+        require("litee").setup {}
       end,
     }
     use { "onsails/lspkind-nvim" }
