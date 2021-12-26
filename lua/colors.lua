@@ -2,28 +2,30 @@ if vim.fn.has "termguicolors" == 1 then
   vim.opt.termguicolors = true
 end
 
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_sidebars = { "NvimTree" }
+local overrides = {
+  NvimTreeGitIgnored = { fg = "#8c8c8c" },
+  NvimTreeGitDeleted = { fg = "#C74E39" },
+  NvimTreeGitRenamed = { fg = "yellow" },
+  NvimTreeGitNew = { fg = "#81B88B" },
+  NvimTreeGitDirty = { fg = "#E2C08D" },
+  NvimTreeGitStaged = { fg = "yellow" },
+  NvimTreeGitMerge = { fg = "cyan" },
+}
+-- Default options:
+require("kanagawa").setup {
+  undercurl = true, -- enable undercurls
+  commentStyle = "italic",
+  functionStyle = "NONE",
+  keywordStyle = "italic",
+  statementStyle = "bold",
+  typeStyle = "NONE",
+  variablebuiltinStyle = "italic",
+  specialReturn = true, -- special highlight for the return keyword
+  specialException = true, -- special highlight for exception handling keywords
+  transparent = false, -- do not set background color
+  colors = {},
+  overrides = overrides,
+}
 
-vim.cmd [[
-function! CustomHighlights() abort
-  highlight MatchParen ctermbg=6 gui=bold,underline guifg=#ff9e64
-
-  highlight TreesitterContext guibg=#3c3d37
-
-  highlight NvimTreeGitIgnored guifg=#8C8C8C
-  highlight NvimTreeGitDeleted guifg=#C74E39
-  highlight NvimTreeGitRenamed guifg=yellow
-  highlight NvimTreeGitNew guifg=#81B88B
-  highlight NvimTreeGitDirty guifg=#E2C08D
-	highlight NvimTreeGitStaged guifg=yellow
-	highlight NvimTreeGitMerge guifg=cyan
-endfunction
-
-augroup CustomColors
-  autocmd!
-  autocmd ColorScheme * call CustomHighlights()
-augroup END
-
-colorscheme tokyonight
-]]
+-- setup must be called before loading
+vim.cmd "colorscheme kanagawa"
