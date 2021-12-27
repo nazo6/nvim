@@ -9,8 +9,6 @@ local state = _G.WindLine.state
 local lsp_comps = require "windline.components.lsp"
 local git_comps = require "windline.components.git"
 
-local gps = require "nvim-gps"
-
 local hl_list = {
   Black = { "white", "black" },
   White = { "black", "white" },
@@ -142,16 +140,6 @@ basic.logo = {
   end,
 }
 
-basic.gps = {
-  function()
-    if gps.is_available() then
-      return gps.get_location()
-    end
-    return ""
-  end,
-  { "white", "black" },
-}
-
 basic.lsp_status = {
   function()
     if #vim.lsp.buf_get_clients() > 0 then
@@ -171,8 +159,6 @@ local default = {
     { vim_components.search_count(), { "red", "black_light" } },
     { sep.right_rounded, { "black_light", "black" } },
     basic.lsp_diagnos,
-    { " ", hl_list.Black },
-    basic.gps,
     { " ", hl_list.Black },
     basic.lsp_status,
     basic.divider,

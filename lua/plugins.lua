@@ -240,15 +240,6 @@ packer.startup {
       end,
     }
     use {
-      "SmiteshP/nvim-gps",
-      requires = "nvim-treesitter/nvim-treesitter",
-      config = function()
-        require("nvim-gps").setup {
-          separator = " > ",
-        }
-      end,
-    }
-    use {
       "matbme/JABS.nvim",
       cmd = "JABSOpen",
       setup = function()
@@ -299,6 +290,7 @@ packer.startup {
     use { "dag/vim-fish", ft = { "fish" } }
     use { "kevinoid/vim-jsonc", ft = { "json" } }
 
+    use { "simrat39/rust-tools.nvim" }
     use {
       "Saecki/crates.nvim",
       event = { "BufRead Cargo.toml" },
