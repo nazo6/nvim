@@ -1,13 +1,12 @@
 -- Global plugin settings
-pcall(require, "impatient")
+-- pcall(require, "impatient")
+require("impatient").enable_profile()
 
 local ok, mapx = pcall(require, "mapx")
 if ok then
   mapx.setup { global = true }
-end
-
-inspect = function(...)
-  print(require("lib/inspect").inspect(...))
+else
+  require "global"
 end
 
 -- Disable some default vim scripts

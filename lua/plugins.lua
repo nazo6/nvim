@@ -42,32 +42,43 @@ packer.startup {
       requires = "romgrk/nvim-treesitter-context",
     }
 
-    use "folke/lua-dev.nvim"
     use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
-    use { "ray-x/lsp_signature.nvim" }
-    use { "tami5/lspsaga.nvim" }
     use {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
     }
+    --[[
     use {
       "ldelossa/litee.nvim",
       config = function()
         require("litee").setup {}
       end,
     }
-    use { "onsails/lspkind-nvim" }
-    use { "folke/lsp-colors.nvim" }
+    ]]
     use { "nvim-lua/lsp-status.nvim" }
-    use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
-    use { "williamboman/nvim-lsp-installer" }
-    use { "nazo6/installer.nvim" }
-    use { "b0o/schemastore.nvim" }
     use {
-      "neovim/nvim-lspconfig",
+      "williamboman/nvim-lsp-installer",
+      config = function()
+        require "rc.lsp.setup"
+      end,
+      cmd = "LspInstall*",
+      event = { "BufRead" },
+      requires = {
+        { "neovim/nvim-lspconfig", module = "lspconfig" },
+        { "ray-x/lsp_signature.nvim", after = "nvim-lspconfig" },
+        { "onsails/lspkind-nvim", after = "nvim-lspconfig" },
+        { "tami5/lspsaga.nvim", after = "nvim-lspconfig" },
+        { "folke/lua-dev.nvim", module = "lua-dev" },
+        { "folke/lsp-colors.nvim", after = "nvim-lspconfig" },
+        { "jose-elias-alvarez/nvim-lsp-ts-utils", after = "nvim-lspconfig" },
+        { "folke/lsp-colors.nvim", after = "nvim-lspconfig" },
+        { "b0o/schemastore.nvim", module = "schemastore" },
+      },
+    }
+    use {
+      "nazo6/installer.nvim",
       config = function()
         require "rc.installer"
-        require "rc.lsp.setup"
       end,
     }
 
@@ -76,18 +87,20 @@ packer.startup {
       config = function()
         require "rc.luasnip"
       end,
+      event = "InsertEnter",
     }
     use {
       "hrsh7th/nvim-cmp",
       requires = {
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-calc",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/cmp-nvim-lsp-document-symbol",
-        "saadparwaiz1/cmp_luasnip",
+        { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-calc", after = "nvim-cmp" },
+        { "hrsh7th/cmp-path", after = "nvim-cmp" },
+        { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
+        { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
       },
+      event = { "InsertEnter", "CmdlineEnter" },
       config = function()
         require "rc.cmp"
       end,
@@ -121,6 +134,8 @@ packer.startup {
     }
     use {
       "windwp/nvim-autopairs",
+      event = { "BufEnter" },
+      after = { "nvim-cmp" },
       config = function()
         require("nvim-autopairs").setup {
           enable_check_bracket_line = false,
@@ -290,7 +305,7 @@ packer.startup {
     use { "dag/vim-fish", ft = { "fish" } }
     use { "kevinoid/vim-jsonc", ft = { "json" } }
 
-    use { "simrat39/rust-tools.nvim" }
+    use { "simrat39/rust-tools.nvim", module = "rust-tools" }
     use {
       "Saecki/crates.nvim",
       event = { "BufRead Cargo.toml" },
