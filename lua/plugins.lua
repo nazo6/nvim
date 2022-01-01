@@ -66,7 +66,7 @@ packer.startup {
       requires = {
         { "neovim/nvim-lspconfig", module = "lspconfig" },
         { "ray-x/lsp_signature.nvim", after = "nvim-lspconfig" },
-        { "onsails/lspkind-nvim", after = "nvim-lspconfig" },
+        { "onsails/lspkind-nvim", module = "lspkind" },
         { "tami5/lspsaga.nvim", after = "nvim-lspconfig" },
         { "folke/lua-dev.nvim", module = "lua-dev" },
         { "folke/lsp-colors.nvim", after = "nvim-lspconfig" },
