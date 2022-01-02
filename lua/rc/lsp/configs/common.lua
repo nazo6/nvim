@@ -30,7 +30,7 @@ return {
     nnoremap("<leader>rn", "<cmd>lua require('lspsaga.rename').rename()<CR>", opts, "LSP: Rename")
     nnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts, "LSP: Open code action menu")
     vnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>", opts, "LSP: Open code action menu")
-    nnoremap("<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts, "LSP: Show line diagnostics")
+    nnoremap("<leader>e", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts, "LSP: Show line diagnostics")
 
     nnoremap("[d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", opts)
     nnoremap("]d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", opts)

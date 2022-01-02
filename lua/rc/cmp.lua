@@ -1,5 +1,4 @@
 local cmp = require "cmp"
-print "cmp"
 cmp.setup {
   snippet = {
     expand = function(args)

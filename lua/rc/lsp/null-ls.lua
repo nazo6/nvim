@@ -1,6 +1,6 @@
 local nullls = require "null-ls"
 
-local common_config = require "rc.lsp.config"
+local common_config = require "rc.lsp.configs.common"
 
 require("installer.integrations.null_ls").setup {
   with = {
