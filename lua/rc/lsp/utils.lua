@@ -4,14 +4,18 @@ local common_config = require "rc.lsp.configs.common"
 local M = {}
 
 M.create_config = function(server_config)
-  return function(server)
-    local opts = vim.tbl_deep_extend("force", common_config, server_config)
-    opts.on_attach = merge_functions(common_config.on_attach, server_config.on_attach)
+  local config = vim.tbl_deep_extend("force", common_config, server_config)
+  config.on_attach = merge_functions(common_config.on_attach, server_config.on_attach)
 
-    server:setup(opts)
+  return config
+end
+
+M.create_setup = function(server_config)
+  return function(server)
+    server:setup(M.create_config(server_config))
   end
 end
 
-M.default_config = M.create_config(common_config)
+M.default_config = M.create_setup(common_config)
 
 return M

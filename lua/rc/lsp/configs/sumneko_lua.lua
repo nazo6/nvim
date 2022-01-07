@@ -1,5 +1,5 @@
-local create_config = require("rc.lsp.utils").create_config
-return create_config(require("lua-dev").setup {
+local create_setup = require("rc.lsp.utils").create_setup
+return create_setup(require("lua-dev").setup {
   library = {
     vimruntime = true,
     types = true,

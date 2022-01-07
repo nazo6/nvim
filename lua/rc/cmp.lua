@@ -31,8 +31,6 @@ cmp.setup {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         vsnip = "[vsnip]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[Latex]",
       },
     },
     fields = { "kind", "abbr", "menu" },
