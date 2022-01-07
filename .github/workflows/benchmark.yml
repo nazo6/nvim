@@ -1,5 +1,6 @@
 name: benchmark
 on:
+  workflow_dispatch:
   push:
     paths:
       - '**.lua'
@@ -9,7 +10,11 @@ on:
 
 jobs: 
   benchmark: 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -25,10 +30,13 @@ jobs:
       with:
         deno-version: v1.x
 
-    - name: Checkout config
-      run: |
-        cd ~/.config
-        git clone https://github.com/nazo6/nvim/
+    - name: copy config (Linux)
+      if: runner.os == 'Linux'
+      run: cp -r ./ ~/.config/nvim/
+
+    - name: copy config (Windows)
+      if: runner.os == 'Windows'
+      run: cp -r ./ ~/AppData/Local/nvim/
 
     - name: Install plugins
       run: |
@@ -37,7 +45,7 @@ jobs:
 
     - name: Run benchmark
       run: |
-       deno run --unstable --allow-all ~/.config/nvim/scripts/benchmark.ts
+        deno run --unstable --allow-all ./scripts/benchmark.ts
 
     - name: Upload benchmark
       uses: benchmark-action/github-action-benchmark@v1
@@ -45,6 +53,7 @@ jobs:
         tool: customSmallerIsBetter
         output-file-path: data.json
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        benchmark-data-dir-path: bench/${{ matrix.os }}
         auto-push: true
         comment-on-alert: true
         fail-on-alert: true
