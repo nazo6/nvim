@@ -4,10 +4,6 @@ on: [push]
 jobs: 
   benchmark: 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ~/.config
     steps:
     - name: Setup neovim
       uses: rhysd/action-setup-vim@v1
@@ -21,10 +17,14 @@ jobs:
         deno-version: v1.x
 
     - name: Checkout config
-      uses: actions/checkout@v2
+      run: |
+        cd ~/.config
+        git clone https://github.com/nazo6/nvim/
 
     - name: Install plugins
-      run: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+      run: |
+        nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+        nvim -c qa
 
     - name: Run benchmark
       run: |
