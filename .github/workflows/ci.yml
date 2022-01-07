@@ -20,6 +20,7 @@ jobs:
       run: |
         cd ~/.config
         git clone https://github.com/nazo6/nvim/
+        git checkout ci
 
     - name: Install plugins
       run: |
