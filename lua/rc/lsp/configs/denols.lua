@@ -12,8 +12,6 @@ return function(server)
 
   local config = create_config {
     autostart = not is_node_repo or is_deno_repo,
-    root_dir = deno_root_pattern,
-    single_file_support = true,
     init_options = {
       enable = true,
       lint = true,

@@ -4,9 +4,7 @@ local root_pattern = require("lspconfig").util.root_pattern
 local node_root_pattern = root_pattern("package.json", "tsconfig.json")
 
 return function(server)
-  local is_node_repo = node_root_pattern(bufname, bufnr) ~= nil
   local config = create_config {
-    autostart = is_node_repo,
     root_dir = node_root_pattern,
     on_attach = function(client, bufnr)
       -- disable tsserver formatting if you plan on formatting via null-ls
