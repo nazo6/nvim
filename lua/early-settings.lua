@@ -1,6 +1,8 @@
 -- Global plugin settings
--- pcall(require, "impatient")
-require("impatient").enable_profile()
+local ok, impatient = pcall(require, "impatient")
+if ok then
+  impatient.enable_profile()
+end
 
 local ok, mapx = pcall(require, "mapx")
 if ok then
