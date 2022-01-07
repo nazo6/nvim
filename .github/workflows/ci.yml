@@ -8,23 +8,24 @@ jobs:
       GITHUB_WORKSPACE: "~/.config/"
     steps:
     - name: Setup neovim
-    - uses: rhysd/action-setup-vim@v1
+      uses: rhysd/action-setup-vim@v1
       with:
         neovim: true
         version: nightly
 
     - name: Setup deno
-    - uses: denoland/setup-deno@v1
+      uses: denoland/setup-deno@v1
       with:
         deno-version: v1.x
 
     - name: Setup config
-    - uses: actions/checkout@v2
-    - run: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+      uses: actions/checkout@v2
+      run: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
     - name: Run benchmark
-    - run: cd ~/.config/nvim/
-    - run: deno run --unstable --allow-all scripts/benchmark.ts
+      run: |
+       cd ~/.config/nvim/
+       deno run --unstable --allow-all scripts/benchmark.ts
 
     - name: Upload benchmark
       uses: benchmark-action/github-action-benchmark@v1
