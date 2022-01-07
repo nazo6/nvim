@@ -269,11 +269,8 @@ packer.startup {
       cmd = "Registers",
       keys = { [["]], "<C-r>" },
     }
-    use {
-      "NTBBloodbath/rest.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
-      ft = { "http" },
-    }
+
+    use { "kevinhwang91/nvim-hlslens" }
 
     ------------------------
     -- Appearance plugins --
@@ -327,6 +324,11 @@ packer.startup {
       config = function()
         require "rc.flutter"
       end,
+    }
+    use {
+      "NTBBloodbath/rest.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      ft = { "http" },
     }
     ---------
     -- Dev --
