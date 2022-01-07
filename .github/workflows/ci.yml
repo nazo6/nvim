@@ -32,6 +32,9 @@ jobs:
       run: |
        deno run --unstable --allow-all ~/.config/nvim/scripts/benchmark.ts
 
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Upload benchmark
       uses: benchmark-action/github-action-benchmark@v1
       with:
