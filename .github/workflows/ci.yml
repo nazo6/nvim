@@ -4,8 +4,10 @@ on: [push]
 jobs: 
   benchmark: 
     runs-on: ubuntu-latest
-    env: 
-      GITHUB_WORKSPACE: "~/.config/"
+    defaults:
+      run:
+        shell: bash
+        working-directory: ~/.config
     steps:
     - name: Setup neovim
       uses: rhysd/action-setup-vim@v1
