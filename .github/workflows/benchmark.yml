@@ -1,6 +1,9 @@
-name: ci
+name: benchmark
 on:
   push:
+    paths:
+      - '**.lua'
+      - '**.vim'
     branches:
       - master
 
