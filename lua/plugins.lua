@@ -18,7 +18,13 @@ packer.startup {
     use {
       "rcarriga/nvim-notify",
       config = function()
-        vim.notify = require "notify"
+        vim.notify = function(...)
+          local opts = { ... }
+          if opts[2] == "error" or opts[2] == 4 then
+            opts[1] = opts[1] .. "\n" .. debug.traceback()
+          end
+          (require "notify")(unpack(opts))
+        end
       end,
     }
 
@@ -55,6 +61,15 @@ packer.startup {
       end,
     }
     ]]
+
+    use { "neovim/nvim-lspconfig", module = "lspconfig" }
+    use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
+    use { "onsails/lspkind-nvim", module = "lspkind" }
+    use { "tami5/lspsaga.nvim", module = "lspsaga", cmd = "Lspsaga" }
+    use { "folke/lua-dev.nvim", module = "lua-dev" }
+    use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
+    use { "folke/lsp-colors.nvim", after = "nvim-lspconfig" }
+    use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "nvim-lua/lsp-status.nvim" }
     use {
       "williamboman/nvim-lsp-installer",
@@ -63,17 +78,6 @@ packer.startup {
       end,
       cmd = "LspInstall*",
       event = { "BufRead" },
-      requires = {
-        { "neovim/nvim-lspconfig", module = "lspconfig" },
-        { "ray-x/lsp_signature.nvim", after = "nvim-lspconfig" },
-        { "onsails/lspkind-nvim", module = "lspkind" },
-        { "tami5/lspsaga.nvim", after = "nvim-lspconfig" },
-        { "folke/lua-dev.nvim", module = "lua-dev" },
-        { "folke/lsp-colors.nvim", after = "nvim-lspconfig" },
-        { "jose-elias-alvarez/nvim-lsp-ts-utils", after = "nvim-lspconfig" },
-        { "folke/lsp-colors.nvim", after = "nvim-lspconfig" },
-        { "b0o/schemastore.nvim", module = "schemastore" },
-      },
     }
     use {
       "nazo6/installer.nvim",

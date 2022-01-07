@@ -1,6 +1,7 @@
+local create_config = require("rc.lsp.utils").create_config
 local root_pattern = require("lspconfig").util.root_pattern
 
-return {
+return create_config {
   root_dir = root_pattern("package.json", "tsconfig.json"),
   on_attach = function(client, bufnr)
     -- disable tsserver formatting if you plan on formatting via null-ls
