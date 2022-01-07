@@ -30,8 +30,7 @@ jobs:
 
     - name: Run benchmark
       run: |
-       cd ~/.config/nvim/
-       deno run --unstable --allow-all scripts/benchmark.ts
+       deno run --unstable --allow-all ~/.config/nvim/scripts/benchmark.ts
 
     - name: Upload benchmark
       uses: benchmark-action/github-action-benchmark@v1
