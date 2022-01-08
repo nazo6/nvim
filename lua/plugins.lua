@@ -62,7 +62,6 @@ packer.startup {
     use { "tami5/lspsaga.nvim", module = "lspsaga", cmd = "Lspsaga" }
     use { "folke/lua-dev.nvim", module = "lua-dev" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
-    use { "folke/lsp-colors.nvim", after = "nvim-lspconfig" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "nvim-lua/lsp-status.nvim" }
     use {
@@ -75,6 +74,8 @@ packer.startup {
     }
     use {
       "nazo6/installer.nvim",
+      module = "installer",
+      cmd = { "Install", "Uninstall", "Update" },
       config = function()
         require "rc.installer"
       end,
@@ -132,7 +133,7 @@ packer.startup {
     }
     use {
       "windwp/nvim-autopairs",
-      event = { "BufEnter" },
+      event = { "InsertEnter" },
       after = { "nvim-cmp" },
       config = function()
         require("nvim-autopairs").setup {
@@ -196,7 +197,7 @@ packer.startup {
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      module = "trouble",
+      cmd = "Trouble*",
       setup = function()
         require("rc.trouble").keymap()
       end,
@@ -268,7 +269,7 @@ packer.startup {
       keys = { [["]], "<C-r>" },
     }
 
-    use { "kevinhwang91/nvim-hlslens" }
+    use { "kevinhwang91/nvim-hlslens", event = { "CmdlineEnter" } }
 
     ------------------------
     -- Appearance plugins --
