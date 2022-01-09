@@ -3,12 +3,17 @@ nnoremap("gk", "k", "silent")
 nnoremap("j", "gj", "silent")
 nnoremap("gj", "j", "silent")
 
-nmap("<S-Right>", "<C-w><", "silent")
-nmap("<S-Left>", "<C-w>>", "silent")
-nmap("<S-Up>", "<C-w>+", "silent")
-nmap("<S-Down>", "<C-w>-", "silent")
+nnoremap("<S-h>", "^", "silent")
+nnoremap("<S-l>", "$", "silent")
+
+nnoremap("<S-Right>", "<C-w><", "silent")
+nnoremap("<S-Left>", "<C-w>>", "silent")
+nnoremap("<S-Up>", "<C-w>+", "silent")
+nnoremap("<S-Down>", "<C-w>-", "silent")
 
 vnoremap("c", [["_c]], "silent")
 vnoremap("p", [[_dp]], "silent")
 
-noremap("<leader>s", [[:%s/]], "silent", "Replace")
+nnoremap("<Esc><Esc>", "<cmd>noh<CR>", "silent")
+
+noremap("<leader>s", [[:%s/]], "silent")

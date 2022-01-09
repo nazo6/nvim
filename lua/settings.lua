@@ -3,6 +3,8 @@ local opt = vim.opt
 vim.g.mapleader = " "
 
 --- Behavior
+opt.shortmess:append "I"
+
 opt.autoread = true
 opt.mouse = "a"
 if vim.fn.has "wsl" then
@@ -42,6 +44,8 @@ opt.inccommand = "split"
 opt.foldlevel = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+vim.cmd [[autocmd FileType help wincmd L]]
 
 --- Key
 opt.timeoutlen = 400

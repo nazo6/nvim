@@ -122,13 +122,21 @@ packer.startup {
     }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, module = { "dapui" } }
 
-    -----------
-    -- Edits --
-    -----------
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
         require "rc.indentLine"
+      end,
+    }
+
+    -----------
+    -- Edits --
+    -----------
+    use {
+      "phaazon/hop.nvim",
+      branch = "v1",
+      config = function()
+        require "rc.hop"
       end,
     }
     use {
