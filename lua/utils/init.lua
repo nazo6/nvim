@@ -12,4 +12,6 @@ M.merge_functions = function(...)
   end
 end
 
+M.os = vim.loop.os_uname().sysname
+
 return M
