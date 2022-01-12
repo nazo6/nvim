@@ -2,28 +2,12 @@
 
 My neovim config.
 
-## Requirements
-
-- stylua
-
-## Memo
-
-### Some null-ls formatters and linters do not work on Windows
-
-This was due to `vim.fn.exepath` not returning the correct value because shell was set to `pwsh.exe`.
-Setting shell back to default will fix it.
-
-### ESLint error `Parsing error: Cannot read file '..../tsconfig.json'`
-
-Add this
-
-```typescript
-module.exports = {
-  // ...
-  parserOptions: {
-    project: "tsconfig.json",
-    tsconfigRootDir: __dirname,
-  },
-  // ...
-};
+## Setup
+```sh
+cd ~/.config/nvim
+git clone https://github.com/nazo6/nvim
+nvim
+```
+```vim
+PackerSync
 ```

@@ -5,7 +5,6 @@ vim.g.mapleader = " "
 --- Behavior
 opt.shortmess:append "I"
 
-opt.autoread = true
 opt.mouse = "a"
 if vim.fn.has "wsl" then
   vim.cmd [[
@@ -26,16 +25,6 @@ end
 opt.clipboard:append "unnamedplus"
 
 opt.confirm = true
-opt.wildmenu = true
-
-opt.hidden = true
-
-local undodir = tostring(vim.fn.stdpath "data") .. "/undo"
-if vim.fn.isdirectory(undodir) ~= 1 then
-  vim.fn.mkdir(undodir, "p")
-end
-opt.undodir = undodir
-opt.undofile = true
 
 opt.smartcase = true
 opt.ignorecase = true
