@@ -342,9 +342,6 @@ packer.startup {
     ---------
     use { "nazo6/dui.nvim" }
   end,
-  config = {
-    max_jobs = require("utils").os == "Windows_NT" and 10 or nil,
-  },
 }
 
 require "utils.autocmd" {
