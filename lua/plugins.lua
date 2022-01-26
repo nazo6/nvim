@@ -63,7 +63,12 @@ packer.startup {
     use { "folke/lua-dev.nvim", module = "lua-dev" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
-    use { "nvim-lua/lsp-status.nvim" }
+    use {
+      "j-hui/fidget.nvim",
+      config = function()
+        require("fidget").setup {}
+      end,
+    }
     use {
       "williamboman/nvim-lsp-installer",
       config = function()

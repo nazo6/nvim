@@ -140,14 +140,6 @@ basic.logo = {
   end,
 }
 
-basic.lsp_status = {
-  function()
-    if #vim.lsp.buf_get_clients() > 0 then
-      return require("lsp-status").status()
-    end
-  end,
-}
-
 local default = {
   filetypes = { "default" },
   active = {
@@ -160,7 +152,6 @@ local default = {
     { sep.right_rounded, { "black_light", "black" } },
     basic.lsp_diagnos,
     { " ", hl_list.Black },
-    basic.lsp_status,
     basic.divider,
     { git_comps.git_branch { icon = "  " }, { "green", "black" }, 90 },
     basic.git,
