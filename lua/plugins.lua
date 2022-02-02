@@ -139,9 +139,12 @@ packer.startup {
     -----------
     use {
       "phaazon/hop.nvim",
-      branch = "v1",
+      cmd = "Hop*",
+      setup = function()
+        require("rc.hop").keymaps()
+      end,
       config = function()
-        require "rc.hop"
+        require("rc.hop").setup()
       end,
     }
     use {
