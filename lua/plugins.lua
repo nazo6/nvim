@@ -65,9 +65,7 @@ packer.startup {
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use {
       "j-hui/fidget.nvim",
-      config = function()
-        require("fidget").setup {}
-      end,
+      module = "fidget",
     }
     use {
       "williamboman/nvim-lsp-installer",
