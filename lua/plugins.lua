@@ -220,6 +220,17 @@ packer.startup {
       end,
     }
     use {
+      "stevearc/aerial.nvim",
+      event = "BufRead",
+      cmd = "Aerial*",
+      setup = function()
+        require("rc.aerial").setup()
+      end,
+      config = function()
+        require("rc.aerial").config()
+      end,
+    }
+    use {
       "akinsho/toggleterm.nvim",
       config = function()
         require "rc.toggleterm"

@@ -5,6 +5,7 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 return {
   on_attach = function(client, bufnr)
     require("lsp_signature").on_attach()
+    require("aerial").on_attach(client, bufnr)
 
     require("mapx").group({ silent = true, buffer = bufnr }, function()
       nnoremap("gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>")
