@@ -296,13 +296,6 @@ packer.startup {
       end,
     }
     use { "dstein64/nvim-scrollview" }
-    use {
-      "akinsho/nvim-bufferline.lua",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require "rc.bufferline"
-      end,
-    }
     -----------
     -- Tools --
     -----------
