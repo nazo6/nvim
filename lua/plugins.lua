@@ -123,7 +123,14 @@ packer.startup {
         require "rc.dap"
       end,
     }
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, module = { "dapui" } }
+    use {
+      "rcarriga/nvim-dap-ui",
+      module = { "dapui" },
+    }
+    use {
+      "theHamsta/nvim-dap-virtual-text",
+      module = "nvim-dap-virtual-text",
+    }
 
     use {
       "lukas-reineke/indent-blankline.nvim",

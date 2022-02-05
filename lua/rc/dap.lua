@@ -13,18 +13,15 @@ dap.configurations.typescript = {
   },
 }
 
-vim.cmd [[
-nnoremap <Space>dG <Cmd>lua require'dap'.run_last()<CR>
-nnoremap <Space>dg <Cmd>lua require'dap'.run()<CR>
-nnoremap <Space>dl <Cmd>lua require'dap'.load_launchjs()<CR>
-nnoremap <Space>dB <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-nnoremap <Space>dR <Cmd>lua require'dap'.repl.open()<CR>
-nnoremap <Space>do <Cmd>lua require'dap'.step_out()<CR>
-nnoremap <Space>di <Cmd>lua require'dap'.step_into()<CR>
-nnoremap <Space>dn <Cmd>lua require'dap'.step_over()<CR>
-nnoremap <Space>dc <Cmd>lua require'dap'.continue()<CR>
-nnoremap <Space>db <Cmd>lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <Space>d<Esc> <Cmd>lua require'dap'.stop()<CR>
-]]
+nnoremap("n", "<leader>d", ":lua require'dapui'.toggle()<CR>", { silent = true })
+nnoremap("n", "<leader><leader>df", ":lua require'dapui'.eval()<CR>", { silent = true })
+nnoremap("n", "<F5>", ":lua require'dap'.continue()<CR>", { silent = true })
+nnoremap("n", "<F10>", ":lua require'dap'.step_over()<CR>", { silent = true })
+nnoremap("n", "<F11>", ":lua require'dap'.step_into()<CR>", { silent = true })
+nnoremap("n", "<F12>", ":lua require'dap'.step_out()<CR>", { silent = true })
+nnoremap("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", { silent = true })
+nnoremap("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { silent = true })
+nnoremap("n", "<leader>l", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", { silent = true })
 
+require("nvim-dap-virtual-text").setup()
 require("dapui").setup()
