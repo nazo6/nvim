@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1644028779288,
+  "lastUpdate": 1644135779497,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -504,6 +504,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 123.216,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "235d1ab58da5d5e3523f547b37d8129f53779eb5",
+          "message": "Fix rust-analyzer setting",
+          "timestamp": "2022-02-06T17:21:35+09:00",
+          "tree_id": "b1bc2cf9d624c520974bc4641396025156da5161",
+          "url": "https://github.com/nazo6/nvim/commit/235d1ab58da5d5e3523f547b37d8129f53779eb5"
+        },
+        "date": 1644135777662,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 120.51,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 119.178,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 122.785,
             "unit": "ms"
           }
         ]
