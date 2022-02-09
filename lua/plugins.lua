@@ -185,6 +185,7 @@ packer.startup {
 
     use {
       "kyazdani42/nvim-tree.lua",
+      commit = "d8bf1ad",
       requires = "kyazdani42/nvim-web-devicons",
       cmd = { "NvimTree*" },
       setup = function()
