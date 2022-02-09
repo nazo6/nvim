@@ -37,6 +37,8 @@ packer.startup {
     ----------
     use {
       "nvim-treesitter/nvim-treesitter",
+      event = { "BufRead", "InsertEnter" },
+      module = { "nvim-treesitter" },
       requires = {
         { "romgrk/nvim-treesitter-context", after = "nvim-treesitter" },
         { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
@@ -48,7 +50,7 @@ packer.startup {
 
     use {
       "jose-elias-alvarez/null-ls.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
+      requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
       module = "null-ls",
     }
     use {
@@ -91,7 +93,7 @@ packer.startup {
       "hrsh7th/nvim-cmp",
       requires = {
         { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
         { "hrsh7th/cmp-calc", after = "nvim-cmp" },
         { "hrsh7th/cmp-path", after = "nvim-cmp" },
         { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
@@ -104,14 +106,6 @@ packer.startup {
       end,
     }
 
-    use {
-      "puremourning/vimspector",
-      ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-      config = function()
-        vim.g.vimspector_install_gadgets = { "vscode-node-debug2" }
-        vim.g.vimspector_enable_mappings = "HUMAN"
-      end,
-    }
     use {
       "mfussenegger/nvim-dap",
       module = { "dap" },
@@ -130,6 +124,7 @@ packer.startup {
 
     use {
       "lukas-reineke/indent-blankline.nvim",
+      event = { "BufRead" },
       config = function()
         require "rc.indentLine"
       end,
@@ -173,7 +168,7 @@ packer.startup {
       cmd = "Telescope",
       module = "telescope",
       requires = {
-        "nvim-lua/plenary.nvim",
+        { "nvim-lua/plenary.nvim", module = "plenary" },
       },
       setup = function()
         require("rc.telescope").setup()
@@ -186,7 +181,7 @@ packer.startup {
     use {
       "kyazdani42/nvim-tree.lua",
       commit = "d8bf1ad",
-      requires = "kyazdani42/nvim-web-devicons",
+      requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
       cmd = { "NvimTree*" },
       setup = function()
         require("rc.nvim-tree").setup()
@@ -197,7 +192,7 @@ packer.startup {
     }
     use {
       "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
+      requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
       cmd = "Trouble*",
       setup = function()
         require("rc.trouble").setup()
@@ -232,8 +227,9 @@ packer.startup {
     use {
       "lewis6991/gitsigns.nvim",
       requires = {
-        "nvim-lua/plenary.nvim",
+        { "nvim-lua/plenary.nvim", module = "plenary" },
       },
+      event = "BufRead",
       config = function()
         require("gitsigns").setup()
       end,
@@ -296,7 +292,7 @@ packer.startup {
         require "rc.windline"
       end,
     }
-    use { "dstein64/nvim-scrollview" }
+    use { "dstein64/nvim-scrollview", event = { "BufRead" } }
     -----------
     -- Tools --
     -----------
@@ -313,7 +309,7 @@ packer.startup {
     use {
       "Saecki/crates.nvim",
       event = { "BufRead Cargo.toml" },
-      requires = { { "nvim-lua/plenary.nvim" } },
+      requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
       config = function()
         require("crates").setup()
       end,
@@ -321,12 +317,12 @@ packer.startup {
     use {
       "vuki656/package-info.nvim",
       event = { "BufRead package.json" },
-      requires = "MunifTanjim/nui.nvim",
+      requires = { { "MunifTanjim/nui.nvim", module = "nui" } },
     }
 
     use {
       "akinsho/flutter-tools.nvim",
-      requires = { "akinsho/plenary.nvim" },
+      requires = { { "akinsho/plenary.nvim", module = "plenary" } },
       ft = { "dart" },
       config = function()
         require "rc.flutter"
@@ -334,7 +330,7 @@ packer.startup {
     }
     use {
       "NTBBloodbath/rest.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
+      requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
       ft = { "http" },
     }
   end,
