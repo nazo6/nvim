@@ -23,7 +23,6 @@ packer.startup {
     }
 
     use { "vim-jp/vimdoc-ja" }
-    use { "nathom/filetype.nvim" }
     use {
       "monkoose/matchparen.nvim",
       event = { "BufRead", "InsertEnter" },
