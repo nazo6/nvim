@@ -1,8 +1,8 @@
 return {
-  keymaps = function()
+  setup = function()
     nnoremap("<Tab>", "<cmd>JABSOpen<CR>", "silent", "Open buffer list")
   end,
-  setup = function()
+  config = function()
     local ui = vim.api.nvim_list_uis()[1]
     require("jabs").setup {
       position = "corner",

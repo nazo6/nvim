@@ -1,9 +1,9 @@
 return {
-  keymaps = function()
+  setup = function()
     nnoremap("<C-p>", "<cmd>Telescope<CR>", "silent")
     nnoremap("<leader>p", "<cmd>Telescope live_grep<CR>", "silent")
   end,
-  setup = function()
+  config = function()
     require("telescope").setup {
       defaults = {
         vimgrep_arguments = {

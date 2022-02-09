@@ -26,6 +26,7 @@ packer.startup {
     use { "nathom/filetype.nvim" }
     use {
       "monkoose/matchparen.nvim",
+      event = { "BufRead", "InsertEnter" },
       config = function()
         require("matchparen").setup()
       end,
@@ -36,26 +37,24 @@ packer.startup {
     ----------
     use {
       "nvim-treesitter/nvim-treesitter",
+      requires = {
+        { "romgrk/nvim-treesitter-context", after = "nvim-treesitter" },
+        { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
+      },
       config = function()
         require "rc.treesitter"
       end,
-      requires = "romgrk/nvim-treesitter-context",
     }
 
-    use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }
+    use {
+      "jose-elias-alvarez/null-ls.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      module = "null-ls",
+    }
     use {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
     }
-    --[[
-    use {
-      "ldelossa/litee.nvim",
-      config = function()
-        require("litee").setup {}
-      end,
-    }
-    ]]
-
     use { "neovim/nvim-lspconfig", module = "lspconfig" }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
     use { "onsails/lspkind-nvim", module = "lspkind" }
@@ -63,10 +62,7 @@ packer.startup {
     use { "folke/lua-dev.nvim", module = "lua-dev" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
-    use {
-      "j-hui/fidget.nvim",
-      module = "fidget",
-    }
+    use { "j-hui/fidget.nvim", module = "fidget" }
     use {
       "williamboman/nvim-lsp-installer",
       config = function()
@@ -146,10 +142,10 @@ packer.startup {
       "phaazon/hop.nvim",
       cmd = "Hop*",
       setup = function()
-        require("rc.hop").keymaps()
+        require("rc.hop").setup()
       end,
       config = function()
-        require("rc.hop").setup()
+        require("rc.hop").config()
       end,
     }
     use {
@@ -160,23 +156,6 @@ packer.startup {
         require("nvim-autopairs").setup {
           enable_check_bracket_line = false,
         }
-      end,
-    }
-    use {
-      "windwp/nvim-ts-autotag",
-      ft = {
-        "html",
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact",
-        "svelte",
-        "vue",
-        "xml",
-        "php",
-      },
-      config = function()
-        require("nvim-ts-autotag").setup()
       end,
     }
 
@@ -197,10 +176,10 @@ packer.startup {
         "nvim-lua/plenary.nvim",
       },
       setup = function()
-        require("rc.telescope").keymaps()
+        require("rc.telescope").setup()
       end,
       config = function()
-        require("rc.telescope").setup()
+        require("rc.telescope").config()
       end,
     }
 
@@ -209,10 +188,10 @@ packer.startup {
       requires = "kyazdani42/nvim-web-devicons",
       cmd = { "NvimTree*" },
       setup = function()
-        require("rc.nvim-tree").keymap()
+        require("rc.nvim-tree").setup()
       end,
       config = function()
-        require("rc.nvim-tree").setup()
+        require("rc.nvim-tree").config()
       end,
     }
     use {
@@ -220,10 +199,10 @@ packer.startup {
       requires = "kyazdani42/nvim-web-devicons",
       cmd = "Trouble*",
       setup = function()
-        require("rc.trouble").keymap()
+        require("rc.trouble").setup()
       end,
       config = function()
-        require("rc.trouble").setup()
+        require("rc.trouble").config()
       end,
     }
     use {
@@ -239,8 +218,13 @@ packer.startup {
     }
     use {
       "akinsho/toggleterm.nvim",
+      module = "toggleterm",
+      cmd = "ToggleTerm*",
+      setup = function()
+        require("rc.toggleterm").setup()
+      end,
       config = function()
-        require "rc.toggleterm"
+        require("rc.toggleterm").config()
       end,
     }
 
@@ -279,20 +263,20 @@ packer.startup {
       "windwp/nvim-spectre",
       module = { "spectre" },
       setup = function()
-        require("rc.spectre").keymap()
+        require("rc.spectre").setup()
       end,
       config = function()
-        require("rc.spectre").setup()
+        require("rc.spectre").config()
       end,
     }
     use {
       "matbme/JABS.nvim",
       cmd = "JABSOpen",
       setup = function()
-        require("rc.JABS").keymaps()
+        require("rc.JABS").setup()
       end,
       config = function()
-        require("rc.JABS").setup()
+        require("rc.JABS").config()
       end,
     }
     use {
@@ -300,8 +284,6 @@ packer.startup {
       cmd = "Registers",
       keys = { [["]], "<C-r>" },
     }
-
-    use { "kevinhwang91/nvim-hlslens", event = { "CmdlineEnter" } }
 
     ------------------------
     -- Appearance plugins --
@@ -354,10 +336,6 @@ packer.startup {
       requires = { "nvim-lua/plenary.nvim" },
       ft = { "http" },
     }
-    ---------
-    -- Dev --
-    ---------
-    use { "nazo6/dui.nvim" }
   end,
 }
 

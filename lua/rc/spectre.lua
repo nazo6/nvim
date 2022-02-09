@@ -1,8 +1,8 @@
 return {
-  keymap = function()
+  setup = function()
     nmap("<leader>S", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
   end,
-  setup = function()
+  config = function()
     local get_path = require("installer.integrations.tools").get
 
     require("spectre").setup {
