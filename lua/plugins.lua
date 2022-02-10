@@ -283,7 +283,7 @@ packer.startup {
     ------------------------
     -- Appearance plugins --
     ------------------------
-    use { "rebelot/kanagawa.nvim" }
+    use "folke/tokyonight.nvim"
     use {
       "windwp/windline.nvim",
       config = function()

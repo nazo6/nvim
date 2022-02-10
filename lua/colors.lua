@@ -11,21 +11,14 @@ local overrides = {
   NvimTreeGitStaged = { fg = "yellow" },
   NvimTreeGitMerge = { fg = "cyan" },
 }
-local ok, kanagawa = pcall(require, "kanagawa")
+for key, value in pairs(overrides) do
+  vim.api.nvim_set_hl(0, key, value)
+end
+
+local ok, value = pcall(require, "tokyonight")
 if ok then
-  kanagawa.setup {
-    undercurl = true,
-    commentStyle = "italic",
-    functionStyle = "NONE",
-    keywordStyle = "italic",
-    statementStyle = "bold",
-    typeStyle = "NONE",
-    variablebuiltinStyle = "italic",
-    specialReturn = true,
-    specialException = true,
-    transparent = false,
-    colors = {},
-    overrides = overrides,
-  }
-  vim.cmd "colorscheme kanagawa"
+  vim.g.tokyonight_sidebars = { "NvimTree" }
+  vim.g.tokyonight_style = "night"
+
+  vim.cmd [[colorscheme tokyonight]]
 end
