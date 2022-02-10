@@ -24,6 +24,8 @@ if vim.fn.has "wsl" then
 end
 opt.clipboard:append "unnamedplus"
 
+opt.undofile = true
+
 opt.confirm = true
 
 opt.smartcase = true

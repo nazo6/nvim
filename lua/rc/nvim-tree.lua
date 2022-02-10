@@ -43,6 +43,7 @@ return {
       folders = 1,
       files = 1,
     }
+    vim.g.nvim_tree_indent_markers = 1
 
     require("nvim-tree").setup {
       disable_netrw = true,
