@@ -255,6 +255,15 @@ packer.startup {
       cmd = "Diffview*",
       module = "diffview",
     }
+
+    use {
+      "akinsho/bufferline.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require "rc.bufferline"
+      end,
+    }
+
     use {
       "windwp/nvim-spectre",
       module = { "spectre" },
@@ -263,16 +272,6 @@ packer.startup {
       end,
       config = function()
         require("rc.spectre").config()
-      end,
-    }
-    use {
-      "matbme/JABS.nvim",
-      cmd = "JABSOpen",
-      setup = function()
-        require("rc.JABS").setup()
-      end,
-      config = function()
-        require("rc.JABS").config()
       end,
     }
     use {

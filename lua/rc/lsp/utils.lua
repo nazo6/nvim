@@ -16,6 +16,6 @@ M.create_setup = function(server_config)
   end
 end
 
-M.default_config = M.create_setup(common_config)
+M.default_setup = M.create_setup(common_config)
 
 return M

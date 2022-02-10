@@ -8,7 +8,7 @@ require("fidget").setup {
 }
 
 require("nvim-lsp-installer").on_server_ready(function(server)
-  local config_fn = configs[server.name] or utils.default_config
+  local config_fn = configs[server.name] or utils.default_setup
   config_fn(server)
 end)
 
