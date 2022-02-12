@@ -28,9 +28,11 @@ cmp.setup {
     format = require("lspkind").cmp_format {
       with_text = false,
       menu = {
-        buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
-        vsnip = "[vsnip]",
+        luasnip = "[snippet]",
+        buffer = "[buffer]",
+        calc = "[calc]",
+        path = "[path]",
       },
     },
     fields = { "kind", "abbr", "menu" },
