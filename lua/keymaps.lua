@@ -17,5 +17,3 @@ vnoremap("p", [[_dp]], "silent")
 nnoremap("<Esc><Esc>", "<cmd>noh<CR>", "silent")
 
 noremap("<leader>s", [[:%s/]], "silent")
-
-nnoremap("<leader>cache", _G.__luacache.print_profile)

@@ -128,7 +128,7 @@ packer.startup {
       "lukas-reineke/indent-blankline.nvim",
       event = { "BufRead" },
       config = function()
-        require "rc.indentLine"
+        require "rc.indent-blankline"
       end,
     }
 
