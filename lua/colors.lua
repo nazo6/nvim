@@ -3,6 +3,8 @@ if vim.fn.has "termguicolors" == 1 then
 end
 
 local overrides = {
+  NvimTreeNormal = { fg = "#DCD7BA", bg = "#2A2A37" },
+  NvimTreeNormalNC = { fg = "#DCD7BA", bg = "#2A2A37" },
   NvimTreeGitIgnored = { fg = "#8c8c8c" },
   NvimTreeGitDeleted = { fg = "#C74E39" },
   NvimTreeGitRenamed = { fg = "yellow" },
@@ -11,6 +13,7 @@ local overrides = {
   NvimTreeGitStaged = { fg = "yellow" },
   NvimTreeGitMerge = { fg = "cyan" },
 }
+
 local ok, kanagawa = pcall(require, "kanagawa")
 if ok then
   kanagawa.setup {
@@ -27,5 +30,6 @@ if ok then
     colors = {},
     overrides = overrides,
   }
+
   vim.cmd "colorscheme kanagawa"
 end
