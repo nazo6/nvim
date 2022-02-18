@@ -288,9 +288,9 @@ packer.startup {
     ------------------------
     use "rebelot/kanagawa.nvim"
     use {
-      "windwp/windline.nvim",
+      "feline-nvim/feline.nvim",
       config = function()
-        require "rc.windline"
+        require "rc.feline"
       end,
     }
     use { "dstein64/nvim-scrollview", event = { "BufRead" } }
