@@ -6,8 +6,6 @@ local ok, kanagawa = pcall(require, "kanagawa")
 if ok then
   local palette = require("kanagawa.colors").setup()
   local overrides = {
-    -- StatusLine = { fg = palette.fujiWhite, bg = "blue" },
-    -- StatusLineNC = { fg = palette.fujiGray, bg = "blue" },
     NvimTreeNormal = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
     NvimTreeNormalNC = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
     NvimTreeGitIgnored = { fg = "#8c8c8c" },
