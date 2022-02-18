@@ -19,10 +19,8 @@ local basic = {}
 
 basic.divider = { b_components.divider, "" }
 basic.space = { " ", "" }
-basic.bg = { " ", "StatusLine" }
 basic.file_name_inactive = { b_components.full_file_name, hl_list.Inactive }
 basic.line_col_inactive = { b_components.line_col, hl_list.Inactive }
-basic.progress_inactive = { b_components.progress, hl_list.Inactive }
 
 basic.vi_mode = {
   hl_colors = {
@@ -31,16 +29,11 @@ basic.vi_mode = {
     Visual = { "black", "yellow", "bold" },
     Replace = { "black", "blue_light", "bold" },
     Command = { "black", "magenta", "bold" },
-    NormalBefore = { "red", "black" },
-    InsertBefore = { "green", "black" },
-    VisualBefore = { "yellow", "black" },
-    ReplaceBefore = { "blue_light", "black" },
-    CommandBefore = { "magenta", "black" },
-    NormalAfter = { "white", "red" },
-    InsertAfter = { "white", "green" },
-    VisualAfter = { "white", "yellow" },
-    ReplaceAfter = { "white", "blue_light" },
-    CommandAfter = { "white", "magenta" },
+    NormalBefore = { "red", "ActiveBg" },
+    InsertBefore = { "green", "ActiveBg" },
+    VisualBefore = { "yellow", "ActiveBg" },
+    ReplaceBefore = { "blue_light", "ActiveBg" },
+    CommandBefore = { "magenta", "ActiveBg" },
   },
   text = function()
     return {
@@ -82,7 +75,6 @@ basic.file = {
       { " ", "default" },
       { b_components.cache_file_name("[No Name]", ""), "" },
       { b_components.file_modified " ", "" },
-      { b_components.cache_file_size(), "" },
       { sep.right_rounded, "icon" },
       { " ", { "blue", "black" } },
       { sep.left_rounded, "icon" },
@@ -90,20 +82,6 @@ basic.file = {
       { " ", "default" },
       icon_comp(bufnr),
       { " ", "default" },
-    }
-  end,
-}
-basic.right = {
-  hl_colors = {
-    sep_before = { "black_light", "white_light" },
-    sep_after = { "white_light", "black" },
-    text = { "black", "white_light" },
-  },
-  text = function()
-    return {
-      { sep.left_rounded, "sep_after" },
-      { b_components.progress, "text" },
-      { sep.right_rounded, "sep_after" },
     }
   end,
 }
@@ -143,9 +121,9 @@ basic.logo = {
 local default = {
   filetypes = { "default" },
   active = {
-    { " ", hl_list.Black },
+    basic.space,
     basic.vi_mode,
-    { " ", hl_list.Black },
+    basic.space,
     basic.logo,
     basic.file,
     { vim_components.search_count(), { "red", "black_light" } },
@@ -156,16 +134,11 @@ local default = {
     { git_comps.git_branch { icon = "  " }, { "green", "black" }, 90 },
     basic.git,
     { " ", hl_list.Black },
-    basic.right,
-    { " ", hl_list.Black },
   },
   inactive = {
     basic.file_name_inactive,
     basic.divider,
-    basic.divider,
     basic.line_col_inactive,
-    { "", { "white", "InactiveBg" } },
-    basic.progress_inactive,
   },
 }
 
@@ -185,7 +158,6 @@ local quickfix = {
     { " ", { "InactiveFg", "InactiveBg" } },
     basic.divider,
     { helper.separators.slant_right, { "InactiveBg", "black" } },
-    { "🧛 ", { "white", "black" } },
   },
   always_active = true,
   show_last_status = true,
