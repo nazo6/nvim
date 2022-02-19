@@ -6,13 +6,13 @@ local M = {
 
 M.active[1] = {
   {
-    provider = "█ ",
-    hl = {
-      fg = "crystalBlue",
+    provider = {
+      name = "vi_mode",
+      opts = {
+        padding = "right",
+        show_mode_name = true,
+      },
     },
-  },
-  {
-    provider = "vi_mode",
     hl = function()
       return {
         name = vi_mode_utils.get_mode_highlight_name(),
@@ -21,7 +21,6 @@ M.active[1] = {
       }
     end,
     icon = "",
-    right_sep = { " " },
   },
   {
     provider = "file_info",
@@ -82,15 +81,6 @@ M.active[2] = {
   },
   {
     provider = "git_branch",
-  },
-  {
-    provider = "git_diff_added",
-  },
-  {
-    provider = "git_diff_changed",
-  },
-  {
-    provider = "git_diff_removed",
   },
   {
     provider = " ",
