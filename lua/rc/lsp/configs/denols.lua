@@ -6,7 +6,7 @@ local deno_root_pattern = root_pattern("deno.json", "deps.ts")
 return function(server)
   local config = create_config {
     root_dir = deno_root_pattern,
-    init_options = {
+    settings = {
       enable = true,
       lint = true,
       unstable = true,
