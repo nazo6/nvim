@@ -1,6 +1,8 @@
 local configs = require "rc.lsp.configs"
 local utils = require "rc.lsp.utils"
 
+require "nlspsettings"
+
 require("fidget").setup {
   text = {
     spinner = "dots",

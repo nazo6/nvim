@@ -65,6 +65,14 @@ packer.startup {
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "j-hui/fidget.nvim", module = "fidget" }
     use {
+      "tamago324/nlsp-settings.nvim",
+      module = "nlspsettings",
+      cmd = "Nlsp*",
+      config = function()
+        require "rc.lsp.nlsp"
+      end,
+    }
+    use {
       "williamboman/nvim-lsp-installer",
       config = function()
         require "rc.lsp.setup"
@@ -182,7 +190,6 @@ packer.startup {
 
     use {
       "kyazdani42/nvim-tree.lua",
-      commit = "d8bf1ad",
       requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
       cmd = { "NvimTree*" },
       setup = function()
