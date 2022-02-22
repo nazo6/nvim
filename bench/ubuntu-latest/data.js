@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1645512034616,
+  "lastUpdate": 1645515164928,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -1323,6 +1323,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 21.601,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "e8d469d4edb6361a720440ccd764c23cdb6589b5",
+          "message": "Remove lspsaga",
+          "timestamp": "2022-02-22T16:33:00+09:00",
+          "tree_id": "63e90029cc4879ef9de66697315adfe7fe250afb",
+          "url": "https://github.com/nazo6/nvim/commit/e8d469d4edb6361a720440ccd764c23cdb6589b5"
+        },
+        "date": 1645515164473,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 26.45,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 25.191,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 27.809,
             "unit": "ms"
           }
         ]
