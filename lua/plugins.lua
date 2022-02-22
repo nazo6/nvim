@@ -30,6 +30,7 @@ packer.startup {
         require("matchparen").setup()
       end,
     }
+    use { "stevearc/dressing.nvim" }
 
     ----------
     -- Code --
@@ -59,7 +60,6 @@ packer.startup {
     use { "neovim/nvim-lspconfig", module = "lspconfig" }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
     use { "onsails/lspkind-nvim", module = "lspkind" }
-    use { "tami5/lspsaga.nvim", module = "lspsaga", cmd = "Lspsaga" }
     use { "folke/lua-dev.nvim", module = "lua-dev" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
