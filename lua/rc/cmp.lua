@@ -20,7 +20,11 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer" },
+    { name = "buffer", option = {
+      get_bufnrs = function()
+        return vim.api.nvim_list_bufs()
+      end,
+    } },
     { name = "path" },
     { name = "calc" },
   },

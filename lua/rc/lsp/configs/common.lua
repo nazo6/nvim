@@ -16,7 +16,7 @@ return {
       nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 
       nnoremap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-      nnoremap(" leader>ca", "<cmd>CodeActionMenu<CR>")
+      nnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>")
       vnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>")
       nnoremap("<leader>e", "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>")
 

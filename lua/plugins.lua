@@ -30,7 +30,6 @@ packer.startup {
         require("matchparen").setup()
       end,
     }
-    use { "stevearc/dressing.nvim" }
 
     ----------
     -- Code --
