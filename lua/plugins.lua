@@ -343,9 +343,10 @@ packer.startup {
   end,
 }
 
-require "utils.autocmd" {
-  id = "PackerCompile",
-  events = { "BufWritePost" },
-  filetypes = "plugins.lua",
+vim.api.nvim_create_augroup({name = "PackerCompile"})
+vim.api.nvim_create_autocmd {
+  group = "PackerCompile",
+  event = { "BufWritePost" },
   command = "source <afile> | PackerCompile",
+  once = false,
 }

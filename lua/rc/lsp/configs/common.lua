@@ -1,5 +1,3 @@
-local autocmd = require "utils.autocmd"
-
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 return {
@@ -28,11 +26,12 @@ return {
       nnoremap("<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
     end)
 
-    autocmd {
-      id = "LspFormat",
-      events = "BufWritePre",
-      bufonly = true,
-      command = function()
+    vim.api.nvim_create_augroup({name = "LspFormat"})
+    vim.api.nvim_create_autocmd {
+      group = "LspFormat",
+      event = { "BufWritePre" },
+      buffer = 0,
+      callback = function()
         vim.lsp.buf.formatting_sync({}, 7000)
       end,
     }
