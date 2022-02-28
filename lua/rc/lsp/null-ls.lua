@@ -6,11 +6,13 @@ null_ls.setup {
   sources = {
     null_ls.builtins.formatting.deno_fmt.with {
       condition = function(utils)
-        return not (utils.root_has_file { ".prettierrc", ".prettier.js" })
+        return not (utils.has_file { ".prettierrc", ".prettier.js", "deno.json", "deno.jsonc" })
       end,
     },
     null_ls.builtins.formatting.prettier.with {
-      only_local = "node_modules/.bin",
+      condition = function(utils)
+        return utils.has_file { ".prettierrc", ".prettier.js" }
+      end,
     },
   },
   default_timeout = 10000,
