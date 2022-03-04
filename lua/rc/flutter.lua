@@ -10,13 +10,10 @@ require("flutter-tools").setup {
   }),
 }
 
-vim.api.nvim_create_augroup {
-  name = "FlutterOutlineMap",
-}
-vim.api.nvim_create_autocmd {
+vim.api.nvim_create_augroup("FlutterOutlineMap", {})
+vim.api.nvim_create_autocmd({ "FileType dart", "flutterToolsOutline" }, {
   group = "FlutterOutlineMap",
-  event = { "FileType dart", "flutterToolsOutline" },
   callback = function()
     nnoremap("<leader>o", "<cmd>FlutterOutlineToggle<CR>", "buffer")
   end,
-}
+})

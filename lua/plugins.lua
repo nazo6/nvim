@@ -343,10 +343,9 @@ packer.startup {
   end,
 }
 
-vim.api.nvim_create_augroup({name = "PackerCompile"})
-vim.api.nvim_create_autocmd {
+vim.api.nvim_create_augroup("PackerCompile", {})
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   group = "PackerCompile",
-  event = { "BufWritePost" },
   command = "source <afile> | PackerCompile",
   once = false,
-}
+})

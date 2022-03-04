@@ -26,15 +26,14 @@ return {
       nnoremap("<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
     end)
 
-    vim.api.nvim_create_augroup({name = "LspFormat"})
-    vim.api.nvim_create_autocmd {
+    vim.api.nvim_create_augroup("LspFormat", {})
+    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       group = "LspFormat",
-      event = { "BufWritePre" },
       buffer = 0,
       callback = function()
         vim.lsp.buf.formatting_sync({}, 7000)
       end,
-    }
+    })
   end,
   capabilities = capabilities,
   handlers = {
