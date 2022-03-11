@@ -63,6 +63,7 @@ packer.startup {
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "j-hui/fidget.nvim", module = "fidget" }
+    --[[
     use {
       "tamago324/nlsp-settings.nvim",
       module = "nlspsettings",
@@ -71,6 +72,7 @@ packer.startup {
         require "rc.lsp.nlsp"
       end,
     }
+    ]]
     use {
       "williamboman/nvim-lsp-installer",
       config = function()
