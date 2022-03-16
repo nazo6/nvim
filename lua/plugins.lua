@@ -55,6 +55,9 @@ packer.startup {
     use {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
+      config = function()
+        vim.g.code_action_menu_show_details = false
+      end,
     }
     use { "neovim/nvim-lspconfig", module = "lspconfig" }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
