@@ -56,7 +56,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         benchmark-data-dir-path: bench/${{ matrix.os }}
         auto-push: true
-        comment-on-alert: true
-        fail-on-alert: true
-        alert-threshold: '150%'
+        comment-on-alert: false
+        fail-on-alert: false
+        alert-threshold: '200%'
         alert-comment-cc-users: '@nazo6'
