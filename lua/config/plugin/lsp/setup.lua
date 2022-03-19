@@ -1,5 +1,5 @@
-local configs = require "rc.lsp.configs"
-local utils = require "rc.lsp.utils"
+local configs = require "config.plugin.lsp.configs"
+local utils = require "config.plugin.lsp.utils"
 
 require("fidget").setup {
   text = {
@@ -12,4 +12,4 @@ require("nvim-lsp-installer").on_server_ready(function(server)
   config_fn(server)
 end)
 
-require "rc.lsp.null-ls"
+require "config.plugin.lsp.null-ls"

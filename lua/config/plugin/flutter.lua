@@ -5,7 +5,7 @@ require("flutter-tools").setup {
   closing_tags = { highlight = "ErrorMsg", prefix = ">", enabled = true },
   dev_log = { open_cmd = "tabedit" },
   dev_tools = { autostart = true, autoopen_browser = true },
-  lsp = vim.tbl_extend("force", require("rc.lsp.utils").create_config {}, {
+  lsp = vim.tbl_extend("force", require("config.plugin.lsp.utils").create_config {}, {
     settings = { showTodos = true, completeFunctionCalls = true },
   }),
 }

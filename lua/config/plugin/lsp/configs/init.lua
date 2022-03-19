@@ -1,4 +1,4 @@
-local create_setup = require("rc.lsp.utils").create_setup
+local create_setup = require("config.plugin.lsp.utils").create_setup
 
 local root_pattern = require("lspconfig").util.root_pattern
 local function no_formatting(client)
@@ -6,8 +6,8 @@ local function no_formatting(client)
 end
 
 return {
-  tsserver = require "rc.lsp.configs.tsserver",
-  denols = require "rc.lsp.configs.denols",
+  tsserver = require "config.plugin.lsp.configs.tsserver",
+  denols = require "config.plugin.lsp.configs.denols",
   cssls = create_setup { on_attach = no_formatting },
   html = create_setup { on_attach = no_formatting },
   jsonls = create_setup {
@@ -18,6 +18,6 @@ return {
   tailwindcss = create_setup {
     root_dir = root_pattern("tailwind.config.js", "tailwind.config.ts"),
   },
-  sumneko_lua = require "rc.lsp.configs.sumneko_lua",
-  rust_analyzer = require "rc.lsp.configs.rust_analyzer",
+  sumneko_lua = require "config.plugin.lsp.configs.sumneko_lua",
+  rust_analyzer = require "config.plugin.lsp.configs.rust_analyzer",
 }

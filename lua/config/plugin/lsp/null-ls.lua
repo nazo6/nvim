@@ -1,6 +1,6 @@
 local null_ls = require "null-ls"
 
-local common_config = require "rc.lsp.configs.common"
+local common_config = require "config.plugin.lsp.configs.common"
 
 null_ls.setup {
   sources = {

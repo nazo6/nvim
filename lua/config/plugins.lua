@@ -18,7 +18,7 @@ packer.startup {
     use {
       "rcarriga/nvim-notify",
       config = function()
-        require "rc.notify"
+        require "config.plugin.notify"
       end,
     }
 
@@ -43,7 +43,7 @@ packer.startup {
         { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
       },
       config = function()
-        require "rc.treesitter"
+        require "config.plugin.treesitter"
       end,
     }
 
@@ -72,14 +72,14 @@ packer.startup {
       module = "nlspsettings",
       cmd = "Nlsp*",
       config = function()
-        require "rc.lsp.nlsp"
+        require "config.plugin.lsp.nlsp"
       end,
     }
     ]]
     use {
       "williamboman/nvim-lsp-installer",
       config = function()
-        require "rc.lsp.setup"
+        require "config.plugin.lsp.setup"
       end,
       cmd = "LspInstall*",
       event = { "BufRead" },
@@ -89,7 +89,7 @@ packer.startup {
       module = "installer",
       cmd = { "Install", "Uninstall", "Update" },
       config = function()
-        require "rc.installer"
+        require "config.plugin.installer"
       end,
     }
 
@@ -99,7 +99,7 @@ packer.startup {
         { "rafamadriz/friendly-snippets" },
       },
       config = function()
-        require "rc.luasnip"
+        require "config.plugin.luasnip"
       end,
       event = "InsertEnter",
     }
@@ -116,7 +116,7 @@ packer.startup {
       },
       event = { "InsertEnter", "CmdlineEnter" },
       config = function()
-        require "rc.cmp"
+        require "config.plugin.cmp"
       end,
     }
 
@@ -124,7 +124,7 @@ packer.startup {
       "mfussenegger/nvim-dap",
       module = { "dap" },
       config = function()
-        require "rc.dap"
+        require "config.plugin.dap"
       end,
     }
     use {
@@ -140,7 +140,7 @@ packer.startup {
       "lukas-reineke/indent-blankline.nvim",
       event = { "BufRead" },
       config = function()
-        require "rc.indent-blankline"
+        require "config.plugin.indent-blankline"
       end,
     }
 
@@ -151,10 +151,10 @@ packer.startup {
       "phaazon/hop.nvim",
       cmd = "Hop*",
       setup = function()
-        require("rc.hop").setup()
+        require("config.plugin.hop").setup()
       end,
       config = function()
-        require("rc.hop").config()
+        require("config.plugin.hop").config()
       end,
     }
     use {
@@ -185,10 +185,10 @@ packer.startup {
         { "nvim-lua/plenary.nvim", module = "plenary" },
       },
       setup = function()
-        require("rc.telescope").setup()
+        require("config.plugin.telescope").setup()
       end,
       config = function()
-        require("rc.telescope").config()
+        require("config.plugin.telescope").config()
       end,
     }
 
@@ -197,10 +197,10 @@ packer.startup {
       requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
       cmd = { "NvimTree*" },
       setup = function()
-        require("rc.nvim-tree").setup()
+        require("config.plugin.nvim-tree").setup()
       end,
       config = function()
-        require("rc.nvim-tree").config()
+        require("config.plugin.nvim-tree").config()
       end,
     }
     use {
@@ -208,10 +208,10 @@ packer.startup {
       requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
       cmd = "Trouble*",
       setup = function()
-        require("rc.trouble").setup()
+        require("config.plugin.trouble").setup()
       end,
       config = function()
-        require("rc.trouble").config()
+        require("config.plugin.trouble").config()
       end,
     }
     use {
@@ -219,10 +219,10 @@ packer.startup {
       event = "BufRead",
       cmd = "Aerial*",
       setup = function()
-        require("rc.aerial").setup()
+        require("config.plugin.aerial").setup()
       end,
       config = function()
-        require("rc.aerial").config()
+        require("config.plugin.aerial").config()
       end,
     }
     use {
@@ -230,10 +230,10 @@ packer.startup {
       module = "toggleterm",
       cmd = "ToggleTerm*",
       setup = function()
-        require("rc.toggleterm").setup()
+        require("config.plugin.toggleterm").setup()
       end,
       config = function()
-        require("rc.toggleterm").config()
+        require("config.plugin.toggleterm").config()
       end,
     }
 
@@ -274,7 +274,7 @@ packer.startup {
       "akinsho/bufferline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-        require "rc.bufferline"
+        require "config.plugin.bufferline"
       end,
     }
 
@@ -282,10 +282,10 @@ packer.startup {
       "windwp/nvim-spectre",
       module = { "spectre" },
       setup = function()
-        require("rc.spectre").setup()
+        require("config.plugin.spectre").setup()
       end,
       config = function()
-        require("rc.spectre").config()
+        require("config.plugin.spectre").config()
       end,
     }
     use {
@@ -301,7 +301,7 @@ packer.startup {
     use {
       "feline-nvim/feline.nvim",
       config = function()
-        require "rc.feline"
+        require "config.plugin.feline"
       end,
     }
     use { "dstein64/nvim-scrollview", event = { "BufRead" } }
@@ -337,7 +337,7 @@ packer.startup {
       requires = { { "akinsho/plenary.nvim", module = "plenary" } },
       ft = { "dart" },
       config = function()
-        require "rc.flutter"
+        require "config.plugin.flutter"
       end,
     }
     use {

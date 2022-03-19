@@ -61,7 +61,7 @@ M.active[1] = {
 -- Right
 M.active[2] = {
   {
-    provider = require("rc.feline.providers").file_format_with_icon,
+    provider = require("config.plugin.feline.providers").file_format_with_icon,
     hl = {
       fg = "white",
       bg = "sumiInk4",

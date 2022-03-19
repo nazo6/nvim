@@ -1,5 +1,5 @@
-local default = require "rc.feline.default"
-local explorer = require "rc.feline.explorer"
+local default = require "config.plugin.feline.default"
+local explorer = require "config.plugin.feline.explorer"
 
 local theme = require("kanagawa.colors").setup()
 -- theme.bg = theme.sumiInk2
