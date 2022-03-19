@@ -18,7 +18,7 @@ if ok then
 
     ScrollView = { bg = palette.sumiInk4 },
 
-    MiniCursorword = { bg = palette.waveBlue1 },
+    MiniCursorword = { bg = "#472739" },
     MiniCursorwordCurrent = { fg = "NONE", bg = "#363646" },
   }
   kanagawa.setup {
