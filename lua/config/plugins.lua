@@ -21,6 +21,8 @@ packer.startup {
         require "config.plugin.notify"
       end,
     }
+
+    use { "jghauser/mkdir.nvim" }
     use {
       "luukvbaal/stabilize.nvim",
       config = function()
