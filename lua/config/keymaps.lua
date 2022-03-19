@@ -16,4 +16,6 @@ vnoremap("p", [[_dp]], "silent")
 
 nnoremap("<Esc><Esc>", "<cmd>noh<CR>", "silent")
 
-noremap("<leader>s", [[:%s/]], "silent")
+noremap("<C-s>", [[:%s/]], "silent")
+
+noremap("<leader>sp", "<cmd>PackerStatus<CR>")

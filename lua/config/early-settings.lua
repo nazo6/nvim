@@ -8,7 +8,7 @@ local ok, mapx = pcall(require, "mapx")
 if ok then
   mapx.setup { global = true }
 else
-  require "global"
+  require "config.global"
 end
 
 vim.g.do_filetype_lua = 1
