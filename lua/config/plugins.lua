@@ -145,7 +145,7 @@ packer.startup {
     }
 
     -----------
-    -- Edits --
+    -- Actions --
     -----------
     use {
       "phaazon/hop.nvim",
@@ -165,6 +165,13 @@ packer.startup {
         require("nvim-autopairs").setup {
           enable_check_bracket_line = false,
         }
+      end,
+    }
+    use {
+      "abecodes/tabout.nvim",
+      event = { "InsertEnter" },
+      config = function()
+        require "config.plugin.tabout"
       end,
     }
 
