@@ -11,7 +11,7 @@ packer.startup {
     use { "wbthomason/packer.nvim" }
 
     ------------------------------------------
-    -- Global / default alternative plugins --
+    -- Global plugins --
     ------------------------------------------
     use { "lewis6991/impatient.nvim" }
     use { "b0o/mapx.nvim" }
@@ -22,9 +22,10 @@ packer.startup {
       end,
     }
 
-    use { "jghauser/mkdir.nvim" }
+    use { "jghauser/mkdir.nvim", event = { "BufWritePre" } }
     use {
       "luukvbaal/stabilize.nvim",
+      event = "WinNew",
       config = function()
         require("stabilize").setup()
       end,
