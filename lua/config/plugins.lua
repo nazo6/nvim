@@ -41,6 +41,7 @@ packer.startup {
       requires = {
         { "romgrk/nvim-treesitter-context", after = "nvim-treesitter" },
         { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
+        { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
       },
       config = function()
         require "config.plugin.treesitter"
@@ -174,6 +175,14 @@ packer.startup {
         require "config.plugin.tabout"
       end,
     }
+    use {
+      "echasnovski/mini.nvim",
+      event = { "BufRead" },
+      module = { "mini" },
+      config = function()
+        require "config.plugin.mini"
+      end,
+    }
 
     -----------
     -- Utils --
@@ -288,11 +297,6 @@ packer.startup {
       config = function()
         require("config.plugin.spectre").config()
       end,
-    }
-    use {
-      "tversteeg/registers.nvim",
-      cmd = "Registers",
-      keys = { [["]], "<C-r>" },
     }
 
     ------------------------
