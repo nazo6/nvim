@@ -21,6 +21,12 @@ packer.startup {
         require "config.plugin.notify"
       end,
     }
+    use {
+      "luukvbaal/stabilize.nvim",
+      config = function()
+        require("stabilize").setup()
+      end,
+    }
 
     use { "vim-jp/vimdoc-ja" }
     use {
