@@ -19,3 +19,4 @@ nnoremap("<Esc><Esc>", "<cmd>noh<CR>", "silent")
 noremap("<C-s>", [[:%s/]], "silent")
 
 noremap("<leader>sp", "<cmd>PackerStatus<CR>")
+noremap("<leader>sl", "<cmd>LuaCacheProfile<CR>")
