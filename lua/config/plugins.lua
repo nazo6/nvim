@@ -172,12 +172,6 @@ packer.startup {
     -- Utils --
     -----------
     use {
-      "AckslD/nvim-neoclip.lua",
-      config = function()
-        require("neoclip").setup()
-      end,
-    }
-    use {
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
       module = "telescope",
