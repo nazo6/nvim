@@ -17,6 +17,9 @@ if ok then
     NvimTreeGitMerge = { fg = "cyan" },
 
     ScrollView = { bg = palette.sumiInk4 },
+
+    MiniCursorword = { bg = palette.waveBlue1 },
+    MiniCursorwordCurrent = { fg = "NONE", bg = "#363646" },
   }
   kanagawa.setup {
     undercurl = true,
