@@ -1,3 +1,5 @@
+local send_key = require"config.utils".send_key
+
 require("tabout").setup {
   tabkey = "",
   backwards_tabkey = "",
@@ -5,21 +7,17 @@ require("tabout").setup {
 
 local luasnip = require "luasnip"
 
-local function t(key)
-  vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "")
-end
-
 inoremap("<Tab>", function()
   if luasnip.expand_or_jumpable() then
-    t "<Plug>luasnip-expand-or-jump"
+    send_key "<Plug>luasnip-expand-or-jump"
   else
-    t "<Plug>(Tabout)"
+    send_key "<Plug>(Tabout)"
   end
 end)
 inoremap("<S-Tab>", function()
   if luasnip.jumpable(-1) then
-    t "<Plug>luasnip-jump-prev"
+    send_key "<Plug>luasnip-jump-prev"
   else
-    t "<Plug>(TaboutBack)"
+    send_key "<Plug>(TaboutBack)"
   end
 end)
