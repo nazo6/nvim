@@ -17,8 +17,12 @@ packer.startup {
     use { "b0o/mapx.nvim" }
     use {
       "rcarriga/nvim-notify",
+      module = "notify",
+      setup = function()
+        require("config.plugin.notify").setup()
+      end,
       config = function()
-        require "config.plugin.notify"
+        require("config.plugin.notify").config()
       end,
     }
 

@@ -1,6 +1,6 @@
 return {
   setup = function()
-    nmap("<leader>S", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
+    nnoremap("<leader>S", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
   end,
   config = function()
     local get_path = require("installer.integrations.tools").get

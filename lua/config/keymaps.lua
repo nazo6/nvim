@@ -16,7 +16,7 @@ vnoremap("p", [[_dp]], "silent")
 
 nnoremap("<Esc><Esc>", "<cmd>noh<CR>", "silent")
 
-noremap("<C-s>", [[:%s/]], "silent")
+nnoremap("<C-s>", [[:%s/]], "silent")
 
-noremap("<leader>sp", "<cmd>PackerStatus<CR>")
-noremap("<leader>sl", "<cmd>LuaCacheProfile<CR>")
+nnoremap("<leader>sp", "<cmd>PackerStatus<CR>")
+nnoremap("<leader>sl", "<cmd>LuaCacheProfile<CR>")
