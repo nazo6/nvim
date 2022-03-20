@@ -299,6 +299,7 @@ packer.startup {
       config = function()
         require "config.plugin.bufferline"
       end,
+      event = "WinNew"
     }
 
     use {
