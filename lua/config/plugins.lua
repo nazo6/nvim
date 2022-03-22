@@ -27,13 +27,7 @@ packer.startup {
     }
 
     use { "jghauser/mkdir.nvim", event = { "BufWritePre" } }
-    use {
-      "luukvbaal/stabilize.nvim",
-      event = "WinNew",
-      config = function()
-        require("stabilize").setup()
-      end,
-    }
+    use { "stevearc/dressing.nvim" }
 
     use { "vim-jp/vimdoc-ja" }
     use {
@@ -299,7 +293,7 @@ packer.startup {
       config = function()
         require "config.plugin.bufferline"
       end,
-      event = "WinNew"
+      event = "WinNew",
     }
 
     use {
