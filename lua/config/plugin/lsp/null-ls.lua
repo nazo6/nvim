@@ -6,13 +6,13 @@ null_ls.setup {
   sources = {
     null_ls.builtins.formatting.deno_fmt.with {
       condition = function(utils)
-        return not (utils.has_file { ".prettierrc", ".prettier.js", "deno.json", "deno.jsonc" })
+        return not (utils.has_file { ".prettierrc", ".prettierrc.js", "deno.json", "deno.jsonc" })
       end,
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc", "markdown" },
     },
     null_ls.builtins.formatting.prettier.with {
       condition = function(utils)
-        return utils.has_file { ".prettierrc", ".prettier.js" }
+        return utils.has_file { ".prettierrc", ".prettierrc.js" }
       end,
       prefer_local = "node_modules/.bin",
     },
