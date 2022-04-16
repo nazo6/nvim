@@ -33,6 +33,7 @@ treesitter.setup {
       },
     },
   },
+  yati = { enable = true },
 }
 
 require("treesitter-context").setup {
