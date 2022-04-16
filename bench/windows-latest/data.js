@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1650027989923,
+  "lastUpdate": 1650073276783,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -1284,6 +1284,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 89.251,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "2aee7b53e6f898f8fc2a150c1b6d46e5606153d1",
+          "message": "Add nvim-yati",
+          "timestamp": "2022-04-16T10:39:44+09:00",
+          "tree_id": "1aaaf5bb674035328ce8e24154eca4a8b3c5afdc",
+          "url": "https://github.com/nazo6/nvim/commit/2aee7b53e6f898f8fc2a150c1b6d46e5606153d1"
+        },
+        "date": 1650073269578,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 87.62,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 83.338,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 95.341,
             "unit": "ms"
           }
         ]
