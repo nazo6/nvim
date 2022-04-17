@@ -34,6 +34,7 @@ treesitter.setup {
     },
   },
   yati = { enable = true },
+  autotag = { enable = true },
 }
 
 require("treesitter-context").setup {
