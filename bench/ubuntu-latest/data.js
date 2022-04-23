@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1650201455315,
+  "lastUpdate": 1650698719303,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -2142,6 +2142,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 21.9,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "a150b2117523b17dac55869cae6f16d31de5b93d",
+          "message": "Add eskk",
+          "timestamp": "2022-04-23T16:24:49+09:00",
+          "tree_id": "66f57e0c195c916416585922e0debd4187259957",
+          "url": "https://github.com/nazo6/nvim/commit/a150b2117523b17dac55869cae6f16d31de5b93d"
+        },
+        "date": 1650698718390,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 26.44,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 24.262,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 30.191,
             "unit": "ms"
           }
         ]
