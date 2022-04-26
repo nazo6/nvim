@@ -30,20 +30,6 @@ packer.startup {
     use { "stevearc/dressing.nvim" }
 
     use { "vim-jp/vimdoc-ja" }
-    use {
-      "monkoose/matchparen.nvim",
-      event = { "BufRead", "InsertEnter" },
-      config = function()
-        require("matchparen").setup()
-      end,
-    }
-
-    use {
-      "vim-skk/eskk.vim",
-      config = function()
-        require "config.plugin.eskk"
-      end,
-    }
 
     ----------
     -- Code --
