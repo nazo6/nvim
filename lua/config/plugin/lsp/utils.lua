@@ -14,7 +14,6 @@ M.create_setup = function(server_config)
   return function(server)
     local lspconfig = require "lspconfig"
     lspconfig[server.name].setup(M.create_config(server_config))
-    vim.notify(server.name)
 
     server:attach_buffers()
   end
