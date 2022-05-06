@@ -12,10 +12,14 @@ end
 
 M.create_setup = function(server_config)
   return function(server)
-    server:setup(M.create_config(server_config))
+    local lspconfig = require "lspconfig"
+    lspconfig[server.name].setup(M.create_config(server_config))
+    vim.notify(server.name)
+
+    server:attach_buffers()
   end
 end
 
-M.default_setup = M.create_setup(common_config)
+M.default_setup = M.create_setup {}
 
 return M

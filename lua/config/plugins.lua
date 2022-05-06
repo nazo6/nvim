@@ -27,7 +27,6 @@ packer.startup {
     }
 
     use { "jghauser/mkdir.nvim", event = { "BufWritePre" } }
-    use { "stevearc/dressing.nvim" }
 
     use { "vim-jp/vimdoc-ja" }
 
@@ -61,7 +60,7 @@ packer.startup {
         vim.g.code_action_menu_show_details = false
       end,
     }
-    use { "neovim/nvim-lspconfig", module = "lspconfig" }
+    use { "neovim/nvim-lspconfig", module = "lspconfig", after = "nvim-lsp-installer" }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
     use { "onsails/lspkind-nvim", module = "lspkind" }
     use { "folke/lua-dev.nvim", module = "lua-dev" }

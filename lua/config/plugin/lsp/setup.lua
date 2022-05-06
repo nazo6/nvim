@@ -7,9 +7,12 @@ require("fidget").setup {
   },
 }
 
-require("nvim-lsp-installer").on_server_ready(function(server)
+local lsp_installer = require "nvim-lsp-installer"
+lsp_installer.setup {}
+
+for _, server in ipairs(lsp_installer.get_installed_servers()) do
   local config_fn = configs[server.name] or utils.default_setup
   config_fn(server)
-end)
+end
 
 require "config.plugin.lsp.null-ls"
