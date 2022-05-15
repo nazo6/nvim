@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1652628626474,
+  "lastUpdate": 1652631854585,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -2376,6 +2376,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 21.199,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "074db01b0f71d89eed679b55fe8c07f6ed1e55bf",
+          "message": "Update flutter config",
+          "timestamp": "2022-05-16T01:23:40+09:00",
+          "tree_id": "749f99fb5386de2f00f3ec99ea1dfba0b7895fff",
+          "url": "https://github.com/nazo6/nvim/commit/074db01b0f71d89eed679b55fe8c07f6ed1e55bf"
+        },
+        "date": 1652631854170,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 29.31,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 24.893,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 39.657,
             "unit": "ms"
           }
         ]
