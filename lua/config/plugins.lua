@@ -41,7 +41,6 @@ packer.startup {
         { "romgrk/nvim-treesitter-context", after = "nvim-treesitter" },
         { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
         { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-        { "yioneko/nvim-yati", after = "nvim-treesitter" },
       },
       config = function()
         require "config.plugin.treesitter"

@@ -33,7 +33,9 @@ treesitter.setup {
       },
     },
   },
-  yati = { enable = true },
+  indent = {
+    enable = true,
+  },
   autotag = { enable = true },
 }
 
