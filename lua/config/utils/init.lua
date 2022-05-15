@@ -14,6 +14,8 @@ end
 
 M.os = vim.loop.os_uname().sysname
 
+M.is_win = M.os == "Windows_NT"
+
 M.send_key = function(key)
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "")
 end
