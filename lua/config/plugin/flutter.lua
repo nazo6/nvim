@@ -2,7 +2,7 @@ require("flutter-tools").setup {
   ui = { border = "rounded" },
   debugger = {
     enabled = true,
-    run_via_dap = true,
+    run_via_dap = false,
     register_configurations = function(paths)
       if require("config.utils").is_win then
         require("dap").adapters.dart = {
