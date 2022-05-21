@@ -2,7 +2,7 @@ local create_setup = require("config.plugin.lsp.utils").create_setup
 
 local root_pattern = require("lspconfig").util.root_pattern
 local function no_formatting(client)
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
 end
 
 return {
