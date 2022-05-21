@@ -14,7 +14,7 @@ return create_setup(require("lua-dev").setup {
       },
     },
     on_attach = function(client)
-      client.server_capabilities.documentFormattingProvider = false
+      client.resolved_capabilities.document_formatting = false
     end,
   },
 })
