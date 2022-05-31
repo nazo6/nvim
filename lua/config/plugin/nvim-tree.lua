@@ -37,13 +37,6 @@ return {
       { key = "?", cb = tree_cb "toggle_help" },
     }
 
-    vim.g.nvim_tree_git_hl = 1
-    vim.g.nvim_tree_show_icons = {
-      git = 0,
-      folders = 1,
-      files = 1,
-    }
-
     require("nvim-tree").setup {
       disable_netrw = true,
       hijack_netrw = true,
@@ -69,6 +62,15 @@ return {
         },
       },
       renderer = {
+        highlight_git = true,
+        icons = {
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = false,
+            git = false,
+          }
+        },
         indent_markers = {
           enable = true,
         },
