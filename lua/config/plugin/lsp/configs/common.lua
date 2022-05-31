@@ -18,7 +18,7 @@ return {
       vnoremap("<leader>ca", "<cmd>CodeActionMenu<CR>")
       nnoremap("<leader>e", "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>")
 
-      nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+      nnoremap("<leader>f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 7000, async = true })<CR>")
 
       nnoremap("<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
       nnoremap("<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
@@ -31,7 +31,7 @@ return {
       group = "LspFormat" .. bufnr,
       buffer = bufnr,
       callback = function()
-        vim.lsp.buf.formatting_sync({}, 7000)
+        vim.lsp.buf.format({ timeout_ms = 7000, async = false })
       end,
     })
   end,
