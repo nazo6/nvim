@@ -1,7 +1,7 @@
 return {
   setup = function()
     -- <C-_> is <C-/>
-    nnoremap("<C-_>", "<cmd>TroubleToggle<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-_>", "<cmd>TroubleToggle<CR>", { silent = true })
   end,
   config = function()
     require("trouble").setup {

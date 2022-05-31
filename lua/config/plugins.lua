@@ -14,7 +14,6 @@ packer.startup {
     -- Global plugins --
     ------------------------------------------
     use { "lewis6991/impatient.nvim" }
-    use { "b0o/mapx.nvim" }
     use {
       "rcarriga/nvim-notify",
       module = "notify",

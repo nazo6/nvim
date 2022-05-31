@@ -1,1 +1,1 @@
-nmap("<F5>", "<Plug>RestNvim")
+vim.keymap.set("n", "<F5>", "<Plug>RestNvim", { remap = true })

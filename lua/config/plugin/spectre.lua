@@ -1,6 +1,6 @@
 return {
   setup = function()
-    nnoremap("<leader>S", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
   end,
   config = function()
     local get_path = require("installer.integrations.tools").get

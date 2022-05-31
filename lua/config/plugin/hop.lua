@@ -1,9 +1,9 @@
 return {
   setup = function()
-    nnoremap("f", "<cmd>HopChar1CurrentLineAC<CR>")
-    nnoremap("F", "<cmd>HopChar1CurrentLineBC<CR>")
-    nnoremap("<leader><leader>", "<cmd>HopWord<CR>")
-    nnoremap("<leader>l", "<cmd>HopLineStart<CR>")
+    vim.keymap.set("n", "f", "<cmd>HopChar1CurrentLineAC<CR>")
+    vim.keymap.set("n", "F", "<cmd>HopChar1CurrentLineBC<CR>")
+    vim.keymap.set("n", "<leader><leader>", "<cmd>HopWord<CR>")
+    vim.keymap.set("n", "<leader>l", "<cmd>HopLineStart<CR>")
   end,
   config = function()
     require("hop").setup()

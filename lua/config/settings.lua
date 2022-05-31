@@ -40,7 +40,6 @@ vim.cmd [[autocmd FileType help wincmd L]]
 opt.timeoutlen = 400
 
 --- Editing
-
 opt.completeopt = "menuone,noselect"
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -50,7 +49,6 @@ opt.expandtab = true
 opt.number = true
 opt.signcolumn = "number"
 opt.cursorline = true
-opt.scrolloff = 5
 
 opt.winblend = 15
 opt.pumblend = 15

@@ -4,13 +4,6 @@ if ok then
   impatient.enable_profile()
 end
 
-local ok, mapx = pcall(require, "mapx")
-if ok then
-  mapx.setup { global = true }
-else
-  require "config.global"
-end
-
 -- workaraound for https://github.com/neovim/neovim/issues/17762
 if require("config.utils").os == "Windows_NT" then
   os.execute = function(cmd)

@@ -1,6 +1,6 @@
 return {
   setup = function()
-    nnoremap("<leader>o", "<cmd>AerialToggle<CR>")
+    vim.keymap.set("n", "<leader>o", "<cmd>AerialToggle<CR>")
   end,
   config = function()
     require("aerial").setup {

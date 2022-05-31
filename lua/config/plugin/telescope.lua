@@ -1,7 +1,7 @@
 return {
   setup = function()
-    nnoremap("<C-p>", "<cmd>Telescope<CR>", "silent")
-    nnoremap("<leader>p", "<cmd>Telescope live_grep<CR>", "silent")
+    vim.keymap.set("n", "<C-p>", "<cmd>Telescope<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>p", "<cmd>Telescope live_grep<CR>", { silent = true })
   end,
   config = function()
     require("telescope").setup {

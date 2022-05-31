@@ -1,6 +1,6 @@
 return {
   setup = function()
-    nnoremap("<C-e>", "<cmd>NvimTreeToggle<CR>", "silent")
+    vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<CR>", { silent = true })
   end,
   config = function()
     local tree_cb = require("nvim-tree.config").nvim_tree_callback

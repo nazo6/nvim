@@ -1,22 +1,22 @@
-nnoremap("k", "gk", "silent")
-nnoremap("gk", "k", "silent")
-nnoremap("j", "gj", "silent")
-nnoremap("gj", "j", "silent")
+vim.keymap.set("n", "k", "gk", { silent = true })
+vim.keymap.set("n", "gk", "k", { silent = true })
+vim.keymap.set("n", "j", "gj", { silent = true })
+vim.keymap.set("n", "gj", "j", { silent = true })
 
-nnoremap("<S-h>", "^", "silent")
-nnoremap("<S-l>", "$", "silent")
+vim.keymap.set("n", "<S-h>", "^", { silent = true })
+vim.keymap.set("n", "<S-l>", "$", { silent = true })
 
-nnoremap("<S-Right>", "<C-w><", "silent")
-nnoremap("<S-Left>", "<C-w>>", "silent")
-nnoremap("<S-Up>", "<C-w>+", "silent")
-nnoremap("<S-Down>", "<C-w>-", "silent")
+vim.keymap.set("n", "<S-Right>", "<C-w><", { silent = true })
+vim.keymap.set("n", "<S-Left>", "<C-w>>", { silent = true })
+vim.keymap.set("n", "<S-Up>", "<C-w>+", { silent = true })
+vim.keymap.set("n", "<S-Down>", "<C-w>-", { silent = true })
 
-vnoremap("c", [["_c]], "silent")
-vnoremap("p", [[_dp]], "silent")
+vim.keymap.set("v", "c", [["_c]], { silent = true })
+vim.keymap.set("v", "p", [[_dp]], { silent = true })
 
-nnoremap("<Esc><Esc>", "<cmd>noh<CR>", "silent")
+vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<CR>", { silent = true })
 
-nnoremap("<C-s>", [[:%s/]], "silent")
+vim.keymap.set("n", "<C-s>", [[:%s/]], { silent = true })
 
-nnoremap("<leader>sp", "<cmd>PackerStatus<CR>")
-nnoremap("<leader>sl", "<cmd>LuaCacheProfile<CR>")
+vim.keymap.set("n", "<leader>sp", "<cmd>PackerStatus<CR>")
+vim.keymap.set("n", "<leader>sl", "<cmd>LuaCacheProfile<CR>")
