@@ -279,15 +279,6 @@ packer.startup {
     }
 
     use {
-      "akinsho/bufferline.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require "config.plugin.bufferline"
-      end,
-      event = "WinNew",
-    }
-
-    use {
       "windwp/nvim-spectre",
       module = { "spectre" },
       setup = function()
@@ -295,6 +286,17 @@ packer.startup {
       end,
       config = function()
         require("config.plugin.spectre").config()
+      end,
+    }
+
+    use {
+      "matbme/JABS.nvim",
+      cmd = "JABSOpen",
+      setup = function()
+        require("config.plugin.jabs").setup()
+      end,
+      config = function()
+        require("config.plugin.jabs").config()
       end,
     }
 
@@ -313,6 +315,7 @@ packer.startup {
     -- Tools --
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
+
     -------------------------------
     -- Language specific plugins --
     -------------------------------
