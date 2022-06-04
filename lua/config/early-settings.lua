@@ -5,7 +5,7 @@ if ok then
 end
 
 -- workaraound for https://github.com/neovim/neovim/issues/17762
-if require("config.utils").os == "Windows_NT" then
+if require("config.utils").is_win then
   os.execute = function(cmd)
     vim.fn.system(cmd)
     return vim.v.shell_error
