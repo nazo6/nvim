@@ -1,6 +1,6 @@
 return {
   setup = function()
-    vim.keymap.set("n", "<C-p>", "<cmd>Telescope<CR>", { silent = true })
+    vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", { silent = true })
     vim.keymap.set("n", "<leader>p", "<cmd>Telescope live_grep<CR>", { silent = true })
   end,
   config = function()
@@ -15,6 +15,7 @@ return {
           "--column",
           "--smart-case",
         },
+        file_ignore_patterns = { ".git" },
       },
     }
   end,
