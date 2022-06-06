@@ -352,6 +352,15 @@ packer.startup {
       requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
       ft = { "http" },
     }
+
+    use {
+      "f3fora/nvim-texlabconfig",
+      config = function()
+        require("texlabconfig").setup()
+      end,
+      ft = { "tex", "bib" },
+      cmd = { "TexlabInverseSearch" },
+    }
   end,
 }
 

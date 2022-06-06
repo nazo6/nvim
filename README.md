@@ -15,6 +15,12 @@ git clone https://github.com/nazo6/nvim
 nvim
 ```
 
+## Dependencies
+
+### TeX
+- TeX Live (latexmk, latexindent)
+- SumatraPDF
+
 ```vim
 :PackerSync
 :TSInstall maintained
