@@ -58,7 +58,7 @@ packer.startup {
         vim.g.code_action_menu_show_details = false
       end,
     }
-    use { "neovim/nvim-lspconfig", module = "lspconfig", after = "nvim-lsp-installer" }
+    use { "neovim/nvim-lspconfig", module = "lspconfig", after = "nvim-lsp-installer", cmd = { "LspInfo", "LspLog" } }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
     use { "onsails/lspkind-nvim", module = "lspkind" }
     use { "folke/lua-dev.nvim", module = "lua-dev" }
@@ -80,7 +80,7 @@ packer.startup {
       config = function()
         require "config.plugin.lsp.setup"
       end,
-      cmd = "LspInstall*",
+      cmd = { "LspInstallInfo", "LspInstall*" },
       event = { "BufRead" },
     }
     use {
@@ -236,7 +236,7 @@ packer.startup {
     use {
       "akinsho/toggleterm.nvim",
       module = "toggleterm",
-      cmd = "ToggleTerm*",
+      cmd = { "ToggleTerm", "ToggleTerm*" },
       setup = function()
         require("config.plugin.toggleterm").setup()
       end,
@@ -274,7 +274,7 @@ packer.startup {
     }
     use {
       "sindrets/diffview.nvim",
-      cmd = "Diffview*",
+      cmd = { "Diffview*", "DiffviewOpen" },
       module = "diffview",
     }
 
