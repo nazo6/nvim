@@ -57,6 +57,9 @@ M.active[2] = {
   },
   {
     provider = " ",
+    hl = {
+      bg = "sumiInk0",
+    },
   },
   {
     provider = require("config.plugin.feline.providers").file_format_with_icon,
@@ -77,14 +80,24 @@ M.active[2] = {
   },
   {
     provider = "git_branch",
+    hl = {
+      bg = "sumiInk0",
+    },
   },
   {
     provider = " ",
+    hl = {
+      bg = "sumiInk0",
+    },
   },
 }
 
 M.inactive[1] = {
-  {},
+  {
+    hl = {
+      bg = "sumiInk0",
+    },
+  },
 }
 
 return M

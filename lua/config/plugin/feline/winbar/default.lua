@@ -10,19 +10,19 @@ M.active[1] = {
   {
     provider = " ",
     hl = {
-      bg = "sumiInk4",
+      bg = "autumnRed",
     },
   },
   {
     provider = "file_info",
     hl = {
       fg = "fujiWhite",
-      bg = "sumiInk4",
+      bg = "autumnRed",
     },
     right_sep = {
       str = "slant_right",
       hl = {
-        fg = "sumiInk4",
+        fg = "autumnRed",
         bg = "sumiInk1",
       },
     },
@@ -41,22 +41,26 @@ M.active[1] = {
 }
 
 M.inactive[1] = {
-  { provider = "" },
   {
-    provider = {
-      name = "file_info",
-      opts = {
-        type = "full-path",
-      },
+    provider = " ",
+    hl = {
+      bg = "sumiInk4",
     },
-    short_provider = {
-      name = "file_info",
-      opts = {
-        type = "short-path",
+  },
+  {
+    provider = "file_info",
+    hl = {
+      fg = "fujiWhite",
+      bg = "sumiInk4",
+    },
+    right_sep = {
+      str = "slant_right",
+      hl = {
+        fg = "sumiInk4",
+        bg = "sumiInk1",
       },
     },
   },
-  {},
 }
 
 return M
