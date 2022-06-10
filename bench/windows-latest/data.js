@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1654869448405,
+  "lastUpdate": 1654873770994,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -2025,6 +2025,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 75.489,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "c95de6119e78a8af777d185b8c3b226689a6e157",
+          "message": "Update winbar and statusline config",
+          "timestamp": "2022-06-11T00:07:00+09:00",
+          "tree_id": "61d01ae1fd8da88ab603f8e1dba3c90b54b92e3e",
+          "url": "https://github.com/nazo6/nvim/commit/c95de6119e78a8af777d185b8c3b226689a6e157"
+        },
+        "date": 1654873764011,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 86.48,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 85.695,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 87.826,
             "unit": "ms"
           }
         ]
