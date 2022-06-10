@@ -1,13 +1,14 @@
-local default = require "config.plugin.feline.default"
-local explorer = require "config.plugin.feline.explorer"
+local statusbar = require "config.plugin.feline.statusbar"
 
 local theme = require("kanagawa.colors").setup()
 -- theme.bg = theme.sumiInk2
 
 require("feline").setup {
-  components = default,
+  components = statusbar.default,
   conditional_components = {
-    explorer,
+    statusbar.explorer,
   },
   theme = theme,
 }
+
+require("feline").winbar.setup()
