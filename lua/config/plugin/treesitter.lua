@@ -44,3 +44,5 @@ require("treesitter-context").setup {
   throttle = true,
   max_lines = 3,
 }
+
+require("nvim-gps").setup()
