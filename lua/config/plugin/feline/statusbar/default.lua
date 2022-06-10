@@ -23,20 +23,6 @@ M.active[1] = {
     icon = "",
   },
   {
-    provider = "file_info",
-    hl = {
-      fg = "white",
-      bg = "waveBlue2",
-    },
-    left_sep = {
-      "left_rounded",
-    },
-    right_sep = {
-      "right_rounded",
-      " ",
-    },
-  },
-  {
     provider = "position",
     left_sep = " ",
   },
@@ -61,14 +47,24 @@ M.active[1] = {
 -- Right
 M.active[2] = {
   {
+    provider = "file_type",
+    hl = {
+      fg = "white",
+      bg = "sumiInk4",
+    },
+    left_sep = { "left_rounded" },
+    right_sep = { "right_rounded" },
+  },
+  {
+    provider = " ",
+  },
+  {
     provider = require("config.plugin.feline.providers").file_format_with_icon,
     hl = {
       fg = "white",
       bg = "sumiInk4",
     },
-    left_sep = {
-      "left_rounded",
-    },
+    left_sep = { "left_rounded" },
     right_sep = { { str = " ", hl = { bg = "sumiInk4" } } },
   },
   {
@@ -88,21 +84,6 @@ M.active[2] = {
 }
 
 M.inactive[1] = {
-  { provider = "" },
-  {
-    provider = {
-      name = "file_info",
-      opts = {
-        type = "full-path",
-      },
-    },
-    short_provider = {
-      name = "file_info",
-      opts = {
-        type = "short-path",
-      },
-    },
-  },
   {},
 }
 

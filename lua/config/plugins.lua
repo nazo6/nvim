@@ -40,12 +40,12 @@ packer.startup {
         { "romgrk/nvim-treesitter-context", after = "nvim-treesitter" },
         { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
         { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
-        { "SmiteshP/nvim-gps", after = "nvim-treesitter" },
       },
       config = function()
         require "config.plugin.treesitter"
       end,
     }
+    use { "SmiteshP/nvim-gps" }
 
     use {
       "jose-elias-alvarez/null-ls.nvim",
@@ -310,6 +310,7 @@ packer.startup {
       config = function()
         require "config.plugin.feline"
       end,
+      after = "nvim-gps",
     }
     use { "dstein64/nvim-scrollview", event = { "BufRead" } }
     -----------
