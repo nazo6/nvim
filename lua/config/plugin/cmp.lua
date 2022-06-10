@@ -18,6 +18,7 @@ cmp.setup {
     },
   },
   sources = {
+    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer", option = {
@@ -35,6 +36,7 @@ cmp.setup {
         nvim_lsp = "[LSP]",
         luasnip = "[snippet]",
         buffer = "[buffer]",
+        copilot = "[copilot]",
         calc = "[calc]",
         path = "[path]",
       },
