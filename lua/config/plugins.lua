@@ -113,12 +113,10 @@ packer.startup {
         { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
         { "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
         { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-        {
-          "zbirenbaum/copilot-cmp",
-          after = { "copilot.lua", "nvim-cmp" },
-        },
+        { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" } },
       },
       event = { "InsertEnter", "CmdlineEnter" },
+      cmd = { "CmpStatus" },
       config = function()
         require "config.plugin.cmp"
       end,
@@ -256,6 +254,7 @@ packer.startup {
         { "nvim-lua/plenary.nvim", module = "plenary" },
       },
       event = "BufRead",
+      cmd = "GitSigns",
       config = function()
         require("gitsigns").setup()
       end,
