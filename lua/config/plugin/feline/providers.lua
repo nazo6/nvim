@@ -21,4 +21,10 @@ function M.file_format_with_icon()
   return icon .. os
 end
 
+function M.treesitter_status()
+  local ts = vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()]
+  local mes = (ts and next(ts)) and "滑  " or ""
+  return mes
+end
+
 return M

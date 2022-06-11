@@ -23,12 +23,15 @@ M.active[1] = {
       str = "slant_right",
       hl = {
         fg = "autumnRed",
-        bg = "sumiInk1",
       },
     },
   },
   {
     provider = "  ",
+  },
+  {
+    provider = "position",
+    right_sep = " ",
   },
   {
     provider = function()
