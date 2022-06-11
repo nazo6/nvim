@@ -60,9 +60,14 @@ M.inactive[1] = {
       str = "slant_right",
       hl = {
         fg = "sumiInk4",
-        bg = "sumiInk1",
       },
     },
+  },
+  {
+    provider = "  ",
+  },
+  {
+    provider = "position",
   },
 }
 
