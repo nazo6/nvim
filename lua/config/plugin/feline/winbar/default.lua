@@ -28,7 +28,6 @@ M.active[1] = {
             bg = "katanaGray",
           }
         else
-          print "a"
           return {
             fg = "autumnRed",
           }
