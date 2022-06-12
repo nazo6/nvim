@@ -20,3 +20,5 @@ vim.keymap.set("n", "<C-s>", [[:%s/]], { silent = true })
 
 vim.keymap.set("n", "<leader>sp", "<cmd>PackerStatus<CR>")
 vim.keymap.set("n", "<leader>sl", "<cmd>LuaCacheProfile<CR>")
+
+vim.keymap.set("n", "s", "<C-w>", { noremap = false })
