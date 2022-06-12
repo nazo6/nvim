@@ -4,6 +4,9 @@ return {
   on_attach = function(client, bufnr)
     require("lsp_signature").on_attach()
     require("aerial").on_attach(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+      require("nvim-navic").attach(client, bufnr)
+    end
 
     vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
     vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")

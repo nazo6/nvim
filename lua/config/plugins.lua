@@ -45,7 +45,6 @@ packer.startup {
         require "config.plugin.treesitter"
       end,
     }
-    use { "SmiteshP/nvim-gps" }
 
     use {
       "jose-elias-alvarez/null-ls.nvim",
@@ -66,6 +65,7 @@ packer.startup {
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "j-hui/fidget.nvim", module = "fidget" }
+    use { "SmiteshP/nvim-navic", after = "nvim-lsp-installer" }
     --[[
     use {
       "tamago324/nlsp-settings.nvim",
@@ -322,7 +322,6 @@ packer.startup {
       config = function()
         require "config.plugin.feline"
       end,
-      after = "nvim-gps",
     }
     use { "dstein64/nvim-scrollview", event = { "BufRead" } }
     -----------

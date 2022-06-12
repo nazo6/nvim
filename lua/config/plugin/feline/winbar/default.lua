@@ -3,9 +3,6 @@ local M = {
   inactive = {},
 }
 
-local gps = require "nvim-gps"
-require("nvim-gps").setup()
-
 M.active[1] = {
   {
     provider = " ",
@@ -22,7 +19,8 @@ M.active[1] = {
     right_sep = {
       str = "slant_right",
       hl = function()
-        if gps.is_available() and gps.get_location() ~= "" then
+        local ok, navic = pcall(require, "nvim-navic")
+        if ok and navic.is_available() and navic.get_location() ~= "" then
           return {
             fg = "autumnRed",
             bg = "katanaGray",
@@ -37,10 +35,12 @@ M.active[1] = {
   },
   {
     provider = function()
-      return gps.get_location()
+      local ok, navic = pcall(require, "nvim-navic")
+      return ok and navic.get_location() or "error"
     end,
     enabled = function()
-      return gps.is_available()
+      local ok, navic = pcall(require, "nvim-navic")
+      return ok and navic.is_available()
     end,
     hl = {
       bg = "katanaGray",

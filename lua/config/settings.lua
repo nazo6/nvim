@@ -34,6 +34,8 @@ opt.foldlevel = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+opt.updatetime = 300
+
 vim.cmd [[autocmd FileType help wincmd L]]
 
 --- Key
