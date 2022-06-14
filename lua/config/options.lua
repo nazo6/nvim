@@ -51,6 +51,7 @@ opt.expandtab = true
 opt.number = true
 opt.signcolumn = "number"
 opt.cursorline = true
+opt.cmdheight = 0
 
 opt.winblend = 15
 opt.pumblend = 15
