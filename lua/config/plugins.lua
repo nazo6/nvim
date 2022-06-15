@@ -204,14 +204,26 @@ packer.startup {
     }
 
     use {
-      "kyazdani42/nvim-tree.lua",
-      requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
-      cmd = { "NvimTree*" },
+      "nvim-neo-tree/neo-tree.nvim",
+      requires = {
+        { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" },
+        { "nvim-lua/plenary.nvim", module = "plenary" },
+        { "MunifTanjim/nui.nvim", module = "nui" },
+        {
+          "s1n7ax/nvim-window-picker",
+          tag = "1.*",
+          module = "window-picker",
+          config = function()
+            require "config.plugin.window-picker"
+          end,
+        },
+      },
+      cmd = { "Neotree" },
       setup = function()
-        require("config.plugin.nvim-tree").setup()
+        require("config.plugin.neo-tree").setup()
       end,
       config = function()
-        require("config.plugin.nvim-tree").config()
+        require("config.plugin.neo-tree").config()
       end,
     }
     use {
