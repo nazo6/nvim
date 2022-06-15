@@ -204,6 +204,17 @@ packer.startup {
     }
 
     use {
+      "kyazdani42/nvim-tree.lua",
+      requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
+      cmd = { "NvimTree*" },
+      setup = function()
+        require("config.plugin.nvim-tree").setup()
+      end,
+      config = function()
+        require("config.plugin.nvim-tree").config()
+      end,
+    }
+    use {
       "nvim-neo-tree/neo-tree.nvim",
       requires = {
         { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" },

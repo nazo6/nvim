@@ -1,6 +1,6 @@
 return {
   setup = function()
-    vim.keymap.set("n", "<C-e>", "<cmd>Neotree toggle reveal_force_cwd<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>h", "<cmd>Neotree git_status toggle reveal_force_cwd float<CR>", { silent = true })
   end,
   config = function()
     vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
