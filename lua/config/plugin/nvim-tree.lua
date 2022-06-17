@@ -33,7 +33,6 @@ return {
       { key = "gy", cb = tree_cb "copy_absolute_path" },
       { key = "[c", cb = tree_cb "prev_git_item" },
       { key = "]c", cb = tree_cb "next_git_item" },
-      { key = "s", cb = tree_cb "system_open" },
       { key = "?", cb = tree_cb "toggle_help" },
     }
 
@@ -69,7 +68,7 @@ return {
             folder = true,
             folder_arrow = false,
             git = false,
-          }
+          },
         },
         indent_markers = {
           enable = true,
