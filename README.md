@@ -16,6 +16,13 @@ git clone https://github.com/nazo6/nvim
 nvim
 ```
 
+```vim
+:PackerSync
+:TSInstall maintained
+:LspInstallInfo
+:Install null_ls stylua
+```
+
 ## Dependencies
 ### General
 - win32yank (for wsl clipboard)
@@ -24,9 +31,3 @@ nvim
 - TeX Live (latexmk, latexindent)
 - SumatraPDF
 
-```vim
-:PackerSync
-:TSInstall maintained
-:LspInstallInfo
-:Install null_ls stylua
-```
