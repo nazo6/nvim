@@ -25,6 +25,7 @@ opt.clipboard:append "unnamedplus"
 opt.undofile = true
 
 opt.confirm = true
+opt.autoread = true
 
 opt.smartcase = true
 opt.ignorecase = true
@@ -48,9 +49,12 @@ opt.shiftwidth = 2
 opt.expandtab = true
 
 --- Appearance
+opt.title = true
 opt.number = true
 opt.signcolumn = "number"
 opt.cursorline = true
+opt.sidescrolloff = 16
+opt.list = true
 
 opt.winblend = 15
 opt.pumblend = 15
