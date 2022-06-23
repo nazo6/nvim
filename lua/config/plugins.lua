@@ -66,16 +66,12 @@ packer.startup {
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "j-hui/fidget.nvim", module = "fidget" }
     use { "SmiteshP/nvim-navic", after = "nvim-lsp-installer" }
-    --[[
     use {
       "tamago324/nlsp-settings.nvim",
       module = "nlspsettings",
-      cmd = "Nlsp*",
-      config = function()
-        require "config.plugin.lsp.nlsp"
-      end,
+      cmd = "LspSettings",
+      after = "nvim-lsp-installer",
     }
-    ]]
     use {
       "williamboman/nvim-lsp-installer",
       config = function()
@@ -409,6 +405,12 @@ packer.startup {
       end,
       ft = { "tex", "bib" },
       cmd = { "TexlabInverseSearch" },
+    }
+
+    use {
+      "nanotee/sqls.nvim",
+      module = "sqls",
+      ft = { "sql" },
     }
   end,
 }

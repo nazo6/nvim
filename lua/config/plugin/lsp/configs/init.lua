@@ -21,4 +21,5 @@ return {
   sumneko_lua = require "config.plugin.lsp.configs.sumneko_lua",
   rust_analyzer = require "config.plugin.lsp.configs.rust_analyzer",
   texlab = require "config.plugin.lsp.configs.texlab",
+  sqls = require "config.plugin.lsp.configs.sqls",
 }

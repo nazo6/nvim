@@ -8,7 +8,7 @@ null_ls.setup {
       condition = function(utils)
         return not (utils.has_file { ".prettierrc", ".prettierrc.js", "deno.json", "deno.jsonc" })
       end,
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc", "markdown" },
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown" },
     },
     null_ls.builtins.formatting.prettier.with {
       condition = function(utils)
