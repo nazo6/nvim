@@ -84,6 +84,18 @@ packer.startup {
       cmd = { "LspInstallInfo", "LspInstall*" },
       event = { "BufRead" },
     }
+
+    use {
+      "kevinhwang91/nvim-ufo",
+      requires = {
+        { "kevinhwang91/promise-async", module = { "promise-async", "promise", "async" } },
+      },
+      event = { "BufRead" },
+      config = function()
+        require("ufo").setup()
+      end,
+    }
+
     use {
       "nazo6/installer.nvim",
       module = "installer",

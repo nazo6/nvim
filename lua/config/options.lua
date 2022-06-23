@@ -32,8 +32,7 @@ opt.ignorecase = true
 opt.inccommand = "split"
 
 opt.foldlevel = 99
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 opt.updatetime = 300
 
@@ -51,7 +50,7 @@ opt.expandtab = true
 --- Appearance
 opt.title = true
 opt.number = true
-opt.signcolumn = "number"
+opt.signcolumn = "yes"
 opt.cursorline = true
 opt.sidescrolloff = 16
 opt.list = true
