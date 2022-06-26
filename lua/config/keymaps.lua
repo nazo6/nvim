@@ -1,24 +1,28 @@
-vim.keymap.set("n", "k", "gk", { silent = true })
-vim.keymap.set("n", "gk", "k", { silent = true })
-vim.keymap.set("n", "j", "gj", { silent = true })
-vim.keymap.set("n", "gj", "j", { silent = true })
+local s = vim.keymap.set
 
-vim.keymap.set("n", "<S-h>", "^", { silent = true })
-vim.keymap.set("n", "<S-l>", "$", { silent = true })
+s("n", "k", "gk", { silent = true })
+s("n", "gk", "k", { silent = true })
+s("n", "j", "gj", { silent = true })
+s("n", "gj", "j", { silent = true })
 
-vim.keymap.set("n", "<S-Right>", "<C-w><", { silent = true })
-vim.keymap.set("n", "<S-Left>", "<C-w>>", { silent = true })
-vim.keymap.set("n", "<S-Up>", "<C-w>+", { silent = true })
-vim.keymap.set("n", "<S-Down>", "<C-w>-", { silent = true })
+s("n", "<S-h>", "^", { silent = true })
+s("n", "<S-l>", "$", { silent = true })
 
-vim.keymap.set("v", "c", [["_c]], { silent = true })
-vim.keymap.set("v", "p", [[_dp]], { silent = true })
+s("n", "<S-Right>", "<C-w><", { silent = true })
+s("n", "<S-Left>", "<C-w>>", { silent = true })
+s("n", "<S-Up>", "<C-w>+", { silent = true })
+s("n", "<S-Down>", "<C-w>-", { silent = true })
 
-vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<CR>", { silent = true })
+s("v", "c", [["_c]], { silent = true })
+s("v", "p", [[_dp]], { silent = true })
 
-vim.keymap.set("n", "<C-s>", [[:%s/]], { silent = true })
+s("n", "<Esc><Esc>", "<cmd>noh<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>sp", "<cmd>PackerStatus<CR>")
-vim.keymap.set("n", "<leader>sl", "<cmd>LuaCacheProfile<CR>")
+s("n", "<C-s>", [[:%s/]], { silent = true })
 
-vim.keymap.set("n", "s", "<C-w>", { noremap = false })
+s("n", "<leader>sp", "<cmd>PackerStatus<CR>")
+s("n", "<leader>sl", "<cmd>LuaCacheProfile<CR>")
+
+s("n", "s", "<C-w>", { noremap = false })
+
+s("n", "<leader>q", "<cmd>q<CR>")
