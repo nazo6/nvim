@@ -26,3 +26,4 @@ s("n", "<leader>sl", "<cmd>LuaCacheProfile<CR>")
 s("n", "s", "<C-w>", { noremap = false })
 
 s("n", "<leader>q", "<cmd>q<CR>")
+s("n", "<leader>w", "<cmd>w<CR>")

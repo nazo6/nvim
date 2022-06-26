@@ -1,4 +1,4 @@
-require("mini.surround").setup {}
+-- require("mini.surround").setup {}
 
 require("mini.cursorword").setup {}
 _G.cursorword_blocklist = function()

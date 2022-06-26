@@ -6,6 +6,7 @@ return {
   config = function()
     require("telescope").setup {
       defaults = {
+        winblend = 20,
         vimgrep_arguments = {
           require("installer.integrations.tools").get "ripgrep",
           "--color=never",
