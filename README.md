@@ -25,9 +25,14 @@ nvim
 
 ## Dependencies
 ### General
+#### Windows
 - win32yank (for wsl clipboard)
+#### Linux
+- xclip (for clipboard)
 
 ### TeX
 - TeX Live (latexmk, latexindent)
 - SumatraPDF
 
+### Format
+- deno
