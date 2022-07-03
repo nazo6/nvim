@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1656216031054,
+  "lastUpdate": 1656853394431,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -3546,6 +3546,43 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 26.145,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "3177992+nazo6@users.noreply.github.com",
+            "name": "nazo6"
+          },
+          "committer": {
+            "email": "3177992+nazo6@users.noreply.github.com",
+            "name": "nazo6"
+          },
+          "distinct": true,
+          "id": "3c72fa7e939f03fdf9eab609d4b75843e0ec3aac",
+          "message": "Fix clipboard for linux",
+          "timestamp": "2022-07-03T22:02:42+09:00",
+          "tree_id": "67f59d8115c611b608d2225542891355a02ad1f6",
+          "url": "https://github.com/nazo6/nvim/commit/3c72fa7e939f03fdf9eab609d4b75843e0ec3aac"
+        },
+        "date": 1656853392640,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 26.36,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 25.297,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 30.077,
             "unit": "ms"
           }
         ]
