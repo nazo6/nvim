@@ -11,6 +11,3 @@ if require("config.utils").is_win then
     return vim.v.shell_error
   end
 end
-
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
