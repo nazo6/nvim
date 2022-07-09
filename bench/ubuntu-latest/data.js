@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657091686634,
+  "lastUpdate": 1657340268292,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -3622,6 +3622,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 20.882,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "729f138cec1c82112d591ccb64dc58daee628038",
+          "message": "Remove lua filetype setting",
+          "timestamp": "2022-07-09T13:00:28+09:00",
+          "tree_id": "633b19d161c3ff63b5f443f7d034f7d05198357b",
+          "url": "https://github.com/nazo6/nvim/commit/729f138cec1c82112d591ccb64dc58daee628038"
+        },
+        "date": 1657340267507,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 25.26,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 23.523,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 30.119,
             "unit": "ms"
           }
         ]
