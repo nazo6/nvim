@@ -18,17 +18,16 @@ nvim
 
 ```vim
 :PackerSync
-:TSInstall maintained
-:LspInstallInfo
-:Install null_ls stylua
+:MasoInstall stylua
 ```
 
 ## Dependencies
 ### General
+- C compiler (treesitter)
 #### Windows
-- win32yank (for wsl clipboard)
+- win32yank (wsl clipboard)
 #### Linux
-- xclip (for clipboard)
+- xclip (clipboard)
 
 ### TeX
 - TeX Live (latexmk, latexindent)
