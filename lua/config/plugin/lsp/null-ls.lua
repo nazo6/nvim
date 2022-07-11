@@ -8,11 +8,14 @@ null_ls.setup {
       condition = function(utils)
         return not (utils.has_file { ".prettierrc", ".prettierrc.js", "deno.json", "deno.jsonc" })
       end,
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown" },
     },
     null_ls.builtins.formatting.prettier.with {
       condition = function(utils)
-        return utils.has_file { ".prettierrc", ".prettierrc.js" }
+        if vim.bo.filetype == "markdown" then
+          return true
+        else
+          return utils.has_file { ".prettierrc", ".prettierrc.js" }
+        end
       end,
       prefer_local = "node_modules/.bin",
     },
