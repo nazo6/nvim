@@ -49,6 +49,7 @@ packer.startup {
     use {
       "jose-elias-alvarez/null-ls.nvim",
       requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
+      after = "mason.nvim",
       module = "null-ls",
     }
     use {
@@ -58,27 +59,30 @@ packer.startup {
         vim.g.code_action_menu_show_details = false
       end,
     }
-    use { "neovim/nvim-lspconfig", module = "lspconfig", after = "nvim-lsp-installer", cmd = { "LspInfo", "LspLog" } }
+    use {
+      "neovim/nvim-lspconfig",
+      module = "lspconfig",
+      cmd = { "LspInfo", "LspLog" },
+      event = { "BufRead" },
+      config = function()
+        require "config.plugin.lsp.setup"
+      end,
+    }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
     use { "onsails/lspkind-nvim", module = "lspkind" }
     use { "folke/lua-dev.nvim", module = "lua-dev" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "j-hui/fidget.nvim", module = "fidget" }
-    use { "SmiteshP/nvim-navic", after = "nvim-lsp-installer" }
+    use { "SmiteshP/nvim-navic", module = "nvim-navic" }
+    use { "tamago324/nlsp-settings.nvim", module = "nlspsettings", cmd = "LspSettings" }
     use {
-      "tamago324/nlsp-settings.nvim",
-      module = "nlspsettings",
-      cmd = "LspSettings",
-      after = "nvim-lsp-installer",
-    }
-    use {
-      "williamboman/nvim-lsp-installer",
+      "williamboman/mason.nvim",
+      module = { "mason", "mason-lspconfig" },
+      cmd = { "Mason", "MasonInstall", "Mason*" },
       config = function()
-        require "config.plugin.lsp.setup"
+        require "config.plugin.mason"
       end,
-      cmd = { "LspInstallInfo", "LspInstall*" },
-      event = { "BufRead" },
     }
 
     use {
