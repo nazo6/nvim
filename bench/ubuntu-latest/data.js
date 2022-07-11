@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657340268292,
+  "lastUpdate": 1657545634161,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -3661,6 +3661,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 30.119,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "f308e48424f83e8a807edb5b41d7fa0205cb5cec",
+          "message": "Update README and auto-install treesitter",
+          "timestamp": "2022-07-11T22:20:04+09:00",
+          "tree_id": "8951dde3445af19fda963a715535f16f3205b785",
+          "url": "https://github.com/nazo6/nvim/commit/f308e48424f83e8a807edb5b41d7fa0205cb5cec"
+        },
+        "date": 1657545633288,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 21.65,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 21.158,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 22.131,
             "unit": "ms"
           }
         ]
