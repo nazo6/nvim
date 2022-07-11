@@ -62,7 +62,36 @@ M.active[1] = {
     provider = " ",
   },
   {
-    provider = "lsp_client_names",
+    provider = function()
+      local clients = {}
+
+      for _, client in pairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+        if client.name ~= "null-ls" then
+          clients[#clients + 1] = client.name
+        end
+      end
+
+      return table.concat(clients, " "), " "
+    end,
+    truncate_hide = true,
+    right_sep = " ",
+  },
+  {
+    provider = function()
+      local ok, sources = pcall(require, "null-ls.sources")
+      local text = ""
+      if ok then
+        local ft = vim.bo.filetype
+        local available_sources = sources.get_available(ft)
+        if #available_sources > 0 then
+          text = "煉"
+        end
+        for _, source in ipairs(available_sources) do
+          text = text .. source.name .. " "
+        end
+      end
+      return text
+    end,
     truncate_hide = true,
   },
   {
