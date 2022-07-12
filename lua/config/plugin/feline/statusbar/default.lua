@@ -1,5 +1,5 @@
-local vi_mode_utils = require "feline.providers.vi_mode"
 local providers = require "config.plugin.feline.providers"
+local vi_mode = require "config.plugin.feline.providers.vi_mode"
 
 local M = {
   active = {},
@@ -11,8 +11,8 @@ M.active[1] = {
     provider = "▊",
     hl = function()
       return {
-        name = vi_mode_utils.get_mode_highlight_name(),
-        fg = vi_mode_utils.get_mode_color(),
+        name = vi_mode.get_mode_highlight_name(),
+        fg = vi_mode.get_mode_color(),
         bg = "sumiInk4",
       }
     end,
