@@ -19,9 +19,12 @@ null_ls.setup {
       end,
       prefer_local = "node_modules/.bin",
     },
-    null_ls.builtins.formatting.stylua,
   },
   default_timeout = 10000,
   capabilities = common_config.capabilities,
   on_attach = common_config.on_attach,
+}
+
+require("installer.integrations.null_ls").register {
+  enable_hook = true,
 }
