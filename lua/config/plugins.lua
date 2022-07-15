@@ -336,6 +336,18 @@ packer.startup {
     }
 
     use {
+      "kevinhwang91/nvim-hlslens",
+      event = { "BufRead" },
+      setup = function()
+        require("config.plugin.hlslens").setup()
+      end,
+      config = function()
+        require("config.plugin.hlslens").config()
+      end,
+      module = { "hlslens" },
+    }
+
+    use {
       "zbirenbaum/copilot.lua",
       event = "InsertEnter",
       requires = { { "github/copilot.vim", cmd = "Copilot" } },
@@ -355,7 +367,15 @@ packer.startup {
         require "config.plugin.feline"
       end,
     }
-    use { "dstein64/nvim-scrollview", event = { "BufRead" } }
+    use {
+      "petertriho/nvim-scrollbar",
+      event = { "BufRead" },
+      config = function()
+        require("scrollbar").setup()
+        require("scrollbar.handlers.search").setup()
+      end,
+    }
+
     -----------
     -- Tools --
     -----------
