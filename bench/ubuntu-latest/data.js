@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657638776971,
+  "lastUpdate": 1657872597791,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -3895,6 +3895,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 31.174,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "49983fadeb67abe7738ffc60907d6411fd38bdcc",
+          "message": "Add hlslens and scrollbar",
+          "timestamp": "2022-07-15T17:08:55+09:00",
+          "tree_id": "6c8c386256504a142a4ffb980f25ec8ef601e438",
+          "url": "https://github.com/nazo6/nvim/commit/49983fadeb67abe7738ffc60907d6411fd38bdcc"
+        },
+        "date": 1657872597040,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 14.72,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 14.187,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 15.278,
             "unit": "ms"
           }
         ]
