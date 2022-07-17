@@ -154,9 +154,9 @@ packer.startup {
       end,
     }
 
-    -----------
-    -- Actions --
-    -----------
+    -----------------
+    -- Move / Edit --
+    -----------------
     use {
       "phaazon/hop.nvim",
       cmd = "Hop*",
@@ -190,6 +190,12 @@ packer.startup {
       module = { "mini" },
       config = function()
         require "config.plugin.mini"
+      end,
+    }
+    use {
+      "kylechui/nvim-surround",
+      config = function()
+        require "config.plugin.surround"
       end,
     }
 
@@ -357,9 +363,9 @@ packer.startup {
       end,
     }
 
-    ------------------------
-    -- Appearance plugins --
-    ------------------------
+    ----------------
+    -- Appearance --
+    ----------------
     use "rebelot/kanagawa.nvim"
     use {
       "feline-nvim/feline.nvim",

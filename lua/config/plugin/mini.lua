@@ -1,5 +1,3 @@
--- require("mini.surround").setup {}
-
 require("mini.cursorword").setup {}
 _G.cursorword_blocklist = function()
   local blocklist = { "NvimTree", "terminal", "packer", "Trouble" }
