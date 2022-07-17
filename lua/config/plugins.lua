@@ -380,6 +380,7 @@ packer.startup {
     -- Tools --
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
+    use { "dstein64/vim-startuptime", cmd = { "StartupTime" } }
 
     -------------------------------
     -- Language specific plugins --
