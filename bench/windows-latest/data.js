@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658076674537,
+  "lastUpdate": 1658289502725,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -3076,6 +3076,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 124.922,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "c37da1957d495d46f70a7c0bebd3bf0f3c5ffa6a",
+          "message": "Revert \"Revert \"Add mason.nvim\"\"\n\nThis reverts commit 9386ee7a0eca7ecef2ecfe58cc69b2569e3781af.",
+          "timestamp": "2022-07-20T12:54:47+09:00",
+          "tree_id": "bec9e78fc107857bf8b68e03888b476e34acf174",
+          "url": "https://github.com/nazo6/nvim/commit/c37da1957d495d46f70a7c0bebd3bf0f3c5ffa6a"
+        },
+        "date": 1658289495260,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 74.15,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 73.004,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 75.926,
             "unit": "ms"
           }
         ]
