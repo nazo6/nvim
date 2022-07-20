@@ -11,9 +11,11 @@ M.create_config = function(server_config)
 end
 
 M.create_setup = function(server_config)
-  return function(server_name)
+  return function(server)
     local lspconfig = require "lspconfig"
-    lspconfig[server_name].setup(M.create_config(server_config))
+    lspconfig[server.name].setup(M.create_config(server_config))
+
+    server:attach_buffers()
   end
 end
 

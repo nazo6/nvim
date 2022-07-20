@@ -3,6 +3,7 @@ local dap = require "dap"
 dap.adapters.node2 = {
   type = "executable",
   command = "node",
+  args = { require("installer/integrations/da").get "node2" },
 }
 dap.configurations.typescript = {
   {
