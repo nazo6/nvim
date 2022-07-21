@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658298696867,
+  "lastUpdate": 1658422745571,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -4051,6 +4051,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 36.38,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "b13914af68d11938a51e49f3ed9198483da736b9",
+          "message": "Fix indent-blankline config",
+          "timestamp": "2022-07-22T01:56:45+09:00",
+          "tree_id": "48e905d1d0c7b20994bd1e9bcaf3da1fb7041945",
+          "url": "https://github.com/nazo6/nvim/commit/b13914af68d11938a51e49f3ed9198483da736b9"
+        },
+        "date": 1658422744715,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 30.27,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 29.362,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 32.519,
             "unit": "ms"
           }
         ]
