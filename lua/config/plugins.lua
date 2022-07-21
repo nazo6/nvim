@@ -439,6 +439,17 @@ packer.startup {
       module = "sqls",
       ft = { "sql" },
     }
+
+    use {
+      "ellisonleao/glow.nvim",
+      ft = { "markdown" },
+      cmd = { "Glow" },
+      config = function()
+        require("glow").setup {
+          border = "single",
+        }
+      end,
+    }
   end,
 }
 
