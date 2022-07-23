@@ -4,10 +4,18 @@ end
 
 local ok, kanagawa = pcall(require, "kanagawa")
 if ok then
-  local palette = require("kanagawa.colors").setup()
+  local colors = require("kanagawa.colors").setup()
+  if not colors then
+    return
+  end
   local overrides = {
-    NvimTreeNormal = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
-    NvimTreeNormalNC = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
+    DiagnosticVirtualTextError = { fg = colors.diag.error, bg = "#2D0505" },
+    DiagnosticVirtualTextWarn = { fg = colors.diag.warning, bg = "#331900" },
+    DiagnosticVirtualTextInfo = { fg = colors.diag.info, bg = "#151D1B" },
+    DiagnosticVirtualTextHint = { fg = colors.diag.hint, bg = "#141B1E" },
+
+    NvimTreeNormal = { fg = colors.fujiWhite, bg = colors.sumiInk2 },
+    NvimTreeNormalNC = { fg = colors.fujiWhite, bg = colors.sumiInk2 },
     NvimTreeGitIgnored = { fg = "#8c8c8c" },
     NvimTreeGitDeleted = { fg = "#C74E39" },
     NvimTreeGitRenamed = { fg = "yellow" },
@@ -16,7 +24,7 @@ if ok then
     NvimTreeGitStaged = { fg = "yellow" },
     NvimTreeGitMerge = { fg = "cyan" },
 
-    ScrollView = { bg = palette.sumiInk4 },
+    ScrollView = { bg = colors.sumiInk4 },
 
     MiniCursorword = { bg = "#472739" },
     MiniCursorwordCurrent = { fg = "NONE", bg = "#363646" },
