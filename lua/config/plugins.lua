@@ -67,6 +67,14 @@ packer.startup {
     use { "j-hui/fidget.nvim", module = "fidget" }
     use { "SmiteshP/nvim-navic", after = "nvim-lsp-installer" }
     use {
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      after = "nvim-lspconfig",
+      as = "lsp_lines.nvim",
+      config = function()
+        require("lsp_lines").setup()
+      end,
+    }
+    use {
       "tamago324/nlsp-settings.nvim",
       module = "nlspsettings",
       cmd = "LspSettings",
