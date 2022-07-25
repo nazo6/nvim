@@ -12,8 +12,6 @@ return function(server)
   }
 
   require("rust-tools").setup {
-    server = vim.tbl_deep_extend("force", server:get_default_options(), config),
+    server = config,
   }
-
-  server:attach_buffers()
 end

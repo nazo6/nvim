@@ -50,6 +50,7 @@ packer.startup {
       "jose-elias-alvarez/null-ls.nvim",
       requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
       module = "null-ls",
+      after = "mason.nvim",
     }
     use {
       "weilbith/nvim-code-action-menu",
@@ -58,14 +59,22 @@ packer.startup {
         vim.g.code_action_menu_show_details = false
       end,
     }
-    use { "neovim/nvim-lspconfig", module = "lspconfig", after = "nvim-lsp-installer", cmd = { "LspInfo", "LspLog" } }
+    use {
+      "neovim/nvim-lspconfig",
+      module = "lspconfig",
+      cmd = { "LspInfo", "LspLog" },
+      event = { "BufRead" },
+      config = function()
+        require "config.plugin.lsp.setup"
+      end,
+    }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
     use { "onsails/lspkind-nvim", module = "lspkind" }
     use { "folke/lua-dev.nvim", module = "lua-dev" }
     use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
     use { "b0o/schemastore.nvim", module = "schemastore" }
     use { "j-hui/fidget.nvim", module = "fidget" }
-    use { "SmiteshP/nvim-navic", after = "nvim-lsp-installer" }
+    use { "SmiteshP/nvim-navic", module = "nvim-navic" }
     use {
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
       after = "nvim-lspconfig",
@@ -74,20 +83,16 @@ packer.startup {
         require("lsp_lines").setup()
       end,
     }
+    use { "tamago324/nlsp-settings.nvim", module = "nlspsettings", cmd = "LspSettings" }
     use {
-      "tamago324/nlsp-settings.nvim",
-      module = "nlspsettings",
-      cmd = "LspSettings",
-      after = "nvim-lsp-installer",
-    }
-    use {
-      "williamboman/nvim-lsp-installer",
+      "williamboman/mason.nvim",
+      module = { "mason" },
+      cmd = { "Mason", "MasonInstall", "Mason*" },
       config = function()
-        require "config.plugin.lsp.setup"
+        require "config.plugin.mason"
       end,
-      cmd = { "LspInstallInfo", "LspInstall*" },
-      event = { "BufRead" },
     }
+    use { "williamboman/mason-lspconfig.nvim", module = { "mason-lspconfig" } }
 
     use {
       "kevinhwang91/nvim-ufo",
