@@ -23,6 +23,10 @@ return {
     vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")
     vim.keymap.set("v", "<leader>ca", "<cmd>CodeActionMenu<CR>")
     vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>")
+    vim.keymap.set("n", "<leader>d", function()
+      local virtual_lines_enabled = not vim.diagnostic.config().virtual_lines
+      vim.diagnostic.config { virtual_lines = virtual_lines_enabled, virtual_text = not virtual_lines_enabled }
+    end)
 
     vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 7000, async = true })<CR>")
 
