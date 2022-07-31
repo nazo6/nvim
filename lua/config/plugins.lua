@@ -212,6 +212,17 @@ packer.startup {
       end,
     }
 
+    use {
+      "vim-skk/skkeleton",
+      event = { "BufRead", "InsertEnter" },
+      requires = {
+        { "vim-denops/denops.vim", event = { "BufRead", "InsertEnter" } },
+      },
+      config = function()
+        require "config.plugin.skkeleton"
+      end,
+    }
+
     -----------
     -- Utils --
     -----------
