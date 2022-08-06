@@ -12,28 +12,28 @@ return {
       require("nvim-navic").attach(client, bufnr)
     end
 
-    vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-    vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-    vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+    vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { buffer = true })
+    vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = true })
+    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = true })
+    vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = true })
 
-    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true })
 
-    vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-    vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>")
-    vim.keymap.set("v", "<leader>ca", "<cmd>CodeActionMenu<CR>")
-    vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>")
+    vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { buffer = true })
+    vim.keymap.set("v", "<leader>ca", "<cmd>CodeActionMenu<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>", { buffer = true })
     vim.keymap.set("n", "<leader>d", function()
       local virtual_lines_enabled = not vim.diagnostic.config().virtual_lines
       vim.diagnostic.config { virtual_lines = virtual_lines_enabled, virtual_text = not virtual_lines_enabled }
-    end)
+    end, { buffer = true })
 
-    vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 7000, async = true })<CR>")
+    vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 7000, async = true })<CR>", { buffer = true })
 
-    vim.keymap.set("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
-    vim.keymap.set("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
-    vim.keymap.set("n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
-    vim.keymap.set("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+    vim.keymap.set("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", { buffer = true })
+    vim.keymap.set("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", { buffer = true })
 
     vim.api.nvim_create_augroup("LspFormat" .. bufnr, {})
     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
