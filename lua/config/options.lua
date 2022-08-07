@@ -2,7 +2,7 @@ local opt = vim.opt
 
 vim.g.mapleader = " "
 
---- Behavior
+-- Behavior
 opt.shortmess:append "I"
 
 opt.mouse = "a"
@@ -38,16 +38,16 @@ opt.updatetime = 300
 
 vim.cmd [[autocmd FileType help wincmd L]]
 
---- Key
+-- Key
 opt.timeoutlen = 400
 
---- Editing
+-- Editing
 opt.completeopt = "menuone,noselect"
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 
---- Appearance
+-- Appearance
 opt.title = true
 opt.number = true
 opt.signcolumn = "yes"

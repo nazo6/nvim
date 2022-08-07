@@ -23,5 +23,5 @@ vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", { 
 vim.keymap.set("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { silent = true })
 ]]
 
-require("nvim-dap-virtual-text").setup()
+require("nvim-dap-virtual-text").setup {}
 require("dapui").setup()

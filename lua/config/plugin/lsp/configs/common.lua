@@ -53,7 +53,7 @@ return {
       if not (result and result.contents) then
         return
       end
-      local markdown_lines = util.convert_input_to_markdown_lines(result.contents)
+      local markdown_lines = util.convert_input_to_markdown_lines(result.contents, {})
       markdown_lines = util.trim_empty_lines(markdown_lines)
       if vim.tbl_isempty(markdown_lines) then
         return
