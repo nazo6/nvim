@@ -60,6 +60,10 @@ cmp.setup.cmdline(":", {
     { name = "cmdline" },
   }),
   mapping = cmp.mapping.preset.cmdline(),
+  enabled = function()
+    local is_os_cmd = vim.fn.getcmdline():sub(1, 1) == "!"
+    return not is_os_cmd
+  end,
 })
 
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
