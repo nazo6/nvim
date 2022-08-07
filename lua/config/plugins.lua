@@ -392,6 +392,12 @@ packer.startup {
     ----------------
     use "rebelot/kanagawa.nvim"
     use {
+      "stevearc/dressing.nvim",
+      config = function()
+        require "config.plugin.dressing"
+      end,
+    }
+    use {
       "feline-nvim/feline.nvim",
       config = function()
         require "config.plugin.feline"
