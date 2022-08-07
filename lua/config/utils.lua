@@ -20,4 +20,8 @@ M.send_key = function(key)
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "")
 end
 
+M.send_key_nomap = function(key)
+  vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n")
+end
+
 return M

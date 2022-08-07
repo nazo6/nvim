@@ -5,7 +5,7 @@ return {
     end
   end,
   config = function()
-    local send_key = require("config.utils").send_key
+    local send_key = require("config.utils").send_key_nomap
     vim.keymap.set("n", "<CR>", function()
       local bufs = vim.api.nvim_list_bufs()
       local notif_win = nil
@@ -17,7 +17,7 @@ return {
         end
       end
       if not notif_win then
-        send_key "j"
+        send_key "<CR>"
       else
         pcall(vim.api.nvim_win_close, notif_win, true)
       end
