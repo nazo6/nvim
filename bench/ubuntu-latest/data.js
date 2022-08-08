@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659857846984,
+  "lastUpdate": 1659943048466,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -4402,6 +4402,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 27.949,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "96d6da82cb3f6d8098ec767cec341a751bf27475",
+          "message": "Add window management plugins",
+          "timestamp": "2022-08-08T15:54:11+09:00",
+          "tree_id": "ded72efcacb189149939bdab4eca05fdafc66fd8",
+          "url": "https://github.com/nazo6/nvim/commit/96d6da82cb3f6d8098ec767cec341a751bf27475"
+        },
+        "date": 1659943046687,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 25.33,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 24.559,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 26.838,
             "unit": "ms"
           }
         ]
