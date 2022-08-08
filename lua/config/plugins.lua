@@ -412,6 +412,30 @@ packer.startup {
       end,
     }
 
+    -----------------------
+    -- Window management --
+    -----------------------
+    use {
+      "tkmpypy/chowcho.nvim",
+      module = "chowcho",
+      setup = function()
+        require("config.plugin.chowcho").setup()
+      end,
+      config = function()
+        require("config.plugin.chowcho").config()
+      end,
+    }
+    use {
+      "mrjones2014/smart-splits.nvim",
+      module = "smart-splits",
+      setup = function()
+        require("config.plugin.smart-splits").setup()
+      end,
+      config = function()
+        require("config.plugin.smart-splits").config()
+      end,
+    }
+
     -----------
     -- Tools --
     -----------
