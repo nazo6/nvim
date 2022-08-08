@@ -20,7 +20,6 @@ nvim
 
 ```vim
 :PackerSync
-:MasoInstall stylua prettier
 ```
 
 ## Dependencies

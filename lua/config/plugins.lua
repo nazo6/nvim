@@ -93,6 +93,7 @@ packer.startup {
       end,
     }
     use { "williamboman/mason-lspconfig.nvim", module = { "mason-lspconfig" } }
+    use { "WhoIsSethDaniel/mason-tool-installer.nvim", module = { "mason-tool-installer" } }
 
     use {
       "kevinhwang91/nvim-ufo",
