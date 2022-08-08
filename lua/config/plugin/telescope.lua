@@ -8,7 +8,7 @@ return {
       defaults = {
         winblend = 20,
         vimgrep_arguments = {
-          require("installer.integrations.tools").get "ripgrep",
+          "rg",
           "--color=never",
           "--no-heading",
           "--with-filename",

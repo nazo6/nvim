@@ -106,15 +106,6 @@ packer.startup {
     }
 
     use {
-      "nazo6/installer.nvim",
-      module = "installer",
-      cmd = { "Install", "Uninstall", "Update" },
-      config = function()
-        require "config.plugin.installer"
-      end,
-    }
-
-    use {
       "L3MON4D3/LuaSnip",
       requires = {
         { "rafamadriz/friendly-snippets" },

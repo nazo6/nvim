@@ -2,7 +2,7 @@ _G.term_gitui = nil
 _G.toggle_gitui = function()
   if term_gitui == nil then
     _G.term_gitui = require("toggleterm.terminal").Terminal:new {
-      cmd = require("installer.integrations.tools").get "gitui",
+      cmd = "gitui",
       direction = "float",
       hidden = true,
     }
