@@ -1,3 +1,5 @@
+local is_win = require("config.utils").is_win
+
 return {
   setup = function()
     vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", { silent = true })
@@ -7,15 +9,6 @@ return {
     require("telescope").setup {
       defaults = {
         winblend = 20,
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-        },
         file_ignore_patterns = { ".git" },
       },
     }

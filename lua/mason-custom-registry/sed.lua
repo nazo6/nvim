@@ -2,9 +2,6 @@ local Pkg = require "mason-core.package"
 local platform = require "mason-core.platform"
 local _ = require "mason-core.functional"
 local std = require "mason-core.managers.std"
-local path = require "mason-core.path"
-
-local coalesce, when = _.coalesce, _.when
 
 return Pkg.new {
   name = "sed",
@@ -20,9 +17,12 @@ return Pkg.new {
       win = function()
         std.download_file(url, "archive.zip")
         std.unzip("archive.zip", ".")
-        ctx.fs:rename("tools/install/sed-windows-master/sed-4.8-x64.exe", "sed")
+        ctx.fs:rename("tools/install/sed-windows-master/sed-4.8-x64.exe", "sed.exe")
       end,
     }
-    ctx:link_bin("sed", path.concat { "bin", platform.is.win and "sed.exe" or "sed" })
+    ctx:link_bin("sed", platform.is.win and "sed.exe" or "sed")
+    ctx.receipt:with_primary_source {
+      type = "unmanaged",
+    }
   end,
 }
