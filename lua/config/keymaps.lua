@@ -23,7 +23,8 @@ s("n", "<C-s>", [[:%s/]], { silent = true })
 s("n", "<leader>sp", "<cmd>PackerStatus<CR>")
 s("n", "<leader>sl", "<cmd>LuaCacheProfile<CR>")
 
-s("n", "s", "<C-w>", { noremap = false })
+s("n", "<A-v>", "<C-w><C-v>")
+s("n", "<A-s>", "<C-w><C-s>")
 
 s("n", "<leader>q", "<cmd>q<CR>")
 s("n", "<leader>w", "<cmd>w<CR>")

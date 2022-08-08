@@ -1,14 +1,14 @@
 return {
   setup = function()
-    vim.keymap.set("n", "<A-h>", ":lua require('smart-splits').resize_left()<CR>", { silent = true })
-    vim.keymap.set("n", "<A-j>", ":lua require('smart-splits').resize_down()<CR>", { silent = true })
-    vim.keymap.set("n", "<A-k>", ":lua require('smart-splits').resize_up()<CR>", { silent = true })
-    vim.keymap.set("n", "<A-l>", ":lua require('smart-splits').resize_right()<CR>", { silent = true })
+    vim.keymap.set("n", "<A-h>", "<cmd>lua require('smart-splits').resize_left()<CR>")
+    vim.keymap.set("n", "<A-j>", "<cmd>lua require('smart-splits').resize_down()<CR>")
+    vim.keymap.set("n", "<A-k>", "<cmd>lua require('smart-splits').resize_up()<CR>")
+    vim.keymap.set("n", "<A-l>", "<cmd>lua require('smart-splits').resize_right()<CR>")
     -- moving between splits
-    vim.keymap.set("n", "<C-h>", ":lua require('smart-splits').move_cursor_left()<CR>", { silent = true })
-    vim.keymap.set("n", "<C-j>", ":lua require('smart-splits').move_cursor_down()<CR>", { silent = true })
-    vim.keymap.set("n", "<C-k>", ":lua require('smart-splits').move_cursor_up()<CR>", { silent = true })
-    vim.keymap.set("n", "<C-l>", ":lua require('smart-splits').move_cursor_right()<CR>", { silent = true })
+    vim.keymap.set("n", "<C-h>", "<cmd>lua require('smart-splits').move_cursor_left()<CR>")
+    vim.keymap.set("n", "<C-j>", "<cmd>lua require('smart-splits').move_cursor_down()<CR>")
+    vim.keymap.set("n", "<C-k>", "<cmd>lua require('smart-splits').move_cursor_up()<CR>")
+    vim.keymap.set("n", "<C-l>", "<cmd>lua require('smart-splits').move_cursor_right()<CR>")
   end,
   config = function()
     require("smart-splits").setup {
