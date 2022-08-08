@@ -10,11 +10,6 @@ return {
       border = "single",
 
       preview_position = "left",
-      preview = {
-        width = 40,
-        height = 60,
-        border = "single",
-      },
 
       highlight = {
         current = "Title",
