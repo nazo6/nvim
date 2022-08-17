@@ -443,9 +443,9 @@ packer.startup {
     use { "kevinoid/vim-jsonc", ft = { "json" } }
     use {
       "ionide/Ionide-vim",
-      ft = { "fsharp" },
+      module = "ionide",
       setup = function()
-        vim.g["fsharp#lsp_auto_setup"] = false
+        vim.g["fsharp#lsp_auto_setup"] = 0
       end,
     }
 
