@@ -3,6 +3,9 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
+capabilities.textDocument.colorProvider = {
+  dynamicRegistration = true,
+}
 
 return {
   on_attach = function(client, bufnr)
@@ -10,6 +13,9 @@ return {
     require("aerial").on_attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
+    end
+    if client.server_capabilities.colorProvider then
+      require("document-color").buf_attach(bufnr)
     end
 
     vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { buffer = true })

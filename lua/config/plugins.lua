@@ -76,6 +76,13 @@ packer.startup {
     use { "j-hui/fidget.nvim", module = "fidget" }
     use { "SmiteshP/nvim-navic", module = "nvim-navic" }
     use {
+      "mrshmllow/document-color.nvim",
+      module = "document-color",
+      config = function()
+        require "config.plugin.document-color"
+      end,
+    }
+    use {
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
       after = "nvim-lspconfig",
       as = "lsp_lines.nvim",
