@@ -1,4 +1,7 @@
 vim.filetype.add {
+  extension = {
+    xaml = "xml",
+  },
   filename = {
     [".swcrc"] = "json",
     [".latexmkrc"] = "perl",

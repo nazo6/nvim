@@ -448,6 +448,13 @@ packer.startup {
     use { "chrisbra/csv.vim", ft = { "csv" } }
     use { "dag/vim-fish", ft = { "fish" } }
     use { "kevinoid/vim-jsonc", ft = { "json" } }
+    use {
+      "ionide/Ionide-vim",
+      module = "ionide",
+      setup = function()
+        vim.g["fsharp#lsp_auto_setup"] = 0
+      end,
+    }
 
     use { "simrat39/rust-tools.nvim", module = "rust-tools" }
     use {
