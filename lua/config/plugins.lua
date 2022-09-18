@@ -461,6 +461,10 @@ packer.startup {
     -----------
     use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
     use { "dstein64/vim-startuptime", cmd = { "StartupTime" } }
+    use {
+      "nanotee/zoxide.vim",
+      cmd = { "Z" },
+    }
 
     -------------------------------
     -- Language specific plugins --

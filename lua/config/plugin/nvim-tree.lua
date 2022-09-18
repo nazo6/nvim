@@ -41,8 +41,9 @@ return {
       open_on_setup = false,
       ignore_ft_on_setup = {},
       open_on_tab = false,
-      hijack_cursor = false,
+      hijack_cursor = true,
       update_cwd = false,
+      sync_root_with_cwd = true,
       system_open = {
         cmd = nil,
         args = {},
