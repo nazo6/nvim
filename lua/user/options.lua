@@ -6,6 +6,8 @@ vim.g.mapleader = " "
 opt.shortmess:append "I"
 
 opt.mouse = "a"
+opt.mousemodel = "extend"
+
 if vim.fn.has "wsl" == 1 then
   vim.g.clipboard = {
     name = "win32yank",
