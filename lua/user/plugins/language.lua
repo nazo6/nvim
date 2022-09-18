@@ -56,6 +56,11 @@ return function(use)
   }
 
   use {
+    "jose-elias-alvarez/typescript.nvim",
+    module = "typescript",
+  }
+
+  use {
     "ellisonleao/glow.nvim",
     ft = { "markdown" },
     cmd = { "Glow" },
