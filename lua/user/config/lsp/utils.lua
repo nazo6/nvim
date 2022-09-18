@@ -1,5 +1,5 @@
-local merge_functions = require("config.utils").merge_functions
-local common_config = require "config.plugin.lsp.configs.common"
+local merge_functions = require("user.utils").merge_functions
+local common_config = require "user.config.lsp.configs.common"
 
 local M = {}
 

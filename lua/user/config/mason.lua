@@ -13,7 +13,7 @@ local ensure_installed = {
   "gitui",
 }
 
-if require("config.utils").is_win then
+if require("user.utils").is_win then
   table.insert(ensure_installed, "sed")
 end
 

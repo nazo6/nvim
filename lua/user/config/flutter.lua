@@ -4,7 +4,7 @@ require("flutter-tools").setup {
     enabled = true,
     run_via_dap = false,
     register_configurations = function(paths)
-      if require("config.utils").is_win then
+      if require("user.utils").is_win then
         require("dap").adapters.dart = {
           command = paths.dart_sdk .. "\\bin\\dart.exe",
           args = {
@@ -50,7 +50,7 @@ require("flutter-tools").setup {
     autostart = true,
     autoopen_browser = true,
   },
-  lsp = vim.tbl_extend("force", require("config.plugin.lsp.utils").create_config {}, {
+  lsp = vim.tbl_extend("force", require("user.config.lsp.utils").create_config {}, {
     settings = { showTodos = true, completeFunctionCalls = true },
   }),
 }

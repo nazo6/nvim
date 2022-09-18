@@ -1,5 +1,5 @@
-local statusbar = require "config.plugin.feline.statusbar"
-local winbar = require "config.plugin.feline.winbar"
+local statusbar = require "user.config.feline.statusbar"
+local winbar = require "user.config.feline.winbar"
 
 local theme = require("kanagawa.colors").setup()
 

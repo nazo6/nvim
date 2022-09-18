@@ -1,4 +1,4 @@
-local create_config = require("config.plugin.lsp.utils").create_config
+local create_config = require("user.config.lsp.utils").create_config
 
 return function(server)
   local config = create_config {

@@ -18,10 +18,10 @@ packer.startup {
       "rcarriga/nvim-notify",
       module = "notify",
       setup = function()
-        require("config.plugin.notify").setup()
+        require("user.config.notify").setup()
       end,
       config = function()
-        require("config.plugin.notify").config()
+        require("user.config.notify").config()
       end,
     }
 
@@ -42,7 +42,7 @@ packer.startup {
         { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
       },
       config = function()
-        require "config.plugin.treesitter"
+        require "user.config.treesitter"
       end,
     }
 
@@ -65,7 +65,7 @@ packer.startup {
       cmd = { "LspInfo", "LspLog" },
       event = { "BufRead" },
       config = function()
-        require "config.plugin.lsp.setup"
+        require "user.config.lsp.setup"
       end,
     }
     use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
@@ -79,7 +79,7 @@ packer.startup {
       "mrshmllow/document-color.nvim",
       module = "document-color",
       config = function()
-        require "config.plugin.document-color"
+        require "user.config.document-color"
       end,
     }
     use {
@@ -96,7 +96,7 @@ packer.startup {
       module = { "mason" },
       cmd = { "Mason", "MasonInstall", "Mason*" },
       config = function()
-        require "config.plugin.mason"
+        require "user.config.mason"
       end,
     }
     use { "williamboman/mason-lspconfig.nvim", module = { "mason-lspconfig" } }
@@ -121,7 +121,7 @@ packer.startup {
         { "rafamadriz/friendly-snippets" },
       },
       config = function()
-        require "config.plugin.luasnip"
+        require "user.config.luasnip"
       end,
       event = "InsertEnter",
     }
@@ -146,7 +146,7 @@ packer.startup {
       event = { "InsertEnter", "CmdlineEnter" },
       cmd = { "CmpStatus" },
       config = function()
-        require "config.plugin.cmp"
+        require "user.config.cmp"
       end,
     }
 
@@ -154,7 +154,7 @@ packer.startup {
       "mfussenegger/nvim-dap",
       module = { "dap" },
       config = function()
-        require "config.plugin.dap"
+        require "user.config.dap"
       end,
     }
     use {
@@ -170,7 +170,7 @@ packer.startup {
       "lukas-reineke/indent-blankline.nvim",
       event = { "BufRead" },
       config = function()
-        require "config.plugin.indent-blankline"
+        require "user.config.indent-blankline"
       end,
     }
 
@@ -181,10 +181,10 @@ packer.startup {
       "phaazon/hop.nvim",
       cmd = "Hop*",
       setup = function()
-        require("config.plugin.hop").setup()
+        require("user.config.hop").setup()
       end,
       config = function()
-        require("config.plugin.hop").config()
+        require("user.config.hop").config()
       end,
     }
     use {
@@ -201,7 +201,7 @@ packer.startup {
       "abecodes/tabout.nvim",
       event = { "InsertEnter" },
       config = function()
-        require "config.plugin.tabout"
+        require "user.config.tabout"
       end,
     }
     use {
@@ -209,13 +209,13 @@ packer.startup {
       event = { "BufRead" },
       module = { "mini" },
       config = function()
-        require "config.plugin.mini"
+        require "user.config.mini"
       end,
     }
     use {
       "kylechui/nvim-surround",
       config = function()
-        require "config.plugin.surround"
+        require "user.config.surround"
       end,
     }
 
@@ -226,7 +226,7 @@ packer.startup {
         { "vim-denops/denops.vim", event = { "BufRead", "InsertEnter" } },
       },
       config = function()
-        require "config.plugin.skkeleton"
+        require "user.config.skkeleton"
       end,
     }
 
@@ -241,10 +241,10 @@ packer.startup {
         { "nvim-lua/plenary.nvim", module = "plenary" },
       },
       setup = function()
-        require("config.plugin.telescope").setup()
+        require("user.config.telescope").setup()
       end,
       config = function()
-        require("config.plugin.telescope").config()
+        require("user.config.telescope").config()
       end,
     }
 
@@ -253,10 +253,10 @@ packer.startup {
       requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
       cmd = { "NvimTree*" },
       setup = function()
-        require("config.plugin.nvim-tree").setup()
+        require("user.config.nvim-tree").setup()
       end,
       config = function()
-        require("config.plugin.nvim-tree").config()
+        require("user.config.nvim-tree").config()
       end,
     }
     use {
@@ -270,16 +270,16 @@ packer.startup {
           tag = "1.*",
           module = "window-picker",
           config = function()
-            require "config.plugin.window-picker"
+            require "user.config.window-picker"
           end,
         },
       },
       cmd = { "Neotree" },
       setup = function()
-        require("config.plugin.neo-tree").setup()
+        require("user.config.neo-tree").setup()
       end,
       config = function()
-        require("config.plugin.neo-tree").config()
+        require("user.config.neo-tree").config()
       end,
     }
 
@@ -299,10 +299,10 @@ packer.startup {
       requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
       cmd = "Trouble*",
       setup = function()
-        require("config.plugin.trouble").setup()
+        require("user.config.trouble").setup()
       end,
       config = function()
-        require("config.plugin.trouble").config()
+        require("user.config.trouble").config()
       end,
     }
     use {
@@ -310,10 +310,10 @@ packer.startup {
       event = "BufRead",
       cmd = "Aerial*",
       setup = function()
-        require("config.plugin.aerial").setup()
+        require("user.config.aerial").setup()
       end,
       config = function()
-        require("config.plugin.aerial").config()
+        require("user.config.aerial").config()
       end,
     }
     use {
@@ -321,10 +321,10 @@ packer.startup {
       module = "toggleterm",
       cmd = { "ToggleTerm", "ToggleTerm*" },
       setup = function()
-        require("config.plugin.toggleterm").setup()
+        require("user.config.toggleterm").setup()
       end,
       config = function()
-        require("config.plugin.toggleterm").config()
+        require("user.config.toggleterm").config()
       end,
     }
 
@@ -366,10 +366,10 @@ packer.startup {
       "windwp/nvim-spectre",
       module = { "spectre" },
       setup = function()
-        require("config.plugin.spectre").setup()
+        require("user.config.spectre").setup()
       end,
       config = function()
-        require("config.plugin.spectre").config()
+        require("user.config.spectre").config()
       end,
     }
 
@@ -377,10 +377,10 @@ packer.startup {
       "matbme/JABS.nvim",
       cmd = "JABSOpen",
       setup = function()
-        require("config.plugin.jabs").setup()
+        require("user.config.jabs").setup()
       end,
       config = function()
-        require("config.plugin.jabs").config()
+        require("user.config.jabs").config()
       end,
     }
 
@@ -388,10 +388,10 @@ packer.startup {
       "kevinhwang91/nvim-hlslens",
       event = { "BufRead" },
       setup = function()
-        require("config.plugin.hlslens").setup()
+        require("user.config.hlslens").setup()
       end,
       config = function()
-        require("config.plugin.hlslens").config()
+        require("user.config.hlslens").config()
       end,
       module = { "hlslens" },
     }
@@ -414,13 +414,13 @@ packer.startup {
     use {
       "stevearc/dressing.nvim",
       config = function()
-        require "config.plugin.dressing"
+        require "user.config.dressing"
       end,
     }
     use {
       "feline-nvim/feline.nvim",
       config = function()
-        require "config.plugin.feline"
+        require "user.config.feline"
       end,
     }
     use {
@@ -439,20 +439,20 @@ packer.startup {
       "tkmpypy/chowcho.nvim",
       module = "chowcho",
       setup = function()
-        require("config.plugin.chowcho").setup()
+        require("user.config.chowcho").setup()
       end,
       config = function()
-        require("config.plugin.chowcho").config()
+        require("user.config.chowcho").config()
       end,
     }
     use {
       "mrjones2014/smart-splits.nvim",
       module = "smart-splits",
       setup = function()
-        require("config.plugin.smart-splits").setup()
+        require("user.config.smart-splits").setup()
       end,
       config = function()
-        require("config.plugin.smart-splits").config()
+        require("user.config.smart-splits").config()
       end,
     }
 
@@ -501,7 +501,7 @@ packer.startup {
       requires = { { "akinsho/plenary.nvim", module = "plenary" } },
       ft = { "dart" },
       config = function()
-        require "config.plugin.flutter"
+        require "user.config.flutter"
       end,
     }
     use {

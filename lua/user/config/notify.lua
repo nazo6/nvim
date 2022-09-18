@@ -5,7 +5,7 @@ return {
     end
   end,
   config = function()
-    local send_key = require("config.utils").send_key_nomap
+    local send_key = require("user.utils").send_key_nomap
     vim.keymap.set("n", "<CR>", function()
       local bufs = vim.api.nvim_list_bufs()
       local notif_win = nil

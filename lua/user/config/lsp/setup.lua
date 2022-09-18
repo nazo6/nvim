@@ -1,5 +1,5 @@
-local configs = require "config.plugin.lsp.configs"
-local utils = require "config.plugin.lsp.utils"
+local configs = require "user.config.lsp.configs"
+local utils = require "user.config.lsp.utils"
 
 require("fidget").setup {
   text = {
@@ -21,6 +21,6 @@ require("mason-lspconfig").setup_handlers {
   end,
 }
 
-require "config.plugin.lsp.null-ls"
+require "user.config.lsp.null-ls"
 
 vim.cmd "LspStart"

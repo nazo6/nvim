@@ -1,4 +1,4 @@
-local is_win = require("config.utils").is_win
+local is_win = require("user.utils").is_win
 
 return {
   setup = function()

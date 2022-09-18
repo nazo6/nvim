@@ -1,5 +1,5 @@
-local providers = require "config.plugin.feline.providers"
-local vi_mode = require "config.plugin.feline.providers.vi_mode"
+local providers = require "user.config.feline.providers"
+local vi_mode = require "user.config.feline.providers.vi_mode"
 
 local M = {
   active = {},

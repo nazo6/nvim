@@ -1,4 +1,4 @@
-local send_key = require("config.utils").send_key
+local send_key = require("user.utils").send_key
 
 require("tabout").setup {
   tabkey = "",
