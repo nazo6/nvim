@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1663489328632,
+  "lastUpdate": 1663490206095,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -4675,6 +4675,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 30.249,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "4d4e491d6f159c0afd9259a17bec173aeee594dc",
+          "message": "Add zoxide.vim and fix nvim-tree config",
+          "timestamp": "2022-09-18T17:36:13+09:00",
+          "tree_id": "e0cc819c6fbccd215582e8e77f62c43c87aaaed7",
+          "url": "https://github.com/nazo6/nvim/commit/4d4e491d6f159c0afd9259a17bec173aeee594dc"
+        },
+        "date": 1663490205200,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 33.71,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 32.264,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 37.662,
             "unit": "ms"
           }
         ]
