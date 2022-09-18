@@ -102,6 +102,7 @@ packer.startup {
     use { "williamboman/mason-lspconfig.nvim", module = { "mason-lspconfig" } }
     use { "WhoIsSethDaniel/mason-tool-installer.nvim", module = { "mason-tool-installer" } }
 
+    --[[
     use {
       "kevinhwang91/nvim-ufo",
       requires = {
@@ -112,6 +113,7 @@ packer.startup {
         require("ufo").setup()
       end,
     }
+    ]]
 
     use {
       "L3MON4D3/LuaSnip",
