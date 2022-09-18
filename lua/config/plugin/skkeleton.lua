@@ -1,5 +1,5 @@
-vim.keymap.set("i", "<Muhenkan>", "<Plug>(skkeleton-disable)")
-vim.keymap.set("i", "<Henkan>", "<Plug>(skkeleton-enable)")
+-- vim.keymap.set("i", "<Muhenkan>", "<Plug>(skkeleton-disable)")
+-- vim.keymap.set("i", "<Henkan>", "<Plug>(skkeleton-enable)")
 vim.keymap.set("i", "<C-j>", "<Plug>(skkeleton-toggle)")
 
 local host = "localhost"
