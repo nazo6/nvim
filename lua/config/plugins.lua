@@ -133,7 +133,13 @@ packer.startup {
         { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
         { "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
         { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-        { "zbirenbaum/copilot-cmp", after = { "nvim-cmp" } },
+        {
+          "zbirenbaum/copilot-cmp",
+          after = { "nvim-cmp" },
+          config = function()
+            require("copilot_cmp").setup()
+          end,
+        },
       },
       event = { "InsertEnter", "CmdlineEnter" },
       cmd = { "CmpStatus" },
@@ -274,6 +280,18 @@ packer.startup {
         require("config.plugin.neo-tree").config()
       end,
     }
+
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end,
+    }
+
     use {
       "folke/trouble.nvim",
       requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
@@ -378,11 +396,12 @@ packer.startup {
 
     use {
       "zbirenbaum/copilot.lua",
-      event = "InsertEnter",
+      event = "VimEnter",
       requires = { { "github/copilot.vim", cmd = "Copilot" } },
-      after = "copilot-cmp",
       config = function()
-        require("config.plugin.copilot").config()
+        vim.defer_fn(function()
+          require("copilot").setup()
+        end, 100)
       end,
     }
 
