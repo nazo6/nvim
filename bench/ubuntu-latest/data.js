@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1663491230877,
+  "lastUpdate": 1663511471407,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -4753,6 +4753,45 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 41.34,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "committer": {
+            "email": "53177992+nazo6@users.noreply.github.com",
+            "name": "nazo6",
+            "username": "nazo6"
+          },
+          "distinct": true,
+          "id": "533857f8ef49103436272819cdadcb0e62325155",
+          "message": "Replace nvim-lsp-ts-utils to typescript.nvim",
+          "timestamp": "2022-09-18T23:30:40+09:00",
+          "tree_id": "2c44cef9fa03aa0e9491256420e03e174b09d23a",
+          "url": "https://github.com/nazo6/nvim/commit/533857f8ef49103436272819cdadcb0e62325155"
+        },
+        "date": 1663511470602,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 29.68,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 28.696,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 31.001,
             "unit": "ms"
           }
         ]
