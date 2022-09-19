@@ -26,7 +26,7 @@ return function(use)
   use { "folke/lua-dev.nvim", module = "lua-dev" }
   use { "b0o/schemastore.nvim", module = "schemastore" }
   use { "j-hui/fidget.nvim", module = "fidget" }
-  use { "SmiteshP/nvim-navic", module = "nvim-navic" }
+  use { "SmiteshP/nvim-navic", module = "nvim-navic", event = { "InsertEnter", "BufRead" } }
   use {
     "mrshmllow/document-color.nvim",
     module = "document-color",

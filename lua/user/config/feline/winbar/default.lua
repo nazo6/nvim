@@ -19,28 +19,36 @@ M.active[1] = {
     right_sep = {
       str = "slant_right",
       hl = function()
-        local ok, navic = pcall(require, "nvim-navic")
-        if ok and navic.is_available() and navic.get_location() ~= "" then
-          return {
-            fg = "autumnRed",
-            bg = "katanaGray",
-          }
-        else
-          return {
-            fg = "autumnRed",
-          }
+        if package.loaded["nvim-navic"] then
+          local navic = require "nvim-navic"
+          if navic.is_available() and navic.get_location() ~= "" then
+            return {
+              fg = "autumnRed",
+              bg = "katanaGray",
+            }
+          else
+            return {
+              fg = "autumnRed",
+            }
+          end
         end
       end,
     },
   },
   {
     provider = function()
-      local ok, navic = pcall(require, "nvim-navic")
-      return ok and navic.get_location() or "error"
+      if package.loaded["nvim-navic"] then
+        local navic = require "nvim-navic"
+        return navic.get_location()
+      end
+      return "error"
     end,
     enabled = function()
-      local ok, navic = pcall(require, "nvim-navic")
-      return ok and navic.is_available()
+      if package.loaded["nvim-navic"] then
+        local navic = require "nvim-navic"
+        return navic.is_available()
+      end
+      return false
     end,
     hl = {
       bg = "katanaGray",
