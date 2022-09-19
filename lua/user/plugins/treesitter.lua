@@ -3,6 +3,7 @@ return function(use)
     "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "InsertEnter" },
     module = { "nvim-treesitter" },
+    cmd = { "TSInstall", "TSUpdate", "TSUninstall" },
     requires = {
       { "romgrk/nvim-treesitter-context", after = "nvim-treesitter" },
       { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
