@@ -78,9 +78,9 @@ M.active[1] = {
   },
   {
     provider = function()
-      local ok, sources = pcall(require, "null-ls.sources")
       local text = ""
-      if ok then
+      if package.loaded["null-ls.sources"] then
+        local sources = require "null-ls.sources"
         local ft = vim.bo.filetype
         local available_sources = sources.get_available(ft)
         if #available_sources > 0 then
