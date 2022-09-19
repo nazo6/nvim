@@ -172,4 +172,9 @@ return function(use)
       end, 100)
     end,
   }
+
+  use {
+    "uga-rosa/ccc.nvim",
+    cmd = { "CccPick" },
+  }
 end
