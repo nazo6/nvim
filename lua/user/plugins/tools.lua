@@ -124,8 +124,16 @@ return function(use)
   }
   use {
     "sindrets/diffview.nvim",
-    cmd = { "Diffview*", "DiffviewOpen" },
+    requires = {
+      { "nvim-lua/plenary.nvim", module = "plenary" },
+    },
+    after = "plenary.nvim",
+    cmd = { "DiffviewOpen" },
     module = "diffview",
+    setup = function()
+      -- very weird workaround
+      _G.__luacache.print_profile = true
+    end,
   }
 
   use {
