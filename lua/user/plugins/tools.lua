@@ -13,7 +13,11 @@ return function(use)
       require("user.config.telescope").config()
     end,
   }
-  use { "jvgrootveld/telescope-zoxide" }
+
+  use {
+    "jvgrootveld/telescope-zoxide",
+    opt = true,
+  }
 
   use {
     "kyazdani42/nvim-tree.lua",
