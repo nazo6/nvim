@@ -1,5 +1,4 @@
 require("mason").setup()
-require("mason-lspconfig").setup()
 
 local index = require "mason-registry.index"
 index["sed"] = "mason-custom-registry.sed"

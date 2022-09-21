@@ -43,6 +43,6 @@ return function(use)
     end,
   }
   use { "tamago324/nlsp-settings.nvim", module = "nlspsettings", cmd = "LspSettings" }
-  use { "williamboman/mason-lspconfig.nvim", module = { "mason-lspconfig" } }
-  use { "WhoIsSethDaniel/mason-tool-installer.nvim", module = { "mason-tool-installer" } }
+  use { "williamboman/mason-lspconfig.nvim", module = "mason-lspconfig" }
+  use { "WhoIsSethDaniel/mason-tool-installer.nvim", module = "mason-tool-installer" }
 end

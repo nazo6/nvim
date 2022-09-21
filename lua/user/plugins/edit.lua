@@ -13,7 +13,7 @@ return function(use)
     "hrsh7th/nvim-cmp",
     requires = {
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", module = "cmp_nvim_lsp" },
       { "hrsh7th/cmp-calc", after = "nvim-cmp" },
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
       { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
@@ -47,7 +47,7 @@ return function(use)
   use {
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
-    after = { "nvim-cmp" },
+    module = { "nvim-autopairs" },
     config = function()
       require("nvim-autopairs").setup {
         enable_check_bracket_line = false,

@@ -1,3 +1,6 @@
+vim.cmd[[packadd nvim-ts-autotag]]
+vim.cmd[[packadd nvim-treesitter-textobjects]]
+
 local treesitter = require "nvim-treesitter.configs"
 treesitter.setup {
   auto_install = true,

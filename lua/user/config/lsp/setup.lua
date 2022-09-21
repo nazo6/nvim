@@ -1,6 +1,8 @@
 local configs = require "user.config.lsp.configs"
 local utils = require "user.config.lsp.utils"
 
+require("mason-lspconfig").setup()
+
 require("fidget").setup {
   text = {
     spinner = "dots",

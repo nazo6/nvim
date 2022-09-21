@@ -132,13 +132,8 @@ return function(use)
     requires = {
       { "nvim-lua/plenary.nvim", module = "plenary" },
     },
-    after = "plenary.nvim",
     cmd = { "DiffviewOpen" },
     module = "diffview",
-    setup = function()
-      -- very weird workaround
-      _G.__luacache.print_profile = true
-    end,
   }
 
   use {
