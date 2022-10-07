@@ -76,15 +76,4 @@ return function(use)
       require "user.config.surround"
     end,
   }
-
-  use {
-    "vim-skk/skkeleton",
-    event = { "BufRead", "InsertEnter" },
-    requires = {
-      { "vim-denops/denops.vim", event = { "BufRead", "InsertEnter" } },
-    },
-    config = function()
-      require "user.config.skkeleton"
-    end,
-  }
 end
