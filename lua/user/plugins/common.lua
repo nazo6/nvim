@@ -23,4 +23,17 @@ return function(use)
       require "user.config.mason"
     end,
   }
+
+  use {
+    "folke/noice.nvim",
+    event = "VimEnter",
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      { "MunifTanjim/nui.nvim", module = "nui" },
+      { "rcarriga/nvim-notify", module = "notify" },
+    },
+    config = function()
+      require "user.config.noice"
+    end,
+  }
 end
