@@ -28,6 +28,7 @@ return function(use)
       },
     },
     event = { "InsertEnter", "CmdlineEnter" },
+    module = { "cmp", "cmp.utils.api" },
     cmd = { "CmpStatus" },
     config = function()
       require "user.config.cmp"
