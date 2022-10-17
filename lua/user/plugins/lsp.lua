@@ -23,7 +23,7 @@ return function(use)
   }
   use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
   use { "onsails/lspkind-nvim", module = "lspkind" }
-  use { "folke/lua-dev.nvim", module = "lua-dev" }
+  use { "folke/neodev.nvim", module = "neodev" }
   use { "b0o/schemastore.nvim", module = "schemastore" }
   use { "j-hui/fidget.nvim", module = "fidget" }
   use { "SmiteshP/nvim-navic", module = "nvim-navic", event = { "InsertEnter", "BufRead" } }
