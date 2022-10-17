@@ -25,3 +25,5 @@ null_ls.setup {
   capabilities = common_config.capabilities,
   on_attach = common_config.on_attach,
 }
+
+null_ls.register(require "user.config.lsp.null-ls.satysfi-fmt")

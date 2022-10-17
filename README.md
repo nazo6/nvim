@@ -43,3 +43,12 @@ nvim
 ### Format
 
 - deno
+
+### SATySFi
+
+- SATySFi
+
+## Credits
+
+- after/queries/satysfi/\* from
+  [monaqa/tree-sitter-satysfi](https://github.com/monaqa/tree-sitter-satysfi/)

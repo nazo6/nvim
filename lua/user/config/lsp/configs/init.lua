@@ -1,3 +1,5 @@
+local M = {}
+
 local create_setup = require("user.config.lsp.utils").create_setup
 
 local root_pattern = require("lspconfig").util.root_pattern
@@ -5,7 +7,7 @@ local function no_formatting(client)
   client.server_capabilities.documentFormattingProvider = false
 end
 
-return {
+M.mason = {
   tsserver = require "user.config.lsp.configs.tsserver",
   denols = require "user.config.lsp.configs.denols",
   cssls = create_setup { on_attach = no_formatting },
@@ -24,3 +26,9 @@ return {
   sqls = require "user.config.lsp.configs.sqls",
   fsautocomplete = require "user.config.lsp.configs.fsautocomplete",
 }
+
+M.manual = {
+  satysfi = create_setup {},
+}
+
+return M

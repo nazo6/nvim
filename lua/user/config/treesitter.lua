@@ -1,5 +1,14 @@
-vim.cmd[[packadd nvim-ts-autotag]]
-vim.cmd[[packadd nvim-treesitter-textobjects]]
+vim.cmd [[packadd nvim-ts-autotag]]
+vim.cmd [[packadd nvim-treesitter-textobjects]]
+
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.satysfi = {
+  install_info = {
+    url = "https://github.com/monaqa/tree-sitter-satysfi",
+    files = { "src/parser.c", "src/scanner.c" },
+  },
+  filetype = "satysfi",
+}
 
 local treesitter = require "nvim-treesitter.configs"
 treesitter.setup {

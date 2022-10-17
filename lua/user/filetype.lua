@@ -1,6 +1,8 @@
 vim.filetype.add {
   extension = {
     xaml = "xml",
+    saty = "satysfi",
+    satyh = "satysfi",
   },
   filename = {
     [".swcrc"] = "json",

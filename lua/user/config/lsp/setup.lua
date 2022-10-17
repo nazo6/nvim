@@ -18,10 +18,15 @@ require("nlspsettings").setup {
 
 require("mason-lspconfig").setup_handlers {
   function(server_name)
-    local config_fn = configs[server_name] or utils.default_setup
+    local config_fn = configs.mason[server_name] or utils.default_setup
     config_fn(server_name)
   end,
 }
+
+for server_name in pairs(configs.manual) do
+  local config_fn = configs.manual[server_name]
+  config_fn(server_name)
+end
 
 require "user.config.lsp.null-ls"
 
