@@ -1,6 +1,13 @@
 return function(use)
   use "rebelot/kanagawa.nvim"
   use {
+    "delphinus/cellwidths.nvim",
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("cellwidths").setup { name = "default" }
+    end,
+  }
+  use {
     "stevearc/dressing.nvim",
     config = function()
       require "user.config.dressing"
