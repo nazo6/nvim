@@ -9,7 +9,7 @@ return {
   -- that spawns the command with the given arguments and options
   generator = helpers.formatter_factory {
     command = "satysfi-fmt",
-    args = { "$FILENAME", "-w" },
+    args = { "$FILENAME", "-w", "-i", "2" },
     to_temp_file = true,
     from_temp_file = true,
     to_stdin = false,
