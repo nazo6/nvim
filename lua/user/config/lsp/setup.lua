@@ -3,12 +3,6 @@ local utils = require "user.config.lsp.utils"
 
 require("mason-lspconfig").setup()
 
-require("fidget").setup {
-  text = {
-    spinner = "dots",
-  },
-}
-
 require("nlspsettings").setup {
   local_settings_dir = ".nvim",
   local_settings_root_markers = { ".git" },

@@ -1,15 +1,5 @@
 return function(use)
   use { "lewis6991/impatient.nvim" }
-  use {
-    "rcarriga/nvim-notify",
-    module = "notify",
-    setup = function()
-      require("user.config.notify").setup()
-    end,
-    config = function()
-      require("user.config.notify").config()
-    end,
-  }
 
   use { "jghauser/mkdir.nvim", event = { "BufWritePre" } }
 
