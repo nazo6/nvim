@@ -1,5 +1,7 @@
 local s = vim.keymap.set
 
+s("n", "K", "<Nop>")
+
 s("n", "k", "gk", { silent = true })
 s("n", "gk", "k", { silent = true })
 s("n", "j", "gj", { silent = true })
