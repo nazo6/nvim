@@ -16,7 +16,7 @@ return function(use)
 
   use {
     "folke/noice.nvim",
-    event = "BufRead",
+    event = "VimEnter",
     keys = { ":", "/" },
     requires = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

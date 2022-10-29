@@ -35,6 +35,16 @@ require("noice").setup {
       view = "cmdline",
     },
   },
+  lsp = {
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+      ["cmp.entry.get_documentation"] = true,
+    },
+    signature = {
+      enabled = false,
+    },
+  },
 }
 
 local send_key = require("user.utils").send_key_nomap

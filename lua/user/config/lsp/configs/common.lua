@@ -10,7 +10,6 @@ capabilities.textDocument.colorProvider = {
 return {
   on_attach = function(client, bufnr)
     require("lsp_signature").on_attach()
-    require("aerial").on_attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
     end
