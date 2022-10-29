@@ -1,7 +1,7 @@
 local create_setup = require("user.config.lsp.utils").create_setup
 local root_pattern = require("lspconfig").util.root_pattern
 
-local deno_root_pattern = root_pattern("deno.json", "deps.ts")
+local deno_root_pattern = root_pattern("deno.json", "deps.ts", "deno.jsonc")
 
 return create_setup {
   root_dir = deno_root_pattern,
@@ -10,4 +10,7 @@ return create_setup {
     lint = true,
     unstable = true,
   },
+  on_attach = function(client)
+    client.server_capabilities.executeCommandProvider = true
+  end,
 }
