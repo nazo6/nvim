@@ -21,6 +21,7 @@ return function(use)
       require "user.config.lsp.setup"
     end,
   }
+  use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
   use { "onsails/lspkind-nvim", module = "lspkind" }
   use { "folke/neodev.nvim", module = "neodev" }
   use { "b0o/schemastore.nvim", module = "schemastore" }

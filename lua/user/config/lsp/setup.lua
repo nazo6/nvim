@@ -9,6 +9,7 @@ require("nlspsettings").setup {
   append_default_schemas = true,
   loader = "json",
 }
+require("lsp_signature").setup()
 
 require("mason-lspconfig").setup_handlers {
   function(server_name)
