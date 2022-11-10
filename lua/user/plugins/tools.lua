@@ -162,7 +162,6 @@ return function(use)
   use {
     "zbirenbaum/copilot.lua",
     event = "VimEnter",
-    requires = { { "github/copilot.vim", cmd = "Copilot" } },
     config = function()
       vim.defer_fn(function()
         require("copilot").setup()

@@ -66,7 +66,7 @@ M.active[1] = {
       local clients = {}
 
       for _, client in pairs(vim.lsp.get_active_clients { bufnr = 0 }) do
-        if client.name ~= "null-ls" then
+        if client.name ~= "null-ls" and client.name ~= "copilot" then
           clients[#clients + 1] = client.name
         end
       end
