@@ -52,8 +52,11 @@ return {
   handlers = {
     ["textDocument/hover"] = function(_, result, ctx, config)
       local util = require "vim.lsp.util"
+
       config = config or {}
+      config.border = "rounded"
       config.focus_id = ctx.method
+
       if not (result and result.contents) then
         return
       end
@@ -62,7 +65,7 @@ return {
       if vim.tbl_isempty(markdown_lines) then
         return
       end
-      return util.open_floating_preview(markdown_lines, "markdown", { border = "rounded" })
+      return util.open_floating_preview(markdown_lines, "markdown", config)
     end,
   },
 }
