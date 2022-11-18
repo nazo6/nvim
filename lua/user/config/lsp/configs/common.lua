@@ -21,7 +21,7 @@ return {
     vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = true })
     vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = true })
 
-    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true })
+    vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = true })
 
     vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { buffer = true })
     vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { buffer = true })
