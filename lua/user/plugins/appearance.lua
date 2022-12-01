@@ -28,6 +28,12 @@ return function(use)
     end,
   }
 
+  use {
+    "eandrju/cellular-automaton.nvim",
+    cmd = { "CellularAutomaton" },
+    module = "cellular-automaton",
+  }
+
   --[[
   use {
     "kevinhwang91/nvim-ufo",
