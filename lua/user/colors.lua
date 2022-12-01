@@ -16,6 +16,7 @@ if ok then
 
     NvimTreeNormal = { fg = colors.fujiWhite, bg = colors.sumiInk2 },
     NvimTreeNormalNC = { fg = colors.fujiWhite, bg = colors.sumiInk2 },
+    NvimTreeCursorLine = { bg = colors.sumiInk4 },
     NvimTreeGitIgnored = { fg = "#8c8c8c" },
     NvimTreeGitDeleted = { fg = "#C74E39" },
     NvimTreeGitRenamed = { fg = "yellow" },

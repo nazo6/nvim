@@ -173,4 +173,16 @@ return function(use)
     "uga-rosa/ccc.nvim",
     cmd = { "CccPick" },
   }
+
+  use {
+    "ldelossa/nvim-ide",
+    module = { "ide" },
+    cmd = { "Workspace" },
+    setup = function()
+      require("user.config.ide").setup()
+    end,
+    config = function()
+      require("user.config.ide").config()
+    end,
+  }
 end

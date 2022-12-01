@@ -11,7 +11,12 @@ M.active[1] = {
     },
   },
   {
-    provider = "file_info",
+    provider = {
+      name = "file_info",
+      opts = {
+        type = "unique",
+      },
+    },
     hl = {
       fg = "fujiWhite",
       bg = "autumnRed",

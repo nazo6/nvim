@@ -1,6 +1,6 @@
 return {
   setup = function()
-    vim.keymap.set("n", "<C-e>", "<cmd>NvimTreeToggle<CR>", { silent = true })
+    vim.keymap.set("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { silent = true })
   end,
   config = function()
     local tree_cb = require("nvim-tree.config").nvim_tree_callback
@@ -73,6 +73,11 @@ return {
         indent_markers = {
           enable = true,
         },
+      },
+      update_focused_file = {
+        enable = true,
+        update_root = false,
+        ignore_list = {},
       },
     }
   end,
