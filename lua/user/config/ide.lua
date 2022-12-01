@@ -1,6 +1,8 @@
 return {
   setup = function() end,
   config = function()
+    require("ide.icons").global_icon_set = require("ide.icons.nerd_icon_set").new()
+
     local explorer = require "ide.components.explorer"
     local outline = require "ide.components.outline"
     local callhierarchy = require "ide.components.callhierarchy"
@@ -13,48 +15,20 @@ return {
     local bookmarks = require "ide.components.bookmarks"
 
     require("ide").setup {
-      -- The global icon set to use.
-      -- values: "nerd", "codicon", "default"
-      icon_set = "default",
-      -- Component specific configurations and default config overrides.
+      icon_set = "nerd",
       components = {
-        -- The global keymap is applied to all Components before construction.
-        -- It allows common keymaps such as "hide" to be overriden, without having
-        -- to make an override entry for all Components.
-        --
-        -- If a more specific keymap override is defined for a specific Component
-        -- this takes precedence.
-        global_keymaps = {
-          -- example, change all Component's hide keymap to "h"
-          -- hide = h
-        },
-        -- example, prefer "x" for hide only for Explorer component.
-        -- Explorer = {
-        --     keymaps = {
-        --         hide = "x",
-        --     }
-        -- }
+        global_keymaps = {},
       },
-      -- default panel groups to display on left and right.
       panels = {
-        left = "explorer",
-        right = "git",
+        right = "right_panels",
       },
-      -- panels defined by groups of components, user is free to redefine the defaults
-      -- and/or add additional.
       panel_groups = {
-        explorer = { outline.Name, explorer.Name, bookmarks.Name, callhierarchy.Name, terminalbrowser.Name },
-        terminal = { terminal.Name },
-        git = { changes.Name, commits.Name, timeline.Name, branches.Name },
+        right_panels = { changes.Name, commits.Name, timeline.Name, branches.Name },
       },
-      -- workspaces config
       workspaces = {
-        -- which panels to open by default, one of: 'left', 'right', 'both', 'none'
-        auto_open = "left",
+        auto_open = "right",
       },
-      -- default panel sizes for the different positions
       panel_sizes = {
-        left = 30,
         right = 30,
         bottom = 15,
       },
