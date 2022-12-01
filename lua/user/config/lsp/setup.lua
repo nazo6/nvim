@@ -24,4 +24,4 @@ end
 
 require "user.config.lsp.null-ls"
 
-vim.cmd "LspStart"
+require "user.config.lsp.glance"

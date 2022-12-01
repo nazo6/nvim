@@ -24,6 +24,7 @@ return function(use)
   use { "onsails/lspkind-nvim", module = "lspkind" }
   use { "folke/neodev.nvim", module = "neodev" }
   use { "b0o/schemastore.nvim", module = "schemastore" }
+  use { "dnlhc/glance.nvim", command = { "Glance" }, module = { "glance" } }
   use { "SmiteshP/nvim-navic", module = "nvim-navic", event = { "InsertEnter", "BufRead" } }
   use {
     "mrshmllow/document-color.nvim",
