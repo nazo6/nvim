@@ -12,5 +12,6 @@ return function(use)
     config = function()
       require "user.config.treesitter"
     end,
+    run = ":TSUpdate",
   }
 end
