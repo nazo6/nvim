@@ -3,7 +3,6 @@ return function(use)
     "jose-elias-alvarez/null-ls.nvim",
     requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
     module = "null-ls",
-    after = "mason.nvim",
   }
   use {
     "weilbith/nvim-code-action-menu",
@@ -35,11 +34,8 @@ return function(use)
   }
   use {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    after = "nvim-lspconfig",
     as = "lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
+    module = "lsp_lines",
   }
   use { "tamago324/nlsp-settings.nvim", module = "nlspsettings", cmd = "LspSettings" }
   use { "williamboman/mason-lspconfig.nvim", module = "mason-lspconfig" }

@@ -22,6 +22,10 @@ for server_name in pairs(configs.manual) do
   config_fn(server_name)
 end
 
+require("lsp_lines").setup()
+
 require "user.config.lsp.null-ls"
 
 require "user.config.lsp.glance"
+
+vim.cmd "LspStart"
