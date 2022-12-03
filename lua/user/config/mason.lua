@@ -5,12 +5,7 @@ index["sed"] = "mason-custom-registry.sed"
 index["gitui"] = "mason-custom-registry.gitui"
 index["ripgrep"] = "mason-custom-registry.ripgrep"
 
-local ensure_installed = {
-  "lua-language-server",
-  "stylua",
-  "ripgrep",
-  "gitui",
-}
+local ensure_installed = {}
 
 if require("user.utils").is_win then
   table.insert(ensure_installed, "sed")
