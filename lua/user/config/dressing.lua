@@ -17,7 +17,6 @@ require("dressing").setup {
     max_width = { 140, 0.9 },
     min_width = { 60, 0.5 },
 
-    winblend = 10,
     mappings = {
       i = {
         ["<C-c>"] = "Close",
@@ -26,6 +25,9 @@ require("dressing").setup {
         ["<Down>"] = "HistoryNext",
       },
     },
+  },
+  win_options = {
+    winblend = 10,
   },
   select = {
     enabled = true,
