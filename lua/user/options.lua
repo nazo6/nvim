@@ -50,7 +50,6 @@ opt.shiftwidth = 2
 opt.expandtab = true
 
 -- Appearance
-opt.title = true
 opt.number = true
 opt.signcolumn = "yes"
 opt.cursorline = true
