@@ -34,6 +34,16 @@ return function(use)
     module = "cellular-automaton",
   }
 
+  use {
+    "delphinus/cellwidths.nvim",
+    event = { "BufRead" },
+    config = function()
+      require("cellwidths").setup {
+        name = "default",
+      }
+    end,
+  }
+
   --[[
   use {
     "kevinhwang91/nvim-ufo",
