@@ -39,7 +39,10 @@ return function(use)
     event = { "BufRead" },
     config = function()
       require("cellwidths").setup {
-        name = "default",
+        name = "user/custom",
+        fallback = function(cw)
+          cw.add({ 0x25cf }, 2)
+        end,
       }
     end,
   }
