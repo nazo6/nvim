@@ -9,6 +9,14 @@ parser_config.satysfi = {
   },
   filetype = "satysfi",
 }
+parser_config.nu = {
+  install_info = {
+    url = "https://github.com/LhKipp/tree-sitter-nu",
+    files = { "src/parser.c", "src/scanner.c" },
+    branch = "main",
+  },
+  filetype = "nushell",
+}
 
 local treesitter = require "nvim-treesitter.configs"
 treesitter.setup {

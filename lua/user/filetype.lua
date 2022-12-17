@@ -3,6 +3,7 @@ vim.filetype.add {
     xaml = "xml",
     saty = "satysfi",
     satyh = "satysfi",
+    nu = "nushell",
   },
   filename = {
     [".swcrc"] = "json",
