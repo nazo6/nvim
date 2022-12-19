@@ -1,31 +1,29 @@
-local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
-  vim.api.nvim_command "packadd packer.nvim"
+local plugin_path = vim.fn.stdpath "data" .. "/dein"
+local dein_path = plugin_path .. "/repos/github.com/Shougo/dein.vim"
+
+if vim.fn.empty(vim.fn.glob(plugin_path)) > 0 then
+  vim.fn.system { "git", "clone", "https://github.com/Shougo/dein.vim", dein_path }
 end
 
-local packer = require "packer"
+vim.opt.runtimepath:append(dein_path)
 
-packer.startup {
-  function(use)
-    use { "wbthomason/packer.nvim" }
-    require "user.plugins.common"(use)
+local dein = require "dein"
+local use = dein.add
 
-    require "user.plugins.appearance"(use)
-    require "user.plugins.debug"(use)
-    require "user.plugins.edit"(use)
-    require "user.plugins.language"(use)
-    require "user.plugins.lsp"(use)
-    require "user.plugins.tools"(use)
-    require "user.plugins.treesitter"(use)
-    require "user.plugins.utils"(use)
-  end,
-}
+dein.begin(plugin_path)
 
-vim.api.nvim_create_augroup("PackerCompile", {})
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  group = "PackerCompile",
-  pattern = "*/user/plugins/*.lua",
-  command = "PackerCompile",
-  once = false,
-})
+dein.add(dein_path)
+dein.add "wsdjeg/dein-ui.vim"
+
+require "user.plugins.common"(use)
+require "user.plugins.appearance"(use)
+require "user.plugins.tools"(use)
+require "user.plugins.utils"(use)
+require "user.plugins.edit"(use)
+require "user.plugins.lsp"(use)
+require "user.plugins.treesitter"(use)
+require "user.plugins.debug"(use)
+require "user.plugins.language"(use)
+
+dein.end_()
+dein.call_hook "source"

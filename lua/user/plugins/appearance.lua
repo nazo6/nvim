@@ -1,49 +1,35 @@
 return function(use)
   use "rebelot/kanagawa.nvim"
-  use {
-    "stevearc/dressing.nvim",
-    config = function()
-      require "user.config.dressing"
-    end,
-  }
-  use {
-    "feline-nvim/feline.nvim",
-    config = function()
-      require "user.config.feline"
-    end,
-  }
-  use {
-    "petertriho/nvim-scrollbar",
-    event = { "BufRead" },
-    config = function()
+  use("stevearc/dressing.nvim", {
+    lua_source = [[require "user.config.dressing"]],
+  })
+  use("feline-nvim/feline.nvim", {
+    lua_source = [[require "user.config.feline"]],
+  })
+  use("petertriho/nvim-scrollbar", {
+    on_event = { "BufRead" },
+    lua_source = [[
       require("scrollbar").setup()
       require("scrollbar.handlers.search").setup()
-    end,
-  }
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufRead" },
-    config = function()
-      require "user.config.indent-blankline"
-    end,
-  }
+    ]],
+  })
+  use("lukas-reineke/indent-blankline.nvim", {
+    on_event = { "BufRead" },
+    lua_source = [[require "user.config.indent-blankline"]],
+  })
 
-  use {
-    "eandrju/cellular-automaton.nvim",
-    cmd = { "CellularAutomaton" },
-    module = "cellular-automaton",
-  }
+  use("eandrju/cellular-automaton.nvim", {
+    on_cmd = { "CellularAutomaton" },
+    on_lua = "cellular-automaton",
+  })
 
-  use {
-    "delphinus/cellwidths.nvim",
-    event = { "BufRead" },
-    config = function()
-      require "user.config.cellwidths"
-    end,
-  }
+  use("delphinus/cellwidths.nvim", {
+    on_event = { "BufRead" },
+    lua_source = [[require "user.config.cellwidths"]],
+  })
 
   --[[
-  use {
+  use (
     "kevinhwang91/nvim-ufo",
     requires = {
       { "kevinhwang91/promise-async", module = { "promise-async", "promise", "async" } },
@@ -52,6 +38,6 @@ return function(use)
     config = function()
       require("ufo").setup()
     end,
-  }
+  )
   ]]
 end

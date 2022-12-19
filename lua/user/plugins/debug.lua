@@ -1,17 +1,12 @@
 return function(use)
-  use {
-    "mfussenegger/nvim-dap",
-    module = { "dap" },
-    config = function()
-      require "user.config.dap"
-    end,
-  }
-  use {
-    "rcarriga/nvim-dap-ui",
-    module = { "dapui" },
-  }
-  use {
-    "theHamsta/nvim-dap-virtual-text",
-    module = "nvim-dap-virtual-text",
-  }
+  use("mfussenegger/nvim-dap", {
+    on_lua = { "dap" },
+    lua_source = [[require "user.config.dap"]],
+  })
+  use("rcarriga/nvim-dap-ui", {
+    on_lua = { "dapui" },
+  })
+  use("theHamsta/nvim-dap-virtual-text", {
+    on_lua = "nvim-dap-virtual-text",
+  })
 end

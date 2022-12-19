@@ -27,5 +27,3 @@ require("lsp_lines").setup()
 require "user.config.lsp.null-ls"
 
 require "user.config.lsp.glance"
-
-vim.cmd "LspStart"
