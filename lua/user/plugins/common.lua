@@ -22,7 +22,6 @@ return function(use)
     depends = {
       "nui.nvim",
       "nvim-notify",
-      "nvim-cmp",
     },
     lua_source = [[require "user.config.noice"]],
   })
