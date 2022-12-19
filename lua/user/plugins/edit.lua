@@ -6,13 +6,13 @@ return function(use)
     on_event = "InsertEnter",
   })
 
-  use("hrsh7th/cmp-buffer", { lazy = true, on_lua = { "nvim-treesitter" } })
-  use("hrsh7th/cmp-nvim-lsp", { lazy = true, on_lua = { "nvim-treesitter", "cmp_nvim_lsp" } })
-  use("hrsh7th/cmp-calc", { lazy = true, on_lua = { "nvim-treesitter" } })
-  use("hrsh7th/cmp-path", { lazy = true, on_lua = { "nvim-treesitter" } })
-  use("hrsh7th/cmp-cmdline", { lazy = true, on_lua = { "nvim-treesitter" } })
-  use("hrsh7th/cmp-nvim-lsp-document-symbol", { lazy = true, on_lua = { "nvim-treesitter" } })
-  use("saadparwaiz1/cmp_luasnip", { lazy = true, on_lua = { "nvim-treesitter" } })
+  use("hrsh7th/cmp-buffer", { lazy = true, on_lua = { "cmp" } })
+  use("hrsh7th/cmp-nvim-lsp", { lazy = true, on_lua = { "cmp", "cmp_nvim_lsp" } })
+  use("hrsh7th/cmp-calc", { lazy = true, on_lua = { "cmp" } })
+  use("hrsh7th/cmp-path", { lazy = true, on_lua = { "cmp" } })
+  use("hrsh7th/cmp-cmdline", { lazy = true, on_lua = { "cmp" } })
+  use("hrsh7th/cmp-nvim-lsp-document-symbol", { lazy = true, on_lua = { "cmp" } })
+  use("saadparwaiz1/cmp_luasnip", { lazy = true, on_lua = { "cmp" } })
   use("zbirenbaum/copilot-cmp", {
     lazy = true,
     lua_source = [[require("copilot_cmp").setup()]],

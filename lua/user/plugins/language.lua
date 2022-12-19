@@ -5,9 +5,7 @@ return function(use)
   use("kevinoid/vim-jsonc", { on_ft = { "json" } })
   use("ionide/Ionide-vim", {
     on_lua = "ionide",
-    setup = function()
-      vim.g["fsharp#lsp_auto_setup"] = 0
-    end,
+    lua_add = [[vim.g["fsharp#lsp_auto_setup"] = 0]],
   })
 
   use("simrat39/rust-tools.nvim", { on_lua = "rust-tools" })
