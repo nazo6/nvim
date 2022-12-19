@@ -18,7 +18,6 @@ return function(use)
 
   use("folke/noice.nvim", {
     on_event = "VimEnter",
-    on_map = { ":", "/" },
     depends = {
       "nui.nvim",
       "nvim-notify",

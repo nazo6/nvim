@@ -16,9 +16,10 @@ return function(use)
   use("zbirenbaum/copilot-cmp", {
     lazy = true,
     lua_source = [[require("copilot_cmp").setup()]],
-    on_lua = { "nvim-treesitter" },
+    on_lua = { "cmp" },
   })
   use("hrsh7th/nvim-cmp", {
+    on_event = "VimEnter",
     depends = {
       "cmp-buffer",
       "cmp-nvim-lsp",
@@ -29,10 +30,12 @@ return function(use)
       "cmp_luasnip",
       "copilot-cmp",
     },
-    on_event = { "InsertEnter", "CmdlineEnter" },
-    on_lua = { "cmp", "cmp.utils.api" },
     on_cmd = { "CmpStatus" },
-    lua_source = [[require "user.config.cmp"]],
+    lua_source = [[
+      vim.defer_fn(function()
+        require "user.config.cmp"
+      end, 300)
+    ]],
   })
 
   use("phaazon/hop.nvim", {
