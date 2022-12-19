@@ -1,8 +1,8 @@
 return function(use)
-  use("teal-language/vim-teal", { ft = { "teal" } })
-  use("chrisbra/csv.vim", { ft = { "csv" } })
-  use("dag/vim-fish", { ft = { "fish" } })
-  use("kevinoid/vim-jsonc", { ft = { "json" } })
+  use("teal-language/vim-teal", { on_ft = { "teal" } })
+  use("chrisbra/csv.vim", { on_ft = { "csv" } })
+  use("dag/vim-fish", { on_ft = { "fish" } })
+  use("kevinoid/vim-jsonc", { on_ft = { "json" } })
   use("ionide/Ionide-vim", {
     on_lua = "ionide",
     setup = function()
@@ -23,22 +23,22 @@ return function(use)
 
   use("akinsho/flutter-tools.nvim", {
     depends = { "plenary.nvim" },
-    ft = { "dart" },
+    on_ft = { "dart" },
     lua_source = [[require "user.config.flutter"]],
   })
   use("NTBBloodbath/rest.nvim", {
     depends = { "plenary.nvim" },
-    ft = { "http" },
+    on_ft = { "http" },
   })
 
   use("f3fora/nvim-texlabconfig", {
-    ft = { "tex", "bib" },
+    on_ft = { "tex", "bib" },
     cmd = { "TexlabInverseSearch" },
   })
 
   use("nanotee/sqls.nvim", {
     on_lua = "sqls",
-    ft = { "sql" },
+    on_ft = { "sql" },
   })
 
   use("jose-elias-alvarez/typescript.nvim", {
@@ -46,7 +46,7 @@ return function(use)
   })
 
   use("ellisonleao/glow.nvim", {
-    ft = { "markdown" },
+    on_ft = { "markdown" },
     cmd = { "Glow" },
     lua_source = [[require("glow").setup {}]],
   })

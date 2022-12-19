@@ -114,10 +114,12 @@ return function(use)
     on_cmd = { "CccPick" },
   })
 
+  --[=[
   use("ldelossa/nvim-ide", {
     on_lua = { "ide" },
     on_cmd = { "Workspace" },
     lua_add = [[require("user.config.ide").setup()]],
     lua_source = [[require("user.config.ide").config()]],
   })
+  ]=]
 end
