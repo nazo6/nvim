@@ -1,6 +1,4 @@
 return function(use)
-  use { "lewis6991/impatient.nvim" }
-
   use { "jghauser/mkdir.nvim", event = { "BufWritePre" } }
 
   use { "vim-jp/vimdoc-ja" }

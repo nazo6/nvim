@@ -1,12 +1,3 @@
-local enable_profile = false
-
-if enable_profile then
-  local ok, impatient = pcall(require, "impatient")
-  if ok then
-    impatient.enable_profile()
-  end
-end
-
 -- workaraound for https://github.com/neovim/neovim/issues/17762
 if require("user.utils").is_win then
   os.execute = function(cmd)
