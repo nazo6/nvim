@@ -1,5 +1,5 @@
 return function(use)
-  use "rebelot/kanagawa.nvim"
+  use { "rebelot/kanagawa.nvim", lazy = false }
   use {
     "stevearc/dressing.nvim",
     config = function()

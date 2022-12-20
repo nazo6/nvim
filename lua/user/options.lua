@@ -48,6 +48,10 @@ opt.shiftwidth = 2
 opt.expandtab = true
 
 -- Appearance
+if vim.fn.has "termguicolors" == 1 then
+  opt.termguicolors = true
+end
+
 opt.number = true
 opt.signcolumn = "yes"
 opt.cursorline = true
