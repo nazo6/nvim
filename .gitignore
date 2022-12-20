@@ -4,3 +4,4 @@ plugin/packer_compiled.lua
 lua/user/local.lua
 dev/
 README.md
+lazy-lock.json

@@ -1,31 +1,35 @@
-local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
-  vim.api.nvim_command "packadd packer.nvim"
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  }
+end
+vim.opt.runtimepath:prepend(lazypath)
+
+local plugins = {}
+
+local function use(plugin)
+  table.insert(plugins, plugin)
 end
 
-local packer = require "packer"
+require "user.plugins.common"(use)
 
-packer.startup {
-  function(use)
-    use { "wbthomason/packer.nvim" }
-    require "user.plugins.common"(use)
+require "user.plugins.appearance"(use)
+require "user.plugins.debug"(use)
+require "user.plugins.edit"(use)
+require "user.plugins.language"(use)
+require "user.plugins.lsp"(use)
+require "user.plugins.tools"(use)
+require "user.plugins.treesitter"(use)
+require "user.plugins.utils"(use)
 
-    require "user.plugins.appearance"(use)
-    require "user.plugins.debug"(use)
-    require "user.plugins.edit"(use)
-    require "user.plugins.language"(use)
-    require "user.plugins.lsp"(use)
-    require "user.plugins.tools"(use)
-    require "user.plugins.treesitter"(use)
-    require "user.plugins.utils"(use)
-  end,
-}
-
-vim.api.nvim_create_augroup("PackerCompile", {})
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  group = "PackerCompile",
-  pattern = "*/user/plugins/*.lua",
-  command = "PackerCompile",
-  once = false,
+require("lazy").setup(plugins, {
+  defaults = {
+    lazy = true,
+  },
 })

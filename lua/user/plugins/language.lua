@@ -6,7 +6,7 @@ return function(use)
   use {
     "ionide/Ionide-vim",
     module = "ionide",
-    setup = function()
+    init = function()
       vim.g["fsharp#lsp_auto_setup"] = 0
     end,
   }
@@ -15,7 +15,7 @@ return function(use)
   use {
     "Saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
-    requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
       require("crates").setup()
     end,
@@ -23,12 +23,12 @@ return function(use)
   use {
     "vuki656/package-info.nvim",
     event = { "BufRead package.json" },
-    requires = { { "MunifTanjim/nui.nvim", module = "nui" } },
+    dependencies = { { "MunifTanjim/nui.nvim", module = "nui" } },
   }
 
   use {
     "akinsho/flutter-tools.nvim",
-    requires = { { "akinsho/plenary.nvim", module = "plenary" } },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     ft = { "dart" },
     config = function()
       require "user.config.flutter"
@@ -36,7 +36,7 @@ return function(use)
   }
   use {
     "NTBBloodbath/rest.nvim",
-    requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     ft = { "http" },
   }
 

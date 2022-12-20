@@ -1,7 +1,5 @@
 local opt = vim.opt
 
-vim.g.mapleader = " "
-
 -- Behavior
 opt.shortmess:append "I"
 

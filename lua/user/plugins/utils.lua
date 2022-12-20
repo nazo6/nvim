@@ -5,7 +5,7 @@ return function(use)
   use {
     "tkmpypy/chowcho.nvim",
     module = "chowcho",
-    setup = function()
+    init = function()
       require("user.config.chowcho").setup()
     end,
     config = function()
@@ -15,7 +15,7 @@ return function(use)
   use {
     "mrjones2014/smart-splits.nvim",
     module = "smart-splits",
-    setup = function()
+    init = function()
       require("user.config.smart-splits").setup()
     end,
     config = function()

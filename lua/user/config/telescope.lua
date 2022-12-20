@@ -6,8 +6,6 @@ return {
     vim.keymap.set("n", "<leader>z", "<cmd>Telescope zoxide list<CR>")
   end,
   config = function()
-    vim.cmd [[packadd telescope-zoxide]]
-
     require("telescope").setup {
       defaults = {
         winblend = 30,

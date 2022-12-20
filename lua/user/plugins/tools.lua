@@ -3,10 +3,10 @@ return function(use)
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     module = "telescope",
-    requires = {
-      { "nvim-lua/plenary.nvim", module = "plenary" },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
     },
-    setup = function()
+    init = function()
       require("user.config.telescope").setup()
     end,
     config = function()
@@ -21,9 +21,9 @@ return function(use)
 
   use {
     "kyazdani42/nvim-tree.lua",
-    requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
-    cmd = { "NvimTree*" },
-    setup = function()
+    dependencies = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
+    cmd = { "NvimTreeToggle" },
+    init = function()
       require("user.config.nvim-tree").setup()
     end,
     config = function()
@@ -32,13 +32,12 @@ return function(use)
   }
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    requires = {
+    dependencies = {
       { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" },
-      { "nvim-lua/plenary.nvim", module = "plenary" },
+      { "nvim-lua/plenary.nvim" },
       { "MunifTanjim/nui.nvim", module = "nui" },
       {
         "s1n7ax/nvim-window-picker",
-        tag = "1.*",
         module = "window-picker",
         config = function()
           require "user.config.window-picker"
@@ -46,7 +45,7 @@ return function(use)
       },
     },
     cmd = { "Neotree" },
-    setup = function()
+    init = function()
       require("user.config.neo-tree").setup()
     end,
     config = function()
@@ -56,9 +55,9 @@ return function(use)
 
   use {
     "folke/trouble.nvim",
-    requires = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
-    cmd = "Trouble*",
-    setup = function()
+    dependencies = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
+    cmd = "Trouble",
+    init = function()
       require("user.config.trouble").setup()
     end,
     config = function()
@@ -68,8 +67,8 @@ return function(use)
   use {
     "stevearc/aerial.nvim",
     event = "BufRead",
-    cmd = "Aerial*",
-    setup = function()
+    cmd = "Aerial",
+    init = function()
       require("user.config.aerial").setup()
     end,
     config = function()
@@ -79,8 +78,8 @@ return function(use)
   use {
     "akinsho/toggleterm.nvim",
     module = "toggleterm",
-    cmd = { "ToggleTerm", "ToggleTerm*" },
-    setup = function()
+    cmd = { "ToggleTerm", "ToggleTermOpen" },
+    init = function()
       require("user.config.toggleterm").setup()
     end,
     config = function()
@@ -90,8 +89,8 @@ return function(use)
 
   use {
     "lewis6991/gitsigns.nvim",
-    requires = {
-      { "nvim-lua/plenary.nvim", module = "plenary" },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
     },
     event = "BufRead",
     cmd = "GitSigns",
@@ -102,7 +101,6 @@ return function(use)
   use {
     "TimUntersberger/neogit",
     cmd = { "Neogit" },
-    module = { "neogit" },
     config = function()
       require("neogit").setup {
         enhanced_diff_hl = true,
@@ -118,8 +116,8 @@ return function(use)
   }
   use {
     "sindrets/diffview.nvim",
-    requires = {
-      { "nvim-lua/plenary.nvim", module = "plenary" },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
     },
     cmd = { "DiffviewOpen" },
     module = "diffview",
@@ -127,8 +125,7 @@ return function(use)
 
   use {
     "windwp/nvim-spectre",
-    module = { "spectre" },
-    setup = function()
+    init = function()
       require("user.config.spectre").setup()
     end,
     config = function()
@@ -139,7 +136,7 @@ return function(use)
   use {
     "matbme/JABS.nvim",
     cmd = "JABSOpen",
-    setup = function()
+    init = function()
       require("user.config.jabs").setup()
     end,
     config = function()
@@ -150,13 +147,12 @@ return function(use)
   use {
     "kevinhwang91/nvim-hlslens",
     event = { "BufRead" },
-    setup = function()
+    init = function()
       require("user.config.hlslens").setup()
     end,
     config = function()
       require("user.config.hlslens").config()
     end,
-    module = { "hlslens" },
   }
 
   use {
@@ -174,15 +170,16 @@ return function(use)
     cmd = { "CccPick" },
   }
 
+  --[[
   use {
     "ldelossa/nvim-ide",
-    module = { "ide" },
     cmd = { "Workspace" },
-    setup = function()
+    init = function()
       require("user.config.ide").setup()
     end,
     config = function()
       require("user.config.ide").config()
     end,
   }
+  ]]
 end

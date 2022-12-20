@@ -26,3 +26,5 @@ if require("user.utils").is_win then
     return handle, pid
   end
 end
+
+vim.g.mapleader = " "

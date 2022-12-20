@@ -8,6 +8,7 @@ return function(use)
   }
   use {
     "feline-nvim/feline.nvim",
+    lazy = false,
     config = function()
       require "user.config.feline"
     end,
@@ -45,8 +46,8 @@ return function(use)
   --[[
   use {
     "kevinhwang91/nvim-ufo",
-    requires = {
-      { "kevinhwang91/promise-async", module = { "promise-async", "promise", "async" } },
+    dependencies = {
+      { "kevinhwang91/promise-async", ,
     },
     event = { "BufRead" },
     config = function()

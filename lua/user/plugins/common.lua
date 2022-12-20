@@ -7,8 +7,7 @@ return function(use)
 
   use {
     "williamboman/mason.nvim",
-    module = { "mason" },
-    cmd = { "Mason", "MasonInstall", "Mason*" },
+    cmd = { "Mason", "MasonInstall" },
     config = function()
       require "user.config.mason"
     end,
@@ -18,7 +17,7 @@ return function(use)
     "folke/noice.nvim",
     event = "VimEnter",
     keys = { ":", "/" },
-    requires = {
+    dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       { "MunifTanjim/nui.nvim", module = "nui" },
       { "rcarriga/nvim-notify", module = "notify" },

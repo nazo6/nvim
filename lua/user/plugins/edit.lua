@@ -1,7 +1,7 @@
 return function(use)
   use {
     "L3MON4D3/LuaSnip",
-    requires = {
+    dependencies = {
       { "rafamadriz/friendly-snippets" },
     },
     config = function()
@@ -11,11 +11,11 @@ return function(use)
   }
   use {
     "hrsh7th/nvim-cmp",
-    requires = {
-      { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", module = "cmp_nvim_lsp" },
-      { "hrsh7th/cmp-calc", after = "nvim-cmp" },
-      { "hrsh7th/cmp-path", after = "nvim-cmp" },
+    dependencies = {
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-calc" },
+      { "hrsh7th/cmp-path" },
       { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
@@ -28,7 +28,6 @@ return function(use)
       },
     },
     event = { "InsertEnter", "CmdlineEnter" },
-    module = { "cmp", "cmp.utils.api" },
     cmd = { "CmpStatus" },
     config = function()
       require "user.config.cmp"
@@ -37,8 +36,8 @@ return function(use)
 
   use {
     "phaazon/hop.nvim",
-    cmd = "Hop*",
-    setup = function()
+    cmd = "Hop",
+    init = function()
       require("user.config.hop").setup()
     end,
     config = function()
@@ -48,7 +47,6 @@ return function(use)
   use {
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
-    module = { "nvim-autopairs" },
     config = function()
       require("nvim-autopairs").setup {
         enable_check_bracket_line = false,
@@ -65,7 +63,6 @@ return function(use)
   use {
     "echasnovski/mini.nvim",
     event = { "BufRead" },
-    module = { "mini" },
     config = function()
       require "user.config.mini"
     end,

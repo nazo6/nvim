@@ -1,7 +1,7 @@
 return function(use)
   use {
     "jose-elias-alvarez/null-ls.nvim",
-    requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
     module = "null-ls",
   }
   use {
@@ -23,8 +23,8 @@ return function(use)
   use { "onsails/lspkind-nvim", module = "lspkind" }
   use { "folke/neodev.nvim", module = "neodev" }
   use { "b0o/schemastore.nvim", module = "schemastore" }
-  use { "dnlhc/glance.nvim", command = { "Glance" }, module = { "glance" } }
-  use { "SmiteshP/nvim-navic", module = "nvim-navic", event = { "InsertEnter", "BufRead" } }
+  use { "dnlhc/glance.nvim", command = { "Glance" } }
+  use { "SmiteshP/nvim-navic", event = { "InsertEnter", "BufRead" } }
   use {
     "mrshmllow/document-color.nvim",
     module = "document-color",
@@ -33,7 +33,8 @@ return function(use)
     end,
   }
   use {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    "lsp_lines.nvim",
+    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     as = "lsp_lines.nvim",
     module = "lsp_lines",
   }

@@ -1,6 +1,3 @@
-vim.cmd [[packadd nvim-ts-autotag]]
-vim.cmd [[packadd nvim-treesitter-textobjects]]
-
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.satysfi = {
   install_info = {
