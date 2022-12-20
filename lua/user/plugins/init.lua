@@ -33,3 +33,5 @@ require("lazy").setup(plugins, {
     lazy = true,
   },
 })
+
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { buffer = true })
