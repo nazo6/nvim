@@ -1,1 +1,1 @@
-vim.opt.guifont = "HackGenNerd:h12"
+vim.opt.guifont = "PlemolJP Console NF:h12"
