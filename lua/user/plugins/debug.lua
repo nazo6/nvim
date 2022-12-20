@@ -10,6 +10,5 @@ return function(use)
   }
   use {
     "theHamsta/nvim-dap-virtual-text",
-    module = "nvim-dap-virtual-text",
   }
 end

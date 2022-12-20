@@ -5,13 +5,13 @@ return function(use)
   use { "kevinoid/vim-jsonc", ft = { "json" } }
   use {
     "ionide/Ionide-vim",
-    module = "ionide",
+
     init = function()
       vim.g["fsharp#lsp_auto_setup"] = 0
     end,
   }
 
-  use { "simrat39/rust-tools.nvim", module = "rust-tools" }
+  use { "simrat39/rust-tools.nvim" }
   use {
     "Saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
@@ -23,7 +23,7 @@ return function(use)
   use {
     "vuki656/package-info.nvim",
     event = { "BufRead package.json" },
-    dependencies = { { "MunifTanjim/nui.nvim", module = "nui" } },
+    dependencies = { { "MunifTanjim/nui.nvim" } },
   }
 
   use {
@@ -51,13 +51,12 @@ return function(use)
 
   use {
     "nanotee/sqls.nvim",
-    module = "sqls",
+
     ft = { "sql" },
   }
 
   use {
     "jose-elias-alvarez/typescript.nvim",
-    module = "typescript",
   }
 
   use {

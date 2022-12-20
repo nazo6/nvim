@@ -4,9 +4,9 @@ return function(use)
     event = { "BufRead", "InsertEnter" },
     cmd = { "TSInstall", "TSUpdate", "TSUninstall" },
     dependencies = {
-      { "romgrk/nvim-treesitter-context", module = "treesitter-context" },
-      { "windwp/nvim-ts-autotag", opt = true },
-      { "nvim-treesitter/nvim-treesitter-textobjects", opt = true },
+      { "romgrk/nvim-treesitter-context" },
+      { "windwp/nvim-ts-autotag" },
+      { "nvim-treesitter/nvim-treesitter-textobjects" },
     },
     config = function()
       require "user.config.treesitter"

@@ -2,7 +2,7 @@ return function(use)
   use {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    module = "telescope",
+
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
@@ -21,7 +21,7 @@ return function(use)
 
   use {
     "kyazdani42/nvim-tree.lua",
-    dependencies = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
+    dependencies = { { "kyazdani42/nvim-web-devicons" } },
     cmd = { "NvimTreeToggle" },
     init = function()
       require("user.config.nvim-tree").setup()
@@ -33,12 +33,12 @@ return function(use)
   use {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
-      { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" },
+      { "kyazdani42/nvim-web-devicons" },
       { "nvim-lua/plenary.nvim" },
-      { "MunifTanjim/nui.nvim", module = "nui" },
+      { "MunifTanjim/nui.nvim" },
       {
         "s1n7ax/nvim-window-picker",
-        module = "window-picker",
+
         config = function()
           require "user.config.window-picker"
         end,
@@ -55,7 +55,7 @@ return function(use)
 
   use {
     "folke/trouble.nvim",
-    dependencies = { { "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" } },
+    dependencies = { { "kyazdani42/nvim-web-devicons" } },
     cmd = "Trouble",
     init = function()
       require("user.config.trouble").setup()
@@ -77,7 +77,7 @@ return function(use)
   }
   use {
     "akinsho/toggleterm.nvim",
-    module = "toggleterm",
+
     cmd = { "ToggleTerm", "ToggleTermOpen" },
     init = function()
       require("user.config.toggleterm").setup()
@@ -120,7 +120,6 @@ return function(use)
       { "nvim-lua/plenary.nvim" },
     },
     cmd = { "DiffviewOpen" },
-    module = "diffview",
   }
 
   use {

@@ -18,9 +18,8 @@ return function(use)
     event = "VimEnter",
     keys = { ":", "/" },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      { "MunifTanjim/nui.nvim", module = "nui" },
-      { "rcarriga/nvim-notify", module = "notify" },
+      { "MunifTanjim/nui.nvim" },
+      { "rcarriga/nvim-notify" },
     },
     config = function()
       require "user.config.noice"
