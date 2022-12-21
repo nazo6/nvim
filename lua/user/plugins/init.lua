@@ -32,6 +32,13 @@ require("lazy").setup(plugins, {
   defaults = {
     lazy = true,
   },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "netrwPlugin",
+      },
+    },
+  },
 })
 
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { buffer = true })

@@ -12,14 +12,14 @@ end
 
 return {
   setup = function()
-    vim.keymap.set("n", [[<c-\>]], '<cmd>execute v:count . "ToggleTerm"<cr>', { silent = true })
-    vim.keymap.set("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { silent = true })
+    vim.keymap.set("n", [[<c-\>]], '<cmd>execute v:count . "ToggleTerm"<cr>', { desc = "[toggleterm] toggle" })
+    vim.keymap.set("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
     vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 
-    vim.keymap.set("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { silent = true })
-    vim.keymap.set("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { silent = true })
+    vim.keymap.set("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
+    vim.keymap.set("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
 
-    vim.keymap.set("n", "<leader>g", "<cmd>lua _G.toggle_gitui()<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>g", "<cmd>lua _G.toggle_gitui()<CR>", { desc = "Toggle gitui" })
   end,
   config = function()
     require("toggleterm").setup {

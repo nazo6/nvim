@@ -1,36 +1,35 @@
-local s = vim.keymap.set
+local set = vim.keymap.set
 
-s("n", "K", "<Nop>")
+set("n", "K", "<Nop>")
 
-s("n", "k", "gk", { silent = true })
-s("n", "gk", "k", { silent = true })
-s("n", "j", "gj", { silent = true })
-s("n", "gj", "j", { silent = true })
+set("n", "k", "gk")
+set("n", "gk", "k")
+set("n", "j", "gj")
+set("n", "gj", "j")
 
-s("n", "<S-h>", "^", { silent = true })
-s("n", "<S-l>", "$", { silent = true })
+set("n", "<S-h>", "^")
+set("n", "<S-l>", "$")
 
-s("n", "<S-Right>", "<C-w><", { silent = true })
-s("n", "<S-Left>", "<C-w>>", { silent = true })
-s("n", "<S-Up>", "<C-w>+", { silent = true })
-s("n", "<S-Down>", "<C-w>-", { silent = true })
+set("n", "<S-Right>", "<C-w><")
+set("n", "<S-Left>", "<C-w>>")
+set("n", "<S-Up>", "<C-w>+")
+set("n", "<S-Down>", "<C-w>-")
 
-s("v", "c", [["_c]], { silent = true })
-s("v", "p", [[_dp]], { silent = true })
+set({ "n", "x" }, "c", [["_c]])
+set({ "n", "x" }, "d", [["_d]])
 
-s("n", "<C-s>", [[:%s/]], { silent = true })
+set("n", "<C-s>", [[:%s/]])
 
-s("n", "<leader>sp", "<cmd>PackerStatus<CR>")
-s("n", "<leader>sl", "<cmd>LuaCacheProfile<CR>")
+set("n", "<A-v>", "<C-w><C-v>")
+set("n", "<A-s>", "<C-w><C-s>")
 
-s("n", "<A-v>", "<C-w><C-v>")
-s("n", "<A-s>", "<C-w><C-s>")
+set("n", "<leader>q", "<cmd>q<CR>")
+set("n", "<leader>w", "<cmd>w<CR>")
 
-s("n", "<leader>q", "<cmd>q<CR>")
-s("n", "<leader>w", "<cmd>w<CR>")
-
-s("n", "<esc>", function()
+set("n", "<esc>", function()
   if vim.api.nvim_win_get_config(0).zindex then
     vim.cmd [[close]]
   end
-end)
+end, {
+  desc = "close window if it's a popup",
+})

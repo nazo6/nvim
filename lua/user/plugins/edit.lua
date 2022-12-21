@@ -16,12 +16,11 @@ return function(use)
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-calc" },
       { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+      { "hrsh7th/cmp-cmdline" },
+      { "hrsh7th/cmp-nvim-lsp-document-symbol" },
+      { "saadparwaiz1/cmp_luasnip" },
       {
         "zbirenbaum/copilot-cmp",
-        after = { "nvim-cmp" },
         config = function()
           require("copilot_cmp").setup()
         end,
@@ -36,7 +35,11 @@ return function(use)
 
   use {
     "phaazon/hop.nvim",
-    cmd = "Hop",
+    cmd = {
+      "HopWord",
+      "HopChar1CurrentLineAC",
+      "HopChar1CurrentLineBC",
+    },
     init = function()
       require("user.config.hop").setup()
     end,
