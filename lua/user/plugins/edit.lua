@@ -77,4 +77,12 @@ return function(use)
       require("nvim-surround").setup {}
     end,
   }
+  use {
+    "folke/todo-comments.nvim",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    event = { "BufRead" },
+    config = function()
+      require("todo-comments").setup {}
+    end,
+  }
 end
