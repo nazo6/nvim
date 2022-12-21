@@ -5,6 +5,7 @@ return function(use)
 
     dependencies = {
       { "nvim-lua/plenary.nvim" },
+      { "jvgrootveld/telescope-zoxide" },
     },
     init = function()
       require("user.config.telescope").setup()
@@ -12,11 +13,6 @@ return function(use)
     config = function()
       require("user.config.telescope").config()
     end,
-  }
-
-  use {
-    "jvgrootveld/telescope-zoxide",
-    opt = true,
   }
 
   use {

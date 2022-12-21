@@ -6,13 +6,12 @@ return {
     vim.keymap.set("n", "<leader>z", "<cmd>Telescope zoxide list<CR>")
   end,
   config = function()
+    require("telescope").load_extension "zoxide"
     require("telescope").setup {
       defaults = {
         winblend = 30,
         file_ignore_patterns = { ".git" },
       },
     }
-
-    require("telescope").load_extension "zoxide"
   end,
 }
