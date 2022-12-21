@@ -28,7 +28,9 @@ return function(use)
     "mrshmllow/document-color.nvim",
 
     config = function()
-      require "user.config.document-color"
+      require("document-color").setup {
+        mode = "background",
+      }
     end,
   }
   use {

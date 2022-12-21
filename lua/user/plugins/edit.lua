@@ -74,7 +74,7 @@ return function(use)
     "kylechui/nvim-surround",
     event = { "BufRead", "InsertEnter" },
     config = function()
-      require "user.config.surround"
+      require("nvim-surround").setup {}
     end,
   }
 end
