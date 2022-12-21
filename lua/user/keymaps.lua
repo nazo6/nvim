@@ -18,8 +18,6 @@ s("n", "<S-Down>", "<C-w>-", { silent = true })
 s("v", "c", [["_c]], { silent = true })
 s("v", "p", [[_dp]], { silent = true })
 
-s("n", "<Esc><Esc>", "<cmd>noh<CR>", { silent = true })
-
 s("n", "<C-s>", [[:%s/]], { silent = true })
 
 s("n", "<leader>sp", "<cmd>PackerStatus<CR>")
@@ -30,3 +28,9 @@ s("n", "<A-s>", "<C-w><C-s>")
 
 s("n", "<leader>q", "<cmd>q<CR>")
 s("n", "<leader>w", "<cmd>w<CR>")
+
+s("n", "<esc>", function()
+  if vim.api.nvim_win_get_config(0).zindex then
+    vim.cmd [[close]]
+  end
+end)
