@@ -2,6 +2,7 @@ return function(use)
   use { "rebelot/kanagawa.nvim", lazy = false }
   use {
     "stevearc/dressing.nvim",
+    lazy = false,
     config = function()
       require "user.config.dressing"
     end,
