@@ -6,6 +6,7 @@ return function(use)
   use {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall" },
+    event = { "WinNew", "WinLeave" },
     config = function()
       require "user.config.mason"
     end,
