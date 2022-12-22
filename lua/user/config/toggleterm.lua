@@ -12,7 +12,7 @@ end
 
 return {
   setup = function()
-    vim.keymap.set("n", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
+    vim.keymap.set("n", [[<c-\>]], '<cmd>execute v:count . "ToggleTerm"<cr>', { desc = "[toggleterm] toggle" })
     vim.keymap.set("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
     vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 
