@@ -1,5 +1,5 @@
-return function(use)
-  use {
+return {
+  {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
 
@@ -13,9 +13,9 @@ return function(use)
     config = function()
       require("user.config.telescope").config()
     end,
-  }
+  },
 
-  use {
+  {
     "kyazdani42/nvim-tree.lua",
     dependencies = { { "kyazdani42/nvim-web-devicons" } },
     cmd = { "NvimTreeToggle" },
@@ -25,8 +25,8 @@ return function(use)
     config = function()
       require("user.config.nvim-tree").config()
     end,
-  }
-  use {
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
       { "kyazdani42/nvim-web-devicons" },
@@ -47,9 +47,9 @@ return function(use)
     config = function()
       require("user.config.neo-tree").config()
     end,
-  }
+  },
 
-  use {
+  {
     "folke/trouble.nvim",
     dependencies = { { "kyazdani42/nvim-web-devicons" } },
     cmd = { "Trouble", "TroubleToggle" },
@@ -59,8 +59,8 @@ return function(use)
     config = function()
       require("user.config.trouble").config()
     end,
-  }
-  use {
+  },
+  {
     "stevearc/aerial.nvim",
     event = "BufRead",
     cmd = "Aerial",
@@ -70,8 +70,8 @@ return function(use)
     config = function()
       require("user.config.aerial").config()
     end,
-  }
-  use {
+  },
+  {
     "akinsho/toggleterm.nvim",
 
     cmd = { "ToggleTerm", "ToggleTermOpen" },
@@ -81,9 +81,9 @@ return function(use)
     config = function()
       require("user.config.toggleterm").config()
     end,
-  }
+  },
 
-  use {
+  {
     "lewis6991/gitsigns.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
@@ -93,8 +93,8 @@ return function(use)
     config = function()
       require("gitsigns").setup()
     end,
-  }
-  use {
+  },
+  {
     "TimUntersberger/neogit",
     cmd = { "Neogit" },
     config = function()
@@ -109,16 +109,16 @@ return function(use)
         },
       }
     end,
-  }
-  use {
+  },
+  {
     "sindrets/diffview.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
     cmd = { "DiffviewOpen" },
-  }
+  },
 
-  use {
+  {
     "windwp/nvim-spectre",
     init = function()
       require("user.config.spectre").setup()
@@ -126,9 +126,9 @@ return function(use)
     config = function()
       require("user.config.spectre").config()
     end,
-  }
+  },
 
-  use {
+  {
     "matbme/JABS.nvim",
     cmd = "JABSOpen",
     init = function()
@@ -137,9 +137,9 @@ return function(use)
     config = function()
       require("user.config.jabs").config()
     end,
-  }
+  },
 
-  use {
+  {
     "kevinhwang91/nvim-hlslens",
     event = { "BufRead" },
     init = function()
@@ -148,9 +148,9 @@ return function(use)
     config = function()
       require("user.config.hlslens").config()
     end,
-  }
+  },
 
-  use {
+  {
     "zbirenbaum/copilot.lua",
     event = "VimEnter",
     config = function()
@@ -158,15 +158,15 @@ return function(use)
         require("copilot").setup()
       end, 100)
     end,
-  }
+  },
 
-  use {
+  {
     "uga-rosa/ccc.nvim",
     cmd = { "CccPick" },
-  }
+  },
 
   --[[
-  use {
+{
     "ldelossa/nvim-ide",
     cmd = { "Workspace" },
     init = function()
@@ -175,6 +175,6 @@ return function(use)
     config = function()
       require("user.config.ide").config()
     end,
-  }
+},
   ]]
-end
+}

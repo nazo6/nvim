@@ -1,5 +1,5 @@
-return function(use)
-  use {
+return {
+  {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "InsertEnter" },
     cmd = { "TSInstall", "TSUpdate", "TSUninstall" },
@@ -12,5 +12,5 @@ return function(use)
       require "user.config.treesitter"
     end,
     build = ":TSUpdate",
-  }
-end
+  },
+}

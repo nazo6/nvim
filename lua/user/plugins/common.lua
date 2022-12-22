@@ -1,18 +1,18 @@
-return function(use)
-  use { "jghauser/mkdir.nvim", event = { "BufWritePre" } }
+return {
+  { "jghauser/mkdir.nvim", event = { "BufWritePre" } },
 
-  use { "vim-jp/vimdoc-ja", lazy = false }
+  { "vim-jp/vimdoc-ja", lazy = false },
 
-  use {
+  {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall" },
     event = { "WinNew", "WinLeave" },
     config = function()
       require "user.config.mason"
     end,
-  }
+  },
 
-  use {
+  {
     "folke/noice.nvim",
     event = "VimEnter",
     keys = { ":", "/" },
@@ -23,5 +23,5 @@ return function(use)
     config = function()
       require "user.config.noice"
     end,
-  }
-end
+  },
+}

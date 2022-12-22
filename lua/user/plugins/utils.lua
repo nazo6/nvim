@@ -1,8 +1,8 @@
-return function(use)
+return {
   -----------------------
   -- Window management --
   -----------------------
-  use {
+  {
     "tkmpypy/chowcho.nvim",
 
     init = function()
@@ -11,8 +11,8 @@ return function(use)
     config = function()
       require("user.config.chowcho").config()
     end,
-  }
-  use {
+  },
+  {
     "mrjones2014/smart-splits.nvim",
 
     init = function()
@@ -21,15 +21,15 @@ return function(use)
     config = function()
       require("user.config.smart-splits").config()
     end,
-  }
+  },
 
   -----------
   -- Tools --
   -----------
-  use { "sbulav/nredir.nvim", cmd = { "Nredir" } }
-  use { "dstein64/vim-startuptime", cmd = { "StartupTime" } }
-  use {
+  { "sbulav/nredir.nvim", cmd = { "Nredir" } },
+  { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
+  {
     "nanotee/zoxide.vim",
     cmd = { "Z" },
-  }
-end
+  },
+}

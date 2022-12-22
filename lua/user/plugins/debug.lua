@@ -1,14 +1,14 @@
-return function(use)
-  use {
+return {
+  {
     "mfussenegger/nvim-dap",
     config = function()
       require "user.config.dap"
     end,
-  }
-  use {
+  },
+  {
     "rcarriga/nvim-dap-ui",
-  }
-  use {
+  },
+  {
     "theHamsta/nvim-dap-virtual-text",
-  }
-end
+  },
+}
