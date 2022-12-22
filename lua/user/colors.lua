@@ -1,7 +1,3 @@
-if vim.fn.has "termguicolors" == 1 then
-  vim.opt.termguicolors = true
-end
-
 local ok, kanagawa = pcall(require, "kanagawa")
 if ok then
   local colors = require("kanagawa.colors").setup()

@@ -63,4 +63,4 @@ vim.keymap.set("n", "<CR>", function()
   else
     pcall(vim.api.nvim_win_close, notif_win, true)
   end
-end)
+end, { desc = "close notification window" })

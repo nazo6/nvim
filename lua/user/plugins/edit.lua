@@ -16,12 +16,11 @@ return function(use)
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-calc" },
       { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
-      { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+      { "hrsh7th/cmp-cmdline" },
+      { "hrsh7th/cmp-nvim-lsp-document-symbol" },
+      { "saadparwaiz1/cmp_luasnip" },
       {
         "zbirenbaum/copilot-cmp",
-        after = { "nvim-cmp" },
         config = function()
           require("copilot_cmp").setup()
         end,
@@ -35,8 +34,25 @@ return function(use)
   }
 
   use {
+    "hrsh7th/nvim-gtd",
+    event = { "WinNew" },
+    init = function()
+      vim.keymap.set("n", "gf", function()
+        require("gtd").exec { command = "edit" }
+      end)
+    end,
+    config = function()
+      require("gtd").setup()
+    end,
+  }
+
+  use {
     "phaazon/hop.nvim",
-    cmd = "Hop",
+    cmd = {
+      "HopWord",
+      "HopChar1CurrentLineAC",
+      "HopChar1CurrentLineBC",
+    },
     init = function()
       require("user.config.hop").setup()
     end,
@@ -71,7 +87,15 @@ return function(use)
     "kylechui/nvim-surround",
     event = { "BufRead", "InsertEnter" },
     config = function()
-      require "user.config.surround"
+      require("nvim-surround").setup {}
+    end,
+  }
+  use {
+    "folke/todo-comments.nvim",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    event = { "BufRead" },
+    config = function()
+      require("todo-comments").setup {}
     end,
   }
 end

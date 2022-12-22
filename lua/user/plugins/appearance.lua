@@ -1,5 +1,5 @@
 return function(use)
-  use "rebelot/kanagawa.nvim"
+  use { "rebelot/kanagawa.nvim", lazy = false }
   use {
     "stevearc/dressing.nvim",
     config = function()
@@ -25,7 +25,11 @@ return function(use)
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufRead" },
     config = function()
-      require "user.config.indent-blankline"
+      require("indent_blankline").setup {
+        show_current_context = true,
+        char = "▏",
+        context_char = "▏",
+      }
     end,
   }
 

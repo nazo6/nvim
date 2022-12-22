@@ -28,13 +28,14 @@ return function(use)
     "mrshmllow/document-color.nvim",
 
     config = function()
-      require "user.config.document-color"
+      require("document-color").setup {
+        mode = "background",
+      }
     end,
   }
   use {
     "lsp_lines.nvim",
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    as = "lsp_lines.nvim",
   }
   use { "tamago324/nlsp-settings.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }

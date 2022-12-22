@@ -5,7 +5,7 @@ My neovim config.
 ## Concept
 
 - Multi-platform support (Windows/Linux)
-- Fast startup (About 40\~60ms on Linux and 120\~150ms on Windows)
+- Fast startup (About 25ms on Linux and 70ms on Windows)
   - Most of plugins are lazy-loaded
 - Avoid external dependencies as much as possible
 
@@ -15,10 +15,6 @@ My neovim config.
 cd ~/.config/nvim
 git clone https://github.com/nazo6/nvim
 nvim
-```
-
-```vim
-:PackerSync
 ```
 
 ## Dependencies
@@ -51,4 +47,6 @@ nvim
 ## Credits
 
 - after/queries/satysfi/\* from
+  [LhKipp/tree-sitter-nu](https://github.com/LhKipp/tree-sitter-nu/)
+- after/queries/nu/\* from
   [monaqa/tree-sitter-satysfi](https://github.com/monaqa/tree-sitter-satysfi/)

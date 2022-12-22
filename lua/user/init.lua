@@ -1,10 +1,10 @@
 require "user.early-settings"
 
-require "user.colors"
+require "user.options"
 require "user.plugins"
 require "user.filetype"
-require "user.options"
 require "user.keymaps"
+require "user.colors"
 
 pcall(require, "user.local")
 
