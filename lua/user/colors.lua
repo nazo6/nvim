@@ -25,6 +25,8 @@ if ok then
 
     MiniCursorword = { bg = "#472739" },
     MiniCursorwordCurrent = { fg = "NONE", bg = "#363646" },
+
+    DiffChange = { bg = colors.waveBlue2 },
   }
   kanagawa.setup {
     commentStyle = { italic = true },

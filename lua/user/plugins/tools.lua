@@ -52,7 +52,7 @@ return function(use)
   use {
     "folke/trouble.nvim",
     dependencies = { { "kyazdani42/nvim-web-devicons" } },
-    cmd = "Trouble",
+    cmd = { "Trouble", "TroubleToggle" },
     init = function()
       require("user.config.trouble").setup()
     end,
