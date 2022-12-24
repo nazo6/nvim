@@ -2,7 +2,7 @@ return {
   { "rebelot/kanagawa.nvim", lazy = false },
   {
     "stevearc/dressing.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require "user.config.dressing"
     end,
