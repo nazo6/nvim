@@ -15,11 +15,10 @@ return {
     end,
   },
   {
-    "petertriho/nvim-scrollbar",
-    event = { "BufRead" },
+    "lewis6991/satellite.nvim",
+    event = { "BufRead", "InsertEnter" },
     config = function()
-      require("scrollbar").setup()
-      require("scrollbar.handlers.search").setup()
+      require("satellite").setup()
     end,
   },
   {
