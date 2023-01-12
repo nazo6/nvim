@@ -45,6 +45,13 @@ return {
       require("gtd").setup()
     end,
   },
+  {
+    "hrsh7th/nvim-minx",
+    event = { "InsertEnter" },
+    config = function()
+      require "user.config.minx"
+    end,
+  },
 
   {
     "phaazon/hop.nvim",
