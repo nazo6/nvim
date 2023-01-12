@@ -23,6 +23,7 @@ for server_name in pairs(configs.manual) do
 end
 
 require("lsp_lines").setup()
+require("lsp_signature").setup()
 
 require "user.config.lsp.null-ls"
 
