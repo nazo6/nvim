@@ -12,7 +12,6 @@ return {
     end,
   },
 
-  --[[
   {
     "folke/noice.nvim",
     event = "VimEnter",
@@ -25,5 +24,4 @@ return {
       require "user.config.noice"
     end,
   },
-  ]]
 }

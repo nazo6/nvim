@@ -45,6 +45,7 @@ return {
       require("gtd").setup()
     end,
   },
+  --[[
   {
     "hrsh7th/nvim-minx",
     event = { "InsertEnter" },
@@ -52,7 +53,7 @@ return {
       require "user.config.minx"
     end,
   },
-
+  ]]
   {
     "phaazon/hop.nvim",
     cmd = {

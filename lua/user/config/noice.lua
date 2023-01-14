@@ -1,39 +1,12 @@
 require("noice").setup {
   cmdline = {
-    enabled = true,
-    menu = "cmdline_popup",
+    enabled = false,
   },
-  popupmenu = {
-    backend = "cmp",
+  notify = {
+    enabled = false,
   },
-  views = {
-    cmdline_popup = {
-      position = {
-        row = 5,
-        col = "50%",
-      },
-      size = {
-        width = 60,
-        height = "auto",
-      },
-    },
-  },
-  routes = {
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "written",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "cmdline",
-        find = "^%s*[/?]",
-      },
-      view = "cmdline",
-    },
+  messages = {
+    enabled = false,
   },
   lsp = {
     override = {
@@ -41,9 +14,9 @@ require("noice").setup {
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
-  },
-  presets = {
-    lsp_doc_border = true,
+    signature = {
+      enabled = false,
+    },
   },
 }
 
