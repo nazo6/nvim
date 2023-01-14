@@ -10,6 +10,7 @@ return function(server_name)
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
     end,
+    single_file_support = false,
   }
   require("typescript").setup {
     disable_commands = false,
