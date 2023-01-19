@@ -1,6 +1,6 @@
 local filename = vim.fn.fnamemodify(vim.fn.bufname(), ":t")
 
-if filename == "cargo.toml" then
+if filename == "Cargo.toml" then
   vim.keymap.set("n", "ct", ":lua require('crates').toggle()<cr>", { buffer = true })
   vim.keymap.set("n", "cr", ":lua require('crates').reload()<cr>", { buffer = true })
 
