@@ -49,7 +49,7 @@ return {
     "hrsh7th/nvim-insx",
     event = { "InsertEnter" },
     config = function()
-      require "user.config.insx"
+      require("insx.preset.standard").setup()
     end,
   },
   {

@@ -4,7 +4,6 @@ return {
   -----------------------
   {
     "tkmpypy/chowcho.nvim",
-
     init = function()
       require("user.config.chowcho").setup()
     end,
@@ -14,7 +13,6 @@ return {
   },
   {
     "mrjones2014/smart-splits.nvim",
-
     init = function()
       require("user.config.smart-splits").setup()
     end,

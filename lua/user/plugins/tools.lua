@@ -26,28 +26,6 @@ return {
       require("user.config.nvim-tree").config()
     end,
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      { "kyazdani42/nvim-web-devicons" },
-      { "nvim-lua/plenary.nvim" },
-      { "MunifTanjim/nui.nvim" },
-      {
-        "s1n7ax/nvim-window-picker",
-
-        config = function()
-          require "user.config.window-picker"
-        end,
-      },
-    },
-    cmd = { "Neotree" },
-    init = function()
-      require("user.config.neo-tree").setup()
-    end,
-    config = function()
-      require("user.config.neo-tree").config()
-    end,
-  },
 
   {
     "folke/trouble.nvim",
@@ -164,17 +142,4 @@ return {
     "uga-rosa/ccc.nvim",
     cmd = { "CccPick" },
   },
-
-  --[[
-{
-    "ldelossa/nvim-ide",
-    cmd = { "Workspace" },
-    init = function()
-      require("user.config.ide").setup()
-    end,
-    config = function()
-      require("user.config.ide").config()
-    end,
-},
-  ]]
 }
