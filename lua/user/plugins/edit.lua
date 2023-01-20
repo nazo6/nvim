@@ -45,15 +45,13 @@ return {
       require("gtd").setup()
     end,
   },
-  --[[
   {
-    "hrsh7th/nvim-minx",
+    "hrsh7th/nvim-insx",
     event = { "InsertEnter" },
     config = function()
-      require "user.config.minx"
+      require "user.config.insx"
     end,
   },
-  ]]
   {
     "phaazon/hop.nvim",
     cmd = {
@@ -66,15 +64,6 @@ return {
     end,
     config = function()
       require("user.config.hop").config()
-    end,
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = { "InsertEnter" },
-    config = function()
-      require("nvim-autopairs").setup {
-        enable_check_bracket_line = false,
-      }
     end,
   },
   {
