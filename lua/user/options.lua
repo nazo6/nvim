@@ -27,6 +27,7 @@ opt.undofile = true
 opt.confirm = true
 opt.autoread = true
 opt.fileformat = "unix"
+opt.fileformats = "unix,dos"
 
 opt.smartcase = true
 opt.ignorecase = true
