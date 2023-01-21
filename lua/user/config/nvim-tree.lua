@@ -48,6 +48,9 @@ return {
         cmd = nil,
         args = {},
       },
+      git = {
+        ignore = false,
+      },
       diagnostics = {
         enable = true,
       },
