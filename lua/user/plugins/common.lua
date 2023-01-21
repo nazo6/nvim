@@ -20,8 +20,14 @@ return {
       { "MunifTanjim/nui.nvim" },
       { "rcarriga/nvim-notify" },
     },
+    config = function() end,
+  },
+
+  {
+    "rcarriga/nvim-notify",
+    lazy = false,
     config = function()
-      require "user.config.noice"
+      require "user.config.notify"
     end,
   },
 }
