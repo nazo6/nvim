@@ -24,4 +24,6 @@ vim.keymap.set("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input
 ]]
 
 require("nvim-dap-virtual-text").setup {}
--- require("dapui").setup()
+vim.schedule(function()
+  require("dapui").setup()
+end)
