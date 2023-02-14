@@ -14,9 +14,10 @@ M.active[1] = {
     provider = {
       name = "file_info",
       opts = {
-        type = "unique",
+        type = "relative",
       },
     },
+    priority = 1,
     hl = {
       fg = "fujiWhite",
       bg = "autumnRed",
@@ -48,6 +49,7 @@ M.active[1] = {
       end
       return "error"
     end,
+    truncate_hide = true,
     enabled = function()
       if package.loaded["nvim-navic"] then
         local navic = require "nvim-navic"
