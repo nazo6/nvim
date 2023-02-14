@@ -2,16 +2,28 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "jvgrootveld/telescope-zoxide" },
+      { "tsakirist/telescope-lazy.nvim" },
     },
     init = function()
       require("user.config.telescope").setup()
     end,
     config = function()
       require("user.config.telescope").config()
+    end,
+  },
+  {
+    "pwntester/octo.nvim",
+    cmd = "Octo",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("octo").setup()
     end,
   },
 
