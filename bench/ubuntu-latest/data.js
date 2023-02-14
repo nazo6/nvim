@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671780328837,
+  "lastUpdate": 1676357229008,
   "repoUrl": "https://github.com/nazo6/nvim",
   "entries": {
     "Benchmark": [
@@ -4985,6 +4985,43 @@ window.BENCHMARK_DATA = {
           {
             "name": "Max nvim startup time",
             "value": 44.547,
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "nazo6",
+            "username": "nazo6",
+            "email": "53177992+nazo6@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "nazo6",
+            "username": "nazo6",
+            "email": "53177992+nazo6@users.noreply.github.com"
+          },
+          "id": "123faceed7025490d35395725a7c33052e8d3b62",
+          "message": "Fix noice config",
+          "timestamp": "2023-02-14T06:45:15Z",
+          "url": "https://github.com/nazo6/nvim/commit/123faceed7025490d35395725a7c33052e8d3b62"
+        },
+        "date": 1676357228502,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Average nvim startup time",
+            "value": 29.11,
+            "unit": "ms"
+          },
+          {
+            "name": "Min nvim startup time",
+            "value": 28.529,
+            "unit": "ms"
+          },
+          {
+            "name": "Max nvim startup time",
+            "value": 29.624,
             "unit": "ms"
           }
         ]
