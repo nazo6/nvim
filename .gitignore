@@ -5,3 +5,4 @@ lua/user/local.lua
 dev/
 README.md
 lazy-lock.json
+**/local.lua
