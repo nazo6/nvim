@@ -95,4 +95,11 @@ return {
       require("todo-comments").setup {}
     end,
   },
+  {
+    "numToStr/Comment.nvim",
+    event = { "BufRead", "FileType" },
+    config = function()
+      require("Comment").setup()
+    end,
+  },
 }
