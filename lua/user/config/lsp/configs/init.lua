@@ -20,7 +20,7 @@ M.mason = {
   tailwindcss = create_setup {
     root_dir = root_pattern("tailwind.config.js", "tailwind.config.ts"),
   },
-  sumneko_lua = require "user.config.lsp.configs.sumneko_lua",
+  lua_ls = require "user.config.lsp.configs.lua_ls",
   rust_analyzer = require "user.config.lsp.configs.rust_analyzer",
   texlab = require "user.config.lsp.configs.texlab",
   sqls = require "user.config.lsp.configs.sqls",
