@@ -3,12 +3,7 @@ local utils = require "user.config.lsp.utils"
 
 require("mason-lspconfig").setup()
 
-require("nlspsettings").setup {
-  local_settings_dir = ".nvim",
-  local_settings_root_markers = { ".git" },
-  append_default_schemas = true,
-  loader = "json",
-}
+require("neoconf").setup()
 
 require("mason-lspconfig").setup_handlers {
   function(server_name)

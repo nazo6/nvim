@@ -38,7 +38,10 @@ return {
     "lsp_lines.nvim",
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   },
-  { "tamago324/nlsp-settings.nvim" },
+  {
+    "folke/neoconf.nvim",
+    cmd = "Neoconf",
+  },
   { "williamboman/mason-lspconfig.nvim" },
   { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 }
