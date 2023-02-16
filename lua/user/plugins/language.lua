@@ -55,9 +55,8 @@ return {
     ft = { "sql" },
   },
 
-  {
-    "jose-elias-alvarez/typescript.nvim",
-  },
+  { "jose-elias-alvarez/typescript.nvim" },
+  { "yioneko/nvim-vtsls" },
 
   {
     "ellisonleao/glow.nvim",

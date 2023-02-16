@@ -9,6 +9,7 @@ end
 
 M.mason = {
   tsserver = require "user.config.lsp.configs.tsserver",
+  vtsls = require "user.config.lsp.configs.vtsls",
   denols = require "user.config.lsp.configs.denols",
   cssls = create_setup { on_attach = no_formatting },
   html = create_setup { on_attach = no_formatting },
@@ -18,7 +19,7 @@ M.mason = {
     settings = { json = { schemas = require("schemastore").json.schemas() } },
   },
   tailwindcss = create_setup {
-    root_dir = root_pattern("tailwind.config.js", "tailwind.config.ts"),
+    root_dir = root_pattern("tailwind.config.js", "tailwind.config.ts", "tailwind.config.cjs"),
   },
   lua_ls = require "user.config.lsp.configs.lua_ls",
   rust_analyzer = require "user.config.lsp.configs.rust_analyzer",
