@@ -17,7 +17,7 @@ parser_config.nu = {
 
 local treesitter = require "nvim-treesitter.configs"
 treesitter.setup {
-  auto_install = true,
+  auto_install = false,
   highlight = { enable = true },
   textobjects = {
     select = {
