@@ -33,8 +33,17 @@ opt.smartcase = true
 opt.ignorecase = true
 opt.inccommand = "split"
 
+opt.foldcolumn = "1"
 opt.foldlevel = 99
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.fillchars = {
+  eob = " ",
+  fold = " ",
+  foldopen = "",
+  foldsep = " ",
+  foldclose = ">",
+}
 
 opt.updatetime = 300
 

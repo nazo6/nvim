@@ -45,17 +45,25 @@ return {
       require "user.config.cellwidths"
     end,
   },
-
-  --[[
-{
+  {
     "kevinhwang91/nvim-ufo",
     dependencies = {
-      { "kevinhwang91/promise-async", ,
+      "kevinhwang91/promise-async",
+      {
+        "luukvbaal/statuscol.nvim",
+        config = function()
+          require("statuscol").setup {
+            foldfunc = "builtin",
+            setopt = true,
+          }
+        end,
+      },
     },
-    event = { "BufRead" },
-    config = function()
-      require("ufo").setup()
+    init = function()
+      require("user.config.ufo").init()
     end,
-},
-  ]]
+    config = function()
+      require("user.config.ufo").config()
+    end,
+  },
 }
