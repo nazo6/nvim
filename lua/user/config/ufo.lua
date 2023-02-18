@@ -1,7 +1,7 @@
 return {
   init = function()
-    vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-    vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    vim.keymap.set("n", "zR", [[<cmd>lua require("ufo").openAllFolds()<CR>]])
+    vim.keymap.set("n", "zM", [[<cmd>lua require("ufo").closeAllFolds()<CR>]])
   end,
   config = function()
     require("ufo").setup {
