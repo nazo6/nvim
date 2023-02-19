@@ -45,6 +45,24 @@ return {
       require "user.config.cellwidths"
     end,
   },
+
+  {
+    "RRethy/vim-illuminate",
+    event = { "BufRead", "InsertEnter" },
+    config = function()
+      require("illuminate").configure {
+        providers = {
+          "treesitter",
+          "lsp",
+          "regex",
+        },
+        filetypes_denylist = {
+          "neo-tree",
+        },
+      }
+    end,
+  },
+
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
