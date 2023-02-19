@@ -4,6 +4,17 @@ if ok then
   if not colors then
     return
   end
+  kanagawa.setup {
+    commentStyle = { italic = true },
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
+    variablebuiltinStyle = { italic = true },
+    undercurl = true,
+    specialReturn = true,
+    specialException = true,
+    transparent = false,
+  }
+
   local overrides = {
     DiagnosticVirtualTextError = { fg = colors.diag.error, bg = "#2D0505" },
     DiagnosticVirtualTextWarn = { fg = colors.diag.warning, bg = "#331900" },
@@ -29,20 +40,14 @@ if ok then
 
     DiffChange = { bg = colors.waveBlue2 },
   }
-  kanagawa.setup {
-    commentStyle = { italic = true },
-    functionStyle = {},
-    keywordStyle = { italic = true },
-    statementStyle = { bold = true },
-    typeStyle = {},
-    variablebuiltinStyle = { italic = true },
-    undercurl = true,
-    specialReturn = true,
-    specialException = true,
-    transparent = false,
-    colors = {},
-    overrides = overrides,
-  }
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    callback = function()
+      for group, styles in pairs(overrides) do
+        vim.api.nvim_set_hl(0, group, styles)
+      end
+    end,
+  })
 
   vim.cmd "colorscheme kanagawa"
 end
