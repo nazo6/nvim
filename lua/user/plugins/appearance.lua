@@ -16,7 +16,7 @@ return {
   },
   {
     "lewis6991/satellite.nvim",
-    event = { "BufRead", "InsertEnter" },
+    event = { "BufRead", "InsertEnter", "FileType" },
     config = function()
       require("satellite").setup()
     end,

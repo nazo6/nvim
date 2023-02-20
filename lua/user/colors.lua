@@ -16,21 +16,14 @@ if ok then
   }
 
   local overrides = {
-    DiagnosticVirtualTextError = { fg = colors.diag.error, bg = "#2D0505" },
-    DiagnosticVirtualTextWarn = { fg = colors.diag.warning, bg = "#331900" },
-    DiagnosticVirtualTextInfo = { fg = colors.diag.info, bg = "#151D1B" },
-    DiagnosticVirtualTextHint = { fg = colors.diag.hint, bg = "#141B1E" },
+    DiagnosticVirtualTextError = { link = "DiagnosticError" },
+    DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
+    DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" },
+    DiagnosticVirtualTextHint = { link = "DiagnosticHint" },
 
     NeoTreeNormal = { fg = colors.fujiWhite, bg = colors.sumiInk2 },
     NeoTreeNormalNC = { fg = colors.fujiWhite, bg = colors.sumiInk2 },
     NeoTreeCursorLine = { bg = colors.sumiInk4 },
-    NeoTreeGitIgnored = { fg = "#8c8c8c" },
-    NeoTreeGitDeleted = { fg = "#C74E39" },
-    NeoTreeGitRenamed = { fg = "yellow" },
-    NeoTreeGitNew = { fg = "#81B88B" },
-    NeoTreeGitDirty = { fg = "#E2C08D" },
-    NeoTreeGitStaged = { fg = "yellow" },
-    NeoTreeGitMerge = { fg = "cyan" },
 
     ScrollView = { bg = colors.sumiInk4 },
 
