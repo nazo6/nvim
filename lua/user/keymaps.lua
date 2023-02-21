@@ -1,7 +1,5 @@
 local set = vim.keymap.set
 
-set("n", "K", "<Nop>")
-
 set("n", "k", "gk")
 set("n", "gk", "k")
 set("n", "j", "gj")

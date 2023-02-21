@@ -16,6 +16,8 @@ if ok then
   }
 
   local overrides = {
+    DiffAdd = { bg = colors.autumnGreen },
+
     DiagnosticVirtualTextError = { link = "DiagnosticError" },
     DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
     DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" },
@@ -32,6 +34,10 @@ if ok then
     IlluminatedWordWrite = { fg = "NONE", bg = "#472739" },
 
     DiffChange = { bg = colors.waveBlue2 },
+
+    GitSignsAddNr = { link = "DiffAdd" },
+    GitSignsChangeNr = { link = "DiffChange" },
+    GitSignsDeleteNr = { link = "DiffDelete" },
   }
   vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",

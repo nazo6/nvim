@@ -33,6 +33,8 @@ opt.smartcase = true
 opt.ignorecase = true
 opt.inccommand = "split"
 
+opt.numberwidth = 3
+
 opt.foldcolumn = "1"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
