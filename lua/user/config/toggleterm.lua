@@ -19,7 +19,7 @@ return {
     vim.keymap.set("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
     vim.keymap.set("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
 
-    vim.keymap.set("n", "<leader>g", "<cmd>lua _G.toggle_gitui()<CR>", { desc = "Toggle gitui" })
+    vim.keymap.set("n", "<leader>gu", "<cmd>lua _G.toggle_gitui()<CR>", { desc = "Toggle gitui" })
   end,
   config = function()
     require("toggleterm").setup {

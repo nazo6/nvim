@@ -102,11 +102,11 @@ return {
     },
     event = "BufRead",
     cmd = "GitSigns",
+    init = function()
+      require("user.config.gitsigns").setup()
+    end,
     config = function()
-      require("gitsigns").setup {
-        signcolumn = false,
-        numhl = true,
-      }
+      require("user.config.gitsigns").config()
     end,
   },
   {
