@@ -1,4 +1,31 @@
 local utils = require "heirline.utils"
+local conditions = require "heirline.conditions"
+
+local colors = require("user.config.heirline.utils").colors
+local separators = require("user.config.heirline.utils").separators
+
+local highlight = {
+  active = {
+    filename = { bg = colors.autumnRed },
+    filename_sep = { fg = colors.autumnRed, bg = colors.katanaGray },
+    filename_sep_terminal = { fg = colors.autumnRed },
+    navic = { bg = colors.katanaGray },
+  },
+  inactive = {
+    filename = { bg = colors.sakuraPink },
+    filename_sep = { fg = colors.sakuraPink },
+    filename_sep_terminal = { fg = colors.sakuraPink },
+    navic = {},
+  },
+}
+
+local function get_highlight(group)
+  if conditions.is_active() then
+    return highlight.active[group]
+  else
+    return highlight.inactive[group]
+  end
+end
 
 local FileName = {
   init = function(self)
@@ -8,7 +35,9 @@ local FileName = {
     end
   end,
 
-  hl = { fg = utils.get_highlight("Directory").fg },
+  hl = function()
+    return get_highlight "filename"
+  end,
 
   flexible = 2,
 
@@ -24,25 +53,32 @@ local FileName = {
   },
 }
 
-local FileName_Navic = {
-  provider = function(self)
-    local status = self.navic_available and " true " or " false "
-    return status
+local FilenameSep = {
+  provider = separators.slant_right .. "  ",
+  hl = function(self)
+    if self.navic_available then
+      return get_highlight "filename_sep"
+    else
+      return get_highlight "filename_sep_terminal"
+    end
   end,
 }
 
 local Navic = {
   provider = function(self)
     if self.navic_available then
-      return require("nvim-navic").get_location()
+      return require("nvim-navic").get_location() .. " "
     end
     return ""
   end,
   update = "CursorMoved",
+  hl = function()
+    return get_highlight "navic"
+  end,
 }
 
 local DefaultWinbar = {
-  { FileName, FileName_Navic, Navic },
+  { FileName, FilenameSep, Navic },
   init = function(self)
     if package.loaded["nvim-navic"] then
       local navic = require "nvim-navic"

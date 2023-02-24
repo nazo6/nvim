@@ -8,10 +8,10 @@ return {
     end,
   },
   {
-    "feline-nvim/feline.nvim",
+    "rebelot/heirline.nvim",
     lazy = false,
     config = function()
-      require "user.config.feline"
+      require "user.config.heirline"
     end,
   },
   {
