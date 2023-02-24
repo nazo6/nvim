@@ -6,17 +6,19 @@ local separators = require("user.config.heirline.utils").separators
 
 local highlight = {
   active = {
-    filename = { bg = colors.autumnRed },
-    filename_sep = { fg = colors.autumnRed, bg = colors.katanaGray },
-    filename_sep_terminal = { fg = colors.autumnRed },
+    file = { bg = colors.autumnRed },
+    file_sep = { fg = colors.autumnRed, bg = colors.katanaGray },
+    file_sep_terminal = { fg = colors.autumnRed },
     navic = { bg = colors.katanaGray },
   },
   inactive = {
-    filename = { bg = colors.sakuraPink },
-    filename_sep = { fg = colors.sakuraPink },
-    filename_sep_terminal = { fg = colors.sakuraPink },
+    file = { bg = colors.sakuraPink },
+    file_sep = { fg = colors.sakuraPink },
+    file_sep_terminal = { fg = colors.sakuraPink },
     navic = {},
   },
+  file_modified_icon = {},
+  file_readonly_icon = { fg = "orange" },
 }
 
 local function get_highlight(group)
@@ -27,39 +29,80 @@ local function get_highlight(group)
   end
 end
 
-local FileName = {
-  init = function(self)
-    self.lfilename = vim.fn.fnamemodify(self.filename, ":.")
-    if self.lfilename == "" then
-      self.lfilename = "[No Name]"
-    end
-  end,
-
-  hl = function()
-    return get_highlight "filename"
-  end,
-
-  flexible = 2,
-
-  {
-    provider = function(self)
-      return self.lfilename
-    end,
-  },
-  {
-    provider = function(self)
-      return vim.fn.pathshorten(self.lfilename)
-    end,
-  },
+local Space = {
+  provider = " ",
 }
 
-local FilenameSep = {
+local File
+do
+  local FileIcon = {
+    init = function(self)
+      local filename = self.filename
+      local extension = vim.fn.fnamemodify(filename, ":e")
+      self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+    end,
+    provider = function(self)
+      return self.icon and (self.icon .. " ")
+    end,
+    hl = function(self)
+      return { fg = self.icon_color }
+    end,
+  }
+
+  local FileName = {
+    init = function(self)
+      self.lfilename = vim.fn.fnamemodify(self.filename, ":.")
+      if self.lfilename == "" then
+        self.lfilename = "[No Name]"
+      end
+    end,
+
+    flexible = 2,
+
+    {
+      provider = function(self)
+        return self.lfilename
+      end,
+    },
+    {
+      provider = function(self)
+        return vim.fn.pathshorten(self.lfilename)
+      end,
+    },
+  }
+
+  local FileFlags = {
+    {
+      condition = function()
+        return vim.bo.modified
+      end,
+      provider = "●",
+      hl = highlight.file_modified_icon,
+    },
+    {
+      condition = function()
+        return not vim.bo.modifiable or vim.bo.readonly
+      end,
+      provider = "",
+      hl = highlight.file_readonly_icon,
+    },
+  }
+
+  File = {
+    { Space, FileIcon, FileName, Space, FileFlags },
+    hl = function()
+      return get_highlight "file"
+    end,
+  }
+end
+
+local FileSep = {
   provider = separators.slant_right .. "  ",
   hl = function(self)
     if self.navic_available then
-      return get_highlight "filename_sep"
+      return get_highlight "file_sep"
     else
-      return get_highlight "filename_sep_terminal"
+      return get_highlight "file_sep_terminal"
     end
   end,
 }
@@ -71,14 +114,13 @@ local Navic = {
     end
     return ""
   end,
-  update = "CursorMoved",
   hl = function()
     return get_highlight "navic"
   end,
 }
 
 local DefaultWinbar = {
-  { FileName, FilenameSep, Navic },
+  { File, FileSep, Navic },
   init = function(self)
     if package.loaded["nvim-navic"] then
       local navic = require "nvim-navic"
@@ -95,5 +137,4 @@ local DefaultWinbar = {
     self.filename = vim.api.nvim_buf_get_name(0)
   end,
 }
-
 return DefaultWinbar
