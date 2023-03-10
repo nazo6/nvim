@@ -5,10 +5,11 @@ local separators = require("user.config.heirline.utils").separators
 local colors = require("user.config.heirline.utils").colors
 
 local highlights = {
-  git = { bg = colors.fujiGray },
+  git = { bg = colors.waveBlue1 },
   git_add = { fg = "green" },
   git_change = { fg = "orange" },
   git_del = { fg = "red" },
+  support = { bg = colors.sumiInk3 },
 }
 local highlights_generated = {
   git_sep = { fg = highlights.git.bg, bg = colors.sumiInk0 },
@@ -161,8 +162,49 @@ do
       return text
     end,
   }
+  local Diagnostics = {
+    condition = conditions.has_diagnostics,
+    static = {
+      error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
+      warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
+      info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
+      hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text,
+    },
+    init = function(self)
+      self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+      self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+      self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
+      self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+    end,
+    update = { "DiagnosticChanged", "BufEnter" },
+    {
+      provider = function(self)
+        return self.errors > 0 and (self.error_icon .. self.errors .. " ")
+      end,
+      hl = utils.get_highlight "DiagnosticError",
+    },
+    {
+      provider = function(self)
+        return self.warnings > 0 and (self.warn_icon .. self.warnings .. " ")
+      end,
+      hl = utils.get_highlight "DiagnosticWarn",
+    },
+    {
+      provider = function(self)
+        return self.info > 0 and (self.info_icon .. self.info .. " ")
+      end,
+      hl = utils.get_highlight "DiagnosticInfo",
+    },
+    {
+      provider = function(self)
+        return self.hints > 0 and (self.hint_icon .. self.hints)
+      end,
+      hl = utils.get_highlight "DiagnosticHint",
+    },
+  }
   SupportStatus = {
-    { LSPActive, NullLs },
+    { LSPActive, NullLs, Diagnostics },
+    hl = highlights.support,
   }
 end
 
@@ -175,4 +217,8 @@ local Position = {
 
 return {
   { ViMode, Space, File, Git, Space, SupportStatus, Align, Position },
+  init = function(self)
+    self.git_available = conditions.is_git_repo
+    self.support_available = false
+  end,
 }
