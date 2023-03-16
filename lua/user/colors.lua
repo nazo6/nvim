@@ -1,6 +1,6 @@
 local ok, kanagawa = pcall(require, "kanagawa")
 if ok then
-  local colors = require("kanagawa.colors").setup()
+  local colors = require("kanagawa.colors").setup().palette
   if not colors then
     return
   end

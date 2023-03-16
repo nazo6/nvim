@@ -24,5 +24,5 @@ return {
     right_rounded_thin = "",
     circle = "●",
   },
-  colors = require("kanagawa.colors").setup(),
+  colors = require("kanagawa.colors").setup().palette,
 }
