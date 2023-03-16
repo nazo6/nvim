@@ -1,4 +1,5 @@
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
 parser_config.satysfi = {
   install_info = {
     url = "https://github.com/monaqa/tree-sitter-satysfi",
@@ -13,6 +14,14 @@ parser_config.nu = {
     branch = "main",
   },
   filetype = "nushell",
+}
+parser_config.just = {
+  install_info = {
+    url = "https://github.com/IndianBoy42/tree-sitter-just",
+    files = { "src/parser.c", "src/scanner.cc" },
+    branch = "main",
+  },
+  maintainers = { "@IndianBoy42" },
 }
 
 local treesitter = require "nvim-treesitter.configs"
