@@ -73,6 +73,15 @@ return {
       require("user.config.trouble").config()
     end,
   },
+
+  {
+    "stevearc/overseer.nvim",
+    config = function()
+      require("overseer").setup()
+    end,
+    cmd = { "OverseerRun" },
+  },
+
   {
     "stevearc/aerial.nvim",
     event = "BufRead",
@@ -84,6 +93,7 @@ return {
       require("user.config.aerial").config()
     end,
   },
+
   {
     "akinsho/toggleterm.nvim",
 
