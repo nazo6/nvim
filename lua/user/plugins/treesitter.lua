@@ -8,6 +8,7 @@ return {
       { "windwp/nvim-ts-autotag" },
       { "nvim-treesitter/nvim-treesitter-textobjects" },
       { "nvim-treesitter/playground" },
+      { "IndianBoy42/tree-sitter-just" },
     },
     config = function()
       require "user.config.treesitter"

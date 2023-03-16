@@ -14,6 +14,7 @@ parser_config.nu = {
   },
   filetype = "nushell",
 }
+require("tree-sitter-just").setup {}
 
 local treesitter = require "nvim-treesitter.configs"
 treesitter.setup {
