@@ -122,6 +122,8 @@ local Navic = {
 local DefaultWinbar = {
   { File, FileSep, Navic },
   init = function(self)
+    self.filename = vim.api.nvim_buf_get_name(0)
+
     if package.loaded["nvim-navic"] then
       local navic = require "nvim-navic"
       if navic.is_available() then
@@ -133,8 +135,6 @@ local DefaultWinbar = {
       end
     end
     self.navic_available = false
-
-    self.filename = vim.api.nvim_buf_get_name(0)
   end,
 }
 return DefaultWinbar
