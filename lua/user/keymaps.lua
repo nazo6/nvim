@@ -31,3 +31,5 @@ set("n", "<esc>", function()
 end, {
   desc = "close window if it's a popup",
 })
+
+set("n", "K", "<Nop>")
