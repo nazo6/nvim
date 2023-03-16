@@ -67,6 +67,9 @@ return {
       if vim.tbl_isempty(markdown_lines) then
         return
       end
+      if #markdown_lines == 1 and markdown_lines[1] == "" then
+        return
+      end
       return util.open_floating_preview(markdown_lines, "markdown", config)
     end,
   },
