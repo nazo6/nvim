@@ -2,6 +2,7 @@ local colors = require("kanagawa.colors").setup().palette
 if not colors then
   return
 end
+local kanagawa = require "kanagawa"
 kanagawa.setup {
   commentStyle = { italic = true },
   keywordStyle = { italic = true },
