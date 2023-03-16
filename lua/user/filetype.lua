@@ -8,6 +8,8 @@ vim.filetype.add {
   filename = {
     [".swcrc"] = "json",
     [".latexmkrc"] = "perl",
+    -- Technitium DNS Server app
+    ["dnsApp.config"] = "json",
   },
   pattern = {
     -- For chezmoi
