@@ -38,6 +38,8 @@ if ok then
     GitSignsAddNr = { link = "DiffAdd" },
     GitSignsChangeNr = { link = "DiffChange" },
     GitSignsDeleteNr = { link = "DiffDelete" },
+
+    NeoTreeGitModified = { fg = colors.autumnYellow, bg = "NONE" },
   }
   vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
