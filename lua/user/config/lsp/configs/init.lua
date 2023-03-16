@@ -26,6 +26,7 @@ M.mason = {
   texlab = require "user.config.lsp.configs.texlab",
   sqls = require "user.config.lsp.configs.sqls",
   fsautocomplete = require "user.config.lsp.configs.fsautocomplete",
+  omnisharp = require "user.config.lsp.configs.omnisharp",
 }
 
 M.manual = {
