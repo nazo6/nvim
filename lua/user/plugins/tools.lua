@@ -76,10 +76,13 @@ return {
 
   {
     "stevearc/overseer.nvim",
-    config = function()
-      require("overseer").setup()
+    cmd = { "OverseerRun", "OverseerToggle" },
+    init = function()
+      require("user.config.overseer").init()
     end,
-    cmd = { "OverseerRun" },
+    config = function()
+      require("user.config.overseer").config()
+    end,
   },
 
   {

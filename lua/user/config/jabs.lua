@@ -18,21 +18,9 @@ return {
         alternate = "StatusLine",
       },
 
-      symbols = {
-        current = "C",
-        split = "S",
-        alternate = "A",
-        hidden = "H",
-        locked = "L",
-        ro = "R",
-        edited = "E",
-        terminal = "T",
-        default_file = "D",
-      },
-
       keymap = {
         close = "d",
-        jump = "<space>",
+        jump = "<CR>",
         h_split = "h",
         v_split = "v",
         preview = "p",

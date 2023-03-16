@@ -29,7 +29,7 @@ return {
       start_in_insert = true,
       insert_mappings = true,
       persist_size = true,
-      close_on_exit = true,
+      close_on_exit = false,
       shell = vim.fn.has "win32" == 1 and "pwsh.exe" or vim.o.shell,
     }
   end,
