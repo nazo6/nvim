@@ -68,4 +68,6 @@ return {
       }
     end,
   },
+
+  { "Hoffs/omnisharp-extended-lsp.nvim" },
 }

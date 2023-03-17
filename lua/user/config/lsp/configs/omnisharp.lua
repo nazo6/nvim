@@ -77,4 +77,7 @@ return create_setup {
       range = true,
     }
   end,
+  handlers = {
+    ["textDocument/definition"] = require("omnisharp_extended").handler,
+  },
 }
