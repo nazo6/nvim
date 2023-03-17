@@ -11,10 +11,6 @@ return {
 
   { "sbulav/nredir.nvim", cmd = { "Nredir" } },
   { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
-  {
-    "nanotee/zoxide.vim",
-    cmd = { "Z" },
-  },
 
   {
     "uga-rosa/ccc.nvim",

@@ -8,9 +8,6 @@ return {
     vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
   end,
   config = function()
-    require("telescope").load_extension "zoxide"
-    require("telescope").load_extension "lazy"
-
     local actions = require "telescope.actions"
     require("telescope").setup {
       defaults = {
@@ -22,6 +19,20 @@ return {
           },
         },
       },
+      extensions = {
+        zoxide = {
+          mappings = {
+            default = {
+              action = function(selection)
+                vim.cmd.tcd(selection.path)
+              end,
+            },
+          },
+        },
+      },
     }
+
+    require("telescope").load_extension "zoxide"
+    require("telescope").load_extension "lazy"
   end,
 }
