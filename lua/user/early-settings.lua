@@ -1,5 +1,5 @@
--- workaraound for https://github.com/neovim/neovim/issues/17762
 if require("user.utils").is_win then
+  -- workaraound for https://github.com/neovim/neovim/issues/17762
   os.execute = function(cmd)
     vim.fn.system(cmd)
     return vim.v.shell_error
@@ -16,6 +16,18 @@ if require("user.utils").is_win then
 
     return handle, pid
   end
+  vim.g.clipboard = {
+    name = "win32yank",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enabled = 0,
+  }
 end
 
 vim.g.mapleader = " "
