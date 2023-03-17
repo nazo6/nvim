@@ -2,7 +2,7 @@ return {
   init = function()
     vim.keymap.set("n", "<F5>", "<cmd>OverseerRun<CR>")
     vim.keymap.set("n", "<leader>or", "<cmd>OverseerRun<CR>")
-    vim.keymap.set("n", "<leader>ot", "<cmd>OverseerToggle<CR>")
+    vim.keymap.set("n", "<C-t>", "<cmd>OverseerToggle<CR>")
   end,
   config = function()
     require("overseer").setup {
