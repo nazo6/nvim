@@ -191,9 +191,4 @@ return {
       end, 100)
     end,
   },
-
-  {
-    "uga-rosa/ccc.nvim",
-    cmd = { "CccPick" },
-  },
 }
