@@ -1,13 +1,18 @@
-_G.term_gitui = nil
-_G.toggle_gitui = function()
-  if term_gitui == nil then
-    _G.term_gitui = require("toggleterm.terminal").Terminal:new {
-      cmd = "gitui",
+_G.term_lazygit = nil
+_G.toggle_lazygit = function()
+  if term_lazygit == nil then
+    _G.term_lazygit = require("toggleterm.terminal").Terminal:new {
+      cmd = "lazygit",
       direction = "float",
       hidden = true,
+      start_in_insert = true,
+      on_exit = function(t)
+        vim.api.nvim_buf_delete(t.bufnr, { force = true })
+        _G.term_lazygit = nil
+      end,
     }
   end
-  term_gitui:toggle()
+  term_lazygit:toggle()
 end
 
 return {
@@ -19,7 +24,7 @@ return {
     vim.keymap.set("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
     vim.keymap.set("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
 
-    vim.keymap.set("n", "<leader>gu", "<cmd>lua _G.toggle_gitui()<CR>", { desc = "Toggle gitui" })
+    vim.keymap.set("n", "<leader>G", "<cmd>lua _G.toggle_lazygit()<CR>", { desc = "Toggle gitui" })
 
     local termau = vim.api.nvim_create_augroup("terminal", { clear = true })
     vim.api.nvim_create_autocmd("TermOpen", {
