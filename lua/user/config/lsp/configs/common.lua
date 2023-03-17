@@ -26,8 +26,7 @@ return {
     vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true })
 
     vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { buffer = true })
-    vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", { buffer = true })
-    vim.keymap.set("v", "<leader>ca", "<cmd>CodeActionMenu<CR>", { buffer = true })
+    vim.keymap.set({ "n", "v" }, "<leader>ca", [[<cmd>lua require("actions-preview").code_actions()<CR>]], { buffer = true })
     vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>", { buffer = true })
     vim.keymap.set("n", "<leader>d", function()
       local virtual_lines_enabled = not vim.diagnostic.config().virtual_lines
