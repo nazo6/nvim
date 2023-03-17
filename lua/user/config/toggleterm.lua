@@ -20,6 +20,15 @@ return {
     vim.keymap.set("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
 
     vim.keymap.set("n", "<leader>gu", "<cmd>lua _G.toggle_gitui()<CR>", { desc = "Toggle gitui" })
+
+    local termau = vim.api.nvim_create_augroup("terminal", { clear = true })
+    vim.api.nvim_create_autocmd("TermOpen", {
+      pattern = "*",
+      group = termau,
+      callback = function()
+        vim.keymap.set("n", "q", [[<cmd>q<CR>]], { buffer = 0, desc = "Quit terminal buffer" })
+      end,
+    })
   end,
   config = function()
     require("toggleterm").setup {

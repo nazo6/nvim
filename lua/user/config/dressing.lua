@@ -31,6 +31,6 @@ require("dressing").setup {
   },
   select = {
     enabled = true,
-    backend = { "builtin" },
+    backend = { "telescope", "builtin" },
   },
 }
