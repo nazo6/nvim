@@ -10,6 +10,7 @@ vim.filetype.add {
     [".latexmkrc"] = "perl",
     -- Technitium DNS Server app
     ["dnsApp.config"] = "json",
+    [".styluaignore"] = "gitignore",
   },
   pattern = {
     -- For chezmoi
