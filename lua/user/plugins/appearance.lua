@@ -38,13 +38,13 @@ return {
     cmd = { "CellularAutomaton" },
   },
 
-  {
-    "delphinus/cellwidths.nvim",
-    event = { "BufRead" },
-    config = function()
-      require "user.config.cellwidths"
-    end,
-  },
+  -- {
+  --   "delphinus/cellwidths.nvim",
+  --   event = { "BufRead" },
+  --   config = function()
+  --     require "user.config.cellwidths"
+  --   end,
+  -- },
 
   {
     "RRethy/vim-illuminate",
