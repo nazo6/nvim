@@ -7,8 +7,8 @@ _G.toggle_lazygit = function()
       hidden = true,
       start_in_insert = true,
       on_create = function(term)
-        vim.api.nvim_win_set_option(term.bufnr, "scrolloff", 0)
-        vim.api.nvim_win_set_option(term.bufnr, "sidescrolloff", 0)
+        vim.api.nvim_win_set_option(term.window, "scrolloff", 0)
+        vim.api.nvim_win_set_option(term.window, "sidescrolloff", 0)
       end,
       on_exit = function(t)
         vim.api.nvim_buf_delete(t.bufnr, { force = true })
@@ -28,7 +28,7 @@ return {
     vim.keymap.set("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
     vim.keymap.set("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
 
-    vim.keymap.set("n", "<leader>G", "<cmd>lua _G.toggle_lazygit()<CR>", { desc = "Toggle gitui" })
+    vim.keymap.set("n", "<C-g><C-l>", "<cmd>lua _G.toggle_lazygit()<CR>", { desc = "Toggle lazygit" })
 
     local termau = vim.api.nvim_create_augroup("terminal", { clear = true })
     vim.api.nvim_create_autocmd("TermOpen", {

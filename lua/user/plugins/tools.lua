@@ -110,44 +110,6 @@ return {
   },
 
   {
-    "lewis6991/gitsigns.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-    },
-    event = "BufRead",
-    cmd = "GitSigns",
-    init = function()
-      require("user.config.gitsigns").setup()
-    end,
-    config = function()
-      require("user.config.gitsigns").config()
-    end,
-  },
-  {
-    "TimUntersberger/neogit",
-    cmd = { "Neogit" },
-    config = function()
-      require("neogit").setup {
-        enhanced_diff_hl = true,
-        integrations = {
-          diffview = true,
-        },
-        signs = {
-          section = { "", "" },
-          item = { "", "" },
-        },
-      }
-    end,
-  },
-  {
-    "sindrets/diffview.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-    },
-    cmd = { "DiffviewOpen" },
-  },
-
-  {
     "windwp/nvim-spectre",
     init = function()
       require("user.config.spectre").setup()

@@ -26,10 +26,11 @@ set("n", "<leader>w", "<cmd>w<CR>")
 
 set("n", "<esc>", function()
   if vim.api.nvim_win_get_config(0).zindex then
-    vim.cmd [[close]]
+    vim.cmd [[quit]]
   end
 end, {
   desc = "close window if it's a popup",
 })
 
 set("n", "K", "<Nop>")
+set("n", "<C-c>", "<Nop>")
