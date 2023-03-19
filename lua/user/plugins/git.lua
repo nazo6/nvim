@@ -17,7 +17,7 @@ return {
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
-    cmd = { "DiffviewOpen" },
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     config = function()
       require("user.config.git").config.diffview()
     end,
