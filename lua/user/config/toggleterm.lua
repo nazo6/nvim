@@ -6,6 +6,10 @@ _G.toggle_lazygit = function()
       direction = "float",
       hidden = true,
       start_in_insert = true,
+      on_create = function(term)
+        vim.api.nvim_win_set_option(term.bufnr, "scrolloff", 0)
+        vim.api.nvim_win_set_option(term.bufnr, "sidescrolloff", 0)
+      end,
       on_exit = function(t)
         vim.api.nvim_buf_delete(t.bufnr, { force = true })
         _G.term_lazygit = nil
