@@ -11,12 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-local local_spec = pcall(require, "user.local.plugins")
+local available, local_spec = pcall(require, "user.local.plugins")
 local spec
-if local_spec then
+if available then
   spec = {
     { import = "user.plugins" },
-    spec,
+    local_spec,
   }
 else
   spec = "user.plugins"
