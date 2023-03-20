@@ -11,7 +11,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup("user.plugins", {
+local local_spec = pcall(require, "user.local.plugins")
+local spec
+if local_spec then
+  spec = {
+    { import = "user.plugins" },
+    spec,
+  }
+else
+  spec = "user.plugins"
+end
+
+require("lazy").setup(spec, {
   defaults = {
     lazy = true,
   },
