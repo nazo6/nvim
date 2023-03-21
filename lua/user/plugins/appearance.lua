@@ -2,9 +2,11 @@ return {
   { "rebelot/kanagawa.nvim", lazy = false },
   {
     "stevearc/dressing.nvim",
-    event = "VeryLazy",
+    init = function()
+      require("user.config.dressing").init()
+    end,
     config = function()
-      require "user.config.dressing"
+      require("user.config.dressing").config()
     end,
   },
   {
@@ -16,7 +18,7 @@ return {
   },
   {
     "lewis6991/satellite.nvim",
-    event = { "BufRead", "InsertEnter", "FileType" },
+    event = { "BufRead", "InsertEnter", "BufNewFile" },
     config = function()
       require("satellite").setup()
     end,

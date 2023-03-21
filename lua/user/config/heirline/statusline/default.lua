@@ -32,7 +32,8 @@ do
   }
   local FileIcon = {
     init = function(self)
-      self.icon, self.icon_color = require("nvim-web-devicons").get_icon_color_by_filetype(self.filetype, { default = true })
+      self.icon, self.icon_color =
+        require("nvim-web-devicons").get_icon_color_by_filetype(self.filetype, { default = true })
     end,
     provider = function(self)
       return self.icon and (self.icon .. " ")
@@ -132,7 +133,12 @@ local Git = {
 local SupportStatus
 do
   local LSPActive = {
-    condition = conditions.lsp_attached,
+    condition = function()
+      if package.loaded["lspconfig"] then
+        return conditions.lsp_attached()
+      end
+      return false
+    end,
     update = { "LspAttach", "LspDetach" },
 
     provider = function()

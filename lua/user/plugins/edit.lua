@@ -90,7 +90,7 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    event = { "BufRead", "FileType" },
+    event = { "BufRead" },
     config = function()
       require("Comment").setup()
     end,

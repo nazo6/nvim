@@ -1,12 +1,12 @@
 return {
   { "jghauser/mkdir.nvim", event = { "BufWritePre" } },
 
-  { "vim-jp/vimdoc-ja", lazy = false },
+  { "vim-jp/vimdoc-ja", event = { "CmdlineEnter" } },
 
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall" },
-    event = { "WinNew", "WinLeave", "BufRead" },
+    event = { "WinNew", "BufRead" },
     config = function()
       require "user.config.mason"
     end,
@@ -16,20 +16,19 @@ return {
     "folke/noice.nvim",
     event = "VimEnter",
     keys = { ":", "/" },
-    dependencies = {
-      { "MunifTanjim/nui.nvim" },
-      { "rcarriga/nvim-notify" },
-    },
     config = function()
       require "user.config.noice"
     end,
   },
 
+  { "MunifTanjim/nui.nvim" },
   {
     "rcarriga/nvim-notify",
-    lazy = false,
+    init = function()
+      require("user.config.notify").init()
+    end,
     config = function()
-      require "user.config.notify"
+      require("user.config.notify").config()
     end,
   },
 }
