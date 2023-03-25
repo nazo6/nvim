@@ -3,7 +3,7 @@ return {
     vim.keymap.set("n", "<C-f>", "<cmd>Neotree filesystem reveal left toggle<CR>", { silent = true })
   end,
   config = function()
-    vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
+    vim.g.neo_tree_remove_legacy_commands = 1
 
     require("neo-tree").setup {
       close_if_last_window = false,
@@ -11,6 +11,7 @@ return {
       enable_git_status = true,
       enable_diagnostics = true,
       sort_case_insensitive = false,
+      log_level = "warn",
       default_component_configs = {
         container = {
           enable_character_fade = true,
