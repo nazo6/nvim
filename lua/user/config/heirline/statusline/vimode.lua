@@ -1,7 +1,7 @@
 local separators = require("user.config.heirline.utils").separators
 
 return {
-  provider = separators.slant_right,
+  provider = separators.block,
   hl = function(self)
     local mode = self.mode:sub(1, 1)
     return { fg = self.mode_colors[mode] }

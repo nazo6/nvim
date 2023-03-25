@@ -159,7 +159,7 @@ do
         local ft = vim.bo.filetype
         local available_sources = sources.get_available(ft)
         if #available_sources > 0 then
-          text = "煉"
+          text = " 煉"
         end
         for _, source in ipairs(available_sources) do
           text = text .. source.name .. " "
