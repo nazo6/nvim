@@ -26,6 +26,7 @@ for _, quote in ipairs { '"', "'", "`" } do
   )
   insx_add_also_c(quote, auto_pair.strings { open = quote, close = quote })
   insx_add_also_c("<BS>", delete_pair.strings { open_pat = esc(quote), close_pat = esc(quote) })
+  insx_add_also_c("<C-h>", delete_pair.strings { open_pat = esc(quote), close_pat = esc(quote) })
 
   insx.add("<C-]>", fast_wrap { close = quote })
 end
@@ -47,9 +48,11 @@ for open, close in pairs {
   )
   insx_add_also_c(open, auto_pair.strings { open = open, close = close })
   insx_add_also_c("<BS>", delete_pair { open_pat = esc(open), close_pat = esc(close) })
+  insx_add_also_c("<C-h>", delete_pair { open_pat = esc(open), close_pat = esc(close) })
 
   insx.add("<Space>", pair_spacing.increase { open_pat = esc(open), close_pat = esc(close) })
   insx.add("<BS>", pair_spacing.decrease { open_pat = esc(open), close_pat = esc(close) })
+  insx.add("<C-h>", pair_spacing.decrease { open_pat = esc(open), close_pat = esc(close) })
 
   insx.add("<CR>", fast_break { open_pat = esc(open), close_pat = esc(close), split = true })
   insx.add("<C-]>", fast_wrap { close = close })
