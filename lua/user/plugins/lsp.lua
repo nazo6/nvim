@@ -20,15 +20,6 @@ return {
   { "dnlhc/glance.nvim", command = { "Glance" } },
   { "SmiteshP/nvim-navic", event = { "InsertEnter", "BufRead" } },
   {
-    "mrshmllow/document-color.nvim",
-
-    config = function()
-      require("document-color").setup {
-        mode = "background",
-      }
-    end,
-  },
-  {
     "lsp_lines.nvim",
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   },
