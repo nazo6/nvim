@@ -148,7 +148,7 @@ return {
       return vim.fn.executable "node" == 1
     end,
     config = function()
-      require("copilot").setup()
+      require("user.config.copilot").config()
     end,
   },
 }
