@@ -2,6 +2,19 @@ return {
   setup = function()
     -- <C-_> is <C-/>
     vim.keymap.set("n", "<C-_>", "<cmd>TroubleToggle<CR>", { silent = true })
+    vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+      pattern = "quickfix",
+      group = vim.api.nvim_create_augroup("hijack-quickfix", {}),
+      callback = function()
+        local buftype = "quickfix"
+        if vim.fn.getloclist(0, { filewinid = 1 }).filewinid ~= 0 then
+          buftype = "loclist"
+        end
+
+        vim.api.nvim_win_close(0, true)
+        require("trouble").toggle(buftype)
+      end,
+    })
   end,
   config = function()
     require("trouble").setup {
