@@ -1,8 +1,6 @@
 *.log
 flame.svg
-plugin/packer_compiled.lua
-lua/user/local.lua
-dev/
-README.md
 lazy-lock.json
+lua/user/local.lua
 lua/user/local/*
+.luarc.json

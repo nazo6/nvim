@@ -17,11 +17,12 @@ for server_name in pairs(configs.manual) do
   config_fn(server_name)
 end
 
+-- Setup lsp related plugins
 require("lsp_lines").setup()
 require("lsp_signature").setup()
+require("nvim-lightbulb").setup { autocmd = { enabled = true } }
+require("nvim-lightbulb").setup { autocmd = { enabled = true } }
 
 require "user.config.lsp.null-ls"
-
-require "user.config.lsp.glance"
 
 vim.cmd "LspStart"
