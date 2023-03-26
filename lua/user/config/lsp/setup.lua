@@ -20,8 +20,11 @@ end
 -- Setup lsp related plugins
 require("lsp_lines").setup()
 require("lsp_signature").setup()
-require("nvim-lightbulb").setup { autocmd = { enabled = true } }
-require("nvim-lightbulb").setup { autocmd = { enabled = true } }
+require("nvim-lightbulb").setup {
+  autocmd = { enabled = true },
+  sign = { enabled = false },
+  virtual_text = { enabled = true, hl_mode = "combine" },
+}
 
 require "user.config.lsp.null-ls"
 
