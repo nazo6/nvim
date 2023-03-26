@@ -9,7 +9,7 @@ null_ls.setup {
         return not (utils.has_file { ".prettierrc", ".prettierrc.js", "deno.json", "deno.jsonc" })
       end,
     },
-    null_ls.builtins.formatting.prettier.with {
+    null_ls.builtins.formatting.prettierd.with {
       condition = function(utils)
         if vim.bo.filetype == "markdown" then
           return true
