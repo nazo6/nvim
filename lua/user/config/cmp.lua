@@ -34,6 +34,14 @@ cmp.setup {
   },
   formatting = {
     format = require("lspkind").cmp_format {
+      menu = {
+        nvim_lsp = "[LSP]",
+        luasnip = "[snippet]",
+        buffer = "[buffer]",
+        copilot = "[copilot]",
+        calc = "[calc]",
+        path = "[path]",
+      },
       before = function(entry, vim_item)
         if vim_item.kind == "Color" and entry.completion_item.documentation then
           local _, _, r, g, b = string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
