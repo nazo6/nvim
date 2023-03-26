@@ -18,6 +18,7 @@ null_ls.setup {
         end
       end,
       prefer_local = "node_modules/.bin",
+      extra_filetypes = { "svelte" },
     },
     null_ls.builtins.formatting.stylua,
   },
