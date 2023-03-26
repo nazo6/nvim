@@ -14,11 +14,11 @@ return {
     end
 
     vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = true })
-    vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = true })
-    vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = true })
+    vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = true })
+    vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = true })
 
-    vim.keymap.set("n", "gD", "<cmd>Glance definitions<CR>", { buffer = true })
-    vim.keymap.set("n", "gR", "<cmd>Glance references<CR>", { buffer = true })
+    vim.keymap.set("n", "gd", "<cmd>Glance definitions<CR>", { buffer = true })
+    vim.keymap.set("n", "gr", "<cmd>Glance references<CR>", { buffer = true })
 
     vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true })
 

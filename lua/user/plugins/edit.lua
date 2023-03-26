@@ -42,7 +42,7 @@ return {
       end)
     end,
     config = function()
-      require("gtd").setup()
+      require("gtd").setup {}
     end,
   },
   {

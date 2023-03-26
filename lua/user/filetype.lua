@@ -18,6 +18,8 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           -- Technitium DNS Server app
           ["dnsApp.config"] = "json",
           [".styluaignore"] = "gitignore",
+          [".prettierignore"] = "gitignore",
+          [".eslintignore"] = "gitignore",
         },
         pattern = {
           -- For chezmoi
