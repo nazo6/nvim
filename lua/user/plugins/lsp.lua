@@ -18,7 +18,7 @@ return {
   -- { "kosayoda/nvim-lightbulb" },
   { "folke/neodev.nvim" },
   { "b0o/schemastore.nvim" },
-  { "dnlhc/glance.nvim", command = { "Glance" } },
+  { "dnlhc/glance.nvim", cmd = { "Glance" } },
   { "SmiteshP/nvim-navic", event = { "InsertEnter", "BufRead" } },
   {
     "lsp_lines.nvim",
