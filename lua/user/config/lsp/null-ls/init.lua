@@ -2,22 +2,44 @@ local null_ls = require "null-ls"
 
 local common_config = require "user.config.lsp.configs.common"
 
+-- prettier:0, deno_ls:1, deno_fmt:2
+local buf_web_format_type = {}
+
+local function check_web_format_type(bufnr, path)
+  if buf_web_format_type[bufnr] ~= nil then
+    return buf_web_format_type[bufnr]
+  end
+
+  if require("lspconfig").util.root_pattern {
+    ".prettierrc",
+    ".prettierrc.js",
+  }(path) then
+    buf_web_format_type[bufnr] = 0
+    return 0
+  end
+
+  if require("lspconfig").util.root_pattern {
+    "deno.json",
+    "deno.jsonc",
+  }(path) then
+    buf_web_format_type[bufnr] = 1
+    return 1
+  end
+
+  return 2
+end
+
 null_ls.setup {
   sources = {
     null_ls.builtins.formatting.deno_fmt.with {
-      condition = function(utils)
-        return not (utils.has_file { ".prettierrc", ".prettierrc.js", "deno.json", "deno.jsonc" })
+      runtime_condition = function(params)
+        return check_web_format_type(params.bufnr, params.bufname) == 2
       end,
     },
     null_ls.builtins.formatting.prettierd.with {
-      condition = function(utils)
-        if vim.bo.filetype == "markdown" then
-          return true
-        else
-          return utils.has_file { ".prettierrc", ".prettierrc.js" }
-        end
+      runtime_condition = function(params)
+        return check_web_format_type(params.bufnr, params.bufname) == 0
       end,
-      prefer_local = "node_modules/.bin",
       extra_filetypes = { "svelte" },
     },
     null_ls.builtins.formatting.stylua,
