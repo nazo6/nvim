@@ -10,12 +10,14 @@ local highlight = {
     file_sep = { fg = colors.autumnRed, bg = colors.katanaGray },
     file_sep_terminal = { fg = colors.autumnRed },
     navic = { bg = colors.katanaGray },
+    navic_sep = { fg = colors.katanaGray },
   },
   inactive = {
     file = { bg = colors.sakuraPink },
     file_sep = { fg = colors.sakuraPink },
     file_sep_terminal = { fg = colors.sakuraPink },
     navic = {},
+    navic_sep = { fg = "bg" },
   },
   file_modified_icon = {},
   file_readonly_icon = { fg = "orange" },
@@ -142,7 +144,7 @@ local NavicSep = {
     return ""
   end,
   hl = function()
-    return hl_reverse(get_highlight "navic")
+    return get_highlight "navic_sep"
   end,
 }
 
