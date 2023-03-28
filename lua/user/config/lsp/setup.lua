@@ -1,9 +1,9 @@
 local configs = require "user.config.lsp.configs"
 local utils = require "user.config.lsp.utils"
 
-require("mason-lspconfig").setup()
-
 require("neoconf").setup()
+
+require("mason-lspconfig").setup()
 
 require("mason-lspconfig").setup_handlers {
   function(server_name)

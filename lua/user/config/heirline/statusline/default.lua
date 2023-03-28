@@ -144,9 +144,11 @@ do
     provider = function()
       local names = {}
       for i, server in pairs(vim.lsp.get_active_clients { bufnr = 0 }) do
-        table.insert(names, server.name)
+        if server.name ~= "null-ls" and server.name ~= "copilot" then
+          table.insert(names, server.name)
+        end
       end
-      return " [" .. table.concat(names, " ") .. "]"
+      return " " .. table.concat(names, " ")
     end,
     hl = { fg = "green", bold = true },
   }
