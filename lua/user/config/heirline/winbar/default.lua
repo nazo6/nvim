@@ -29,7 +29,22 @@ local function get_highlight(group)
   end
 end
 
+local function hl_reverse(hl)
+  local new = {}
+  if hl.bg then
+    new.fg = hl.bg
+  end
+  if hl.fg then
+    new.bg = hl.fg
+  end
+  return new
+end
+
 local Space = {
+  provider = " ",
+}
+
+local Empty = {
   provider = " ",
 }
 
@@ -97,7 +112,7 @@ do
 end
 
 local FileSep = {
-  provider = separators.slant_right .. "  ",
+  provider = separators.slant_right .. " ",
   hl = function(self)
     if self.navic_available then
       return get_highlight "file_sep"
@@ -119,8 +134,20 @@ local Navic = {
   end,
 }
 
+local NavicSep = {
+  provider = function(self)
+    if self.navic_available then
+      return separators.slant_right
+    end
+    return ""
+  end,
+  hl = function()
+    return hl_reverse(get_highlight "navic")
+  end,
+}
+
 local DefaultWinbar = {
-  { File, FileSep, Navic },
+  { File, FileSep, { flexible = 3, { Navic, NavicSep }, Empty } },
   init = function(self)
     self.filename = vim.api.nvim_buf_get_name(0)
 
