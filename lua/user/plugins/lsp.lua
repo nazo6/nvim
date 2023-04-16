@@ -7,7 +7,7 @@ return {
   {
     "neovim/nvim-lspconfig",
 
-    cmd = { "LspInfo", "LspLog" },
+    cmd = { "LspInfo", "LspLog", "Neoconf" },
     event = { "BufRead" },
     config = function()
       require "user.config.lsp.setup"
@@ -24,10 +24,7 @@ return {
     "lsp_lines.nvim",
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   },
-  {
-    "folke/neoconf.nvim",
-    cmd = "Neoconf",
-  },
+  { "folke/neoconf.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 }
