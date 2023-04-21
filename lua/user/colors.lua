@@ -39,6 +39,7 @@ local overrides = {
   GitSignsDeleteNr = { link = "DiffDelete" },
 
   NeoTreeGitModified = { fg = colors.autumnYellow, bg = "NONE" },
+  Folded = { bg = "#342e4f" },
 }
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
