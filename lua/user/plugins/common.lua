@@ -6,7 +6,7 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall" },
-    event = { "WinNew", "BufRead" },
+    event = { "WinNew", "BufRead", "InsertEnter" },
     config = function()
       require "user.config.mason"
     end,

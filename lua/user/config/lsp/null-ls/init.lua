@@ -10,18 +10,12 @@ local function check_web_format_type(bufnr, path)
     return buf_web_format_type[bufnr]
   end
 
-  if require("lspconfig").util.root_pattern {
-    ".prettierrc",
-    ".prettierrc.js",
-  }(path) then
+  if require("null-ls.utils").root_pattern(".prettierrc", ".prettierrc.js")(path) then
     buf_web_format_type[bufnr] = 0
     return 0
   end
 
-  if require("lspconfig").util.root_pattern {
-    "deno.json",
-    "deno.jsonc",
-  }(path) then
+  if require("null-ls.utils").root_pattern("deno.json", "deno.jsonc")(path) then
     buf_web_format_type[bufnr] = 1
     return 1
   end
@@ -34,6 +28,9 @@ null_ls.setup {
     null_ls.builtins.formatting.deno_fmt.with {
       runtime_condition = function(params)
         return check_web_format_type(params.bufnr, params.bufname) == 2
+      end,
+      condition = function()
+        return vim.fn.executable "deno" == 1
       end,
     },
     null_ls.builtins.formatting.prettierd.with {

@@ -20,6 +20,7 @@ local treesitter = require "nvim-treesitter.configs"
 treesitter.setup {
   auto_install = false,
   highlight = { enable = true },
+  ensure_installed = { "lua", "vim", "vimdoc", "markdown", "markdown_inline" },
   textobjects = {
     select = {
       enable = true,
