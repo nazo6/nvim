@@ -10,7 +10,7 @@ return {
     cmd = { "LspInfo", "LspLog" },
     event = { "BufRead" },
     config = function()
-      require "user.config.lsp.setup"
+      require "user.config.lsp"
     end,
   },
   { "onsails/lspkind-nvim" },
