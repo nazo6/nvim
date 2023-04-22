@@ -10,7 +10,7 @@ local function check_web_format_type(bufnr, path)
     return buf_web_format_type[bufnr]
   end
 
-  if require("null-ls.utils").root_pattern(".prettierrc", ".prettierrc.js")(path) then
+  if require("null-ls.utils").root_pattern(".prettierrc", ".prettierrc.js", ".prettierrc.cjs")(path) then
     buf_web_format_type[bufnr] = 0
     return 0
   end
