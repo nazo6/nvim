@@ -36,29 +36,29 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
-      {
-        "s1n7ax/nvim-window-picker",
-        version = "v1.*",
-        config = function()
-          require("window-picker").setup {
-            autoselect_one = true,
-            include_current = false,
-            filter_rules = {
-              bo = {
-                filetype = { "NvimTree", "neo-tree", "neo-tree-popup", "notify" },
-                buftype = { "terminal", "quickfix" },
-              },
-            },
-            other_win_hl_color = "#e35e4f",
-          }
-        end,
-      },
     },
     init = function()
       require("user.config.neo-tree").setup()
     end,
     config = function()
       require("user.config.neo-tree").config()
+    end,
+  },
+
+  {
+    "s1n7ax/nvim-window-picker",
+    config = function()
+      require("window-picker").setup {
+        autoselect_one = true,
+        include_current = false,
+        filter_rules = {
+          bo = {
+            filetype = { "NvimTree", "neo-tree", "neo-tree-popup", "notify" },
+            buftype = { "terminal", "quickfix" },
+          },
+        },
+        other_win_hl_color = "#e35e4f",
+      }
     end,
   },
 

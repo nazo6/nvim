@@ -116,6 +116,16 @@ return {
         update_root = false,
         ignore_list = {},
       },
+      window_picker = {},
+
+      actions = {
+        open_file = {
+          window_picker = {
+            enable = true,
+            picker = require("window-picker").pick_window,
+          },
+        },
+      },
     }
   end,
 }
