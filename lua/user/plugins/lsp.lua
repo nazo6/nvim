@@ -16,6 +16,7 @@ return {
   { "onsails/lspkind-nvim" },
   { "ray-x/lsp_signature.nvim" },
   -- { "kosayoda/nvim-lightbulb" },
+  { "j-hui/fidget.nvim" },
   { "folke/neodev.nvim" },
   { "b0o/schemastore.nvim" },
   { "dnlhc/glance.nvim", cmd = { "Glance" } },

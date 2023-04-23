@@ -20,6 +20,15 @@ end
 -- Setup lsp related plugins
 require("lsp_lines").setup()
 require("lsp_signature").setup()
+require("fidget").setup {
+  text = {
+    spinner = "dots",
+    done = "✓",
+    commenced = "Started",
+    completed = "Completed",
+  },
+}
+
 -- require("nvim-lightbulb").setup {
 --   autocmd = { enabled = true },
 --   sign = { enabled = false },
