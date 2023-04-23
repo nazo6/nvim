@@ -26,7 +26,7 @@ local overrides = {
   NeoTreeNormalNC = { fg = colors.fujiWhite, bg = colors.sumiInk2 },
   NeoTreeCursorLine = { bg = colors.sumiInk4 },
 
-  ScrollView = { bg = colors.sumiInk4 },
+  ScrollView = { bg = "#342e4f" },
 
   IlluminatedWordText = { fg = "NONE", bg = "#472739" },
   IlluminatedWordRead = { fg = "NONE", bg = "#472739" },
