@@ -1,7 +1,11 @@
 vim.opt.guifont = "PlemolJPConsole NF:h12"
 
 if vim.g.neovide then
-  vim.g.restart_program = "neovide --"
+  if vim.fn.has "wsl" then
+    vim.g.restart_program = "neovide.exe --wsl --"
+  else
+    vim.g.restart_program = "neovide --"
+  end
 end
 
 local restart_startup_cmd = [[":lua require\"user.restart_init\""]]
