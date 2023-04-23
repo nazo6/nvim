@@ -1,8 +1,9 @@
-require("mason").setup()
-
-local index = require "mason-registry.index"
-index["sed"] = "mason-custom-registry.sed"
-index["ripgrep"] = "mason-custom-registry.ripgrep"
+require("mason").setup {
+  registries = {
+    "lua:mason-custom-registry",
+    "github:mason-org/mason-registry",
+  },
+}
 
 local ensure_installed = {}
 
