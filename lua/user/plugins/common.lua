@@ -31,4 +31,11 @@ return {
       require("user.config.notify").config()
     end,
   },
+  {
+    "jedrzejboczar/possession.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require "user.config.possession"
+    end,
+  },
 }

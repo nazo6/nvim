@@ -8,7 +8,7 @@ return {
     "neovim/nvim-lspconfig",
 
     cmd = { "LspInfo", "LspLog", "Neoconf" },
-    event = { "BufRead" },
+    event = { "BufRead", "BufNew" },
     config = function()
       require "user.config.lsp"
     end,

@@ -63,6 +63,18 @@ return {
   },
 
   {
+    "kyazdani42/nvim-tree.lua",
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+    cmd = { "NvimTreeToggle" },
+    init = function()
+      require("user.config.nvim-tree").setup()
+    end,
+    config = function()
+      require("user.config.nvim-tree").config()
+    end,
+  },
+
+  {
     "folke/trouble.nvim",
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
     cmd = { "Trouble", "TroubleToggle" },
