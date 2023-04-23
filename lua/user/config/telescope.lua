@@ -33,5 +33,6 @@ return {
 
     require("telescope").load_extension "zoxide"
     require("telescope").load_extension "lazy"
+    require("telescope").load_extension "possession"
   end,
 }

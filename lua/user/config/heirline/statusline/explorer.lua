@@ -19,7 +19,7 @@ local ExplorerStatusline = {
   hl = hl.bg,
   condition = function()
     return conditions.buffer_matches {
-      filetype = { "neo%-tree" },
+      filetype = { "neo%-tree", "NvimTree" },
     }
   end,
 }

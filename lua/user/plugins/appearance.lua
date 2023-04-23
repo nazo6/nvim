@@ -60,6 +60,7 @@ return {
         },
         filetypes_denylist = {
           "neo-tree",
+          "NvimTree",
         },
       }
     end,
@@ -90,6 +91,15 @@ return {
     end,
     config = function()
       require("user.config.ufo").config()
+    end,
+  },
+
+  {
+    "goolord/alpha-nvim",
+    requires = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+    config = function()
+      require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
 }
