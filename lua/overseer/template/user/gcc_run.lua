@@ -6,7 +6,7 @@ return {
     local output = vim.fn.fnamemodify(vim.fn.expand "%:p:h", ":p") .. file_basename .. ".out"
     return {
       cmd = { "gcc" },
-      args = { file, "-o", output, "&&", output },
+      args = { file, "-o", output, "-lm", "&&", output },
     }
   end,
   condition = {
