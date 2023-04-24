@@ -10,6 +10,14 @@ if vim.g.neovide then
   else
     restart_cmd = "silent! !neovide.exe -- -c " .. load_restart_init_cmd
   end
+elseif vim.g.fvim_loaded then
+  vim.opt.guifont = "PlemolJPConsole NF:h15"
+
+  if vim.fn.has "wsl" == 1 then
+    restart_cmd = "silent! !nohup fvim.exe --wsl -c '" .. load_restart_init_cmd .. "' &"
+  else
+    restart_cmd = "fvim.exe -c " .. load_restart_init_cmd
+  end
 end
 
 vim.api.nvim_create_user_command("Restart", function()
@@ -21,6 +29,5 @@ vim.api.nvim_create_user_command("Restart", function()
 
   require("possession.session").save("restart", { no_confirm = true })
   vim.cmd [[silent! bufdo bwipeout]]
-  vim.cmd(restart_cmd)
-  vim.cmd [[qa!]]
+  vim.fn.jobstart(restart_cmd, { detach = true })
 end, {})
