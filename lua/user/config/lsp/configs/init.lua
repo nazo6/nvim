@@ -27,6 +27,7 @@ M.mason = {
   sqls = require "user.config.lsp.configs.sqls",
   fsautocomplete = require "user.config.lsp.configs.fsautocomplete",
   omnisharp = require "user.config.lsp.configs.omnisharp",
+  clangd = require "user.config.lsp.configs.clangd",
 }
 
 M.manual = {
