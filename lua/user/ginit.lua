@@ -13,7 +13,7 @@ elseif vim.g.fvim_loaded then
   vim.opt.guifont = "PlemolJP Console:h15"
 
   if vim.fn.has "wsl" == 1 then
-    restart_cmd = "silent! !nohup fvim.exe --wsl -c '" .. load_restart_init_cmd .. "' &"
+    restart_cmd = "silent! !nohup fvim.exe --wsl -c " .. load_restart_init_cmd .. " &"
   else
     restart_cmd =
       [=[silent! !powershell -Command "Start-Process -FilePath fvim.exe -ArgumentList '-c','\"lua require[[user.restart_init]]\"' ]=]
