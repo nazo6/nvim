@@ -105,7 +105,7 @@ return {
     requires = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
     config = function()
-      require("alpha").setup(require("alpha.themes.startify").config)
+      require "user.config.alpha"
     end,
   },
 }
