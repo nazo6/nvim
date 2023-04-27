@@ -1,7 +1,10 @@
 return {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "zioroboco/nu-ls.nvim" },
+    },
   },
   { "aznhe21/actions-preview.nvim" },
   {

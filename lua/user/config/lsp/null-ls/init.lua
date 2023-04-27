@@ -23,6 +23,11 @@ local function check_web_format_type(bufnr, path)
   return 2
 end
 
+local nu_ls = require "nu-ls"
+-- nu_ls.condition = function()
+--   return vim.fn.executable "nu" == 1
+-- end
+
 null_ls.setup {
   sources = {
     null_ls.builtins.formatting.deno_fmt.with {
@@ -40,6 +45,7 @@ null_ls.setup {
       extra_filetypes = { "svelte" },
     },
     null_ls.builtins.formatting.stylua,
+    nu_ls,
   },
   default_timeout = 10000,
   capabilities = common_config.capabilities,
