@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           xaml = "xml",
           saty = "satysfi",
           satyh = "satysfi",
-          nu = "nushell",
+          nu = "nu",
         },
         filename = {
           [".swcrc"] = "json",
