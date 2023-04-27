@@ -8,11 +8,11 @@ parser_config.satysfi = {
 }
 parser_config.nu = {
   install_info = {
-    url = "https://github.com/LhKipp/tree-sitter-nu",
-    files = { "src/parser.c", "src/scanner.c" },
+    url = "https://github.com/nushell/tree-sitter-nu",
+    files = { "src/parser.c" },
     branch = "main",
   },
-  filetype = "nushell",
+  filetype = "nu",
 }
 require("tree-sitter-just").setup {}
 
