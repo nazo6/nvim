@@ -40,6 +40,9 @@ local overrides = {
 
   NeoTreeGitModified = { fg = colors.autumnYellow, bg = "NONE" },
   Folded = { bg = "#342e4f" },
+
+  FidgetTitle = { fg = colors.fujiWhite },
+  FidgetTask = { fg = colors.oldWhite },
 }
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
