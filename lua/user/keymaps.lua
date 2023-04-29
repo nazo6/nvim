@@ -34,3 +34,37 @@ end, {
 
 set("n", "K", "<Nop>")
 set("n", "<C-c>", "<Nop>")
+
+set("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>")
+
+set("n", "<leader>r", function()
+  local Input = require "nui.input"
+  local event = require("nui.utils.autocmd").event
+  local input = Input({
+    position = "50%",
+    relative = "editor",
+    size = {
+      width = 50,
+    },
+    border = {
+      style = "rounded",
+      text = {
+        top = "Restarting neovim. OK? (Y/N)",
+        top_align = "center",
+      },
+    },
+  }, {
+    on_submit = function(value)
+      if value:lower() == "y" then
+        vim.cmd [[Restart]]
+      end
+    end,
+  })
+  input:mount()
+  input:map("i", "<Esc>", function()
+    input:unmount()
+  end)
+  input:on(event.BufLeave, function()
+    input:unmount()
+  end)
+end)
