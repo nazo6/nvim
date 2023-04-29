@@ -100,12 +100,12 @@ return {
     end,
   },
 
-  {
-    "goolord/alpha-nvim",
-    requires = { "nvim-tree/nvim-web-devicons" },
-    lazy = false,
-    config = function()
-      require "user.config.alpha"
-    end,
-  },
+  -- {
+  --   "goolord/alpha-nvim",
+  --   requires = { "nvim-tree/nvim-web-devicons" },
+  --   lazy = false,
+  --   config = function()
+  --     require "user.config.alpha"
+  --   end,
+  -- },
 }

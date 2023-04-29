@@ -10,4 +10,6 @@ require "user.filetype"
 require "user.keymaps"
 require "user.colors"
 
+require "restart"
+
 pcall(require, "user.local")

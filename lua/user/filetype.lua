@@ -2,6 +2,7 @@ local loaded = false
 
 vim.api.nvim_create_autocmd("BufReadPre", {
   group = vim.api.nvim_create_augroup("custom-filetype", {}),
+  once = true,
   callback = function(ctx)
     if not loaded then
       loaded = true
