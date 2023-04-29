@@ -1,7 +1,5 @@
 local null_ls = require "null-ls"
 
-local common_config = require "user.config.lsp.configs.common"
-
 -- prettier:0, deno_ls:1, deno_fmt:2
 local buf_web_format_type = {}
 
@@ -48,8 +46,6 @@ null_ls.setup {
     nu_ls,
   },
   default_timeout = 10000,
-  capabilities = common_config.capabilities,
-  on_attach = common_config.on_attach,
 }
 
 null_ls.register(require "user.config.lsp.null-ls.satysfi-fmt")

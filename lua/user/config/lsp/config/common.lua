@@ -1,14 +1,8 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
-capabilities.textDocument.colorProvider = {
-  dynamicRegistration = true,
-}
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ctx)
+    local client = vim.lsp.get_client_by_id(ctx.data.client_id)
+    local bufnr = ctx.buf
 
-return {
-  on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
     end
@@ -61,27 +55,34 @@ return {
       end,
     })
   end,
-  capabilities = capabilities,
-  handlers = {
-    ["textDocument/hover"] = function(_, result, ctx, config)
-      local util = require "vim.lsp.util"
+})
 
-      config = config or {}
-      config.border = "rounded"
-      config.focus_id = ctx.method
-
-      if not (result and result.contents) then
-        return
-      end
-      local markdown_lines = util.convert_input_to_markdown_lines(result.contents, {})
-      markdown_lines = util.trim_empty_lines(markdown_lines)
-      if vim.tbl_isempty(markdown_lines) then
-        return
-      end
-      if #markdown_lines == 1 and markdown_lines[1] == "" then
-        return
-      end
-      return util.open_floating_preview(markdown_lines, "markdown", config)
-    end,
-  },
+local client_capabilities = require("cmp_nvim_lsp").default_capabilities()
+client_capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
 }
+client_capabilities.textDocument.colorProvider = {
+  dynamicRegistration = true,
+}
+
+vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+  local util = require "vim.lsp.util"
+
+  config = config or {}
+  config.border = "rounded"
+  config.focus_id = ctx.method
+
+  if not (result and result.contents) then
+    return
+  end
+  local markdown_lines = util.convert_input_to_markdown_lines(result.contents, {})
+  markdown_lines = util.trim_empty_lines(markdown_lines)
+  if vim.tbl_isempty(markdown_lines) then
+    return
+  end
+  if #markdown_lines == 1 and markdown_lines[1] == "" then
+    return
+  end
+  return util.open_floating_preview(markdown_lines, "markdown", config)
+end

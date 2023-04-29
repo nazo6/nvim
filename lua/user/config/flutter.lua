@@ -50,7 +50,7 @@ require("flutter-tools").setup {
     autostart = true,
     autoopen_browser = true,
   },
-  lsp = vim.tbl_extend("force", require("user.config.lsp.utils").create_config {}, {
+  lsp = vim.tbl_extend("force", require("user.config.lsp.config.utils").create_config {}, {
     settings = { showTodos = true, completeFunctionCalls = true },
   }),
 }

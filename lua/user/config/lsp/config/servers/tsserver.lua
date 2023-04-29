@@ -1,4 +1,4 @@
-local create_config = require("user.config.lsp.utils").create_config
+local create_config = require("user.config.lsp.config.utils").create_config
 local root_pattern = require("lspconfig").util.root_pattern
 
 local node_root_pattern = root_pattern("package.json", "tsconfig.json")
