@@ -4,3 +4,5 @@ lazy-lock.json
 lua/user/local.lua
 lua/user/local/*
 .luarc.json
+profile.nvim
+profile.json

@@ -1,4 +1,6 @@
-require "user.early-settings"
+require "user.profile"
+
+require "user.early-init"
 
 if vim.fn.has "gui_running" then
   require "user.ginit"
