@@ -7,7 +7,7 @@ local function no_formatting(client)
   client.server_capabilities.documentFormattingProvider = false
 end
 
-M.mason = {
+return {
   tsserver = require "user.config.lsp.config.servers.tsserver",
   vtsls = require "user.config.lsp.config.servers.vtsls",
   denols = require "user.config.lsp.config.servers.denols",
@@ -30,5 +30,3 @@ M.mason = {
   clangd = require "user.config.lsp.config.servers.clangd",
   satysfi = create_setup {},
 }
-
-return M

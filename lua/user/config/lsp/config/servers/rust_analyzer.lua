@@ -1,7 +1,5 @@
-local create_config = require("user.config.lsp.config.utils").create_config
-
 return function(server)
-  local config = create_config {
+  local config = {
     settings = {
       ["rust-analyzer"] = {
         checkOnSave = {
