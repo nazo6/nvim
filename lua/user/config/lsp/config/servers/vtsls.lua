@@ -12,5 +12,4 @@ return create_setup {
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
   single_file_support = false,
- }
-
+}

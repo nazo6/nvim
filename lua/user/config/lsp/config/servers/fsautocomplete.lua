@@ -1,3 +1,3 @@
 return function(server)
-  require("ionide").setup({})
+  require("ionide").setup {}
 end

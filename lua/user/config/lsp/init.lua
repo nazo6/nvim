@@ -2,7 +2,7 @@ require("neoconf").setup()
 
 require("mason-lspconfig").setup()
 
-require"user.config.lsp.config"
+require "user.config.lsp.config"
 
 local function percentage_bar(percentage)
   local length = 12

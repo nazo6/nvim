@@ -1,4 +1,4 @@
-local M ={}
+local M = {}
 
 M.create_setup = function(server_config)
   return function(server_name)
@@ -7,6 +7,6 @@ M.create_setup = function(server_config)
   end
 end
 
-M.default_setup = M.create_setup({})
+M.default_setup = M.create_setup {}
 
 return M

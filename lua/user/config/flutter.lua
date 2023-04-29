@@ -52,7 +52,7 @@ require("flutter-tools").setup {
   },
   lsp = {
     settings = { showTodos = true, completeFunctionCalls = true },
-  }),
+  },
 }
 
 vim.api.nvim_create_augroup("FlutterOutlineMap", {})
