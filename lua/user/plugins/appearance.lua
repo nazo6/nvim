@@ -85,7 +85,6 @@ return {
       "kevinhwang91/promise-async",
       {
         "luukvbaal/statuscol.nvim",
-        cond = not require("user.utils").is_win,
         config = function()
           local builtin = require "statuscol.builtin"
           require("statuscol").setup {
