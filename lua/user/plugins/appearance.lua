@@ -1,5 +1,12 @@
 return {
-  { "rebelot/kanagawa.nvim", lazy = false },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require "user.config.colors"
+    end,
+  },
   {
     "stevearc/dressing.nvim",
     init = function()

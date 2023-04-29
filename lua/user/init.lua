@@ -10,7 +10,6 @@ require "user.options"
 require "user.lazy"
 require "user.filetype"
 require "user.keymaps"
-require "user.colors"
 
 require "restart"
 

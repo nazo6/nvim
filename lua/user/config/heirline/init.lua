@@ -1,9 +1,6 @@
-require("kanagawa").load "wave"
-local utils = require "user.config.heirline.utils"
-
 require("heirline").setup {
-  statusline = utils.lrequire "statusline",
-  winbar = utils.lrequire "winbar",
+  statusline = require "user.config.heirline.statusline",
+  winbar = require "user.config.heirline.winbar",
   opts = {
     disable_winbar_cb = function(args)
       local buf = args.buf

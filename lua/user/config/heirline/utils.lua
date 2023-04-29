@@ -1,7 +1,4 @@
 return {
-  lrequire = function(mod)
-    return require("user.config.heirline." .. mod)
-  end,
   -- weztermでは半角だがwindows terminalでは全角で表示される記号がある
   -- 実際には両方で半角文字として認識されているがwindows terminalでは無理やり表示(はみ出す)、weztermでは半角に縮小されて表示されていると考えられる
   -- とりあえずwindows terminalに合わせてスペースを追加してある(前方にはみ出す記号があり、cellwidthsでは対処できなかった)
@@ -27,5 +24,5 @@ return {
     right_rounded_thin = "",
     circle = "● ",
   },
-  colors = require("kanagawa.colors").setup().palette,
+  colors = vim.g.palette,
 }

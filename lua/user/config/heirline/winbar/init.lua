@@ -1,10 +1,8 @@
-local lrequire = require("user.config.heirline.utils").lrequire
-
 local Winbar = {
   fallthrough = false,
 
-  lrequire "winbar.explorer",
-  lrequire "winbar.default",
+  require "user.config.heirline.winbar.explorer",
+  require "user.config.heirline.winbar.default",
 }
 
 return Winbar
