@@ -33,4 +33,12 @@ return {
       vim.g.suda_smart_edit = 1
     end,
   },
+
+  {
+    "ActivityWatch/aw-watcher-vim",
+    event = { "BufReadPre" },
+    config = function()
+      vim.cmd [[AWStart]]
+    end,
+  },
 }
