@@ -1,8 +1,11 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    init = function()
+      require("user.config.dap").init()
+    end,
     config = function()
-      require "user.config.dap"
+      require("user.config.dap").config()
     end,
   },
   {
@@ -10,5 +13,9 @@ return {
   },
   {
     "theHamsta/nvim-dap-virtual-text",
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    requires = { "williamboman/mason.nvim" },
   },
 }

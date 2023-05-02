@@ -24,10 +24,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { buffer = true }
     )
     vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>", { buffer = true })
-    vim.keymap.set("n", "<leader>d", function()
-      local virtual_lines_enabled = not vim.diagnostic.config().virtual_lines
-      vim.diagnostic.config { virtual_lines = virtual_lines_enabled, virtual_text = not virtual_lines_enabled }
-    end, { buffer = true })
+    -- vim.keymap.set("n", "<leader>d", function()
+    --   local virtual_lines_enabled = not vim.diagnostic.config().virtual_lines
+    --   vim.diagnostic.config { virtual_lines = virtual_lines_enabled, virtual_text = not virtual_lines_enabled }
+    -- end, { buffer = true })
 
     vim.keymap.set(
       "n",
