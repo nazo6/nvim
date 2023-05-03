@@ -18,6 +18,11 @@ return {
           },
         },
       },
+      pickers = {
+        keymaps = {
+          show_plug = false,
+        },
+      },
       extensions = {
         zoxide = {
           mappings = {
