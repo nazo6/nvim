@@ -156,11 +156,24 @@ return {
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    cond = function()
-      return vim.fn.executable "node" == 1
-    end,
     config = function()
       require("user.config.copilot").config()
+    end,
+  },
+
+  {
+    "ActivityWatch/aw-watcher-vim",
+    event = { "BufRead", "BufNewFile", "InsertEnter" },
+    init = function()
+      vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+        group = vim.api.nvim_create_augroup("setup-aw", {}),
+        callback = function()
+          vim.g.aw_apiurl_host = require("user.utils").get_host()
+        end,
+      })
+    end,
+    config = function()
+      vim.cmd [[silent AWStart]]
     end,
   },
 }

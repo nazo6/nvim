@@ -1,20 +1,21 @@
 local M = {}
 
---- @vararg function|nil
-M.merge_functions = function(...)
-  local fns = { ... }
-  return function(...)
-    for _, fn in ipairs(fns) do
-      if fn ~= nil then
-        fn(...)
-      end
-    end
-  end
-end
-
 M.os = vim.loop.os_uname().sysname
 
 M.is_win = M.os == "Windows_NT"
+
+local host_cached = nil
+M.get_host = function()
+  if vim.fn.has "wsl" == 1 then
+    if host_cached == nil then
+      host_cached = vim.fn.system "cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2"
+      host_cached = host_cached:gsub("^%s*(.-)%s*$", "%1")
+    end
+    return host_cached
+  end
+
+  return "localhost"
+end
 
 M.send_key = function(key)
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "")

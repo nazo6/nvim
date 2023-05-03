@@ -1,8 +1,7 @@
 *.log
 flame.svg
 lazy-lock.json
-lua/user/local/init.lua
-lua/user/local/plugins.lua
+lua/user/local/*
 .luarc.json
 profile.nvim
 profile.json

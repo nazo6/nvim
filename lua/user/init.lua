@@ -1,5 +1,6 @@
 require "user.profile"
 
+pcall(require, "user.local.early-init")
 require "user.early-init"
 
 if vim.fn.has "gui_running" then
