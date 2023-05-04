@@ -163,17 +163,15 @@ return {
 
   {
     "ActivityWatch/aw-watcher-vim",
-    event = { "BufRead", "BufNewFile", "InsertEnter" },
     init = function()
-      vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+      vim.api.nvim_create_autocmd({ "BufReadPre", "InsertEnter" }, {
         group = vim.api.nvim_create_augroup("setup-aw", {}),
         callback = function()
           vim.g.aw_apiurl_host = require("user.utils").get_host()
+          require("lazy").load { plugins = { "aw-watcher-vim" } }
+          vim.cmd [[silent AWStart]]
         end,
       })
-    end,
-    config = function()
-      vim.cmd [[silent AWStart]]
     end,
   },
 }
