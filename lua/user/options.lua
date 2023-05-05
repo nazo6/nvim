@@ -4,7 +4,9 @@ local opt = vim.opt
 opt.shortmess:append "I"
 
 opt.mouse = "a"
-opt.mousemodel = "extend"
+opt.mousemodel = "popup"
+vim.cmd.aunmenu { "PopUp.How-to\\ disable\\ mouse" }
+vim.cmd.aunmenu { "PopUp.-1-" }
 
 if vim.fn.has "wsl" == 1 then
   vim.g.clipboard = {
