@@ -58,6 +58,7 @@ require("flutter-tools").setup {
 vim.api.nvim_create_augroup("FlutterOutlineMap", {})
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = "FlutterOutlineMap",
+  once = true,
   pattern = { "dart", "flutterToolsOutline" },
   callback = function()
     vim.keymap.set("n", "<leader>o", "<cmd>FlutterOutlineToggle<CR>", { buffer = true })
