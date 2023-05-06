@@ -2,15 +2,15 @@ local M = {}
 
 M.init = function()
   require "user.config.git.def"
-  vim.keymap.set(
+  map(
     "n",
     "<C-g><C-b>",
     "<cmd>lua require('gitsigns').toggle_current_line_blame()<CR>",
     { desc = "Stage hunk" }
   )
 
-  vim.keymap.set("n", "<C-g><C-d>", "<cmd>DiffviewOpen<CR>")
-  vim.keymap.set("n", "<C-g><C-h>", "<cmd>DiffviewFileHistory<CR>")
+  map("n", "<C-g><C-d>", "<cmd>DiffviewOpen<CR>")
+  map("n", "<C-g><C-h>", "<cmd>DiffviewFileHistory<CR>")
 end
 
 M.config = {

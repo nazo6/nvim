@@ -1,30 +1,28 @@
-local set = vim.keymap.set
+map("n", "k", "gk")
+map("n", "gk", "k")
+map("n", "j", "gj")
+map("n", "gj", "j")
 
-set("n", "k", "gk")
-set("n", "gk", "k")
-set("n", "j", "gj")
-set("n", "gj", "j")
+map("n", "<S-h>", "^")
+map("n", "<S-l>", "$")
 
-set("n", "<S-h>", "^")
-set("n", "<S-l>", "$")
+map("n", "<S-Right>", "<C-w><")
+map("n", "<S-Left>", "<C-w>>")
+map("n", "<S-Up>", "<C-w>+")
+map("n", "<S-Down>", "<C-w>-")
 
-set("n", "<S-Right>", "<C-w><")
-set("n", "<S-Left>", "<C-w>>")
-set("n", "<S-Up>", "<C-w>+")
-set("n", "<S-Down>", "<C-w>-")
+map({ "n", "x" }, "c", [["_c]])
+map({ "n", "x" }, "d", [["_d]])
 
-set({ "n", "x" }, "c", [["_c]])
-set({ "n", "x" }, "d", [["_d]])
+map("n", "<C-s>", [[:%s/]])
 
-set("n", "<C-s>", [[:%s/]])
+map("n", "<A-v>", "<C-w><C-v>")
+map("n", "<A-s>", "<C-w><C-s>")
 
-set("n", "<A-v>", "<C-w><C-v>")
-set("n", "<A-s>", "<C-w><C-s>")
+map("n", "<leader>q", "<cmd>q<CR>")
+map("n", "<leader>w", "<cmd>w<CR>")
 
-set("n", "<leader>q", "<cmd>q<CR>")
-set("n", "<leader>w", "<cmd>w<CR>")
-
-set("n", "<esc>", function()
+map("n", "<esc>", function()
   if vim.api.nvim_win_get_config(0).zindex then
     vim.cmd [[quit]]
   end
@@ -32,12 +30,12 @@ end, {
   desc = "close window if it's a popup",
 })
 
-set("n", "K", "<Nop>")
-set("n", "<C-c>", "<Nop>")
+map("n", "K", "<Nop>")
+map("n", "<C-c>", "<Nop>")
 
-set("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>")
+map("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>")
 
-set("n", "<leader>r", function()
+map("n", "<leader>r", function()
   local Input = require "nui.input"
   local event = require("nui.utils.autocmd").event
   local input = Input({

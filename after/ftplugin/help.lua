@@ -1,4 +1,4 @@
-vim.keymap.set("n", "K", function()
+map("n", "K", function()
   local word = vim.fn.expand "<cword>"
   vim.cmd("help " .. word)
 end)

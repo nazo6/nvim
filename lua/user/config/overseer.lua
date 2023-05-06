@@ -1,8 +1,8 @@
 return {
   init = function()
-    vim.keymap.set("n", "<F4>", "<cmd>OverseerRun<CR>")
-    vim.keymap.set("n", "<C-t>", "<cmd>OverseerRun<CR>")
-    vim.keymap.set("n", "<leader>o", "<cmd>OverseerToggle<CR>")
+    map("n", "<F4>", "<cmd>OverseerRun<CR>")
+    map("n", "<C-t>", "<cmd>OverseerRun<CR>")
+    map("n", "<leader>o", "<cmd>OverseerToggle<CR>")
   end,
   config = function()
     require("overseer").setup {

@@ -23,5 +23,5 @@ if should_profile ~= nil then
       prof.start "*"
     end
   end
-  vim.keymap.set("", "<f1>", toggle_profile)
+  map("", "<f1>", toggle_profile)
 end

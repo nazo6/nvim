@@ -1,7 +1,7 @@
 return {
   setup = function()
     -- <C-_> is <C-/>
-    vim.keymap.set("n", "<C-_>", "<cmd>TroubleToggle<CR>", { silent = true })
+    map("n", "<C-_>", "<cmd>TroubleToggle<CR>", { silent = true })
     vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
       pattern = "quickfix",
       group = vim.api.nvim_create_augroup("hijack-quickfix", {}),

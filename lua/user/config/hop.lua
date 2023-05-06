@@ -1,8 +1,8 @@
 return {
   setup = function()
-    vim.keymap.set("n", "f", "<cmd>HopChar1CurrentLineAC<CR>")
-    vim.keymap.set("n", "F", "<cmd>HopChar1CurrentLineBC<CR>")
-    vim.keymap.set("n", "<leader><leader>", "<cmd>HopWord<CR>")
+    map("n", "f", "<cmd>HopChar1CurrentLineAC<CR>")
+    map("n", "F", "<cmd>HopChar1CurrentLineBC<CR>")
+    map("n", "<leader><leader>", "<cmd>HopWord<CR>")
   end,
   config = function()
     require("hop").setup()

@@ -1,6 +1,6 @@
 return {
   setup = function()
-    -- vim.keymap.set("n", "<C-f>", "<cmd>Neotree filesystem reveal left toggle<CR>", { silent = true })
+    -- map("n", "<C-f>", "<cmd>Neotree filesystem reveal left toggle<CR>", { silent = true })
   end,
   config = function()
     vim.g.neo_tree_remove_legacy_commands = 1

@@ -37,7 +37,7 @@ return {
     "hrsh7th/nvim-gtd",
     event = { "WinNew" },
     init = function()
-      vim.keymap.set("n", "gf", function()
+      map("n", "gf", function()
         require("gtd").exec { command = "edit" }
       end)
     end,

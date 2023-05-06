@@ -61,6 +61,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   once = true,
   pattern = { "dart", "flutterToolsOutline" },
   callback = function()
-    vim.keymap.set("n", "<leader>o", "<cmd>FlutterOutlineToggle<CR>", { buffer = true })
+    map("n", "<leader>o", "<cmd>FlutterOutlineToggle<CR>", { buffer = true })
   end,
 })

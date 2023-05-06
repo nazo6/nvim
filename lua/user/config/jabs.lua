@@ -1,6 +1,6 @@
 return {
   setup = function()
-    vim.keymap.set("n", "<leader><Tab>", "<cmd>JABSOpen<CR>")
+    map("n", "<leader><Tab>", "<cmd>JABSOpen<CR>")
   end,
   config = function()
     require("jabs").setup {

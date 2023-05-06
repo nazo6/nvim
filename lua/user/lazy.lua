@@ -52,4 +52,4 @@ require("lazy").setup(spec, {
   },
 })
 
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { buffer = true })
+map("n", "<leader>l", "<cmd>Lazy<CR>", { buffer = true })

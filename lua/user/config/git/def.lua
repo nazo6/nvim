@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<Plug>GitCommit", function()
+map("n", "<Plug>GitCommit", function()
   local Input = require "nui.input"
   local event = require("nui.utils.autocmd").event
   local input = Input({

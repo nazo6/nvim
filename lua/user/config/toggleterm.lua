@@ -21,21 +21,21 @@ end
 
 return {
   setup = function()
-    vim.keymap.set("n", [[<c-\>]], '<cmd>execute v:count1 . "ToggleTerm"<cr>', { desc = "[toggleterm] toggle" })
-    vim.keymap.set("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
-    vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
+    map("n", [[<c-\>]], '<cmd>execute v:count1 . "ToggleTerm"<cr>', { desc = "[toggleterm] toggle" })
+    map("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
+    map("t", "<ESC>", "<C-\\><C-n>")
 
-    vim.keymap.set("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
-    vim.keymap.set("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
+    map("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
+    map("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
 
-    vim.keymap.set("n", "<C-g><C-l>", "<cmd>lua _G.toggle_lazygit()<CR>", { desc = "Toggle lazygit" })
+    map("n", "<C-g><C-l>", "<cmd>lua _G.toggle_lazygit()<CR>", { desc = "Toggle lazygit" })
 
     local termau = vim.api.nvim_create_augroup("terminal", { clear = true })
     vim.api.nvim_create_autocmd("TermOpen", {
       pattern = "*",
       group = termau,
       callback = function()
-        vim.keymap.set("n", "q", [[<cmd>q<CR>]], { buffer = 0, desc = "Quit terminal buffer" })
+        map("n", "q", [[<cmd>q<CR>]], { buffer = 0, desc = "Quit terminal buffer" })
       end,
     })
   end,
