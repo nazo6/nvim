@@ -1,4 +1,6 @@
 return function(server)
+  local rt = require "rust-tools"
+
   local config = {
     settings = {
       ["rust-analyzer"] = {
@@ -7,9 +9,12 @@ return function(server)
         },
       },
     },
+    on_attach = function(_, bufnr)
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+    end,
   }
 
-  require("rust-tools").setup {
+  rt.setup {
     server = config,
   }
 end
