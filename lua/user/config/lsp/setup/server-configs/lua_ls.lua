@@ -1,4 +1,4 @@
-local create_setup = require("user.config.lsp.config.utils").create_setup
+local create_setup = require("user.config.lsp.setup.config-builder").create_setup
 
 require("neodev").setup {
   library = {

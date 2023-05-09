@@ -1,4 +1,4 @@
-local create_setup = require("user.config.lsp.config.utils").create_setup
+local create_setup = require("user.config.lsp.setup.config-builder").create_setup
 local root_pattern = require("lspconfig").util.root_pattern
 
 local deno_root_pattern = root_pattern("deno.json", "deps.ts", "deno.jsonc")

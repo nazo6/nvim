@@ -7,12 +7,7 @@ return {
     map("n", "<F11>", ":lua require'dap'.step_into()<CR>", { desc = "[dap] Step into" })
     map("n", "<F12>", ":lua require'dap'.step_out()<CR>", { desc = "[dap] Step out" })
     map("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", { desc = "[dap] Toggle breakpoint" })
-    map(
-      "n",
-      "<leader>bc",
-      ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-      {}
-    )
+    map("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {})
   end,
   config = function()
     require("nvim-dap-virtual-text").setup {}

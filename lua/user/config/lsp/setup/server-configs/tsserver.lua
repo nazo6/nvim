@@ -1,9 +1,10 @@
+local create_config = require("user.config.lsp.setup.config-builder").create_config
 local root_pattern = require("lspconfig").util.root_pattern
 
 local node_root_pattern = root_pattern("package.json", "tsconfig.json")
 
 return function(server_name)
-  local config = {
+  local config = create_config {
     root_dir = node_root_pattern,
     on_attach = function(client)
       client.server_capabilities.documentFormattingProvider = false

@@ -1,10 +1,8 @@
-local server_configs = require "user.config.lsp.config.servers"
-local default_setup = require("user.config.lsp.config.utils").default_setup
+local server_configs = require "user.config.lsp.setup.server-configs"
+local default_setup = require("user.config.lsp.setup.config-builder").default_setup
 
 local servers = require("mason-lspconfig").get_installed_servers()
 vim.list_extend(servers, { "satysfi" })
-
-require "user.config.lsp.config.common"
 
 local lsp_augroup = vim.api.nvim_create_augroup("lsp_setup", {})
 
@@ -32,3 +30,6 @@ for _, server_name in ipairs(servers) do
 
   ::continue::
 end
+
+require "user.config.lsp.setup.attach"
+require "user.config.lsp.setup.handlers"
