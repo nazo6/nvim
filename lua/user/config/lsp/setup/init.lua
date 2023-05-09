@@ -24,7 +24,9 @@ for _, server_name in ipairs(servers) do
     pattern = server.default_config.filetypes,
     callback = function()
       config_fn(server_name)
-      vim.cmd [[LspStart]]
+      vim.defer_fn(function()
+        vim.cmd [[doautocmd BufRead]]
+      end, 0)
     end,
   })
 

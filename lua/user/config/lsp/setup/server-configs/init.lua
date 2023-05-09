@@ -3,7 +3,7 @@ local create_setup = require("user.config.lsp.setup.config-builder").create_setu
 local root_pattern = require("lspconfig").util.root_pattern
 
 local srequire = function(server)
-  require("user.config.lsp.setup.server-configs." .. server)
+  return require("user.config.lsp.setup.server-configs." .. server)
 end
 
 return {
