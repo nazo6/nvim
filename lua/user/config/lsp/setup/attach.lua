@@ -1,4 +1,5 @@
-local lsp_format = function(config)
+local lsp_format = function(c)
+  local config = c or {}
   local null_ls_sources = require "null-ls.sources"
   local ft = vim.bo.filetype
 
