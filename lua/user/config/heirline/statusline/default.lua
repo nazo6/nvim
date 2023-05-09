@@ -143,12 +143,19 @@ do
 
     provider = function()
       local names = {}
+      local copilot = false
       for i, server in pairs(vim.lsp.get_active_clients { bufnr = 0 }) do
         if server.name ~= "null-ls" and server.name ~= "copilot" then
           table.insert(names, server.name)
+        elseif server.name == "copilot" then
+          copilot = true
         end
       end
-      return " " .. table.concat(names, " ")
+      local text = " " .. table.concat(names, " ")
+      if copilot then
+        text = "  " .. text
+      end
+      return text
     end,
     hl = { fg = "green", bold = true },
   }
@@ -161,7 +168,7 @@ do
         local ft = vim.bo.filetype
         local available_sources = sources.get_available(ft)
         if #available_sources > 0 then
-          text = " 煉 "
+          text = "  "
         end
         for _, source in ipairs(available_sources) do
           text = text .. source.name .. " "
