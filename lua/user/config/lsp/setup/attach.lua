@@ -1,5 +1,23 @@
+local lsp_format = function(config)
+  local null_ls_sources = require "null-ls.sources"
+  local ft = vim.bo.filetype
+
+  local has_null_ls = #null_ls_sources.get_available(ft, "NULL_LS_FORMATTING") > 0
+
+  vim.lsp.buf.format(vim.tbl_deep_extend("force", config, {
+    filter = function(client)
+      if has_null_ls then
+        return client.name == "null-ls"
+      else
+        return true
+      end
+    end,
+  }))
+end
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ctx)
+    local map = vim.keymap.set
     local client = vim.lsp.get_client_by_id(ctx.data.client_id)
     local bufnr = ctx.buf
 
@@ -24,7 +42,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --   vim.diagnostic.config { virtual_lines = virtual_lines_enabled, virtual_text = not virtual_lines_enabled }
     -- end, { buffer = bufnr })
 
-    map("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 7000, async = true })<CR>", { buffer = bufnr })
+    map("n", "<leader>f", function()
+      lsp_format()
+    end, { buffer = bufnr })
 
     map("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", { buffer = bufnr })
     map("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", { buffer = bufnr })
@@ -36,7 +56,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       group = "LspFormat" .. bufnr,
       buffer = bufnr,
       callback = function()
-        vim.lsp.buf.format { timeout_ms = 7000, async = false }
+        lsp_format { timeout_ms = 7000, async = false }
       end,
     })
   end,

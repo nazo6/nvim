@@ -2,7 +2,6 @@ local create_setup = require("user.config.lsp.setup.config-builder").create_setu
 
 return create_setup {
   on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
     require("sqls").on_attach(client, bufnr)
   end,
   settings = {

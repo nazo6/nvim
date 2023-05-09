@@ -1,11 +1,6 @@
-local M = {}
-
 local create_setup = require("user.config.lsp.setup.config-builder").create_setup
 
 local root_pattern = require("lspconfig").util.root_pattern
-local function no_formatting(client)
-  client.server_capabilities.documentFormattingProvider = false
-end
 
 local srequire = function(server)
   require("user.config.lsp.setup.server-configs." .. server)
@@ -15,10 +10,7 @@ return {
   tsserver = srequire "tsserver",
   vtsls = srequire "vtsls",
   denols = srequire "denols",
-  cssls = create_setup { on_attach = no_formatting },
-  html = create_setup { on_attach = no_formatting },
   jsonls = create_setup {
-    on_attach = no_formatting,
     filetypes = { "json", "jsonc" },
     settings = {
       json = {
@@ -37,5 +29,4 @@ return {
   fsautocomplete = srequire "fsautocomplete",
   omnisharp = srequire "omnisharp",
   clangd = srequire "clangd",
-  satysfi = create_setup {},
 }
