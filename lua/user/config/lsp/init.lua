@@ -1,4 +1,11 @@
-require("neoconf").setup()
+require("neoconf").setup {
+  plugins = {
+    jsonls = {
+      enabled = true,
+      configured_servers_only = false,
+    },
+  },
+}
 
 require("mason-lspconfig").setup()
 
