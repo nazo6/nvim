@@ -12,16 +12,8 @@ return {
     end,
   },
 
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VimEnter",
-  --   keys = { ":", "/" },
-  --   config = function()
-  --     require "user.config.noice"
-  --   end,
-  -- },
-
   { "MunifTanjim/nui.nvim" },
+
   {
     "rcarriga/nvim-notify",
     init = function()

@@ -29,23 +29,6 @@ return {
   },
 
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    cmd = { "Neotree" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    init = function()
-      require("user.config.neo-tree").setup()
-    end,
-    config = function()
-      require("user.config.neo-tree").config()
-    end,
-  },
-
-  {
     "s1n7ax/nvim-window-picker",
     config = function()
       require("window-picker").setup {
