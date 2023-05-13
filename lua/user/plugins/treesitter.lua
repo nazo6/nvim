@@ -17,7 +17,7 @@ return {
   },
   {
     "atusy/tsnode-marker.nvim",
-    filetype = { "markdown", "help" },
+    ft = { "markdown", "help" },
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),

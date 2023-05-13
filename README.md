@@ -62,5 +62,5 @@ use it.
 
 ## Credits
 
-- after/queries/nu/\* from
+- after/queries/satysfi/\* from
   [monaqa/tree-sitter-satysfi](https://github.com/monaqa/tree-sitter-satysfi/)

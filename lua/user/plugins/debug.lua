@@ -16,6 +16,6 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    requires = { "williamboman/mason.nvim" },
+    dependencies = { "williamboman/mason.nvim" },
   },
 }
