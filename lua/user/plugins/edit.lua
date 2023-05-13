@@ -63,7 +63,9 @@ return {
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function()
-      require("leap").add_default_mappings()
+      map("n", "s", "<Plug>(leap-forward-to)")
+      map("n", "S", "<Plug>(leap-backward-to)")
+      map("n", "gs", "<Plug>(leap-from-window)")
     end,
   },
   {

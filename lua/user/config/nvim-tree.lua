@@ -28,7 +28,6 @@ local function on_attach(bufnr)
   map("n", "]c", api.node.navigate.git.next, opts "Next Git")
   map("n", "d", api.fs.remove, opts "Delete")
   map("n", "D", api.fs.trash, opts "Trash")
-  map("n", "E", api.tree.expand_all, opts "Expand All")
   map("n", "e", api.fs.rename_basename, opts "Rename: Basename")
   map("n", "]e", api.node.navigate.diagnostics.next, opts "Next Diagnostic")
   map("n", "[e", api.node.navigate.diagnostics.prev, opts "Prev Diagnostic")
@@ -48,8 +47,6 @@ local function on_attach(bufnr)
   map("n", "q", api.tree.close, opts "Close")
   map("n", "r", api.fs.rename, opts "Rename")
   map("n", "R", api.tree.reload, opts "Refresh")
-  map("n", "s", api.node.run.system, opts "Run System")
-  map("n", "S", api.tree.search_node, opts "Search")
   map("n", "U", api.tree.toggle_custom_filter, opts "Toggle Hidden")
   map("n", "W", api.tree.collapse_all, opts "Collapse")
   map("n", "x", api.fs.cut, opts "Cut")
@@ -57,6 +54,31 @@ local function on_attach(bufnr)
   map("n", "Y", api.fs.copy.relative_path, opts "Copy Relative Path")
   map("n", "<2-LeftMouse>", api.node.open.edit, opts "Open")
   map("n", "<2-RightMouse>", api.tree.change_root_to_node, opts "CD")
+
+  local is_wsl = vim.fn.has "wsl" == 1
+  local function get_node_path(node)
+    if node.name == ".." then
+      local utils = require "nvim-tree.utils"
+      local core = require "nvim-tree.core"
+      return utils.path_remove_trailing(core.get_cwd())
+    else
+      return node.absolute_path
+    end
+  end
+  map("n", "E", function()
+    local node = require("nvim-tree.lib").get_node_at_cursor()
+    if node.type == "file" then
+      node = node.parent
+    end
+    local path = get_node_path(node)
+    if is_wsl then
+      path = vim.fn.system('wslpath -w "' .. path .. '"')
+    end
+
+    vim.notify("Opening " .. path)
+
+    vim.fn.system { "explorer.exe", path }
+  end, opts "Open in explorer")
 end
 
 return {
