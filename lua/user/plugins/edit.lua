@@ -53,17 +53,17 @@ return {
     end,
   },
   {
-    "phaazon/hop.nvim",
-    cmd = {
-      "HopWord",
-      "HopChar1CurrentLineAC",
-      "HopChar1CurrentLineBC",
+    "ggandor/leap.nvim",
+    dependencies = {
+      { "tpope/vim-repeat" },
     },
-    init = function()
-      require("user.config.hop").setup()
-    end,
+    keys = {
+      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    },
     config = function()
-      require("user.config.hop").config()
+      require("leap").add_default_mappings()
     end,
   },
   {
