@@ -151,7 +151,11 @@ do
           copilot = true
         end
       end
-      local text = " " .. table.concat(names, " ")
+      local text = ""
+      if #names > 0 then
+        text = " " .. table.concat(names, " ")
+      end
+
       if copilot then
         text = "  " .. text
       end
