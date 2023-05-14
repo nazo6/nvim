@@ -6,6 +6,7 @@ return {
     map("n", "<leader>k", "<cmd>Telescope keymaps<CR>")
     map("n", "<leader>z", "<cmd>Telescope zoxide list<CR>")
     map("n", "<leader>b", "<cmd>Telescope buffers<CR>")
+    map("n", "<leader>n", "<cmd>Telescope notify<CR>")
   end,
   config = function()
     local actions = require "telescope.actions"
@@ -39,5 +40,6 @@ return {
     require("telescope").load_extension "zoxide"
     require("telescope").load_extension "lazy"
     require("telescope").load_extension "possession"
+    require("telescope").load_extension "docker"
   end,
 }

@@ -7,6 +7,7 @@ return {
       { "jvgrootveld/telescope-zoxide" },
       { "tsakirist/telescope-lazy.nvim" },
       { "nvim-telescope/telescope-symbols.nvim" },
+      { "lpoto/telescope-docker.nvim" },
     },
     init = function()
       require("user.config.telescope").setup()
