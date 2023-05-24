@@ -66,6 +66,7 @@ return {
       }
     end,
   },
+  { "mhanberg/output-panel.nvim" },
   -- { "kosayoda/nvim-lightbulb" },
   { "j-hui/fidget.nvim" },
   { "folke/neodev.nvim" },
