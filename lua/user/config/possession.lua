@@ -19,12 +19,13 @@ require("possession").setup {
     migrate = "PossessionMigrate",
   },
   plugins = {
-    close_windows = {
-      hooks = { "before_save", "before_load" },
-    },
     nvim_tree = true,
     tabby = true,
     dap = true,
-    delete_buffers = false,
+    delete_hidden_buffers = {
+      force = function(buf)
+        return vim.api.nvim_buf_get_option(buf, "buftype") == "terminal"
+      end,
+    },
   },
 }

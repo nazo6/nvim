@@ -31,9 +31,6 @@ return {
           },
         },
       },
-      win_options = {
-        winblend = 10,
-      },
       select = {
         enabled = true,
         backend = { "telescope", "builtin" },

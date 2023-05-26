@@ -12,7 +12,7 @@ return {
     local actions = require "telescope.actions"
     require("telescope").setup {
       defaults = {
-        winblend = 30,
+        winblend = 15,
         mappings = {
           i = {
             ["<esc>"] = actions.close,
