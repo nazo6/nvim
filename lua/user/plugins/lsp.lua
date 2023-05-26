@@ -18,13 +18,12 @@ return {
   },
   { "onsails/lspkind-nvim" },
   { "ray-x/lsp_signature.nvim" },
-  {
-    "lvimuser/lsp-inlayhints.nvim",
-    -- branch = "anticonceal",
-    config = function()
-      require("lsp-inlayhints").setup {}
-    end,
-  },
+  -- {
+  --   "lvimuser/lsp-inlayhints.nvim",
+  --   config = function()
+  --     require("lsp-inlayhints").setup {}
+  --   end,
+  -- },
   { "mhanberg/output-panel.nvim" },
   -- { "kosayoda/nvim-lightbulb" },
   { "j-hui/fidget.nvim" },

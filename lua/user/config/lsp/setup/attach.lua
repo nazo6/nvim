@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
     end
-    require("lsp-inlayhints").on_attach(client, bufnr)
+    -- require("lsp-inlayhints").on_attach(client, bufnr)
 
     map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = bufnr })
     map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = bufnr })
