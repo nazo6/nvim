@@ -140,6 +140,9 @@ return {
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
+    init = function()
+      require("user.config.copilot").setup()
+    end,
     config = function()
       require("user.config.copilot").config()
     end,

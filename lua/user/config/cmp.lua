@@ -19,9 +19,6 @@ cmp.setup {
       select = false,
     },
   },
-  experimental = {
-    ghost_text = true,
-  },
   sources = {
     { name = "nvim_lsp" },
     { name = "copilot" },

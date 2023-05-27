@@ -19,7 +19,7 @@ return {
       { "hrsh7th/cmp-cmdline" },
       { "hrsh7th/cmp-nvim-lsp-document-symbol" },
       { "saadparwaiz1/cmp_luasnip" },
-      { "zbirenbaum/copilot-cmp" },
+      { "zbirenbaum/copilot-cmp", dependencies = { "zbirenbaum/copilot.lua" } },
     },
     event = { "InsertEnter", "CmdlineEnter" },
     cmd = { "CmpStatus" },
