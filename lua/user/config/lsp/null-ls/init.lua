@@ -43,7 +43,7 @@ null_ls.setup {
       extra_filetypes = { "svelte" },
     },
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.sql_formatter,
+    null_ls.builtins.formatting.sqlfluff,
     nu_ls,
   },
   default_timeout = 10000,
