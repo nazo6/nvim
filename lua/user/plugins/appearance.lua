@@ -66,10 +66,11 @@ return {
     event = { "BufRead", "InsertEnter" },
     config = function()
       require("illuminate").configure {
+        delay = 500,
         providers = {
-          "treesitter",
-          "lsp",
           "regex",
+          "lsp",
+          "treesitter",
         },
         filetypes_denylist = {
           "neo-tree",
