@@ -49,7 +49,7 @@ for open, close in pairs {
   insx.add("<BS>", pair_spacing.decrease { open_pat = esc(open), close_pat = esc(close) })
   insx.add("<C-h>", pair_spacing.decrease { open_pat = esc(open), close_pat = esc(close) })
 
-  insx.add("<CR>", fast_break { open_pat = esc(open), close_pat = esc(close), split = true })
+  insx.add("<CR>", fast_break { open_pat = esc(open), close_pat = esc(close) })
   insx.add("<C-]>", fast_wrap { close = close })
 end
 
