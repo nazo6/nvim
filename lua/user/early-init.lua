@@ -6,7 +6,12 @@ if require("user.utils").is_win then
   end
   local spawn_orig = vim.loop.spawn
   vim.loop.spawn = function(orig_path, options, on_exit)
-    local path = vim.fn.exepath(orig_path)
+    local path = orig_path
+    local handle_chk, _ = spawn_orig(path, {}, function() end)
+    if not handle_chk then
+      path = orig_path .. ".cmd"
+    end
+
     local handle, pid = spawn_orig(path, options, on_exit)
 
     return handle, pid
