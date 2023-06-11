@@ -26,7 +26,7 @@ return {
   -- },
   { "mhanberg/output-panel.nvim" },
   -- { "kosayoda/nvim-lightbulb" },
-  { "j-hui/fidget.nvim" },
+  { "j-hui/fidget.nvim", tag = "legacy" },
   { "folke/neodev.nvim" },
   { "b0o/schemastore.nvim" },
   { "dnlhc/glance.nvim", cmd = { "Glance" } },
