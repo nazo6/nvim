@@ -29,15 +29,12 @@ local nu_ls = require "nu-ls"
 null_ls.setup {
   sources = {
     null_ls.builtins.formatting.deno_fmt.with {
-      runtime_condition = function(params)
-        return check_web_format_type(params.bufnr, params.bufname) == 2
-      end,
-      condition = function()
-        return vim.fn.executable "deno" == 1
+      condition = function(params)
+        return vim.fn.executable "deno" == 1 and (check_web_format_type(params.bufnr, params.bufname) == 2)
       end,
     },
     null_ls.builtins.formatting.prettierd.with {
-      runtime_condition = function(params)
+      condition = function(params)
         return check_web_format_type(params.bufnr, params.bufname) == 0
       end,
       extra_filetypes = { "svelte" },
