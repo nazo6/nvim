@@ -18,8 +18,10 @@ return function(server)
 
   rt.setup {
     server = config,
-    inlay_hints = {
-      auto = false,
+    tools = {
+      inlay_hints = {
+        auto = false,
+      },
     },
   }
 end

@@ -17,7 +17,6 @@ return {
     end,
   },
   { "onsails/lspkind-nvim" },
-  { "ray-x/lsp_signature.nvim" },
   -- {
   --   "lvimuser/lsp-inlayhints.nvim",
   --   config = function()

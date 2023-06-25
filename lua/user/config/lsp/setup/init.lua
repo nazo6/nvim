@@ -13,4 +13,3 @@ for _, server_name in ipairs(servers) do
 end
 
 require "user.config.lsp.setup.attach"
-require "user.config.lsp.setup.handlers"
