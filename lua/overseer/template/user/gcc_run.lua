@@ -7,6 +7,7 @@ return {
     return {
       cmd = { "gcc" },
       args = { file, "-o", output, "-lm", "&&", output },
+      cwd = vim.fn.expand "%:p:h",
     }
   end,
   condition = {
