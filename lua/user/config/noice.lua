@@ -23,7 +23,7 @@ require("noice").setup {
       ["cmp.entry.get_documentation"] = true,
     },
     hover = {
-      enabled = true,
+      enabled = false,
       silent = true,
     },
     signature = {
@@ -43,8 +43,5 @@ require("noice").setup {
     documentation = {
       view = "hover",
     },
-  },
-  presets = {
-    lsp_doc_border = true,
   },
 }

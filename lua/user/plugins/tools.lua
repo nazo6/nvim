@@ -137,25 +137,25 @@ return {
     end,
   },
 
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   event = "InsertEnter",
-  --   init = function()
-  --     require("user.config.copilot").setup()
-  --   end,
-  --   config = function()
-  --     require("user.config.copilot").config()
-  --   end,
-  -- },
-
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    cmd = "Copilot",
     init = function()
       require("user.config.copilot").setup()
     end,
+    config = function()
+      require("user.config.copilot").config()
+    end,
   },
+
+  -- {
+  --   "github/copilot.vim",
+  --   event = "InsertEnter",
+  --   cmd = "Copilot",
+  --   init = function()
+  --     require("user.config.copilot").setup()
+  --   end,
+  -- },
 
   {
     "ActivityWatch/aw-watcher-vim",
