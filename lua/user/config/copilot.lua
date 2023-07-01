@@ -7,6 +7,9 @@ return {
       suggestion = {
         enabled = false,
       },
+      filetypes = {
+        yaml = true,
+      },
     }
   end,
 }

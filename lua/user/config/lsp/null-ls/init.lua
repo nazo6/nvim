@@ -1,20 +1,11 @@
 local null_ls = require "null-ls"
 
--- prettier:0, deno_ls:1, deno_fmt:2
-local buf_web_format_type = {}
-
-local function check_web_format_type(bufnr, path)
-  if buf_web_format_type[bufnr] ~= nil then
-    return buf_web_format_type[bufnr]
-  end
-
-  if require("null-ls.utils").root_pattern(".prettierrc", ".prettierrc.js", ".prettierrc.cjs")(path) then
-    buf_web_format_type[bufnr] = 0
+local function check_web_format_type(params)
+  if params.root_has_file(".prettierrc", ".prettierrc.js", ".prettierrc.cjs") then
     return 0
   end
 
-  if require("null-ls.utils").root_pattern("deno.json", "deno.jsonc")(path) then
-    buf_web_format_type[bufnr] = 1
+  if params.root_has_file("deno.json", "deno.jsonc") then
     return 1
   end
 
@@ -30,12 +21,13 @@ null_ls.setup {
   sources = {
     null_ls.builtins.formatting.deno_fmt.with {
       condition = function(params)
-        return vim.fn.executable "deno" == 1 and (check_web_format_type(params.bufnr, params.bufname) == 2)
+        return vim.fn.executable "deno" == 1 and (check_web_format_type(params) == 2)
       end,
     },
     null_ls.builtins.formatting.prettierd.with {
       condition = function(params)
-        return check_web_format_type(params.bufnr, params.bufname) == 0
+        vim.print(params)
+        return check_web_format_type(params) == 0
       end,
       extra_filetypes = { "svelte" },
     },
