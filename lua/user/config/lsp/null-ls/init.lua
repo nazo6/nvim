@@ -26,7 +26,6 @@ null_ls.setup {
     },
     null_ls.builtins.formatting.prettierd.with {
       condition = function(params)
-        vim.print(params)
         return check_web_format_type(params) == 0
       end,
       extra_filetypes = { "svelte" },
