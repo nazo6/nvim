@@ -1,7 +1,4 @@
 local create_setup = require("user.config.lsp.setup.config-builder").create_setup
-
-local root_pattern = require("lspconfig").util.root_pattern
-
 local srequire = function(server)
   return require("user.config.lsp.setup.server-configs." .. server)
 end
@@ -19,9 +16,7 @@ return {
       },
     },
   },
-  tailwindcss = create_setup {
-    root_dir = root_pattern("tailwind.config.js", "tailwind.config.ts", "tailwind.config.cjs"),
-  },
+  tailwindcss = srequire "tailwindcss",
   lua_ls = srequire "lua_ls",
   rust_analyzer = srequire "rust_analyzer",
   texlab = srequire "texlab",

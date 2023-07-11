@@ -98,7 +98,7 @@ return {
         args = {},
       },
       git = {
-        ignore = false,
+        timeout = 1000,
       },
       diagnostics = {
         enable = true,
@@ -126,11 +126,6 @@ return {
         },
         indent_markers = {
           enable = true,
-        },
-      },
-      filesystem_watchers = {
-        ignore_dirs = {
-          [[^\.*target$]],
         },
       },
       update_focused_file = {
