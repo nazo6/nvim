@@ -1,13 +1,27 @@
 const times: number[] = [];
 
 for (let i = 0; i < 10; i++) {
-  const process = Deno.run({
-    cmd: ["nvim", "--startuptime", `${i}.log`, "-c", "qa!"],
-  });
-  await process.status();
+  const cmd = new Deno.Command(
+    "nvim",
+    {
+      args: [
+        "--startuptime",
+        `${i}.log`,
+        "--cmd",
+        "autocmd UIEnter * qall!",
+      ],
+    },
+  );
+  cmd.outputSync();
   const text = await Deno.readTextFile(`${i}.log`);
   const lines = text.split("\n");
-  const time = lines[lines.length - 2].split(" ")[0];
+  const last_line = lines.find((line) => {
+    return line.includes("VimEnter autocommands");
+  });
+  if (!last_line) {
+    throw new Error("Failed to find last line");
+  }
+  const time = last_line.split(" ")[0];
   times.push(Number(time));
 }
 
@@ -18,13 +32,13 @@ const [min, max, sum] = times.reduce((pre, crr) => {
 
   return [min, max, sum];
 }, [100000, 0, 0]);
-const ave = Math.round((sum / times.length) * 100) / 100;
+const avg = Math.round((sum / times.length) * 100) / 100;
 
 const data = [
   {
     "name": "Average nvim startup time",
     "unit": "ms",
-    "value": ave,
+    "value": avg,
   },
   {
     "name": "Min nvim startup time",

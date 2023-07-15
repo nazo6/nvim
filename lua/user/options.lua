@@ -102,3 +102,7 @@ vim.api.nvim_create_autocmd("TermClose", {
   end,
   nested = true,
 })
+
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+}

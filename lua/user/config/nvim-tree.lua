@@ -98,6 +98,7 @@ return {
         args = {},
       },
       git = {
+        ignore = false,
         timeout = 1000,
       },
       diagnostics = {
