@@ -12,27 +12,28 @@ local function check_web_format_type(params)
   return 2
 end
 
-local nu_ls = require "nu-ls"
--- nu_ls.condition = function()
---   return vim.fn.executable "nu" == 1
--- end
+local sources = {
+  null_ls.builtins.formatting.deno_fmt.with {
+    condition = function(params)
+      return vim.fn.executable "deno" == 1 and (check_web_format_type(params) == 2)
+    end,
+  },
+  null_ls.builtins.formatting.prettierd.with {
+    condition = function(params)
+      return check_web_format_type(params) == 0
+    end,
+    extra_filetypes = { "svelte" },
+  },
+  null_ls.builtins.formatting.stylua,
+}
+
+local success, nu_ls = pcall(require, "nu-ls")
+if success then
+  table.insert(sources, nu_ls)
+end
 
 null_ls.setup {
-  sources = {
-    null_ls.builtins.formatting.deno_fmt.with {
-      condition = function(params)
-        return vim.fn.executable "deno" == 1 and (check_web_format_type(params) == 2)
-      end,
-    },
-    null_ls.builtins.formatting.prettierd.with {
-      condition = function(params)
-        return check_web_format_type(params) == 0
-      end,
-      extra_filetypes = { "svelte" },
-    },
-    null_ls.builtins.formatting.stylua,
-    nu_ls,
-  },
+  sources = sources,
   default_timeout = 10000,
 }
 
