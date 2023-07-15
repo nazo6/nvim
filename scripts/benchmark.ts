@@ -8,15 +8,15 @@ for (let i = 0; i < 10; i++) {
         "--startuptime",
         `${i}.log`,
         "--cmd",
-        "autocmd UIEnter * qall!",
+        "autocmd VimEnter * qall",
       ],
     },
   );
-  cmd.outputSync();
+  await cmd.output();
   const text = await Deno.readTextFile(`${i}.log`);
   const lines = text.split("\n");
   const last_line = lines.find((line) => {
-    return line.includes("VimEnter autocommands");
+    return line.includes("BufEnter autocommands");
   });
   if (!last_line) {
     throw new Error("Failed to find last line");
