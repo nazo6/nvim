@@ -11,15 +11,22 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+local spec = {
+  { import = "user.plugins.appearance" },
+  { import = "user.plugins.common" },
+  { import = "user.plugins.debug" },
+  { import = "user.plugins.edit" },
+  { import = "user.plugins.git" },
+  { import = "user.plugins.language" },
+  { import = "user.plugins.lsp" },
+  { import = "user.plugins.tools" },
+  { import = "user.plugins.treesitter" },
+  { import = "user.plugins.utils" },
+}
+
 local available, local_spec = pcall(require, "user.local.plugins")
-local spec
 if available then
-  spec = {
-    { import = "user.plugins" },
-    local_spec,
-  }
-else
-  spec = "user.plugins"
+  table.insert(spec, local_spec)
 end
 
 if vim.g.plugin_enabled == nil then

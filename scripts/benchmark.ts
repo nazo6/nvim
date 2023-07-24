@@ -14,6 +14,7 @@ for (let i = 0; i < 10; i++) {
   );
   await cmd.output();
   const text = await Deno.readTextFile(`${i}.log`);
+  await Deno.remove(`${i}.log`);
   const lines = text.split("\n");
   const last_line = lines.find((line) => {
     return line.includes("BufEnter autocommands");
