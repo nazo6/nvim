@@ -14,7 +14,10 @@ return {
   event = { "InsertEnter", "CmdlineEnter" },
   cmd = { "CmpStatus" },
   config = function()
-    require("copilot_cmp").setup {}
+    local ok, cp = pcall(require, "copilot_cmp")
+    if ok then
+      cp.setup {}
+    end
 
     local cmp = require "cmp"
     cmp.setup {
