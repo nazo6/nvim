@@ -24,4 +24,5 @@ return {
   fsautocomplete = srequire "fsautocomplete",
   omnisharp = srequire "omnisharp",
   clangd = srequire "clangd",
+  pyright = srequire "pyright",
 }
