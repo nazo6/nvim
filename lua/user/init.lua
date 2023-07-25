@@ -12,6 +12,4 @@ require "user.lazy"
 require "user.filetype"
 require "user.keymaps"
 
-require "restart"
-
 pcall(require, "user.local")
