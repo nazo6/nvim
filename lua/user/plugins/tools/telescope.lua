@@ -7,6 +7,7 @@ return {
     { "tsakirist/telescope-lazy.nvim" },
     { "nvim-telescope/telescope-symbols.nvim" },
     { "lpoto/telescope-docker.nvim" },
+    { "debugloop/telescope-undo.nvim" },
     {
       "pwntester/octo.nvim",
       cmd = "Octo",
@@ -28,6 +29,7 @@ return {
     map("n", "<leader>z", "<cmd>Telescope zoxide list<CR>")
     map("n", "<leader>b", "<cmd>Telescope buffers<CR>")
     map("n", "<leader>n", "<cmd>Telescope notify<CR>")
+    map("n", "<leader>u", "<cmd>Telescope undo<CR>")
   end,
   config = function()
     local actions = require "telescope.actions"
@@ -62,5 +64,6 @@ return {
     require("telescope").load_extension "lazy"
     require("telescope").load_extension "possession"
     require("telescope").load_extension "docker"
+    require("telescope").load_extension "undo"
   end,
 }
