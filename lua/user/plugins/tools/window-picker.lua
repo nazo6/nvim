@@ -9,6 +9,20 @@ return {
           buftype = { "terminal", "quickfix" },
         },
       },
+      highlights = {
+        statusline = {
+          focused = {
+            fg = "#ededed",
+            bg = "#e35e4f",
+            bold = true,
+          },
+          unfocused = {
+            fg = "#ededed",
+            bg = "#e35e4f",
+            bold = true,
+          },
+        },
+      },
     }
   end,
 }
