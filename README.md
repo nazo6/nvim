@@ -64,3 +64,6 @@ use it.
 
 - after/queries/satysfi/\* from
   [monaqa/tree-sitter-satysfi](https://github.com/monaqa/tree-sitter-satysfi/)
+
+- after/queries/nu/\* from
+  [nushell/tree-sitter-nu](https://github.com/nushell/tree-sitter-nu/tree/main/queries)
