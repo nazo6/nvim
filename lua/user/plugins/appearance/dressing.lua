@@ -12,7 +12,6 @@ return {
         insert_only = true,
         start_in_insert = true,
 
-        anchor = "SW",
         border = "rounded",
         relative = "cursor",
 
@@ -31,6 +30,9 @@ return {
             ["<Down>"] = "HistoryNext",
           },
         },
+        override = function(conf)
+          conf.anchor = "SW"
+        end,
       },
       select = {
         enabled = true,
