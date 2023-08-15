@@ -47,7 +47,6 @@ return {
     ft = { "sql" },
   },
 
-  { "jose-elias-alvarez/typescript.nvim" },
   { "yioneko/nvim-vtsls" },
 
   {
