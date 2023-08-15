@@ -2,6 +2,9 @@ return {
   "williamboman/mason.nvim",
   cmd = { "Mason", "MasonInstall" },
   event = { "BufRead", "InsertEnter" },
+  dependencies = {
+    { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+  },
   config = function()
     require("mason").setup {
       registries = {

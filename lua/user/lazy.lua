@@ -16,12 +16,12 @@ local spec = {
   { import = "user.plugins.common" },
   { import = "user.plugins.debug" },
   { import = "user.plugins.edit" },
+  { import = "user.plugins.external" },
   { import = "user.plugins.git" },
   { import = "user.plugins.language" },
   { import = "user.plugins.lsp" },
   { import = "user.plugins.tools" },
   { import = "user.plugins.treesitter" },
-  { import = "user.plugins.utils" },
 }
 
 local available, local_spec = pcall(require, "user.local.plugins")
