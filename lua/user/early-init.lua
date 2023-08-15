@@ -1,10 +1,12 @@
 if require("user.utils").is_win then
-  -- workaraound for https://github.com/neovim/neovim/issues/17762
+  -- HACK: workaraound for https://github.com/neovim/neovim/issues/17762
   os.execute = function(cmd)
     vim.fn.system(cmd)
     return vim.v.shell_error
   end
   local spawn_orig = vim.loop.spawn
+
+  -- HACK: this avoids the issue with vim.loop.spawn on windows
   vim.loop.spawn = function(orig_path, options, on_exit)
     local path = orig_path
     local handle_chk, _ = spawn_orig(path, {}, function() end)
@@ -16,22 +18,66 @@ if require("user.utils").is_win then
 
     return handle, pid
   end
-  vim.g.clipboard = {
-    name = "win32yank",
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf",
-    },
-    cache_enabled = 0,
-  }
+
+  -- HACK: ignore annoying EPERM error on windows
+  do
+    local function stop(handle)
+      local _, stop_err = handle:stop()
+      assert(not stop_err, stop_err)
+      local is_closing, close_err = handle:is_closing()
+      assert(not close_err, close_err)
+      if not is_closing then
+        handle:close()
+      end
+    end
+    local function filepath_join(...)
+      return table.concat({ ... }, "/")
+    end
+    require("vim._watch").watch = function(path, opts, callback)
+      vim.validate {
+        path = { path, "string", false },
+        opts = { opts, "table", true },
+        callback = { callback, "function", false },
+      }
+
+      vim.notify(path)
+
+      path = vim.fs.normalize(path)
+      local uvflags = opts and opts.uvflags or {}
+      local handle, new_err = vim.uv.new_fs_event()
+      assert(not new_err, new_err)
+      local _, start_err = handle:start(path, uvflags, function(err, filename, events)
+        assert(not err, err)
+        local fullpath = path
+        if filename then
+          filename = filename:gsub("\\", "/")
+          fullpath = filepath_join(fullpath, filename)
+        end
+        local change_type = events.change and require("vim._watch").FileChangeType.Changed or 0
+        if events.rename then
+          local _, staterr, staterrname = vim.uv.fs_stat(fullpath)
+          if staterrname == "ENOENT" then
+            change_type = require("vim._watch").FileChangeType.Deleted
+          elseif staterrname == "EPERM" then
+            return
+          else
+            assert(not staterr, staterr)
+            change_type = require("vim._watch").FileChangeType.Created
+          end
+        end
+        callback(fullpath, change_type)
+      end)
+      assert(not start_err, start_err)
+      return function()
+        stop(handle)
+      end
+    end
+  end
 end
 
 vim.g.mapleader = " "
 
+--- speeded up map function
 ---@param mode string|table
 ---
 ---@param lhs string

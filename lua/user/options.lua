@@ -8,7 +8,7 @@ opt.mousemodel = "popup"
 vim.cmd.aunmenu { "PopUp.How-to\\ disable\\ mouse" }
 vim.cmd.aunmenu { "PopUp.-1-" }
 
-if vim.fn.has "wsl" == 1 then
+if vim.fn.has "wsl" == 1 or require("user.utils").is_win then
   vim.g.clipboard = {
     name = "win32yank",
     copy = {
