@@ -1,5 +1,5 @@
 if require("user.utils").is_win then
-  -- HACK: workaraound for https://github.com/neovim/neovim/issues/17762
+  -- HACK: workaround for https://github.com/neovim/neovim/issues/17762
   os.execute = function(cmd)
     vim.fn.system(cmd)
     return vim.v.shell_error
