@@ -20,20 +20,12 @@ return {
         callback = function()
           local formatters = require("user.plugins.external.formatter.utils").get_active_formatters()
           if #formatters == 0 then
-            vim.notify "lsp format"
             lsp_format { timeout_ms = 7000, async = false }
           else
             if #formatters > 1 then
               vim.notify("More than 2 formatters", vim.log.levels.WARN)
             end
-            if not require("user.utils").is_win then
-              local old = vim.opt.shell
-              vim.opt.shell = "/bin/sh"
-              vim.cmd [[FormatWrite]]
-              vim.opt.shell = old
-            else
-              vim.cmd [[FormatWrite]]
-            end
+            vim.cmd [[FormatWrite]]
           end
         end,
       })
