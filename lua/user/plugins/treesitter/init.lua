@@ -12,6 +12,7 @@ return {
     },
     config = function()
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      require("nvim-treesitter.install").compilers = { "clang", "gcc" }
       parser_config.satysfi = {
         install_info = {
           url = "https://github.com/monaqa/tree-sitter-satysfi",
