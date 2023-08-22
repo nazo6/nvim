@@ -4,7 +4,7 @@ return {
   {
     "mhartington/formatter.nvim",
     cmd = "Format",
-    event = { "BufRead", "FileType" },
+    event = { "BufRead" },
     init = function()
       local function lsp_format(c)
         local config = c or {}
