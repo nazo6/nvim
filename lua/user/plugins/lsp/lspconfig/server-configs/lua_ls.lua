@@ -12,6 +12,9 @@ return create_setup {
       diagnostics = {
         globals = { "vim" },
       },
+      workspace = {
+        checkThirdParty = false,
+      },
     },
   },
 }
