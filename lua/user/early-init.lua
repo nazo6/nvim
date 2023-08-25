@@ -40,8 +40,6 @@ if require("user.utils").is_win then
         callback = { callback, "function", false },
       }
 
-      vim.notify(path)
-
       path = vim.fs.normalize(path)
       local uvflags = opts and opts.uvflags or {}
       local handle, new_err = vim.uv.new_fs_event()
