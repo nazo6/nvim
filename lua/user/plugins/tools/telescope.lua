@@ -3,6 +3,8 @@ return {
   cmd = "Telescope",
   dependencies = {
     { "nvim-lua/plenary.nvim" },
+    { "williamboman/mason.nvim" },
+
     { "jvgrootveld/telescope-zoxide" },
     { "tsakirist/telescope-lazy.nvim" },
     { "nvim-telescope/telescope-symbols.nvim" },
