@@ -138,6 +138,11 @@ return {
         ignore_list = {},
       },
       actions = {
+        change_dir = {
+          enable = true,
+          global = true,
+          restrict_above_cwd = false,
+        },
         open_file = {
           window_picker = {
             enable = true,
