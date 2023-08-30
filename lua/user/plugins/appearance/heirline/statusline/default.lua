@@ -168,12 +168,12 @@ do
     provider = function()
       local text = ""
       if vim.g.formatter_config then
-        local formatters = require "user.plugins.external.formatter.utils".get_active_formatters()
+        local formatters = require"conform".list_formatters(0)
         if #formatters > 0 then
           text = "  "
         end
         for _, formatter in ipairs(formatters) do
-          text = text .. formatter .. " "
+          text = text .. formatter.name .. " "
         end
       end
       return text
