@@ -51,7 +51,10 @@ return {
       insert_mappings = true,
       persist_size = true,
       close_on_exit = false,
-      shell = vim.fn.has "win32" == 1 and "pwsh.exe" or vim.o.shell,
+      shell = function()
+        local shell = require("user.utils").is_win and "cmd.exe /c nu.exe" or vim.o.shell
+        return shell
+      end,
     }
   end,
 }

@@ -2,6 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = { "BufRead" },
+    dependencies = { "williamboman/mason.nvim" },
     config = function()
       local util = require "conform.util"
 
@@ -35,7 +36,7 @@ return {
         },
         format_on_save = {
           lsp_fallback = true,
-          timeout_ms = 500,
+          timeout_ms = 1000,
         },
         formatters = {
           deno_fmt = {
@@ -51,8 +52,9 @@ return {
                 jsonc = "jsonc",
               }
               local ft = ft_map[vim.bo[ctx.buf].filetype]
+              print(ft)
               if ft ~= nil then
-                return { "fmt", "-", "--ext", ft }
+                return { "fmt", "--ext", ft, "-" }
               else
                 return { "fmt", "-" }
               end
