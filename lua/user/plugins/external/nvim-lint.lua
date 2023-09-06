@@ -1,9 +1,9 @@
 return {
   "mfussenegger/nvim-lint",
-  event = { "BufRead", "BufWritePost" },
+  event = { "BufReadPost", "BufWritePost" },
   config = function()
     require("lint").linters_by_ft = {
-      sql = { "sqlfluff" },
+      sql = vim.fn.executable "sqlfluff" == 1 and { "sqlfluff" } or {},
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "BufRead" }, {
