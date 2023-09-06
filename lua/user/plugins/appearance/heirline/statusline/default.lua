@@ -33,7 +33,7 @@ do
   local FileIcon = {
     init = function(self)
       self.icon, self.icon_color =
-          require("nvim-web-devicons").get_icon_color_by_filetype(self.filetype, { default = true })
+        require("nvim-web-devicons").get_icon_color_by_filetype(self.filetype, { default = true })
     end,
     provider = function(self)
       return self.icon and (self.icon .. " ")
@@ -167,8 +167,8 @@ do
   local Formatter = {
     provider = function()
       local text = ""
-      if vim.g.formatter_config then
-        local formatters = require"conform".list_formatters(0)
+      if package.loaded["conform"] ~= nil then
+        local formatters = require("conform").list_formatters(0)
         if #formatters > 0 then
           text = "  "
         end
