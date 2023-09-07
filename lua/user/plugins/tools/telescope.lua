@@ -10,6 +10,7 @@ return {
     { "nvim-telescope/telescope-symbols.nvim" },
     { "lpoto/telescope-docker.nvim" },
     { "debugloop/telescope-undo.nvim" },
+    { "nvim-telescope/telescope-frecency.nvim" },
     { "nazo6/telescope-tailwind.nvim" },
     {
       "pwntester/octo.nvim",
@@ -60,6 +61,10 @@ return {
             },
           },
         },
+        frecency = {
+          use_sqlite = false,
+          show_scores = true,
+        },
       },
     }
 
@@ -69,5 +74,6 @@ return {
     require("telescope").load_extension "docker"
     require("telescope").load_extension "undo"
     require("telescope").load_extension "tailwind"
+    require("telescope").load_extension "frecency"
   end,
 }
