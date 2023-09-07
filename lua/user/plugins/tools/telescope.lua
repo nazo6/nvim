@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
+  event = "BufRead",
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     { "williamboman/mason.nvim" },

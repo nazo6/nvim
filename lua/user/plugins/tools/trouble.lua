@@ -55,14 +55,6 @@ return {
       auto_preview = false,
       auto_fold = false,
       auto_jump = { "lsp_definitions" },
-      signs = {
-
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "﫠",
-      },
       use_diagnostic_signs = false,
     }
   end,
