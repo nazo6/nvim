@@ -106,5 +106,15 @@ return {
         return not is_os_cmd
       end,
     })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
+      pattern = { "sql" },
+      callback = function(ctx)
+        if not not require("lazy.core.config").plugins["vim-dadbod"] then
+          require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
+        end
+      end,
+    })
   end,
 }
