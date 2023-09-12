@@ -69,7 +69,7 @@ end
 
 opt.title = true
 local wsl_prefix = vim.fn.has "wsl" == 1 and " [wsl]" or ""
-opt.titlestring = "%f" .. " - NVIM" .. wsl_prefix
+opt.titlestring = "%{getcwd()}" .. " - NVIM" .. wsl_prefix
 
 opt.number = true
 opt.signcolumn = "yes"

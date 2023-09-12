@@ -75,4 +75,7 @@ return create_setup {
       },
     },
   },
+  on_attach = function(_, bufnr)
+    vim.keymap.set("n", "<leader>tt", "<cmd>Telescope tailwind css<CR>", { buffer = bufnr })
+  end,
 }

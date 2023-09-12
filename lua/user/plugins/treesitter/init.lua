@@ -70,7 +70,10 @@ return {
         indent = {
           enable = false,
         },
-        autotag = { enable = true },
+        autotag = {
+          enable = true,
+          enable_close_on_slash = false,
+        },
         playground = {
           enable = true,
           disable = {},

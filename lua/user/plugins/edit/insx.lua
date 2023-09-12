@@ -58,12 +58,12 @@ return {
     end
 
     -- tags.
-    insx.add(
-      "<CR>",
-      require "insx.recipe.fast_break" {
-        open_pat = insx.helper.search.Tag.Open,
-        close_pat = insx.helper.search.Tag.Close,
-      }
-    )
+    -- insx.add(
+    --   "<CR>",
+    --   require "insx.recipe.fast_break" {
+    --     open_pat = insx.helper.search.Tag.Open,
+    --     close_pat = insx.helper.search.Tag.Close,
+    --   }
+    -- )
   end,
 }
