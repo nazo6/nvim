@@ -19,7 +19,6 @@ return {
         "prettier.config.cjs",
       }
       require("conform.formatters.prettierd").condition = function(ctx)
-        print(require("conform.formatters.prettierd").cwd(ctx))
         return not not (require("conform.formatters.prettierd").cwd(ctx))
       end
 
@@ -52,7 +51,6 @@ return {
                 jsonc = "jsonc",
               }
               local ft = ft_map[vim.bo[ctx.buf].filetype]
-              print(ft)
               if ft ~= nil then
                 return { "fmt", "--ext", ft, "-" }
               else
