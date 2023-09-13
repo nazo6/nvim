@@ -34,7 +34,7 @@ return {
       treesitter.setup {
         auto_install = false,
         highlight = { enable = true },
-        ensure_installed = { "lua", "vim", "vimdoc", "markdown", "markdown_inline" },
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "bash" },
         textobjects = {
           select = {
             enable = true,

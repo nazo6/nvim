@@ -78,6 +78,8 @@ return create_setup {
     }
   end,
   handlers = {
-    ["textDocument/definition"] = require("omnisharp_extended").handler,
+    ["textDocument/definition"] = function(...)
+      require("omnisharp_extended").handler(...)
+    end,
   },
 }
