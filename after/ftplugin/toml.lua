@@ -13,4 +13,6 @@ if filename == "Cargo.toml" then
   map("n", "cU", ":lua require('crates').upgrade_crate()<cr>", { buffer = true })
   map("n", "cU", ":lua require('crates').upgrade_crates()<cr>", { buffer = true })
   map("n", "cA", ":lua require('crates').upgrade_all_crates()<cr>", { buffer = true })
+
+  require("cmp").setup.buffer { sources = { { name = "crates" } } }
 end

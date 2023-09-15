@@ -24,6 +24,17 @@ return {
     "vuki656/package-info.nvim",
     event = { "BufRead package.json" },
     dependencies = { { "MunifTanjim/nui.nvim" } },
+    config = function()
+      require("package-info").setup {
+        icons = {
+          enable = true,
+          style = {
+            up_to_date = "   ",
+            outdated = "   ",
+          },
+        },
+      }
+    end,
   },
 
   {
@@ -43,7 +54,6 @@ return {
 
   {
     "nanotee/sqls.nvim",
-
     ft = { "sql" },
   },
 

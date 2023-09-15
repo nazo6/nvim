@@ -12,6 +12,11 @@ return {
     }
 
     require("luasnip/loaders/from_vscode").lazy_load()
+
+    map("i", "<Esc>", function()
+      luasnip.unlink_current()
+      vim.cmd.stopinsert()
+    end, { desc = "Escape snippet and stop insert mode" })
   end,
   event = "InsertEnter",
 }

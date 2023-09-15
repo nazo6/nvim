@@ -10,20 +10,18 @@ return {
     }
 
     map("i", "<Tab>", function()
-      local ok, luasnip = pcall(require, "luasnip")
-      if ok and luasnip.expand_or_locally_jumpable() then
+      if require("luasnip").expand_or_locally_jumpable() then
         send_key "<Plug>luasnip-expand-or-jump"
       else
         send_key "<Plug>(Tabout)"
       end
-    end)
+    end, { desc = "Tabout or luasnip expand-or-jump" })
     map("i", "<S-Tab>", function()
-      local ok, luasnip = pcall(require, "luasnip")
-      if ok and luasnip.locally_jumpable(-1) then
+      if require("luasnip").locally_jumpable(-1) then
         send_key "<Plug>luasnip-jump-prev"
       else
         send_key "<Plug>(TaboutBack)"
       end
-    end)
+    end, { desc = "Tabout or luasnip jump-prev" })
   end,
 }

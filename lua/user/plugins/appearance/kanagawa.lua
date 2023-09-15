@@ -49,6 +49,9 @@ return {
 
       FidgetTitle = { fg = palette.fujiWhite },
       FidgetTask = { fg = palette.oldWhite },
+
+      PackageInfoOutdatedVersion = { link = "DiagnosticWarn" },
+      PackageInfoUpToDateVersion = { link = "DiagnosticInfo" },
     }
     vim.api.nvim_create_autocmd("ColorScheme", {
       pattern = "*",
@@ -60,7 +63,7 @@ return {
     })
 
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-      pattern = "*/nvim/lua/user/colors.lua",
+      pattern = "*/nvim/lua/user/plugins/appearance/kanagawa.lua",
       group = vim.api.nvim_create_augroup("kanagawa_compile", { clear = true }),
       callback = function()
         vim.cmd "KanagawaCompile"
