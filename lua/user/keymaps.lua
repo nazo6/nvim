@@ -3,8 +3,8 @@ map("n", "gk", "k")
 map("n", "j", "gj")
 map("n", "gj", "j")
 
-map("n", "<S-h>", "^")
-map("n", "<S-l>", "$")
+map({ "n", "v" }, "<S-h>", "^", { desc = "Move to first of line" })
+map({ "n", "v" }, "<S-l>", "$", { desc = "Move to end of line" })
 
 map("n", "<S-Right>", "<C-w><")
 map("n", "<S-Left>", "<C-w>>")
@@ -19,8 +19,8 @@ map("n", "<C-s>", [[:%s/]])
 map("n", "<A-v>", "<C-w><C-v>")
 map("n", "<A-s>", "<C-w><C-s>")
 
-map("n", "<leader>q", "<cmd>q<CR>")
-map("n", "<leader>w", "<cmd>w<CR>")
+map("n", "<leader>q", "<cmd>q<CR>", { desc = "Exit neovim" })
+map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 
 map("n", "<esc>", function()
   if vim.api.nvim_win_get_config(0).zindex then
@@ -33,7 +33,7 @@ end, {
 map("n", "K", "<Nop>")
 map("n", "<C-c>", "<Nop>")
 
-map("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>")
+map("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>", { desc = "Open explorer.exe" })
 
 map("n", "<leader>r", function()
   local Input = require "nui.input"
@@ -65,12 +65,7 @@ map("n", "<leader>r", function()
   input:on(event.BufLeave, function()
     input:unmount()
   end)
-end)
-
-map("t", "<C-p>", function()
-  local ins_mode_pos_res = vim.fn.getcursorcharpos(0)
-  vim.notify(vim.inspect(ins_mode_pos_res))
-end)
+end, { desc = "Restart neovim" })
 
 -- inspired by term-edit.nvim, simple version
 vim.api.nvim_create_autocmd("TermOpen", {
