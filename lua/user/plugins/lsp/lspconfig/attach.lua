@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = bufnr, desc = "[LSP] Hover" })
     map(
       { "n", "i" },
-      "<leader>s",
+      "<C-s>",
       "<cmd>lua vim.lsp.buf.signature_help()<CR>",
       { buffer = bufnr, desc = "[LSP] Signature help" }
     )
