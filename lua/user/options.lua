@@ -57,7 +57,6 @@ vim.cmd [[autocmd FileType help wincmd L]]
 opt.timeoutlen = 400
 
 -- Editing
-opt.completeopt = "menuone,noselect"
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true

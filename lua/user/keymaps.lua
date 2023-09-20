@@ -35,37 +35,7 @@ map("n", "<C-c>", "<Nop>")
 
 map("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>", { desc = "Open explorer.exe" })
 
-map("n", "<leader>r", function()
-  local Input = require "nui.input"
-  local event = require("nui.utils.autocmd").event
-  local input = Input({
-    position = "50%",
-    relative = "editor",
-    size = {
-      width = 50,
-    },
-    border = {
-      style = "rounded",
-      text = {
-        top = "Restarting neovim. OK? (Y/N)",
-        top_align = "center",
-      },
-    },
-  }, {
-    on_submit = function(value)
-      if value:lower() == "y" then
-        vim.cmd [[Restart]]
-      end
-    end,
-  })
-  input:mount()
-  input:map("i", "<Esc>", function()
-    input:unmount()
-  end, {})
-  input:on(event.BufLeave, function()
-    input:unmount()
-  end)
-end, { desc = "Restart neovim" })
+map("n", "<leader>re", "<cmd>Restart<CR>", { desc = "Restart neovim" })
 
 -- inspired by term-edit.nvim, simple version
 vim.api.nvim_create_autocmd("TermOpen", {

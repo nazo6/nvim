@@ -10,6 +10,7 @@ return {
     { "saadparwaiz1/cmp_luasnip" },
     -- { "hrsh7th/cmp-copilot", dependencies = { "github/copilot.vim" } },
     { "zbirenbaum/copilot-cmp", dependencies = { "zbirenbaum/copilot.lua" } },
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
   },
   event = { "InsertEnter", "CmdlineEnter" },
   cmd = { "CmpStatus" },
@@ -39,6 +40,7 @@ return {
         },
       },
       sources = {
+        { name = "nvim_lsp_signature_help" },
         { name = "nvim_lsp" },
         { name = "copilot" },
         { name = "luasnip" },
@@ -83,6 +85,9 @@ return {
           end,
         },
         fields = { "kind", "abbr", "menu" },
+      },
+      completion = {
+        completeopt = "menu,menuone",
       },
     }
 

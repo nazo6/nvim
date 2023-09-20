@@ -15,7 +15,10 @@
   "lspconfig": {
     "lua_ls": {
       "Lua.completion.callSnippet": "Replace",
-      "Lua.workspace.checkThirdParty": false
+      "Lua.workspace.checkThirdParty": false,
+      "Lua.diagnostics.disable": [
+        "missing-fields"
+      ]
     }
   }
 }
