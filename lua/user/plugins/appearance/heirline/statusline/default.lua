@@ -168,12 +168,11 @@ do
     provider = function()
       local text = ""
       if package.loaded["conform"] ~= nil then
-        local formatters = require("conform").list_formatters(0)
-        if #formatters > 0 then
-          text = "  "
-        end
-        for _, formatter in ipairs(formatters) do
-          text = text .. formatter.name .. " "
+        if not _G.conform_disabled then
+          local formatters = require("conform").list_formatters(0)
+          if #formatters > 0 then
+            text = "  " .. formatters[1].name .. " "
+          end
         end
       end
       return text

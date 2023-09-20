@@ -21,6 +21,19 @@ return {
       require("conform.formatters.prettierd").condition = function(ctx)
         return not not (require("conform.formatters.prettierd").cwd(ctx))
       end
+      require("conform.formatters.deno_fmt").condition = function(ctx)
+        local denols = vim.iter(vim.lsp.get_clients { bufnr = ctx.buf }):find(function(c)
+          return c.name == "denols"
+        end)
+        return not denols
+      end
+
+      vim.api.nvim_create_user_command("ConformDisable", function()
+        _G.conform_disabled = true
+      end, {})
+      vim.api.nvim_create_user_command("ConformEnable", function()
+        _G.conform_disabled = false
+      end, {})
 
       require("conform").setup {
         formatters_by_ft = {
@@ -33,39 +46,16 @@ return {
           json = { "prettierd", "deno_fmt" },
           jsonc = { "prettierd", "deno_fmt" },
         },
-        format_on_save = {
-          lsp_fallback = true,
-          timeout_ms = 1000,
-        },
-        formatters = {
-          deno_fmt = {
-            command = "deno",
-            args = function(ctx)
-              local ft_map = {
-                javascriptreact = "jsx",
-                typescriptreact = "tsx",
-                typescript = "ts",
-                javascript = "js",
-                markdown = "md",
-                json = "json",
-                jsonc = "jsonc",
-              }
-              local ft = ft_map[vim.bo[ctx.buf].filetype]
-              if ft ~= nil then
-                return { "fmt", "--ext", ft, "-" }
-              else
-                return { "fmt", "-" }
-              end
-            end,
-            stdin = true,
-            condition = function(ctx)
-              local denols = vim.iter(vim.lsp.get_clients { bufnr = ctx.buf }):find(function(c)
-                return c.name == "denols"
-              end)
-              return not denols
-            end,
-          },
-        },
+        format_on_save = function()
+          if _G.conform_disabled then
+            return
+          end
+
+          return {
+            lsp_fallback = true,
+            timeout_ms = 1000,
+          }
+        end,
       }
     end,
   },
