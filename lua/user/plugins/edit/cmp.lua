@@ -85,7 +85,7 @@ return {
         fields = { "kind", "abbr", "menu" },
       },
       completion = {
-        completeopt = "menu,menuone",
+        completeopt = "menu,menuone,noselect",
       },
     }
 
