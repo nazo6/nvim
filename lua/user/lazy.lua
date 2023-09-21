@@ -61,4 +61,4 @@ require("lazy").setup(spec, {
   },
 })
 
-map("n", "<leader>l", "<cmd>Lazy<CR>", { buffer = true })
+map("n", "<leader>l", "<cmd>Lazy<CR>")

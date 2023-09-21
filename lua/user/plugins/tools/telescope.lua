@@ -27,14 +27,16 @@ return {
     },
   },
   init = function()
-    map("n", "<leader>t", "<cmd>Telescope<CR>")
-    map("n", "<C-p>", "<cmd>Telescope find_files<CR>")
-    map("n", "<leader>p", "<cmd>Telescope live_grep<CR>")
-    map("n", "<leader>k", "<cmd>Telescope keymaps<CR>")
-    map("n", "<leader>z", "<cmd>Telescope zoxide list<CR>")
-    map("n", "<leader>b", "<cmd>Telescope buffers<CR>")
-    map("n", "<leader>n", "<cmd>Telescope notify<CR>")
-    map("n", "<leader>u", "<cmd>Telescope undo<CR>")
+    map("n", "<C-p>", "<cmd>Telescope find_files<CR>", { desc = "[telescope] Find files" })
+    map("n", "<leader>p", "<cmd>Telescope live_grep<CR>", { desc = "[telescope] Live grep" })
+    map("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "[telescope] Keymap" })
+    map("n", "<leader>z", "<cmd>Telescope zoxide list<CR>", { desc = "[telescope] Zoxide" })
+    map("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "[telescope] Undo" })
+
+    map("n", "<leader>tt", "<cmd>Telescope<CR>", { desc = "[telescope] builtin" })
+    map("n", "<leader>tb", "<cmd>Telescope buffers<CR>", { desc = "[telescope] Buffers" })
+    map("n", "<leader>tn", "<cmd>Telescope notify<CR>", { desc = "[telescope] Notifications" })
+    map("n", "<leader>tf", "<cmd>Telescope frecency<CR>", { desc = "[telescope] Frecency" })
   end,
   config = function()
     local actions = require "telescope.actions"
@@ -65,6 +67,8 @@ return {
         frecency = {
           use_sqlite = false,
           show_scores = true,
+          db_safe_mode = false,
+          default_workspace = "CWD",
         },
       },
     }
