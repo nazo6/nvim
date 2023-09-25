@@ -14,6 +14,7 @@ return {
         ".prettierrc.json5",
         ".prettierrc.js",
         ".prettierrc.cjs",
+        ".prettierrc.mjs",
         ".prettierrc.toml",
         "prettier.config.js",
         "prettier.config.cjs",
