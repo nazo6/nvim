@@ -1,11 +1,14 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufRead" },
+  main = "ibl",
   config = function()
-    require("indent_blankline").setup {
-      show_current_context = true,
+    require("ibl").setup {
+      scope = {
+        show_start = false,
+        show_end = false,
+      },
       char = "▏",
-      context_char = "▏",
     }
   end,
 }

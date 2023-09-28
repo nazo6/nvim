@@ -17,7 +17,9 @@ return {
       compile = true,
     }
 
-    vim.g.palette = require("kanagawa.colors").setup({ theme = "wave" }).palette
+    local colors = require("kanagawa.colors").setup { theme = "wave" }
+    local theme = colors.theme
+    vim.g.palette = colors.palette
     local palette = vim.g.palette
 
     local overrides = {
@@ -52,6 +54,10 @@ return {
 
       PackageInfoOutdatedVersion = { link = "DiagnosticWarn" },
       PackageInfoUpToDateVersion = { link = "DiagnosticInfo" },
+
+      IblIndent = { fg = theme.ui.whitespace },
+      IblWhitespace = { fg = theme.ui.whitespace },
+      IblScope = { fg = theme.ui.special },
     }
     vim.api.nvim_create_autocmd("ColorScheme", {
       pattern = "*",
