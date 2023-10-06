@@ -1,7 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
-  event = "BufRead",
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     { "williamboman/mason.nvim" },
@@ -11,7 +10,6 @@ return {
     { "nvim-telescope/telescope-symbols.nvim" },
     { "lpoto/telescope-docker.nvim" },
     { "debugloop/telescope-undo.nvim" },
-    { "nvim-telescope/telescope-frecency.nvim" },
     { "nazo6/telescope-tailwind.nvim" },
     {
       "pwntester/octo.nvim",
@@ -36,7 +34,6 @@ return {
     map("n", "<leader>tt", "<cmd>Telescope<CR>", { desc = "[telescope] builtin" })
     map("n", "<leader>tb", "<cmd>Telescope buffers<CR>", { desc = "[telescope] Buffers" })
     map("n", "<leader>tn", "<cmd>Telescope notify<CR>", { desc = "[telescope] Notifications" })
-    map("n", "<leader>tf", "<cmd>Telescope frecency<CR>", { desc = "[telescope] Frecency" })
   end,
   config = function()
     local actions = require "telescope.actions"
@@ -63,12 +60,6 @@ return {
               end,
             },
           },
-        },
-        frecency = {
-          use_sqlite = false,
-          show_scores = true,
-          db_safe_mode = false,
-          default_workspace = "CWD",
         },
       },
     }
