@@ -8,7 +8,7 @@ return {
         show_start = false,
         show_end = false,
       },
-      char = "▏",
+      -- char = "▏",
     }
   end,
 }
