@@ -70,6 +70,5 @@ return {
     require("telescope").load_extension "docker"
     require("telescope").load_extension "undo"
     require("telescope").load_extension "tailwind"
-    require("telescope").load_extension "frecency"
   end,
 }
