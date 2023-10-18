@@ -23,10 +23,11 @@ return {
         require("octo").setup()
       end,
     },
+    { "fdschmidt93/telescope-egrepify.nvim" },
   },
   init = function()
     map("n", "<C-p>", "<cmd>Telescope find_files<CR>", { desc = "[telescope] Find files" })
-    map("n", "<leader>p", "<cmd>Telescope live_grep<CR>", { desc = "[telescope] Live grep" })
+    map("n", "<leader>p", "<cmd>Telescope egrepify<CR>", { desc = "[telescope] Live grep" })
     map("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "[telescope] Keymap" })
     map("n", "<leader>z", "<cmd>Telescope zoxide list<CR>", { desc = "[telescope] Zoxide" })
     map("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "[telescope] Undo" })
@@ -70,5 +71,6 @@ return {
     require("telescope").load_extension "docker"
     require("telescope").load_extension "undo"
     require("telescope").load_extension "tailwind"
+    require("telescope").load_extension "egrepify"
   end,
 }
