@@ -1,8 +1,7 @@
 local create_config = require("user.plugins.lsp.lspconfig.config-builder").create_config
 
 return function(server)
-  local rt = require "rust-tools"
-
+  local ferris = require "ferris"
   local config = create_config {
     settings = {
       ["rust-analyzer"] = {
@@ -11,17 +10,8 @@ return function(server)
         },
       },
     },
-    on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-    end,
   }
+  require("lspconfig")[server].setup(config)
 
-  rt.setup {
-    server = config,
-    tools = {
-      inlay_hints = {
-        auto = false,
-      },
-    },
-  }
+  ferris.setup()
 end

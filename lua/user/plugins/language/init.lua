@@ -11,7 +11,7 @@ return {
     end,
   },
 
-  { "simrat39/rust-tools.nvim" },
+  { "vxpm/ferris.nvim" },
   {
     "Saecki/crates.nvim",
     event = { "BufReadPre Cargo.toml" },
