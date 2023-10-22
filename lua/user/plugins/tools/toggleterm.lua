@@ -28,9 +28,6 @@ return {
     map("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
     map("t", "<ESC>", "<C-\\><C-n>")
 
-    map("n", "<C-t>h", "<C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
-    map("t", "<C-t>h", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>", { desc = "[toggleterm] Toggle all" })
-
     map("n", "<C-g><C-l>", "<cmd>lua _G.toggle_lazygit()<CR>", { desc = "Toggle lazygit" })
 
     local termau = vim.api.nvim_create_augroup("terminal", { clear = true })
