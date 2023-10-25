@@ -33,14 +33,20 @@ return {
     map("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
     map("t", "<ESC>", "<C-\\><C-n>")
 
-    map("n", "<C-g><C-l>", function() toggle_lazygit() end, { desc = "Toggle lazygit" })
-    map("n", "<C-g><C-g>", function() toggle_gitui() end, { desc = "Toggle gitui" })
+    map("n", "<C-g><C-l>", function()
+      toggle_lazygit()
+    end, { desc = "Toggle lazygit" })
+    map("n", "<C-g><C-g>", function()
+      toggle_gitui()
+    end, { desc = "Toggle gitui" })
 
     local termau = vim.api.nvim_create_augroup("terminal", { clear = true })
     vim.api.nvim_create_autocmd("TermOpen", {
       pattern = "*",
       group = termau,
-      callback = function() map("n", "q", [[<cmd>q<CR>]], { buffer = 0, desc = "Quit terminal buffer" }) end,
+      callback = function()
+        map("n", "q", [[<cmd>q<CR>]], { buffer = 0, desc = "Quit terminal buffer" })
+      end,
     })
   end,
   config = function()
