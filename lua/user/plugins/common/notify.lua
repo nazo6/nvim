@@ -10,7 +10,10 @@ return {
       local notif_win = nil
       for _, buf in pairs(bufs) do
         local win = vim.fn.bufwinid(buf)
-        if win ~= -1 and vim.api.nvim_buf_get_option(buf, "filetype") == "notify" then
+        if
+          win ~= -1
+          and vim.api.nvim_get_option_value("filetype", { buf = buf }) == "notify"
+        then
           notif_win = win
           break
         end
