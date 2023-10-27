@@ -16,7 +16,7 @@ return {
         open_on_start = true,
         hidden = false,
       },
-      templates = { "builtin", "user.gcc_run" },
+      templates = { "builtin", "user" },
       task_list = {
         default_detail = 1,
         max_width = { 100, 0.2 },

@@ -26,7 +26,7 @@ local spec = {
 
 local available, local_spec = pcall(require, "user.local.plugins")
 if available then
-  table.insert(spec, local_spec)
+  table.insert(spec, 1, local_spec)
 end
 
 if vim.g.plugin_enabled == nil then
