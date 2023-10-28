@@ -39,13 +39,13 @@ return {
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
-          javascript = { "prettierd", "deno_fmt" },
-          typescript = { "prettierd", "deno_fmt" },
-          typescriptreact = { "prettierd", "deno_fmt" },
-          javascriptreact = { "prettierd", "deno_fmt" },
-          markdown = { "prettierd", "deno_fmt" },
-          json = { "prettierd", "deno_fmt" },
-          jsonc = { "prettierd", "deno_fmt" },
+          javascript = { { "prettierd", "deno_fmt" } },
+          typescript = { { "prettierd", "deno_fmt" } },
+          typescriptreact = { { "prettierd", "deno_fmt" } },
+          javascriptreact = { { "prettierd", "deno_fmt" } },
+          markdown = { { "prettierd", "deno_fmt" } },
+          json = { { "prettierd", "deno_fmt" } },
+          jsonc = { { "prettierd", "deno_fmt" } },
         },
         format_on_save = function()
           if _G.conform_disabled then

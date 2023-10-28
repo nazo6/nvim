@@ -18,6 +18,11 @@ return {
         require("trouble").toggle(buftype)
       end,
     })
+
+    vim.api.nvim_create_user_command("Make", function()
+      vim.cmd [[silent make]]
+      vim.cmd [[Trouble quickfix]]
+    end, {})
   end,
   config = function()
     require("trouble").setup {
