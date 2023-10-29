@@ -29,19 +29,9 @@ if available then
   table.insert(spec, 1, local_spec)
 end
 
-if vim.g.plugin_enabled == nil then
-  vim.g.plugin_enabled = {}
-end
-
 require("lazy").setup(spec, {
   defaults = {
     lazy = true,
-    cond = function(plugin)
-      if vim.g.plugin_enabled[plugin.name] == false then
-        return false
-      end
-      return true
-    end,
   },
   change_detection = {
     enabled = false,
