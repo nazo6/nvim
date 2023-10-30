@@ -1,0 +1,1 @@
+-- `local/early-init.lua` is executed before all other config is loaded.
