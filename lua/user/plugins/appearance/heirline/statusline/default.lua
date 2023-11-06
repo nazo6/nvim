@@ -168,8 +168,15 @@ do
     provider = function()
       local text = ""
       if package.loaded["conform"] ~= nil then
+        if not _G.conform_cache then
+          _G.conform_cache = {}
+        end
         if not _G.conform_disabled then
-          local formatters = require("conform").list_formatters(0)
+          local bufnr = vim.api.nvim_get_current_buf()
+          if not _G.conform_cache[bufnr] then
+            _G.conform_cache[bufnr] = require("conform").list_formatters(0)
+          end
+          local formatters = _G.conform_cache[bufnr]
           if #formatters > 0 then
             text = "  " .. formatters[1].name .. " "
           end
