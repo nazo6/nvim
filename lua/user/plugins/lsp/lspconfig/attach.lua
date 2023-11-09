@@ -17,6 +17,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = bufnr, desc = "[LSP] Go implementation" })
 
     map("n", "gd", "<cmd>Glance definitions<CR>", { buffer = bufnr, desc = "[LSP] Go definitions" })
+    map(
+      "n",
+      "gD",
+      "<cmd>lua vim.lsp.buf.definition()<CR>",
+      { buffer = bufnr, desc = "[LSP] Go definitions using builtin func" }
+    )
     map("n", "gr", "<cmd>Glance references<CR>", { buffer = bufnr, desc = "[LSP] Go references" })
 
     map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = bufnr, desc = "[LSP] Hover" })
