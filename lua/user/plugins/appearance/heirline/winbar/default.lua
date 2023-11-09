@@ -69,6 +69,7 @@ do
   local FileName = {
     init = function(self)
       self.lfilename = vim.fn.fnamemodify(self.filename, ":.")
+      self.lfilename = string.gsub(self.lfilename, "%%", "%%%%")
       if self.lfilename == "" then
         self.lfilename = "[No Name]"
       end

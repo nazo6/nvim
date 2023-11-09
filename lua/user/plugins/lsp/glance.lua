@@ -65,7 +65,7 @@ return {
           icon = "│",
         },
         winbar = {
-          enable = true,
+          enable = false,
         },
       }
     end,
