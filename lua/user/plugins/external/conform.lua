@@ -1,3 +1,5 @@
+local lsp_always_fallback_ft = { "rust" }
+
 return {
   {
     "stevearc/conform.nvim",
@@ -46,16 +48,33 @@ return {
           markdown = { { "prettierd", "deno_fmt" } },
           json = { { "prettierd", "deno_fmt" } },
           jsonc = { { "prettierd", "deno_fmt" } },
+          rust = { "dioxus_fmt" },
+        },
+        formatters = {
+          dioxus_fmt = {
+            command = "dx",
+            args = { "fmt", "-f", "$FILENAME" },
+            stdin = false,
+            cwd = require("conform.util").root_file { "Dioxus.toml" },
+            require_cwd = true,
+            condition = require("conform.util").root_file { "Dioxus.toml" },
+          },
         },
         format_on_save = function()
           if _G.conform_disabled then
             return
           end
 
-          return {
+          local opts = {
             lsp_fallback = true,
             timeout_ms = 1000,
           }
+
+          if vim.iter(lsp_always_fallback_ft):find(vim.bo.filetype) then
+            opts.lsp_fallback = "always"
+          end
+
+          return opts
         end,
       }
     end,
