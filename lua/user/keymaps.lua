@@ -1,3 +1,4 @@
+-- move
 map("n", "k", "gk")
 map("n", "gk", "k")
 map("n", "j", "gj")
@@ -6,17 +7,16 @@ map("n", "gj", "j")
 map({ "n", "v" }, "<S-h>", "^", { desc = "Move to first of line" })
 map({ "n", "v" }, "<S-l>", "$", { desc = "Move to end of line" })
 
-map("n", "<S-Right>", "<C-w><")
-map("n", "<S-Left>", "<C-w>>")
-map("n", "<S-Up>", "<C-w>+")
-map("n", "<S-Down>", "<C-w>-")
+map("n", "<A-v>", "<C-w><C-v>")
+map("n", "<A-s>", "<C-w><C-s>")
 
 map({ "n", "x" }, "c", [["_c]])
 map({ "n", "x" }, "d", [["_d]])
 
-map("n", "<A-v>", "<C-w><C-v>")
-map("n", "<A-s>", "<C-w><C-s>")
+map("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 
+-- action
 map("n", "<leader>q", "<cmd>q<CR>", { desc = "Exit neovim" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 
@@ -27,9 +27,6 @@ map("n", "<esc>", function()
 end, {
   desc = "close window if it's a popup",
 })
-
-map("n", "K", "<Nop>")
-map("n", "<C-c>", "<Nop>")
 
 map("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>", { desc = "Open explorer.exe" })
 
@@ -66,3 +63,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end)
   end,
 })
+
+-- overwite default
+map("n", "K", "<Nop>")
+map("n", "<C-c>", "<Nop>")
