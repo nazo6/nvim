@@ -1,7 +1,9 @@
 return {
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
+    init = function()
+      require("user.utils").load_plugin_with_func("fidget.nvim", vim, "notify")
+    end,
     config = function()
       local function percentage_bar(percentage)
         local length = 12
@@ -17,23 +19,40 @@ return {
       end
 
       require("fidget").setup {
-        text = {
-          spinner = "dots",
-          done = "✓",
-          commenced = "Started",
-          completed = "Completed",
+        progress = {
+          display = {
+            format_message = function(msg)
+              local message = msg.message
+              if not message then
+                message = msg.done and "Completed" or "In progress..."
+              end
+              if msg.percentage ~= nil then
+                local percent_bar = string.format("%s%% %s", msg.percentage, percentage_bar(msg.percentage))
+                message = string.format("%s %s", message, percent_bar)
+              end
+              return message
+            end,
+          },
         },
-        fmt = {
-          task = function(task_name, message, percentage)
-            return string.format(
-              "%s %s [%s]",
-              message,
-              percentage and string.format("%s%% %s", percentage, percentage_bar(percentage)) or "",
-              task_name
-            )
-          end,
+        notification = {
+          override_vim_notify = true,
+          window = {
+            winblend = 0,
+            border = "rounded",
+          },
         },
       }
+
+      local banned_messages = { "EPERM" }
+      local notify = vim.notify
+      vim.notify = function(msg, ...)
+        for _, banned in ipairs(banned_messages) do
+          if string.find(msg, banned) then
+            return
+          end
+        end
+        notify(msg, ...)
+      end
     end,
   },
 }
