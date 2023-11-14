@@ -43,8 +43,12 @@ local picker = function(opts)
             table.insert(lines, split)
           end
 
-          table.insert(lines, entry.value.msg)
+          local msg_lines = vim.split(entry.value.msg, "\n")
+          for _, line in ipairs(msg_lines) do
+            table.insert(lines, line)
+          end
 
+          vim.api.nvim_set_option_value("wrap", true, { win = self.state.winid })
           vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
           vim.api.nvim_buf_add_highlight(bufnr, -1, level_info[entry.value.level].hi, 0, 0, #level_str)
         end,
