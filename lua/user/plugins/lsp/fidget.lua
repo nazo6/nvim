@@ -45,13 +45,20 @@ return {
 
       local banned_messages = { "EPERM" }
       local notify = vim.notify
-      vim.notify = function(msg, ...)
+      _G.notify_history = {}
+      vim.notify = function(msg, level, opts)
         for _, banned in ipairs(banned_messages) do
           if string.find(msg, banned) then
             return
           end
         end
-        notify(msg, ...)
+        table.insert(_G.notify_history, 1, {
+          msg = msg,
+          level = level or vim.log.levels.INFO,
+          opts = opts,
+          time = os.time(),
+        })
+        notify(msg, level, opts)
       end
     end,
   },
