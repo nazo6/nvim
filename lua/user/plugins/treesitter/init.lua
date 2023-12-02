@@ -1,5 +1,24 @@
 return {
   {
+    "nazo6/ts-query-installer.nvim",
+    lazy = false,
+    config = function()
+      require("ts-query-installer").setup {
+        sources = {
+          nu = {
+            repo = "https://github.com/nushell/tree-sitter-nu",
+          },
+          satysfi = {
+            repo = "https://github.com/monaqa/tree-sitter-satysfi",
+          },
+          typst = {
+            repo = "https://github.com/uben0/tree-sitter-typst",
+          },
+        },
+      }
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "InsertEnter" },
     cmd = { "TSInstall", "TSUpdate", "TSUninstall" },
@@ -9,6 +28,7 @@ return {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
       { "nvim-treesitter/playground" },
       { "IndianBoy42/tree-sitter-just" },
+      { "ts-query-installer.nvim" },
     },
     config = function()
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
@@ -27,6 +47,14 @@ return {
           branch = "main",
         },
         filetype = "nu",
+      }
+      parser_config.typst = {
+        install_info = {
+          url = "https://github.com/uben0/tree-sitter-typst",
+          files = { "src/parser.c", "src/scanner.c" },
+          branch = "master",
+        },
+        filetype = "typst",
       }
       require("tree-sitter-just").setup {}
 
