@@ -12,7 +12,9 @@ return {
             repo = "https://github.com/monaqa/tree-sitter-satysfi",
           },
           typst = {
-            repo = "https://github.com/uben0/tree-sitter-typst",
+            repo = "https://github.com/Nagefire/nvim-treesitter",
+            path = "queries/typst",
+            branch = "feat/typst",
           },
         },
       }
