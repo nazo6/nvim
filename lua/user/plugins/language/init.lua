@@ -58,6 +58,11 @@ return {
   },
 
   { "yioneko/nvim-vtsls" },
+  {
+    "dmmulroy/tsc.nvim",
+    cmd = "TSC",
+    opts = {},
+  },
 
   {
     "ellisonleao/glow.nvim",
