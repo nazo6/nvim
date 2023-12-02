@@ -1,7 +1,6 @@
 return {
   {
     "nazo6/ts-query-installer.nvim",
-    lazy = false,
     config = function()
       require("ts-query-installer").setup {
         sources = {
