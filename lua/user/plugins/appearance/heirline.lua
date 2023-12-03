@@ -1,6 +1,6 @@
 return {
   "rebelot/heirline.nvim",
-  lazy = false,
+  -- lazy = false,
   config = function()
     require "user.plugins.appearance.heirline.setup"
   end,
