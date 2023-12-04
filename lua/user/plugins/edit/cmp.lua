@@ -34,7 +34,6 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Replace,
           select = false,
         },
       },
@@ -52,6 +51,9 @@ return {
         },
         { name = "path" },
         { name = "calc" },
+      },
+      performance = {
+        fetching_timeout = 100,
       },
       formatting = {
         format = require("lspkind").cmp_format {

@@ -19,8 +19,8 @@ return {
 
     local colors = require("kanagawa.colors").setup { theme = "wave" }
     local theme = colors.theme
-    vim.g.palette = colors.palette
-    local palette = vim.g.palette
+    local palette = colors.palette
+    _G.color_palette = palette
 
     local overrides = {
       DiffAdd = { bg = palette.autumnGreen },

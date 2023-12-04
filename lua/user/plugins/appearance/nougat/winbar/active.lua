@@ -8,22 +8,20 @@ local color = c.color
 local wbr = Bar "winbar"
 
 wbr:add_item(nut.buf.icon {
-  hl = { bg = color.bg2 },
+  hl = { bg = color.palette.waveRed },
   prefix = " ",
-  priority = 30,
 })
 wbr:add_item(nut.buf.filename {
-  hl = { bg = color.bg2 },
+  hl = { bg = color.palette.waveRed, fg = "white" },
   prefix = " ",
   suffix = " ",
-  priority = 40,
 })
 wbr:add_item(nut.buf.filestatus {
-  hl = { bg = color.bg2 },
+  hl = { bg = color.palette.waveRed, fg = "white" },
   suffix = " ",
   sep_right = sep.right_lower_triangle_solid(true),
   config = {
-    modified = "󰏫",
+    modified = "●",
     nomodifiable = "󰏯",
     readonly = "",
     sep = " ",
@@ -32,6 +30,7 @@ wbr:add_item(nut.buf.filestatus {
 wbr:add_item(nut.buf.navic {
   prefix = " ",
   suffix = " ",
+  priority = -1,
 })
 
 return wbr

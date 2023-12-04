@@ -9,7 +9,7 @@ local color = c.color
 local stl = Bar "statusline"
 
 stl:add_item(nut.mode {
-  sep_right = sep.right_lower_triangle_solid(true),
+  -- sep_right = sep.right_lower_triangle_solid(true),
 })
 stl:add_item(nut.buf.filetype {
   hl = { bg = color.bg2, fg = "white" },
@@ -36,7 +36,7 @@ stl:add_item(nut.buf.encoding {
   suffix = " ",
 })
 stl:add_item(nut.git.branch {
-  hl = { bg = color.magenta, fg = color.bg },
+  hl = { bg = color.green, fg = color.bg2 },
   prefix = "  ",
   suffix = " ",
   hidden = function(_, ctx)
@@ -45,35 +45,53 @@ stl:add_item(nut.git.branch {
   sep_right = sep.right_lower_triangle_solid(true),
 })
 stl:add_item(nut.git.status.create {
-  hl = { fg = color.bg },
+  hl = { bg = color.bg2 },
   content = {
     nut.git.status.count("added", {
-      hl = { bg = color.green },
-      prefix = "+",
-      sep_right = sep.right_lower_triangle_solid(true),
+      hl = { fg = color.green },
+      prefix = " +",
     }),
     nut.git.status.count("changed", {
-      hl = { bg = color.blue },
-      prefix = "~",
-      sep_right = sep.right_lower_triangle_solid(true),
+      hl = { fg = color.blue },
+      prefix = " ~",
     }),
     nut.git.status.count("removed", {
-      hl = { bg = color.red },
-      prefix = "-",
-      sep_right = sep.right_lower_triangle_solid(true),
+      hl = { fg = color.red },
+      prefix = " -",
     }),
   },
+  suffix = " ",
+  sep_right = sep.right_lower_triangle_solid(true),
 })
 stl:add_item(nut.buf.diagnostic_count {
   prefix = " ",
   suffix = " ",
+  hl = { bg = color.bg },
   config = {
     error = { prefix = " " },
     warn = { prefix = " " },
     info = { prefix = " " },
     hint = { prefix = "󰌶 " },
   },
+  -- sep_right = sep.right_lower_triangle_solid(true),
 })
+stl:add_item(nut.lsp.servers {
+  hl = { fg = color.fg },
+  prefix = "  ",
+  config = {
+    content = function(client)
+      if client.name ~= "copilot" then
+        return client.name
+      end
+      return nil
+    end,
+  },
+})
+stl:add_item(nut.buf.conform {
+  hl = { fg = color.fg },
+  prefix = "  ",
+})
+
 stl:add_item(nut.spacer())
 stl:add_item(nut.truncation_point())
 stl:add_item(Item {

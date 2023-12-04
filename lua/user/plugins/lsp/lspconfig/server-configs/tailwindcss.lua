@@ -59,6 +59,12 @@ return create_setup {
     -- custom
     "rust",
   },
+  root_dir = root_pattern {
+    "tailwind.config.js",
+    "tailwind.config.cjs",
+    "tailwind.config.mjs",
+    "tailwind.config.ts",
+  },
   init_options = {
     userLanguages = {
       eelixir = "html-eex",

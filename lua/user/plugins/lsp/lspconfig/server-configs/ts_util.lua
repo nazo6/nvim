@@ -28,6 +28,11 @@ return {
             type = "deno",
             root = deno_root,
           }
+        else
+          node_or_deno_cache[path] = {
+            type = "deno",
+            root = vim.fs.dirname(path),
+          }
         end
       end
 
