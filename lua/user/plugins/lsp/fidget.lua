@@ -14,8 +14,8 @@ return {
         local complete_length = math.floor((percentage / 100) * length)
 
         return string.rep(complete, complete_length > 0 and complete_length - 1 or complete_length)
-          .. (complete_length > 0 and sep or "")
-          .. string.rep(incomplete, length - complete_length)
+            .. (complete_length > 0 and sep or "")
+            .. string.rep(incomplete, length - complete_length)
       end
 
       require("fidget").setup {
@@ -37,8 +37,7 @@ return {
         notification = {
           override_vim_notify = true,
           window = {
-            winblend = 0,
-            border = "rounded",
+            winblend = 50,
           },
         },
       }
