@@ -1,0 +1,46 @@
+local Item = require "nougat.item"
+
+local mod = {}
+
+local function prepare(item, ctx)
+  local cache = item:cache(ctx)
+  if not cache.fileformat then
+    local os = vim.bo.fileformat
+    cache.fileformat = os == "unix" and "LF" or os == "mac" and "CR" or "CRLF"
+  end
+end
+
+local function content(item, ctx)
+  return item:cache(ctx).fileformat
+end
+
+local cache_initial_value = { fileformat = nil }
+
+function mod.create(opts)
+  local item = Item {
+    priority = opts.priority,
+    prepare = prepare,
+    hidden = opts.hidden,
+    hl = opts.hl,
+    sep_left = opts.sep_left,
+    prefix = opts.prefix,
+    content = content,
+    suffix = opts.suffix,
+    sep_right = opts.sep_right,
+    on_click = opts.on_click,
+    context = opts.context,
+    cache = {
+      name = "nnut.buf.fileformat",
+      scope = "buf",
+      get = function(store, ctx)
+        return store[ctx.bufnr]
+      end,
+      initial_value = cache_initial_value,
+      clear = "BufWrite",
+    },
+  }
+
+  return item
+end
+
+return mod
