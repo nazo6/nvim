@@ -16,7 +16,7 @@ wbr:add_item(nut.buf.filename {
   hl = { bg = color.bg2 },
   prefix = " ",
   suffix = " ",
-  priority = 30,
+  priority = 40,
 })
 wbr:add_item(nut.buf.filestatus {
   hl = { bg = color.bg2 },

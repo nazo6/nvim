@@ -4,14 +4,14 @@ return {
       diagnostic_count = require("nougat.nut.buf.diagnostic_count").create,
       filename = require("nougat.nut.buf.filename").create,
       filestatus = require("nougat.nut.buf.filestatus").create,
-      filetype = require("nougat.nut.buf.filetype").create,
+      filetype = require("user.plugins.appearance.nougat.nut.buf.filetype").create,
       icon = require("user.plugins.appearance.nougat.nut.buf.icon").create,
       navic = require("user.plugins.appearance.nougat.nut.buf.navic").create,
       fileformat = require("user.plugins.appearance.nougat.nut.buf.fileformat").create,
       encoding = require("user.plugins.appearance.nougat.nut.buf.encoding").create,
     },
     git = {
-      branch = require("nougat.nut.git.branch").create,
+      branch = require("user.plugins.appearance.nougat.nut.git.branch").create,
       status = require "nougat.nut.git.status",
     },
     tab = {

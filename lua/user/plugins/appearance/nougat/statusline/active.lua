@@ -39,6 +39,9 @@ stl:add_item(nut.git.branch {
   hl = { bg = color.magenta, fg = color.bg },
   prefix = "  ",
   suffix = " ",
+  hidden = function(_, ctx)
+    return ctx.branch == ""
+  end,
   sep_right = sep.right_lower_triangle_solid(true),
 })
 stl:add_item(nut.git.status.create {

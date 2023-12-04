@@ -36,7 +36,7 @@ function mod.create(opts)
         return store[ctx.bufnr]
       end,
       initial_value = cache_initial_value,
-      clear = "BufWrite",
+      clear = "BufWritePost",
     },
   }
 
