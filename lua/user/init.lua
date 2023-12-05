@@ -3,7 +3,7 @@ require "user.profile"
 pcall(require, "user.local.early-init")
 require "user.early-init"
 
-if vim.fn.has "gui_running" then
+if vim.fn.has "gui_running" == 1 then
   require "user.ginit"
 end
 
