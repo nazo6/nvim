@@ -21,10 +21,10 @@ return {
         "prettier.config.js",
         "prettier.config.cjs",
       }
-      require("conform.formatters.prettierd").condition = function(ctx)
-        return not not (require("conform.formatters.prettierd").cwd(ctx))
+      require("conform.formatters.prettierd").condition = function(self, ctx)
+        return not not (require("conform.formatters.prettierd").cwd(self, ctx))
       end
-      require("conform.formatters.deno_fmt").condition = function(ctx)
+      require("conform.formatters.deno_fmt").condition = function(self, ctx)
         local denols = vim.iter(vim.lsp.get_clients { bufnr = ctx.buf }):find(function(c)
           return c.name == "denols"
         end)
