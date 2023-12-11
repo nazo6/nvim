@@ -25,4 +25,5 @@ return {
   omnisharp = srequire "omnisharp",
   clangd = srequire "clangd",
   pyright = srequire "pyright",
+  typst_lsp = srequire "typst_lsp",
 }
