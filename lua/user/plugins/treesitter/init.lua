@@ -15,6 +15,9 @@ return {
             path = "queries/typst",
             branch = "feat/typst",
           },
+          blade = {
+            repo = "https://github.com/EmranMR/tree-sitter-blade",
+          },
         },
       }
     end,
@@ -56,6 +59,14 @@ return {
           branch = "master",
         },
         filetype = "typst",
+      }
+      parser_config.blade = {
+        install_info = {
+          url = "https://github.com/EmranMR/tree-sitter-blade",
+          files = { "src/parser.c" },
+          branch = "main",
+        },
+        filetype = "blade",
       }
       require("tree-sitter-just").setup {}
 
