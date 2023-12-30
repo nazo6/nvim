@@ -1,4 +1,12 @@
+local web_formatter_selector = require "user.shared.formatter-selector.web"
+
+-- Lsp server that always fallback to formatting even if it has a formatter.
+--
+-- This is useful for dioxus-fmt, which formats only in rsx! macro.
 local lsp_always_fallback_ft = { "rust" }
+
+-- Lsp server that is not used for formatting
+local lsp_skip_format = { "lua", "vtsls", "tsserver" }
 
 return {
   {
@@ -8,27 +16,18 @@ return {
     config = function()
       local util = require "conform.util"
 
-      require("conform.formatters.prettierd").cwd = util.root_file {
-        ".prettierrc",
-        ".prettierrc.json",
-        ".prettierrc.yml",
-        ".prettierrc.yaml",
-        ".prettierrc.json5",
-        ".prettierrc.js",
-        ".prettierrc.cjs",
-        ".prettierrc.mjs",
-        ".prettierrc.toml",
-        "prettier.config.js",
-        "prettier.config.cjs",
-      }
+      require("conform.formatters.prettierd").cwd = util.root_file(web_formatter_selector.root.prettier)
       require("conform.formatters.prettierd").condition = function(self, ctx)
-        return not not (require("conform.formatters.prettierd").cwd(self, ctx))
+        return web_formatter_selector.judge(ctx.filename, ctx.buf).type == "prettier"
       end
+
+      require("conform.formatters.biome").cwd = util.root_file(web_formatter_selector.root.biome)
+      require("conform.formatters.biome").condition = function(self, ctx)
+        return web_formatter_selector.judge(ctx.filename, ctx.buf).type == "biome"
+      end
+
       require("conform.formatters.deno_fmt").condition = function(self, ctx)
-        local denols = vim.iter(vim.lsp.get_clients { bufnr = ctx.buf }):find(function(c)
-          return c.name == "denols"
-        end)
-        return not denols
+        return web_formatter_selector.judge(ctx.filename, ctx.buf).type == "deno_fmt"
       end
 
       vim.api.nvim_create_user_command("ConformDisable", function()
@@ -38,16 +37,18 @@ return {
         _G.conform_disabled = false
       end, {})
 
+      local web_formatters = { "prettierd", "biome", "deno_fmt" }
+
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
-          javascript = { { "prettierd", "deno_fmt" } },
-          typescript = { { "prettierd", "deno_fmt" } },
-          typescriptreact = { { "prettierd", "deno_fmt" } },
-          javascriptreact = { { "prettierd", "deno_fmt" } },
-          markdown = { { "prettierd", "deno_fmt" } },
-          json = { { "prettierd", "deno_fmt" } },
-          jsonc = { { "prettierd", "deno_fmt" } },
+          javascript = { web_formatters },
+          typescript = { web_formatters },
+          typescriptreact = { web_formatters },
+          javascriptreact = { web_formatters },
+          markdown = { web_formatters },
+          json = { web_formatters },
+          jsonc = { web_formatters },
           rust = { "dioxus_fmt" },
         },
         formatters = {
@@ -68,6 +69,12 @@ return {
           local opts = {
             lsp_fallback = true,
             timeout_ms = 1000,
+            filter = function(client)
+              if vim.iter(lsp_skip_format):find(client.name) then
+                return false
+              end
+              return true
+            end,
           }
 
           if vim.iter(lsp_always_fallback_ft):find(vim.bo.filetype) then

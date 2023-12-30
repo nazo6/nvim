@@ -6,6 +6,7 @@ end
 return {
   tsserver = srequire "tsserver",
   vtsls = srequire "vtsls",
+  biome = srequire "biome",
   denols = srequire "denols",
   jsonls = create_setup {
     filetypes = { "json", "jsonc" },

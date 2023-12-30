@@ -1,10 +1,12 @@
 local create_setup = require("user.plugins.lsp.lspconfig.config-builder").create_setup
-local root_pattern = require("lspconfig").util.root_pattern
-
-local node_or_deno = require("user.plugins.lsp.lspconfig.server-configs.ts_util").node_or_deno
+local node_or_deno = require("user.shared.lsp-selector.web").judge
 
 return create_setup {
-  root_dir = node_or_deno "deno",
+  root_dir = function(path)
+    if node_or_deno(path).type == "deno" then
+      return node_or_deno(path).root
+    end
+  end,
   settings = {
     enable = true,
     lint = true,
