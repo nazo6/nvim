@@ -13,7 +13,7 @@ return {
     },
     git = {
       branch = require("user.plugins.appearance.nougat.nut.git.branch").create,
-      status = require "nougat.nut.git.status",
+      status = require("user.plugins.appearance.nougat.nut.git.status").create,
     },
     tab = {
       tablist = {

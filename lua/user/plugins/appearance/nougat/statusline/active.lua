@@ -44,22 +44,14 @@ stl:add_item(nut.git.branch {
   end,
   sep_right = sep.right_lower_triangle_solid(true),
 })
-stl:add_item(nut.git.status.create {
+stl:add_item(nut.git.status {
   hl = { bg = color.bg2 },
-  content = {
-    nut.git.status.count("added", {
-      hl = { fg = color.green },
-      prefix = " +",
-    }),
-    nut.git.status.count("changed", {
-      hl = { fg = color.blue },
-      prefix = " ~",
-    }),
-    nut.git.status.count("removed", {
-      hl = { fg = color.red },
-      prefix = " -",
-    }),
-  },
+  added_hl = { fg = color.green },
+  added_prefix = " +",
+  changed_prefix = " ~",
+  removed_prefix = " -",
+  changed_hl = { fg = color.blue },
+  removed_hl = { fg = color.red },
   suffix = " ",
   sep_right = sep.right_lower_triangle_solid(true),
 })
