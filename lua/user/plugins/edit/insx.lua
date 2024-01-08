@@ -13,21 +13,31 @@ return {
     local fast_break = require "insx.recipe.fast_break"
 
     -- quotes
-    for _, quote in ipairs { '"', "'", "`" } do
+    for _, quote in ipairs {
+      { '"', {} },
+      { "'", {} },
+      { "`", {} },
+      { "$", { insx.with.filetype { "tex" } } },
+    } do
       -- jump_out
       insx.add(
-        quote,
+        quote[1],
         jump_next {
           jump_pat = {
-            [[\\\@<!\%#]] .. esc(quote) .. [[\zs]],
+            [[\\\@<!\%#]] .. esc(quote[1]) .. [[\zs]],
           },
-        }
+        },
+        quote[2]
       )
-      insx.add(quote, auto_pair.strings { open = quote, close = quote })
-      insx.add("<BS>", delete_pair.strings { open_pat = esc(quote), close_pat = esc(quote) })
-      insx.add("<C-h>", delete_pair.strings { open_pat = esc(quote), close_pat = esc(quote) })
+      print(quote[1], quote[2])
+      insx.add(quote[1], insx.with(auto_pair.strings { open = quote[1], close = quote[1] }, quote[2]))
+      insx.add("<BS>", insx.with(delete_pair.strings { open_pat = esc(quote[1]), close_pat = esc(quote[1]) }, quote[2]))
+      insx.add(
+        "<C-h>",
+        insx.with(delete_pair.strings { open_pat = esc(quote[1]), close_pat = esc(quote[1]) }, quote[2])
+      )
 
-      insx.add("<C-]>", fast_wrap { close = quote })
+      insx.add("<C-]>", insx.with(fast_wrap { close = quote[1] }, quote[2]))
     end
 
     -- pairs
@@ -64,7 +74,7 @@ return {
         if require("luasnip").expand_or_locally_jumpable() then
           ctx.send "<Plug>luasnip-expand-or-jump"
         else
-          if vim.iter({ [["]], "'", "]", "}", ")", "`" }):find(ctx.after():sub(1, 1)) ~= nil then
+          if vim.iter({ [["]], "'", "]", "}", ")", "`", "$" }):find(ctx.after():sub(1, 1)) ~= nil then
             ctx.move(row, col + 1)
           else
             ctx.send "<Tab>"

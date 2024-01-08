@@ -4,7 +4,7 @@ return create_setup {
   settings = {
     texlab = {
       build = {
-        args = { "-pv" },
+        args = { "-pv", "-lualatex" },
         executable = "latexmk",
         forwardSearchAfter = true,
         onSave = true,
