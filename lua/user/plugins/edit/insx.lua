@@ -17,7 +17,7 @@ return {
       { '"', {} },
       { "'", {} },
       { "`", {} },
-      { "$", { insx.with.filetype { "tex" } } },
+      { "$", { insx.with.filetype { "tex", "typst" } } },
     } do
       -- jump_out
       insx.add(

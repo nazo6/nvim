@@ -4,7 +4,7 @@ return create_setup {
   settings = {
     texlab = {
       build = {
-        args = { "-pv", "-lualatex" },
+        args = { "-pv", "-lualatex", "-output-directory=out" },
         executable = "latexmk",
         forwardSearchAfter = true,
         onSave = true,
@@ -13,6 +13,7 @@ return create_setup {
         onEdit = true,
         onOpenAndSave = true,
       },
+      outputDirectory = "out",
       latexFormatter = "latexindent",
       forwardSearch = {
         executable = "sumatrapdf",

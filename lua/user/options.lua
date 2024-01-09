@@ -51,6 +51,8 @@ opt.fillchars = {
 
 opt.updatetime = 300
 
+opt.exrc = true
+
 vim.cmd [[autocmd FileType help wincmd L]]
 
 -- Key
