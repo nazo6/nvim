@@ -1,5 +1,5 @@
 return {
-  name = "typst watch this file",
+  name = "typst watch",
   priority = 40,
   builder = function()
     local filename = vim.fn.expand "%:t"

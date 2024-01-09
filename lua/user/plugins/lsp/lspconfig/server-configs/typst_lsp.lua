@@ -1,9 +1,40 @@
 local util = require "lspconfig.util"
 local create_setup = require("user.plugins.lsp.lspconfig.config-builder").create_setup
 
+local pinned = {}
+
+local typst_utils = {
+  unPinMain = function(client)
+    client.request("workspace/executeCommand", {
+      command = "typst-lsp.doPinMain",
+      arguments = { "detached" },
+    }, function(err, _result, _ctx)
+      if err ~= nil then
+        vim.notify("Error unpinning typst-lsp: " .. vim.inspect(error), vim.log.levels.ERROR)
+      end
+    end)
+  end,
+  pinMain = function(client, uri)
+    local typst_lsp_client = vim.lsp.get_clients {
+      name = "typst_lsp",
+    }
+    if #typst_lsp_client == 0 then
+      vim.notify("No typst-lsp client found", vim.log.levels.ERROR)
+      return
+    end
+    client.request("workspace/executeCommand", {
+      command = "typst-lsp.doPinMain",
+      arguments = { uri },
+    }, function(err, _result, _ctx)
+      if err ~= nil then
+        vim.notify("Error pinning typst-lsp: " .. vim.inspect(error), vim.log.levels.ERROR)
+      end
+    end)
+  end,
+}
+
 return create_setup {
   on_attach = function(client, bufnr)
-    local typst_utils = require "user.shared.lsp.typst"
     vim.api.nvim_buf_create_user_command(bufnr, "TypstPinCurrent", function()
       typst_utils.pinMain(client, vim.uri_from_bufnr(bufnr))
     end, {})
@@ -15,6 +46,18 @@ return create_setup {
     vim.api.nvim_buf_create_user_command(bufnr, "TypstUnpinCurrent", function()
       typst_utils.unPinMain(client)
     end, {})
+
+    local root_pattern = require("lspconfig").util.root_pattern
+    local index_file_root_pattern = root_pattern "report.typ"
+    local root_dir = index_file_root_pattern(vim.api.nvim_buf_get_name(bufnr))
+    if root_dir ~= nil then
+      local root_file = vim.fs.joinpath(root_dir, "report.typ")
+      if not pinned[root_file] then
+        typst_utils.pinMain(client, vim.uri_from_fname(root_file))
+        pinned[root_file] = true
+        vim.notify("[typst] Pinned to " .. root_file)
+      end
+    end
   end,
   root_dir = function(fname)
     local root = util.find_git_ancestor(fname)

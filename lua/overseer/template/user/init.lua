@@ -5,4 +5,5 @@ return {
   "user.cargo_compete",
   "user.cargo_compete_file",
   "user.typst_watch",
+  "user.typst_watch_root",
 }
