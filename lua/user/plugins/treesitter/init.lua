@@ -18,6 +18,9 @@ return {
           blade = {
             repo = "https://github.com/EmranMR/tree-sitter-blade",
           },
+          surrealdb = {
+            repo = "https://github.com/DariusCorvus/tree-sitter-surrealdb",
+          },
         },
       }
     end,
@@ -67,6 +70,14 @@ return {
           branch = "main",
         },
         filetype = "blade",
+      }
+      parser_config.surrealdb = {
+        install_info = {
+          url = "https://github.com/DariusCorvus/tree-sitter-surrealdb",
+          files = { "src/parser.c" },
+          branch = "main",
+        },
+        filetype = "surrealdb",
       }
       require("tree-sitter-just").setup {}
 

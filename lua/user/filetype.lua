@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           saty = "satysfi",
           satyh = "satysfi",
           nu = "nu",
+          surql = "surrealdb",
         },
         filename = {
           [".swcrc"] = "json",
