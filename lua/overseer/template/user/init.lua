@@ -6,4 +6,5 @@ return {
   "user.cargo_compete_file",
   "user.typst_watch",
   "user.typst_watch_root",
+  "user.gnuplot_run",
 }
