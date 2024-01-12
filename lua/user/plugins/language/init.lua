@@ -11,7 +11,11 @@ return {
     end,
   },
 
-  { "vxpm/ferris.nvim" },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^3",
+    ft = { "rust" },
+  },
   {
     "Saecki/crates.nvim",
     event = { "BufReadPre Cargo.toml" },

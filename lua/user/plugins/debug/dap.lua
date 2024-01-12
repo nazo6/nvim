@@ -17,6 +17,7 @@ return {
   end,
   config = function()
     require("nvim-dap-virtual-text").setup {}
+
     vim.schedule(function()
       require("dapui").setup()
       require("mason-nvim-dap").setup {
