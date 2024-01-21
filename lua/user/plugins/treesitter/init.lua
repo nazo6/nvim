@@ -98,6 +98,11 @@ return {
         textobjects = {
           select = {
             enable = true,
+            disable = function(lang)
+              -- TODO: Dart parser is very slow when textojects is enabled.
+              -- ref: https://github.com/nvim-treesitter/nvim-treesitter/issues/2126
+              return lang == "dart"
+            end,
             lookahead = true,
             keymaps = {
               ["af"] = "@function.outer",

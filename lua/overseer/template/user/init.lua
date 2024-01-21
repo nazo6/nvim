@@ -7,4 +7,5 @@ return {
   "user.typst_watch",
   "user.typst_watch_root",
   "user.gnuplot_run",
+  "user.flutter_run",
 }
