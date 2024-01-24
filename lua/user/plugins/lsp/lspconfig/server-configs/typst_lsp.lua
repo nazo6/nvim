@@ -53,9 +53,11 @@ return create_setup {
     if root_dir ~= nil then
       local root_file = vim.fs.joinpath(root_dir, "report.typ")
       if not pinned[root_file] then
-        typst_utils.pinMain(client, vim.uri_from_fname(root_file))
-        pinned[root_file] = true
-        vim.notify("[typst] Pinned to " .. root_file)
+        vim.defer_fn(function()
+          typst_utils.pinMain(client, vim.uri_from_fname(root_file))
+          pinned[root_file] = true
+          vim.notify("[typst] Pinned to " .. root_file)
+        end, 1000)
       end
     end
   end,
