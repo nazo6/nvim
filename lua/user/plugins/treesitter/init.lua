@@ -1,12 +1,10 @@
+---@diagnostic disable: inject-field
 return {
   {
     "nazo6/ts-query-installer.nvim",
     config = function()
       require("ts-query-installer").setup {
         sources = {
-          nu = {
-            repo = "https://github.com/nushell/tree-sitter-nu",
-          },
           satysfi = {
             repo = "https://github.com/monaqa/tree-sitter-satysfi",
           },
@@ -34,8 +32,10 @@ return {
       { "windwp/nvim-ts-autotag" },
       { "nvim-treesitter/nvim-treesitter-textobjects" },
       { "nvim-treesitter/playground" },
-      { "IndianBoy42/tree-sitter-just" },
       { "ts-query-installer.nvim" },
+
+      { "IndianBoy42/tree-sitter-just" },
+      { "nushell/tree-sitter-nu" },
     },
     config = function()
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
@@ -46,14 +46,6 @@ return {
           files = { "src/parser.c", "src/scanner.c" },
         },
         filetype = "satysfi",
-      }
-      parser_config.nu = {
-        install_info = {
-          url = "https://github.com/nushell/tree-sitter-nu",
-          files = { "src/parser.c" },
-          branch = "main",
-        },
-        filetype = "nu",
       }
       parser_config.typst = {
         install_info = {
