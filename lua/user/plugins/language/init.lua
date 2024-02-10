@@ -21,7 +21,14 @@ return {
     event = { "BufReadPre Cargo.toml" },
     dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
-      require("crates").setup()
+      require("crates").setup {
+        lsp = {
+          enabled = true,
+          actions = true,
+          completion = true,
+          hover = true,
+        },
+      }
     end,
   },
   {

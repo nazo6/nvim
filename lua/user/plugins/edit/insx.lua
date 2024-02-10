@@ -29,7 +29,6 @@ return {
         },
         quote[2]
       )
-      print(quote[1], quote[2])
       insx.add(quote[1], insx.with(auto_pair.strings { open = quote[1], close = quote[1] }, quote[2]))
       insx.add("<BS>", insx.with(delete_pair.strings { open_pat = esc(quote[1]), close_pat = esc(quote[1]) }, quote[2]))
       insx.add(
