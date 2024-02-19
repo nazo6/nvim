@@ -13,6 +13,7 @@ return {
     { "j-hui/fidget.nvim" },
     {
       "folke/neoconf.nvim",
+      cmd = { "Neoconf" },
       config = function()
         require("neoconf").setup {
           plugins = {
@@ -25,7 +26,7 @@ return {
       end,
     },
   },
-  cmd = { "LspInfo", "LspLog", "Neoconf" },
+  cmd = { "LspInfo", "LspLog" },
   event = { "BufRead", "BufNewFile" },
   config = function()
     require "user.plugins.lsp.lspconfig.setup"

@@ -16,6 +16,5 @@ return {
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = true,
   },
-  { "folke/neoconf.nvim" },
   { "aznhe21/actions-preview.nvim" },
 }
