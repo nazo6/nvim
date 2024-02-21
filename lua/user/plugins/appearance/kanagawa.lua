@@ -23,6 +23,8 @@ return {
     _G.color_palette = palette
 
     local overrides = {
+      Visual = { bg = "#2b4960" },
+
       DiffAdd = { bg = palette.autumnGreen },
 
       DiagnosticVirtualTextError = { link = "DiagnosticError" },

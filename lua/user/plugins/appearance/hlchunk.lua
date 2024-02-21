@@ -10,6 +10,9 @@ return {
         enable = false,
       },
       chunk = {
+        exclude_filetypes = {
+          glowpreview = true,
+        },
         style = {
           "#00BB00",
           "#FFFF00",

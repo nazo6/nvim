@@ -30,9 +30,6 @@ We can profile lua thanks to
      `$env:NVIM_PROFILE=start nvim`(powershell) or`NVIM_PROFILE=start nvim`.
 3. `<F1>` to toggle profile.
 
-NOTE: Enabling profile causes significant performance decrease. Usually, don't
-use it.
-
 ## Dependencies
 
 ### General
