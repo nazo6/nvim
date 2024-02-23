@@ -54,6 +54,8 @@ if vim.fn.has "termguicolors" == 1 then
   opt.termguicolors = true
 end
 
+opt.laststatus = 3
+
 opt.title = true
 local wsl_prefix = vim.fn.has "wsl" == 1 and " [wsl]" or ""
 opt.titlestring = "%{getcwd()}" .. " - NVIM" .. wsl_prefix

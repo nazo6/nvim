@@ -1,9 +1,5 @@
 local Item = require "nougat.item"
 
-local prepare = function(_, ctx)
-  ctx.branch = vim.fn.getbufvar(ctx.bufnr, "gitsigns_head", "")
-end
-
 local content = function(_, ctx)
   return ctx.branch
 end
@@ -18,7 +14,13 @@ function mod.create(opts)
     sep_left = opts.sep_left,
     prefix = opts.prefix,
     content = content,
-    prepare = prepare,
+    prepare = function(_, ctx)
+      if opts.global then
+        ctx.branch = vim.g.gitsigns_head or ""
+      else
+        ctx.branch = vim.b.gitsigns_head or ""
+      end
+    end,
     suffix = opts.suffix,
     sep_right = opts.sep_right,
     on_click = opts.on_click,

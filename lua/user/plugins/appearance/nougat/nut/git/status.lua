@@ -24,8 +24,7 @@ local content = function(key, opts)
     hidden = function(_, ctx)
       return ctx.gitstatus[key] == 0
     end,
-    hl = opts[key .. "_hl"],
-    sep_left = opts.sep_left,
+    hl = { fg = opts[key .. "_hl"].fg, bg = opts.hl.bg },
     prefix = opts[key .. "_prefix"],
     content = function(_, ctx)
       return tostring(ctx.gitstatus[key])
