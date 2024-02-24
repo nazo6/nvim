@@ -12,6 +12,22 @@ local level_info = {
   [4] = { display = "ERROR", hi = "DiagnosticError" },
   [5] = { display = "OFF", hi = "DiagnosticHint" },
 }
+local level_str_to_int = {
+  trace = 0,
+  debug = 1,
+  info = 2,
+  warn = 3,
+  error = 4,
+  off = 5,
+}
+
+local normalize_level = function(level)
+  local new_level = level or 2
+  if type(level) == "string" then
+    new_level = level_str_to_int[level:lower()] or 2
+  end
+  return new_level
+end
 
 local finder_displayer = entry_display.create {
   separator = " ",
@@ -34,7 +50,8 @@ local picker = function(opts)
           local split = string.rep("─", width)
           local lines = {}
 
-          local level_str = level_info[entry.value.level].display
+          local level = normalize_level(entry.value.level)
+          local level_str = level_info[level].display
           table.insert(lines, level_str .. " " .. vim.fn.strftime("%T", entry.value.time))
           table.insert(lines, split)
 
@@ -50,7 +67,7 @@ local picker = function(opts)
 
           vim.api.nvim_set_option_value("wrap", true, { win = self.state.winid })
           vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
-          vim.api.nvim_buf_add_highlight(bufnr, -1, level_info[entry.value.level].hi, 0, 0, #level_str)
+          vim.api.nvim_buf_add_highlight(bufnr, -1, level_info[level].hi, 0, 0, #level_str)
         end,
       },
       finder = finders.new_table {
@@ -59,9 +76,10 @@ local picker = function(opts)
           return {
             value = entry,
             display = function(entry)
+              local level = normalize_level(entry.value.level)
               return finder_displayer {
                 { vim.fn.strftime("%T", entry.value.time) },
-                { level_info[entry.value.level].display, level_info[entry.value.level].hi },
+                { level_info[level].display, level_info[level].hi },
                 { entry.value.msg },
               }
             end,

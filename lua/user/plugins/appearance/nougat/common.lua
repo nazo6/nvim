@@ -9,7 +9,7 @@ return {
       navic = require("user.plugins.appearance.nougat.nut.buf.navic").create,
       fileformat = require("user.plugins.appearance.nougat.nut.buf.fileformat").create,
       encoding = require("user.plugins.appearance.nougat.nut.buf.encoding").create,
-      conform = require("user.plugins.appearance.nougat.nut.buf.conform").create,
+      fmo = require("user.plugins.appearance.nougat.nut.buf.fmo").create,
     },
     git = {
       branch = require("user.plugins.appearance.nougat.nut.git.branch").create,

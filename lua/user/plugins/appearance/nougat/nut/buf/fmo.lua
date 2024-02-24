@@ -3,8 +3,8 @@ local Item = require "nougat.item"
 local function prepare(item, ctx)
   local cache = item:cache(ctx)
   if not cache.formatters then
-    if package.loaded["conform"] ~= nil then
-      cache.formatters = require("conform").list_formatters(0)
+    if package.loaded["fmo"] ~= nil then
+      cache.formatters = require("fmo").get_formatters(0)
     end
   end
 end
@@ -12,7 +12,7 @@ end
 local function content(item, ctx)
   local formatters = item:cache(ctx).formatters
   if formatters ~= nil and #formatters > 0 then
-    return formatters[1].name
+    return formatters[1].type .. ":" .. formatters[1].name
   end
   return nil
 end
@@ -35,13 +35,13 @@ function mod.create(opts)
     on_click = opts.on_click,
     context = opts.context,
     cache = {
-      name = "nnut.buf.conform",
+      name = "nnut.buf.fmo",
       scope = "buf",
       get = function(store, ctx)
         return store[ctx.bufnr]
       end,
       initial_value = cache_initial_value,
-      clear = "BufReadPost",
+      clear = "LspAttach",
     },
   }
 

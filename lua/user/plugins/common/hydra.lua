@@ -8,8 +8,6 @@ for _, hydra in ipairs(hydras) do
   table.insert(keys, hydra.key)
 end
 
-vim.print(keys)
-
 return {
   "nvimtools/hydra.nvim",
   keys = keys,

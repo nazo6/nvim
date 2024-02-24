@@ -57,7 +57,7 @@ stl:add_item(nut.lsp.servers {
     end,
   },
 })
-stl:add_item(nut.buf.conform {
+stl:add_item(nut.buf.fmo {
   hl = { fg = color.fg },
   prefix = "  ",
 })
