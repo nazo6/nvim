@@ -23,7 +23,7 @@ return {
       },
     },
     config = function()
-      local specs = {
+      local formatters = {
         prettierd = {
           type = "conform",
           name = "prettierd",
@@ -47,42 +47,50 @@ return {
       ---@type table<string, fmo.FormatterSpecifierGroup>
       local formatter_groups = {
         web = {
-          { -- In this level, one which was enabled for the first time will be selected
-            { { type = "lsp", name = "denols" } },
-            { { type = "lsp", name = "biome" } },
-            {
-              specs.prettierd,
-              specs.deno_fmt,
+          {
+            specs = {
+              { { type = "lsp", name = "denols" } },
+              { { type = "lsp", name = "biome" } },
+              {
+                formatters.prettierd,
+                formatters.deno_fmt,
+              },
+              { { type = "lsp", name = "vtsls" } },
             },
-            { { type = "lsp", name = "vtsls" } },
           },
         },
         lua = {
           {
-            {
-              { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
-              { type = "lsp", name = "lua_ls" },
+            specs = {
+              {
+                { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
+                { type = "lsp", name = "lua_ls" },
+              },
+            },
+          },
+        },
+        python = {
+          {
+            specs = {
+              { { type = "conform", name = "ruff_format", root_pattern = { "pyproject.toml" } } },
             },
           },
         },
       }
 
-      --- @type table<string, fmo.FileTypeConfig>
-      local filetypes = {
-        html = { group = formatter_groups.web, default = specs.prettierd },
-        css = { group = formatter_groups.web, default = specs.prettierd },
-        javascript = { group = formatter_groups.web, default = specs.deno_fmt },
-        typescript = { group = formatter_groups.web, default = specs.deno_fmt },
-        javascriptreact = { group = formatter_groups.web, default = specs.deno_fmt },
-        typescriptreact = { group = formatter_groups.web, default = specs.deno_fmt },
-        json = { group = formatter_groups.web, default = specs.deno_fmt },
-        jsonc = { group = formatter_groups.web, default = specs.deno_fmt },
-        markdown = { group = formatter_groups.web, default = specs.deno_fmt },
-        lua = { group = formatter_groups.lua },
-      }
-
       require("fmo").setup {
-        filetypes = filetypes,
+        filetypes = {
+          html = { groups = formatter_groups.web, default = formatters.prettierd },
+          css = { groups = formatter_groups.web, default = formatters.prettierd },
+          javascript = { groups = formatter_groups.web, default = formatters.deno_fmt },
+          typescript = { groups = formatter_groups.web, default = formatters.deno_fmt },
+          javascriptreact = { groups = formatter_groups.web, default = formatters.deno_fmt },
+          typescriptreact = { groups = formatter_groups.web, default = formatters.deno_fmt },
+          json = { groups = formatter_groups.web, default = formatters.deno_fmt },
+          jsonc = { groups = formatter_groups.web, default = formatters.deno_fmt },
+          markdown = { groups = formatter_groups.web, default = formatters.deno_fmt },
+          lua = { groups = formatter_groups.lua },
+        },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
