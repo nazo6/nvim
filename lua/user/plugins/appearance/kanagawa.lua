@@ -60,6 +60,7 @@ return {
       IblIndent = { fg = theme.ui.whitespace },
       IblWhitespace = { fg = theme.ui.whitespace },
       IblScope = { fg = theme.ui.special },
+      NvimTreeWindowPicker = { bg = palette.autumnRed },
     }
     vim.api.nvim_create_autocmd("ColorScheme", {
       pattern = "*",

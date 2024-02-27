@@ -152,7 +152,7 @@ return {
         open_file = {
           window_picker = {
             enable = true,
-            picker = require("window-picker").pick_window,
+            chars = "FJDKSLA;CMRUEIWOQP",
           },
         },
       },
