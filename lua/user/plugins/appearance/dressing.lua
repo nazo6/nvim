@@ -1,7 +1,7 @@
 return {
   "stevearc/dressing.nvim",
   init = function()
-    require("user.utils").load_plugin_with_func("dressing.nvim", vim.ui, { "input", "select" })
+    require("user.shared.utils.vim").load_plugin_with_func("dressing.nvim", vim.ui, { "input", "select" })
   end,
   config = function()
     require("dressing").setup {

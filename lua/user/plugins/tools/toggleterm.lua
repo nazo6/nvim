@@ -59,7 +59,7 @@ return {
       persist_size = true,
       close_on_exit = false,
       shell = function()
-        local shell = require("user.utils").is_win and "cmd.exe /c nu.exe" or vim.o.shell
+        local shell = require("user.shared.utils.system").is_win and "cmd.exe /c nu.exe" or vim.o.shell
         return shell
       end,
     }

@@ -76,7 +76,7 @@ local function on_attach(bufnr)
       return node.absolute_path
     end
   end
-  map("n", "E", function()
+  map("n", "<leader>f", function()
     local node = require("nvim-tree.lib").get_node_at_cursor()
     if node.type == "file" then
       node = node.parent

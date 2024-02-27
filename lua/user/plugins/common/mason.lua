@@ -15,7 +15,7 @@ return {
 
     local ensure_installed = {}
 
-    if require("user.utils").is_win then
+    if require("user.shared.utils.system").is_win then
       table.insert(ensure_installed, "sed")
     end
 

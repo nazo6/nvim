@@ -1,4 +1,4 @@
-if require("user.utils").is_win then
+if require("user.shared.utils.system").is_win then
   -- HACK: workaround for https://github.com/neovim/neovim/issues/17762
   os.execute = function(cmd)
     vim.fn.system(cmd)

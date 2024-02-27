@@ -9,7 +9,7 @@ return {
         enabled = true,
         run_via_dap = false,
         register_configurations = function(paths)
-          if require("user.utils").is_win then
+          if require("user.shared.utils.system").is_win then
             require("dap").adapters.dart = {
               command = paths.dart_sdk .. "\\bin\\dart.exe",
               args = {

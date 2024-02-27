@@ -2,7 +2,7 @@ return {
   {
     "j-hui/fidget.nvim",
     init = function()
-      require("user.utils").load_plugin_with_func("fidget.nvim", vim, "notify")
+      require("user.shared.utils.vim").load_plugin_with_func("fidget.nvim", vim, "notify")
     end,
     config = function()
       local function percentage_bar(percentage)
@@ -14,8 +14,8 @@ return {
         local complete_length = math.floor((percentage / 100) * length)
 
         return string.rep(complete, complete_length > 0 and complete_length - 1 or complete_length)
-            .. (complete_length > 0 and sep or "")
-            .. string.rep(incomplete, length - complete_length)
+          .. (complete_length > 0 and sep or "")
+          .. string.rep(incomplete, length - complete_length)
       end
 
       require("fidget").setup {

@@ -7,9 +7,9 @@ if vim.fn.has "gui_running" == 1 then
   require "user.ginit"
 end
 
-require "user.options"
+require "user.config.options"
 require "user.lazy"
-require "user.filetype"
-require "user.keymaps"
+require "user.config.filetype"
+require "user.config.keymaps"
 
 pcall(require, "user.local")
