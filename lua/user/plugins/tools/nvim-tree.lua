@@ -61,6 +61,11 @@ local function on_attach(bufnr)
   map("n", "<2-LeftMouse>", api.node.open.edit, opts "Open")
   map("n", "<2-RightMouse>", api.tree.change_root_to_node, opts "CD")
 
+  map("n", "<C-w>s", "<Nop>", opts "Nop")
+  map("n", "<C-w>v", "<Nop>", opts "Nop")
+  map("n", "<C-w><C-s>", "<Nop>", opts "Nop")
+  map("n", "<C-w><C-v>", "<Nop>", opts "Nop")
+
   local is_wsl = vim.fn.has "wsl" == 1
   local function get_node_path(node)
     if node.name == ".." then
