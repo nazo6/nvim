@@ -55,7 +55,6 @@ return {
                 formatters.prettierd,
                 formatters.deno_fmt,
               },
-              { { type = "lsp", name = "vtsls" } },
             },
           },
         },
