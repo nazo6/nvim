@@ -92,9 +92,21 @@ return {
         },
       }
 
+      local auto_fmt = true
+
+      vim.api.nvim_create_user_command("AutoFmtDisable", function(opts)
+        auto_fmt = false
+      end, {})
+
+      vim.api.nvim_create_user_command("AutoFmtEnable", function(opts)
+        auto_fmt = true
+      end, {})
+
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         callback = function()
-          local _ = require("fmo").format()
+          if auto_fmt then
+            require("fmo").format()
+          end
         end,
       })
     end,
