@@ -50,7 +50,7 @@ return {
           {
             specs = {
               { { type = "lsp", name = "denols" } },
-              { { type = "lsp", name = "biome" } },
+              { { type = "conform", name = "biome" } },
               {
                 formatters.prettierd,
                 formatters.deno_fmt,

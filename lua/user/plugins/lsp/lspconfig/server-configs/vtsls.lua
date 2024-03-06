@@ -5,16 +5,16 @@ local function translate_diag(_, result, ctx, config)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
   local client_name = client and client.name or "unknown"
 
-  if client_name == "vtsls" then
-    local updated_diagnostics = {}
-
-    for _, diagnostic in ipairs(result.diagnostics) do
-      diagnostic.message = require("ts-error-translator").translate(diagnostic.code, diagnostic.message)
-
-      table.insert(updated_diagnostics, diagnostic)
-    end
-    result.diagnostics = updated_diagnostics
-  end
+  -- if client_name == "vtsls" then
+  --   local updated_diagnostics = {}
+  --
+  --   for _, diagnostic in ipairs(result.diagnostics) do
+  --     diagnostic.message = require("ts-error-translator").translate(diagnostic.code, diagnostic.message)
+  --
+  --     table.insert(updated_diagnostics, diagnostic)
+  --   end
+  --   result.diagnostics = updated_diagnostics
+  -- end
 
   vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
 end
