@@ -42,6 +42,7 @@ return {
           },
         },
         deno_fmt = { type = "conform", name = "deno_fmt", root_pattern = { "deno.json", "deno.jsonc" } },
+        biome = { type = "conform", name = "biome", root_pattern = { "biome.json", "biome.jsonc" } },
       }
 
       ---@type table<string, fmo.FormatterSpecifierGroup>
@@ -50,7 +51,7 @@ return {
           {
             specs = {
               { { type = "lsp", name = "denols" } },
-              { { type = "conform", name = "biome" } },
+              { formatters.biome },
               {
                 formatters.prettierd,
                 formatters.deno_fmt,
