@@ -1,12 +1,6 @@
 if require("user.shared.utils.system").is_win then
-  -- HACK: workaround for https://github.com/neovim/neovim/issues/17762
-  os.execute = function(cmd)
-    vim.fn.system(cmd)
-    return vim.v.shell_error
-  end
-  local spawn_orig = vim.loop.spawn
-
   -- HACK: this avoids the issue with vim.loop.spawn on windows
+  local spawn_orig = vim.loop.spawn
   vim.loop.spawn = function(orig_path, options, on_exit)
     local path = orig_path
     local handle_chk, _ = spawn_orig(path, {}, function() end)
