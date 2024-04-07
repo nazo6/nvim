@@ -44,11 +44,11 @@ return {
     end,
   },
 
-  {
-    "NTBBloodbath/rest.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
-    ft = { "http" },
-  },
+  -- {
+  --   "NTBBloodbath/rest.nvim",
+  --   dependencies = { { "nvim-lua/plenary.nvim" } },
+  --   ft = { "http" },
+  -- },
 
   {
     "f3fora/nvim-texlabconfig",
