@@ -8,4 +8,5 @@ return {
   "user.typst_watch_root",
   "user.gnuplot_run",
   "user.flutter_run",
+  "user.iverilog_run",
 }

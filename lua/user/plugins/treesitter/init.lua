@@ -8,11 +8,6 @@ return {
           satysfi = {
             repo = "https://github.com/monaqa/tree-sitter-satysfi",
           },
-          typst = {
-            repo = "https://github.com/Nagefire/nvim-treesitter",
-            path = "queries/typst",
-            branch = "feat/typst",
-          },
           blade = {
             repo = "https://github.com/EmranMR/tree-sitter-blade",
           },
@@ -46,14 +41,6 @@ return {
           files = { "src/parser.c", "src/scanner.c" },
         },
         filetype = "satysfi",
-      }
-      parser_config.typst = {
-        install_info = {
-          url = "https://github.com/uben0/tree-sitter-typst",
-          files = { "src/parser.c", "src/scanner.c" },
-          branch = "master",
-        },
-        filetype = "typst",
       }
       parser_config.blade = {
         install_info = {
