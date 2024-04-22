@@ -1,3 +1,17 @@
+local my_utils = {
+  ---@param filetypes string[]
+  ---@return insx.Override
+  no_filetype = function(filetypes)
+    return {
+      ---@param enabled insx.Enabled
+      ---@param ctx insx.Context
+      enabled = function(enabled, ctx)
+        return not (vim.tbl_contains(filetypes, ctx.filetype)) and enabled(ctx)
+      end,
+    }
+  end,
+}
+
 return {
   "hrsh7th/nvim-insx",
   event = { "InsertEnter" },
@@ -15,8 +29,8 @@ return {
     -- quotes
     for _, quote in ipairs {
       { '"', {} },
-      { "'", {} },
-      { "`", {} },
+      { "'", { my_utils.no_filetype { "rust", "systemverilog" } } },
+      { "`", { my_utils.no_filetype { "markdown" } } },
       { "$", { insx.with.filetype { "tex", "typst" } } },
     } do
       -- jump_out
