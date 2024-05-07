@@ -70,6 +70,6 @@ return create_setup {
   end,
   settings = {
     exportPdf = "never",
-    -- experimentalFormatterMode = "on",
+    experimentalFormatterMode = "on",
   },
 }
