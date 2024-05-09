@@ -11,9 +11,19 @@ return {
     local root_file = vim.fs.joinpath(root_dir, "report.typ")
     local pdf_file = vim.fn.fnamemodify(root_file, ":r") .. ".pdf"
 
+    local args = { "watch", root_file, pdf_file }
+
+    for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do
+      if client.name == "typst_lsp" then
+        table.insert(args, "--root")
+        table.insert(args, client.root_dir)
+        break
+      end
+    end
+
     return {
       cmd = { "typst" },
-      args = { "watch", root_file, pdf_file },
+      args = args,
       cwd = vim.fn.expand "%:p:h",
     }
   end,
