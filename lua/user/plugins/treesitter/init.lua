@@ -23,9 +23,9 @@ return {
     event = { "BufRead", "InsertEnter" },
     cmd = { "TSInstall", "TSUpdate", "TSUninstall" },
     dependencies = {
-      { "romgrk/nvim-treesitter-context" },
+      -- { "romgrk/nvim-treesitter-context" },
       { "windwp/nvim-ts-autotag" },
-      { "nvim-treesitter/nvim-treesitter-textobjects" },
+      -- { "nvim-treesitter/nvim-treesitter-textobjects" },
       { "nvim-treesitter/playground" },
       { "ts-query-installer.nvim" },
 
@@ -74,43 +74,43 @@ return {
           "markdown_inline",
           "bash",
         },
-        textobjects = {
-          select = {
-            enable = true,
-            disable = function(lang)
-              -- TODO: Dart parser is very slow when textojects is enabled.
-              -- ref: https://github.com/nvim-treesitter/nvim-treesitter/issues/2126
-              return lang == "dart"
-            end,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-              ["]m"] = "@function.outer",
-              ["]]"] = "@class.outer",
-            },
-            goto_next_end = {
-              ["]M"] = "@function.outer",
-              ["]["] = "@class.outer",
-            },
-            goto_previous_start = {
-              ["[m"] = "@function.outer",
-              ["[["] = "@class.outer",
-            },
-            goto_previous_end = {
-              ["[M"] = "@function.outer",
-              ["[]"] = "@class.outer",
-            },
-          },
-        },
+        -- textobjects = {
+        --   select = {
+        --     enable = true,
+        --     disable = function(lang)
+        --       -- TODO: Dart parser is very slow when textojects is enabled.
+        --       -- ref: https://github.com/nvim-treesitter/nvim-treesitter/issues/2126
+        --       return lang == "dart"
+        --     end,
+        --     lookahead = true,
+        --     keymaps = {
+        --       ["af"] = "@function.outer",
+        --       ["if"] = "@function.inner",
+        --       ["ac"] = "@class.outer",
+        --       ["ic"] = "@class.inner",
+        --     },
+        --   },
+        --   move = {
+        --     enable = true,
+        --     set_jumps = true,
+        --     goto_next_start = {
+        --       ["]m"] = "@function.outer",
+        --       ["]]"] = "@class.outer",
+        --     },
+        --     goto_next_end = {
+        --       ["]M"] = "@function.outer",
+        --       ["]["] = "@class.outer",
+        --     },
+        --     goto_previous_start = {
+        --       ["[m"] = "@function.outer",
+        --       ["[["] = "@class.outer",
+        --     },
+        --     goto_previous_end = {
+        --       ["[M"] = "@function.outer",
+        --       ["[]"] = "@class.outer",
+        --     },
+        --   },
+        -- },
         indent = {
           enable = false,
         },
@@ -138,11 +138,11 @@ return {
         },
       }
 
-      require("treesitter-context").setup {
-        enable = true,
-        throttle = true,
-        max_lines = 3,
-      }
+      -- require("treesitter-context").setup {
+      --   enable = true,
+      --   throttle = true,
+      --   max_lines = 3,
+      -- }
     end,
     build = ":TSUpdate",
   },
