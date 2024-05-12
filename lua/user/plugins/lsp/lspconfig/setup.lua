@@ -15,7 +15,7 @@ require("mason-lspconfig").setup_handlers {
   end,
 }
 
-local local_servers = { "satysfi" }
+local local_servers = { "satysfi", "nushell" }
 for _, server_name in ipairs(local_servers) do
   setup(server_name)
 end
