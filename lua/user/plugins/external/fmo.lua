@@ -43,6 +43,7 @@ return {
         },
         deno_fmt = { type = "conform", name = "deno_fmt", root_pattern = { "deno.json", "deno.jsonc" } },
         biome = { type = "conform", name = "biome", root_pattern = { "biome.json", "biome.jsonc" } },
+        stylua = { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
       }
 
       ---@type table<string, fmo.FormatterSpecifierGroup>
@@ -63,8 +64,7 @@ return {
           {
             specs = {
               {
-                { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
-                { type = "lsp", name = "lua_ls" },
+                formatters.stylua,
               },
             },
           },
@@ -89,7 +89,7 @@ return {
           json = { groups = formatter_groups.web, default = formatters.deno_fmt },
           jsonc = { groups = formatter_groups.web, default = formatters.deno_fmt },
           markdown = { groups = formatter_groups.web, default = formatters.deno_fmt },
-          lua = { groups = formatter_groups.lua },
+          lua = { groups = formatter_groups.lua, default = formatters.stylua },
         },
       }
 
