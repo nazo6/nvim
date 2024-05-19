@@ -5,8 +5,7 @@ return {
   config = function()
     require("ccc").setup {
       highlighter = {
-        auto_enable = true,
-        lsp = true,
+        auto_enable = false,
       },
     }
   end,
