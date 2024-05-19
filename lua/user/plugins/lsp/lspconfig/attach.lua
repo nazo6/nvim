@@ -12,7 +12,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
     end
-    -- require("lsp-inlayhints").on_attach(client, bufnr)
+
+    vim.lsp.inlay_hint.enable()
 
     map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = bufnr, desc = "[LSP] Go implementation" })
 
@@ -62,8 +63,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
       "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",
       { buffer = bufnr, desc = "[LSP] Set loclist" }
     )
-    -- map("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", { buffer = bufnr })
-    -- map("n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", { buffer = bufnr })
-    -- map("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", { buffer = bufnr })
   end,
 })

@@ -1,13 +1,6 @@
 return {
   { "onsails/lspkind-nvim" },
-  -- {
-  --   "lvimuser/lsp-inlayhints.nvim",
-  --   config = function()
-  --     require("lsp-inlayhints").setup {}
-  --   end,
-  -- },
   { "mhanberg/output-panel.nvim" },
-  -- { "kosayoda/nvim-lightbulb" },
   { "folke/neodev.nvim" },
   { "b0o/schemastore.nvim" },
   { "SmiteshP/nvim-navic", event = { "InsertEnter", "BufRead" } },
