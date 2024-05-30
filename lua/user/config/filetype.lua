@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           nu = "nu",
           surql = "surrealdb",
           v = "systemverilog",
+          cir = "ngspice",
         },
         filename = {
           [".swcrc"] = "json",

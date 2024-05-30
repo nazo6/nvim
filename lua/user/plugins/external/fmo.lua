@@ -51,8 +51,8 @@ return {
         web = {
           {
             specs = {
-              { { type = "lsp", name = "denols" } },
               { formatters.biome },
+              { { type = "lsp", name = "denols" } },
               {
                 formatters.prettierd,
                 formatters.deno_fmt,
