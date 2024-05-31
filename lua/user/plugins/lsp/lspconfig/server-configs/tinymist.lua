@@ -6,7 +6,7 @@ local pinned = {}
 local typst_utils = {
   unPinMain = function(client)
     client.request("workspace/executeCommand", {
-      command = "typst-lsp.doPinMain",
+      command = "tinymist.doPinMain",
       arguments = { "detached" },
     }, function(err, _result, _ctx)
       if err ~= nil then
@@ -16,14 +16,14 @@ local typst_utils = {
   end,
   pinMain = function(client, uri)
     local typst_lsp_client = vim.lsp.get_clients {
-      name = "typst_lsp",
+      name = "tinymist",
     }
     if #typst_lsp_client == 0 then
-      vim.notify("No typst-lsp client found", vim.log.levels.ERROR)
+      vim.notify("No tinymist-lsp found", vim.log.levels.ERROR)
       return
     end
     client.request("workspace/executeCommand", {
-      command = "typst-lsp.doPinMain",
+      command = "tinymist.doPinMain",
       arguments = { uri },
     }, function(err, _result, _ctx)
       if err ~= nil then
@@ -56,7 +56,7 @@ return create_setup {
         vim.defer_fn(function()
           typst_utils.pinMain(client, vim.uri_from_fname(root_file))
           pinned[root_file] = true
-          vim.notify("[typst] Pinned to " .. root_file)
+          vim.notify("[tinymist] Pinned to " .. root_file)
         end, 1000)
       end
     end
@@ -69,7 +69,8 @@ return create_setup {
     return root
   end,
   settings = {
-    exportPdf = "never",
     experimentalFormatterMode = "on",
+    formatterMode = "typstyle",
+    compileStatus = "enable",
   },
 }
