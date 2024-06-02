@@ -27,12 +27,19 @@ return {
     end,
     config = function()
       local actions = require "telescope.actions"
+      local open_with_trouble = function(...)
+        require("trouble.sources.telescope").open(...)
+      end
       require("telescope").setup {
         defaults = {
           winblend = 15,
           mappings = {
             i = {
               ["<esc>"] = actions.close,
+              ["<c-t>"] = open_with_trouble,
+            },
+            n = {
+              ["<c-t>"] = open_with_trouble,
             },
           },
         },

@@ -70,7 +70,6 @@ return {
     cmd = "TSC",
     opts = {},
   },
-  { "dmmulroy/ts-error-translator.nvim" },
 
   {
     "ellisonleao/glow.nvim",

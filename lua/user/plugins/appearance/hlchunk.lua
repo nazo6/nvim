@@ -4,22 +4,15 @@ return {
   config = function()
     require("hlchunk").setup {
       indent = {
+        enable = true,
         chars = { "▏" },
       },
-      blank = {
-        enable = false,
-      },
       chunk = {
-        exclude_filetypes = {
-          glowpreview = true,
-        },
+        enable = true,
         style = {
           "#00BB00",
           "#FFFF00",
         },
-      },
-      line_num = {
-        enable = false,
       },
     }
   end,
