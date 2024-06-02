@@ -8,7 +8,6 @@ return {
     { "hrsh7th/cmp-cmdline" },
     { "hrsh7th/cmp-nvim-lsp-document-symbol" },
     { "saadparwaiz1/cmp_luasnip" },
-    -- { "hrsh7th/cmp-copilot", dependencies = { "github/copilot.vim" } },
     { "zbirenbaum/copilot-cmp", dependencies = { "zbirenbaum/copilot.lua" } },
   },
   event = { "InsertEnter", "CmdlineEnter" },
@@ -51,6 +50,10 @@ return {
         },
         { name = "path" },
         { name = "calc" },
+        {
+          name = "lazydev",
+          group_index = 0,
+        },
       },
       performance = {
         fetching_timeout = 100,

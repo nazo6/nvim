@@ -1,7 +1,6 @@
 return {
   { "onsails/lspkind-nvim" },
   { "mhanberg/output-panel.nvim" },
-  { "folke/neodev.nvim" },
   { "b0o/schemastore.nvim" },
   { "SmiteshP/nvim-navic", event = { "InsertEnter", "BufRead" } },
   {

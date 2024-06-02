@@ -93,4 +93,15 @@ return {
       require("typst-preview").update()
     end,
   },
+
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        "luvit-meta/library",
+      },
+    },
+  },
+  { "Bilal2453/luvit-meta" },
 }
