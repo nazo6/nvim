@@ -69,8 +69,7 @@ return create_setup {
     return root
   end,
   settings = {
-    experimentalFormatterMode = "on",
     formatterMode = "typstyle",
-    compileStatus = "enable",
+    compileStatus = "disable",
   },
 }

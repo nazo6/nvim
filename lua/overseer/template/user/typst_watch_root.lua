@@ -2,8 +2,9 @@ return {
   name = "typst watch root",
   priority = 39,
   builder = function()
-    local root_pattern = require("lspconfig").util.root_pattern
-    local index_file_root_pattern = root_pattern "report.typ"
+    local util = require "lspconfig.util"
+
+    local index_file_root_pattern = util.root_pattern "report.typ"
     local root_dir = index_file_root_pattern(vim.api.nvim_buf_get_name(0))
     if root_dir == nil then
       return false, "Failed to find index typ file."
@@ -13,13 +14,13 @@ return {
 
     local args = { "watch", root_file, pdf_file }
 
-    for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do
-      if client.name == "typst_lsp" then
-        table.insert(args, "--root")
-        table.insert(args, client.root_dir)
-        break
-      end
+    local root_dir = util.find_git_ancestor(root_file)
+    if root_dir == nil then
+      root_dir = util.path.dirname(root_file)
     end
+
+    table.insert(args, "--root")
+    table.insert(args, root_dir)
 
     return {
       cmd = { "typst" },
