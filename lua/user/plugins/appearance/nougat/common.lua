@@ -2,7 +2,7 @@ return {
   nut = {
     buf = {
       diagnostic_count = require("nougat.nut.buf.diagnostic_count").create,
-      filename = require("nougat.nut.buf.filename").create,
+      filename = require("user.plugins.appearance.nougat.nut.buf.filename").create,
       filestatus = require("nougat.nut.buf.filestatus").create,
       filetype = require("user.plugins.appearance.nougat.nut.buf.filetype").create,
       icon = require("user.plugins.appearance.nougat.nut.buf.icon").create,
