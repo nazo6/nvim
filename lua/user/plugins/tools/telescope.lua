@@ -23,7 +23,7 @@ return {
 
       map("n", "<leader>tt", "<cmd>Telescope<CR>", { desc = "[telescope] builtin" })
       map("n", "<leader>tb", "<cmd>Telescope buffers<CR>", { desc = "[telescope] Buffers" })
-      map("n", "<leader>tn", "<cmd>Telescope notify<CR>", { desc = "[telescope] Notifications" })
+      map("n", "<leader>tn", "<cmd>Noice telescope<CR>", { desc = "[telescope] Noice history" })
     end,
     config = function()
       local actions = require "telescope.actions"

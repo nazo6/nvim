@@ -22,7 +22,7 @@ map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 
 map("n", "<esc>", function()
   if vim.api.nvim_win_get_config(0).zindex then
-    vim.cmd [[quit]]
+    vim.api.nvim_win_close(0, false)
   end
 end, {
   desc = "close window if it's a popup",

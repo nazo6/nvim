@@ -32,6 +32,9 @@ return {
       DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" },
       DiagnosticVirtualTextHint = { link = "DiagnosticHint" },
 
+      DiagnosticSignInfo = { fg = palette.dragonBlue },
+      DiagnosticSignWarn = { fg = palette.roninYellow },
+
       NeoTreeNormal = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
       NeoTreeNormalNC = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
       NeoTreeCursorLine = { bg = palette.sumiInk4 },
