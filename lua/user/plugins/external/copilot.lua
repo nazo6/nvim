@@ -2,13 +2,22 @@ return {
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    init = function()
-      map("n", "<leader>cp", "<cmd>Copilot panel<CR>")
-    end,
+    keys = {
+      { mode = "n", "<leader>cp", "<cmd>Copilot panel<CR>" },
+    },
     config = function()
       require("copilot").setup {
         suggestion = {
-          enabled = false,
+          enabled = true,
+          auto_trigger = false,
+          keymap = {
+            accept = "<M-l>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-n>",
+            prev = "<M-p>",
+            dismiss = "<C-]>",
+          },
         },
         filetypes = {
           yaml = true,
@@ -28,12 +37,3 @@ return {
     opts = {},
   },
 }
-
--- {
---   "github/copilot.vim",
---   event = "InsertEnter",
---   cmd = "Copilot",
---   init = function()
---     require("user.config.copilot").setup()
---   end,
--- },

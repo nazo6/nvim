@@ -8,16 +8,10 @@ return {
     { "hrsh7th/cmp-cmdline" },
     { "hrsh7th/cmp-nvim-lsp-document-symbol" },
     { "saadparwaiz1/cmp_luasnip" },
-    { "zbirenbaum/copilot-cmp", dependencies = { "zbirenbaum/copilot.lua" } },
   },
   event = { "InsertEnter", "CmdlineEnter" },
   cmd = { "CmpStatus" },
   config = function()
-    local ok, cp = pcall(require, "copilot_cmp")
-    if ok then
-      cp.setup {}
-    end
-
     local cmp = require "cmp"
     cmp.setup {
       snippet = {
@@ -38,7 +32,6 @@ return {
       },
       sources = {
         { name = "nvim_lsp" },
-        { name = "copilot" },
         { name = "luasnip" },
         {
           name = "buffer",
@@ -64,7 +57,6 @@ return {
             nvim_lsp = "[LSP]",
             luasnip = "[snippet]",
             buffer = "[buffer]",
-            copilot = "[copilot]",
             calc = "[calc]",
             path = "[path]",
           },
