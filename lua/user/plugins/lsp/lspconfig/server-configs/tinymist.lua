@@ -5,31 +5,10 @@ local pinned = {}
 
 local typst_utils = {
   unPinMain = function(client)
-    client.request("workspace/executeCommand", {
-      command = "tinymist.doPinMain",
-      arguments = { "detached" },
-    }, function(err, _result, _ctx)
-      if err ~= nil then
-        vim.notify("Error unpinning typst-lsp: " .. vim.inspect(error), vim.log.levels.ERROR)
-      end
-    end)
+    vim.lsp.buf.execute_command { command = "tinymist.pinMain", arguments = { nil } }
   end,
-  pinMain = function(client, uri)
-    local typst_lsp_client = vim.lsp.get_clients {
-      name = "tinymist",
-    }
-    if #typst_lsp_client == 0 then
-      vim.notify("No tinymist-lsp found", vim.log.levels.ERROR)
-      return
-    end
-    client.request("workspace/executeCommand", {
-      command = "tinymist.doPinMain",
-      arguments = { uri },
-    }, function(err, _result, _ctx)
-      if err ~= nil then
-        vim.notify("Error pinning typst-lsp: " .. vim.inspect(error), vim.log.levels.ERROR)
-      end
-    end)
+  pinMain = function(client, path)
+    vim.lsp.buf.execute_command { command = "tinymist.pinMain", arguments = { path } }
   end,
 }
 
@@ -54,7 +33,7 @@ return create_setup {
       local root_file = vim.fs.joinpath(root_dir, "report.typ")
       if not pinned[root_file] then
         vim.defer_fn(function()
-          typst_utils.pinMain(client, vim.uri_from_fname(root_file))
+          typst_utils.pinMain(client, root_file)
           pinned[root_file] = true
           vim.notify("[tinymist] Pinned to " .. root_file)
         end, 1000)
