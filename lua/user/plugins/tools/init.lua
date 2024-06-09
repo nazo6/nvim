@@ -6,6 +6,6 @@ return {
     config = function()
       require("restart").setup()
     end,
-    { "sbulav/nredir.nvim", cmd = { "Nredir" } },
   },
+  { "sbulav/nredir.nvim", cmd = { "Nredir" } },
 }
