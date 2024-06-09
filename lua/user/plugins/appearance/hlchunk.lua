@@ -13,6 +13,7 @@ return {
           "#00BB00",
           "#FFFF00",
         },
+        delay = 0,
       },
     }
   end,
