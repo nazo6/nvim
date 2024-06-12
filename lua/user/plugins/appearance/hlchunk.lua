@@ -1,6 +1,7 @@
 return {
   "shellRaining/hlchunk.nvim",
   event = { "BufRead" },
+  tag = "v1.2.0",
   config = function()
     require("hlchunk").setup {
       indent = {
