@@ -8,18 +8,33 @@ opt.mousemodel = "popup"
 vim.cmd.aunmenu { "PopUp.How-to\\ disable\\ mouse" }
 vim.cmd.aunmenu { "PopUp.-1-" }
 
-opt.clipboard:append "unnamedplus"
-if vim.fn.has "win32" == 1 then
+if Args.feature.osc52 then
+  local empty_provider = function() end
   vim.g.clipboard = {
+    name = "OSC 52",
     copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
+      ["+"] = require("vim.ui.clipboard.osc52").copy "+",
+      ["*"] = require("vim.ui.clipboard.osc52").copy "*",
     },
     paste = {
-      ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf",
+      ["+"] = empty_provider,
+      ["*"] = empty_provider,
     },
   }
+else
+  opt.clipboard:append "unnamedplus"
+  if vim.fn.has "win32" == 1 then
+    vim.g.clipboard = {
+      copy = {
+        ["+"] = "win32yank.exe -i --crlf",
+        ["*"] = "win32yank.exe -i --crlf",
+      },
+      paste = {
+        ["+"] = "win32yank.exe -o --lf",
+        ["*"] = "win32yank.exe -o --lf",
+      },
+    }
+  end
 end
 
 opt.undofile = true

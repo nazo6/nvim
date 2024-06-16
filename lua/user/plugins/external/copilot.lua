@@ -5,6 +5,7 @@ return {
     keys = {
       { mode = "n", "<leader>cp", "<cmd>Copilot panel<CR>" },
     },
+    enabled = Args.feature.copilot,
     config = function()
       require("copilot").setup {
         suggestion = {
@@ -29,6 +30,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
+    enabled = Args.feature.copilot,
     dependencies = {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
