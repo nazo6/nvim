@@ -8,6 +8,7 @@ opt.mousemodel = "popup"
 vim.cmd.aunmenu { "PopUp.How-to\\ disable\\ mouse" }
 vim.cmd.aunmenu { "PopUp.-1-" }
 
+opt.clipboard:append "unnamedplus"
 if Args.feature.osc52 then
   local empty_provider = function() end
   vim.g.clipboard = {
@@ -22,7 +23,6 @@ if Args.feature.osc52 then
     },
   }
 else
-  opt.clipboard:append "unnamedplus"
   if vim.fn.has "win32" == 1 then
     vim.g.clipboard = {
       copy = {
