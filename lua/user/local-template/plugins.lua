@@ -8,7 +8,7 @@ return {
     },
     cmd = "KirbyFilePicker",
   },
-  -- Disable some plugins (local plugin spec is loaded last)
+  -- Disable some plugins (local plugin spec is loaded last and can override config)
   {
     "aw-watcher-vim",
     enabled = false,

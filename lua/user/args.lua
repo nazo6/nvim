@@ -8,7 +8,7 @@ Args = {
     copilot = true,
     --- Force enable osc52 clipboard. Useful in ssh environment.
     osc52 = vim.env.SSH_CLIENT ~= nil,
-    --- Disables denops powered plugins. Useful in environment that deno is not available.
+    --- Enables denops powered plugins. Useful in environment that deno is not available.
     denops = true,
   },
   lsp = {
