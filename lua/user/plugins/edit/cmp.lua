@@ -8,6 +8,13 @@ return {
     { "hrsh7th/cmp-cmdline" },
     { "hrsh7th/cmp-nvim-lsp-document-symbol" },
     { "saadparwaiz1/cmp_luasnip" },
+    {
+      "zbirenbaum/copilot-cmp",
+      enabled = Args.feature.copilot,
+      config = function()
+        require("copilot_cmp").setup()
+      end,
+    },
   },
   event = { "InsertEnter", "CmdlineEnter" },
   cmd = { "CmpStatus" },
@@ -31,6 +38,7 @@ return {
         },
       },
       sources = {
+        { name = "copilot" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         {
@@ -54,6 +62,7 @@ return {
       formatting = {
         format = require("lspkind").cmp_format {
           menu = {
+            copilot = "[copilot]",
             nvim_lsp = "[LSP]",
             luasnip = "[snippet]",
             buffer = "[buffer]",

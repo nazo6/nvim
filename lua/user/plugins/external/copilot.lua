@@ -9,16 +9,7 @@ return {
     config = function()
       require("copilot").setup {
         suggestion = {
-          enabled = true,
-          auto_trigger = false,
-          keymap = {
-            accept = "<M-l>",
-            accept_word = false,
-            accept_line = false,
-            next = "<M-n>",
-            prev = "<M-p>",
-            dismiss = "<C-]>",
-          },
+          enabled = false,
         },
         filetypes = {
           yaml = true,
