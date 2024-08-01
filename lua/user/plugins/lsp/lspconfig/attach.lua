@@ -13,8 +13,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       require("nvim-navic").attach(client, bufnr)
     end
 
-    vim.lsp.inlay_hint.enable()
-
     map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { buffer = bufnr, desc = "[LSP] Go implementation" })
 
     map("n", "gd", "<cmd>Glance definitions<CR>", { buffer = bufnr, desc = "[LSP] Go definitions" })
