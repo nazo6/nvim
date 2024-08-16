@@ -12,7 +12,11 @@ end
 local function content(item, ctx)
   local formatters = item:cache(ctx).formatters
   if formatters ~= nil and #formatters > 0 then
-    return formatters[1].type .. ":" .. formatters[1].name
+    local str = ""
+    for _, formatter in ipairs(formatters) do
+      str = str .. formatter.type .. ":" .. formatter.name .. " "
+    end
+    return str
   end
   return nil
 end

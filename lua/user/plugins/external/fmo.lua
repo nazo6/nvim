@@ -44,6 +44,7 @@ return {
         deno_fmt = { type = "conform", name = "deno_fmt", root_pattern = { "deno.json", "deno.jsonc" } },
         biome = { type = "conform", name = "biome", root_pattern = { "biome.json", "biome.jsonc" } },
         stylua = { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
+        rust_analyzer = { type = "lsp", name = "rust_analyzer" },
       }
 
       ---@type table<string, fmo.FormatterSpecifierGroup>
@@ -76,6 +77,18 @@ return {
             },
           },
         },
+        rust = {
+          {
+            specs = {
+              { { type = "conform", name = "dioxus_fmt", root_pattern = { "Dioxus.toml" } } },
+            },
+          },
+          {
+            specs = {
+              { formatters.rust_analyzer },
+            },
+          },
+        },
       }
 
       require("fmo").setup {
@@ -90,6 +103,7 @@ return {
           jsonc = { groups = formatter_groups.web, default = formatters.deno_fmt },
           markdown = { groups = formatter_groups.web, default = formatters.deno_fmt },
           lua = { groups = formatter_groups.lua, default = formatters.stylua },
+          rust = { groups = formatter_groups.rust, default = formatters.rust_analyzer },
         },
       }
 

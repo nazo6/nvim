@@ -3,7 +3,7 @@ local create_setup = require("user.plugins.lsp.lspconfig.config-builder").create
 return create_setup {
   settings = {
     ["rust-analyzer"] = {
-      checkOnSave = {
+      check = {
         command = "clippy",
       },
     },
