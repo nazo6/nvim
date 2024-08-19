@@ -24,7 +24,6 @@ return {
     cmd = { "TSInstall", "TSUpdate", "TSUninstall" },
     dependencies = {
       -- { "romgrk/nvim-treesitter-context" },
-      { "windwp/nvim-ts-autotag" },
       -- { "nvim-treesitter/nvim-treesitter-textobjects" },
       { "nvim-treesitter/playground" },
       { "ts-query-installer.nvim" },
@@ -114,10 +113,6 @@ return {
         indent = {
           enable = false,
         },
-        autotag = {
-          enable = true,
-          enable_close_on_slash = false,
-        },
         playground = {
           enable = true,
           disable = {},
@@ -171,5 +166,10 @@ return {
         end,
       })
     end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufRead" },
+    opts = {},
   },
 }
