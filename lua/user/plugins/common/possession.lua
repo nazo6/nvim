@@ -1,6 +1,7 @@
 return {
   "jedrzejboczar/possession.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  enabled = not Args.feature.vscode,
   config = function()
     require("possession").setup {
       silent = true,

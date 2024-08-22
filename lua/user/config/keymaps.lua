@@ -65,5 +65,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- overwite default
-map("n", "K", "<Nop>")
+if not Args.feature.vscode then
+  map("n", "K", "<Nop>")
+end
 map("n", "<C-c>", "<Nop>")

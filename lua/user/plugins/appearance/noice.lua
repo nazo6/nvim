@@ -2,6 +2,7 @@
 
 return {
   "folke/noice.nvim",
+  enabled = not Args.feature.vscode,
   event = "VeryLazy",
   ---@type NoiceConfig
   opts = {

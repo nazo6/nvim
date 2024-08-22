@@ -1,6 +1,7 @@
 return {
   "kevinhwang91/nvim-hlslens",
   event = { "BufRead" },
+  enabled = not Args.feature.vscode,
   init = function()
     local kopts = { silent = true }
     vim.api.nvim_set_keymap(

@@ -1,6 +1,7 @@
 return {
   "shellRaining/hlchunk.nvim",
   event = { "BufRead" },
+  enabled = not Args.feature.vscode,
   tag = "v1.2.0",
   config = function()
     require("hlchunk").setup {

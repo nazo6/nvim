@@ -10,6 +10,7 @@ Args = {
     osc52 = vim.env.SSH_CLIENT ~= nil,
     --- Enables denops powered plugins. Useful in environment that deno is not available.
     denops = true,
+    vscode = not not vim.g.vscode,
   },
   lsp = {
     --- Defines `local server` that is configured even if server is not installed by mason.

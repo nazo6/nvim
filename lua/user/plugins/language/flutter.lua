@@ -2,6 +2,7 @@ return {
   "akinsho/flutter-tools.nvim",
   dependencies = { { "nvim-lua/plenary.nvim" } },
   ft = { "dart" },
+  enabled = not Args.feature.vscode,
   config = function()
     require("flutter-tools").setup {
       ui = { border = "rounded" },
