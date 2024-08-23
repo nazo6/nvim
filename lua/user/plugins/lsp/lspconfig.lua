@@ -7,10 +7,10 @@ return Args.feature.vscode and {}
         dependencies = { { "williamboman/mason.nvim" } },
         config = true,
       },
-      -- {
-      --   "mhanberg/output-panel.nvim",
-      --   config = true,
-      -- },
+      {
+        "mhanberg/output-panel.nvim",
+        config = true,
+      },
       { "j-hui/fidget.nvim" },
       {
         "folke/neoconf.nvim",
