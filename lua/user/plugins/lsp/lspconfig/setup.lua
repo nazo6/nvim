@@ -20,3 +20,4 @@ for _, server_name in ipairs(Args.lsp.local_servers) do
 end
 
 require "user.plugins.lsp.lspconfig.attach"
+require "user.plugins.lsp.lspconfig.handlers"
