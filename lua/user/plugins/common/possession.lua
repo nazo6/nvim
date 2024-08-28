@@ -27,6 +27,13 @@ return {
         nvim_tree = true,
         tabby = true,
         dap = true,
+        close_windows = {
+          match = {
+            filetype = { "no-neck-pain" },
+            buftype = { "terminal" },
+          },
+          preserve_layout = false,
+        },
         delete_hidden_buffers = {
           force = function(buf)
             return vim.api.nvim_get_option_value("buftype", { buf = buf }) == "terminal"

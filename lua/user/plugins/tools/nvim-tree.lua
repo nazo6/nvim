@@ -111,6 +111,23 @@ return {
         cmd = nil,
         args = {},
       },
+      view = {
+        float = {
+          enable = true,
+          open_win_config = function()
+            local col = vim.api.nvim_win_get_width(0) * 3 > vim.o.columns * 2 and vim.o.columns / 2
+              or math.min(vim.o.columns - 46, vim.api.nvim_win_get_width(0))
+            return {
+              relative = "win",
+              border = "rounded",
+              width = 45,
+              height = vim.o.lines - 3,
+              col = col,
+              row = 0,
+            }
+          end,
+        },
+      },
       git = {
         ignore = false,
         timeout = 1000,

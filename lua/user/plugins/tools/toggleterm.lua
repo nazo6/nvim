@@ -58,6 +58,11 @@ return {
       insert_mappings = true,
       persist_size = true,
       close_on_exit = false,
+      on_open = function()
+        vim.fn.timer_start(1, function()
+          vim.cmd "startinsert!"
+        end)
+      end,
       shell = function()
         local shell = require("user.shared.utils.system").is_win and "cmd.exe /c nu.exe" or vim.o.shell
         return shell
