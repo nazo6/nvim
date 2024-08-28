@@ -5,7 +5,9 @@ local c = require "user.plugins.appearance.nougat.common"
 local nut = c.nut
 local color = c.color
 
-local wbr = Bar "winbar"
+local wbr = Bar("winbar", {
+  hl = { bg = color.palette.sumiInk4 },
+})
 
 wbr:add_item(nut.buf.icon {
   hl = { bg = color.bg },
