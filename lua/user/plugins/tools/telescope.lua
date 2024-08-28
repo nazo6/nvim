@@ -20,6 +20,7 @@ return {
       map("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { desc = "[telescope] Keymap" })
       map("n", "<leader>z", "<cmd>Telescope zoxide list<CR>", { desc = "[telescope] Zoxide" })
       map("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "[telescope] Undo" })
+      map("n", "<leader><Tab>", "<cmd>Telescope buffers<CR>")
 
       map("n", "<leader>te", "<cmd>Telescope<CR>", { desc = "[telescope] builtin" })
       map("n", "<leader>tb", "<cmd>Telescope buffers<CR>", { desc = "[telescope] Buffers" })
