@@ -45,11 +45,12 @@ return Args.feature.vscode and {}
       end,
     },
 
-    -- {
-    --   "NTBBloodbath/rest.nvim",
-    --   dependencies = { { "nvim-lua/plenary.nvim" } },
-    --   ft = { "http" },
-    -- },
+    {
+      "rest-nvim/rest.nvim",
+      ft = { "http" },
+      cmd = { "Rest" },
+      dependencies = { { "nvim-treesitter/nvim-treesitter" } },
+    },
 
     {
       "f3fora/nvim-texlabconfig",
