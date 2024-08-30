@@ -144,7 +144,7 @@ return Args.feature.vscode and {}
     },
     {
       "atusy/tsnode-marker.nvim",
-      ft = { "markdown", "help" },
+      ft = { "markdown" },
       init = function()
         vim.api.nvim_create_autocmd("FileType", {
           group = vim.api.nvim_create_augroup("tsnode-marker-markdown", {}),
@@ -152,16 +152,6 @@ return Args.feature.vscode and {}
           callback = function(ctx)
             require("tsnode-marker").set_automark(ctx.buf, {
               target = { "code_fence_content" },
-              hl_group = "CursorLine",
-            })
-          end,
-        })
-        vim.api.nvim_create_autocmd("FileType", {
-          group = vim.api.nvim_create_augroup("tsnode-marker-help", {}),
-          pattern = { "help" },
-          callback = function(ctx)
-            require("tsnode-marker").set_automark(ctx.buf, {
-              target = { "code" },
               hl_group = "CursorLine",
             })
           end,

@@ -66,7 +66,7 @@ opt.updatetime = 300
 
 opt.exrc = true
 
-vim.cmd [[autocmd FileType help wincmd L]]
+vim.cmd [[autocmd BufWinEnter * if &filetype == 'help' | wincmd L | endif]]
 
 -- Key
 opt.timeoutlen = 400
