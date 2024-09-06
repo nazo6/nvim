@@ -11,6 +11,8 @@ Args = {
     --- Enables denops powered plugins. Useful in environment that deno is not available.
     denops = true,
     vscode = not not vim.g.vscode,
+    --- Enables rest.nvim plugin. This is gated because it has dependencies that fails sometime.
+    rest = false,
   },
   lsp = {
     --- Defines `local server` that is configured even if server is not installed by mason.

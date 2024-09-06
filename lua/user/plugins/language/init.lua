@@ -50,6 +50,7 @@ return Args.feature.vscode and {}
       ft = { "http" },
       cmd = { "Rest" },
       dependencies = { { "nvim-treesitter/nvim-treesitter" } },
+      enabled = Args.feature.rest,
     },
 
     {
