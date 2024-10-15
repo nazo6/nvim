@@ -15,6 +15,8 @@ require("mason-lspconfig").setup_handlers {
   end,
 }
 
+require("user.plugins.lsp.lspconfig.custom-servers").setup_custom_servers()
+
 for _, server_name in ipairs(Args.lsp.local_servers) do
   setup(server_name)
 end
