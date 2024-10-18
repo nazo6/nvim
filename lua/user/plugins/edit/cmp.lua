@@ -1,5 +1,6 @@
 return {
-  "hrsh7th/nvim-cmp",
+  "iguanacucumber/magazine.nvim",
+  name = "nvim-cmp",
   enabled = not Args.feature.vscode,
   dependencies = {
     { "hrsh7th/cmp-buffer" },
