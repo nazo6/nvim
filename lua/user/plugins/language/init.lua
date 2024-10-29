@@ -94,6 +94,16 @@ return Args.feature.vscode and {}
       build = function()
         require("typst-preview").update()
       end,
+      opts = {
+        get_root = function(fname)
+          local util = require "lspconfig.util"
+          local root = util.find_git_ancestor(fname)
+          if root == nil then
+            root = util.path.dirname(fname)
+          end
+          return root
+        end,
+      },
     },
 
     {
