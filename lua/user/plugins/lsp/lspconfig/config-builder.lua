@@ -1,12 +1,23 @@
 local M = {}
 
-local client_capabilities = require("cmp_nvim_lsp").default_capabilities()
-client_capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
-client_capabilities.textDocument.colorProvider = {
-  dynamicRegistration = true,
+local client_capabilities = require("cmp_nvim_lsp").default_capabilities {
+  resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+      "sortText",
+      "filterText",
+      "insertText",
+      "insertTextFormat",
+      "insertTextMode",
+    },
+  },
+  textDocument = {
+    foldingRange = {
+      lineFoldingOnly = true,
+    },
+  },
 }
 local base_config = {
   capabilities = client_capabilities,
