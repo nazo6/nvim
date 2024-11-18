@@ -13,6 +13,8 @@ Args = {
     vscode = not not vim.g.vscode,
     --- Enables rest.nvim plugin. This is gated because it has dependencies that fails sometime.
     rest = false,
+    --- Use resolved windows addreess instead of localhost for some config
+    wsl_nat = false,
   },
   lsp = {
     --- Defines `local server` that is configured even if server is not installed by mason.
