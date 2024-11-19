@@ -3,6 +3,7 @@ return Args.feature.vscode and {}
     {
       "zbirenbaum/copilot.lua",
       event = "InsertEnter",
+      cmd = { "Copilot" },
       keys = {
         { mode = "n", "<leader>cp", "<cmd>Copilot panel<CR>" },
       },
