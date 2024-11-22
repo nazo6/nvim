@@ -122,3 +122,8 @@ vim.api.nvim_create_autocmd("TermClose", {
 vim.g.markdown_fenced_languages = {
   "ts=typescript",
 }
+
+vim.api.nvim_create_user_command("LspLogClear", function(opts)
+  local log_path = vim.fs.joinpath(vim.fn.stdpath "state", "lsp.log")
+  vim.fn.delete(log_path)
+end, {})
