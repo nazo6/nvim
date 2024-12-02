@@ -1,6 +1,13 @@
 return {
   "folke/snacks.nvim",
   event = "BufReadPre",
+  keys = { {
+    "<C-g><C-g>",
+    mode = { "n" },
+    function()
+      Snacks.lazygit.open(opts)
+    end,
+  } },
   opts = function()
     -- Toggle the profiler
     Snacks.toggle.profiler():map "<leader>spp"

@@ -21,7 +21,6 @@ local function create_toggle_lazy(cmd)
   end
 end
 
-local toggle_lazygit = create_toggle_lazy "lazygit"
 local toggle_gitui = create_toggle_lazy "gitui"
 
 return {
@@ -33,9 +32,6 @@ return {
     map("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
     map("t", "<ESC>", "<C-\\><C-n>")
 
-    map("n", "<C-g><C-g>", function()
-      toggle_lazygit()
-    end, { desc = "Toggle lazygit" })
     map("n", "<C-g><C-u>", function()
       toggle_gitui()
     end, { desc = "Toggle gitui" })
