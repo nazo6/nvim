@@ -45,15 +45,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       "<cmd>lua vim.diagnostic.open_float(0,{border='rounded'})<CR>",
       { buffer = bufnr, desc = "[LSP] Show diagnostics" }
     )
-    map("n", "<leader>td", function()
-      require("lazy").load { plugins = { "lsp_lines.nvim" } }
-      local enabled = vim.diagnostic.config().virtual_lines
-      if enabled then
-        vim.diagnostic.config { virtual_lines = false, virtual_text = true }
-      else
-        vim.diagnostic.config { virtual_lines = true, virtual_text = false }
-      end
-    end, { buffer = bufnr, desc = "[LSP] Toggle lsp_lines diagnostics" })
 
     map(
       "n",

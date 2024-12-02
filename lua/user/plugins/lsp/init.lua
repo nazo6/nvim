@@ -4,12 +4,20 @@ return Args.feature.vscode and {}
     { "mhanberg/output-panel.nvim" },
     { "b0o/schemastore.nvim" },
     { "SmiteshP/nvim-navic", event = { "InsertEnter", "BufRead" } },
-    {
-      "lsp_lines.nvim",
-      url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      config = true,
-    },
     { "aznhe21/actions-preview.nvim" },
+    {
+      "rachartier/tiny-inline-diagnostic.nvim",
+      event = "LspAttach", -- Or `LspAttach`
+      priority = 1000, -- needs to be loaded in first
+      config = function()
+        vim.diagnostic.config { virtual_text = false }
+        require("tiny-inline-diagnostic").setup {
+          options = {
+            show_source = true,
+          },
+        }
+      end,
+    },
 
     {
       {
