@@ -15,14 +15,14 @@ local typst_utils = {
 return create_setup {
   on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, "TypstPinCurrent", function()
-      typst_utils.pinMain(client, vim.uri_from_bufnr(bufnr))
+      typst_utils.pinMain(client, vim.api.nvim_buf_get_name(0))
     end, {})
 
     vim.api.nvim_buf_create_user_command(bufnr, "TypstPin", function(opts)
-      typst_utils.pinMain(client, vim.uri_from_fname(opts.fargs[1]))
+      typst_utils.pinMain(client, opts.fargs[1])
     end, { nargs = 1 })
 
-    vim.api.nvim_buf_create_user_command(bufnr, "TypstUnpinCurrent", function()
+    vim.api.nvim_buf_create_user_command(bufnr, "TypstUnpin", function()
       typst_utils.unPinMain(client)
     end, {})
 
