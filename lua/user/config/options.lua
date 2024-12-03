@@ -98,6 +98,7 @@ opt.pumblend = 15
 
 vim.diagnostic.config {
   virtual_lines = false,
+  severity_sort = true,
 }
 
 vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
