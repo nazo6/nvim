@@ -1,7 +1,21 @@
 return Args.feature.vscode and {}
   or {
     { "teal-language/vim-teal", ft = { "teal" } },
-    { "chrisbra/csv.vim", ft = { "csv" } },
+    {
+      "hat0uma/csvview.nvim",
+      ft = { "csv", "tsv" },
+      config = function()
+        vim.api.nvim_create_autocmd("BufRead", {
+          group = vim.api.nvim_create_augroup("csvview", {}),
+          pattern = "*.csv,*.tsv",
+          callback = function()
+            require("csvview").enable()
+          end,
+        })
+
+        require("csvview").setup()
+      end,
+    },
     { "dag/vim-fish", ft = { "fish" } },
     { "kevinoid/vim-jsonc", ft = { "json" } },
     {
