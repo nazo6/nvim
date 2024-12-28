@@ -1,6 +1,6 @@
 local M = {}
 
-local client_capabilities = require("cmp_nvim_lsp").default_capabilities {
+local client_capabilities = require("blink.cmp").get_lsp_capabilities {
   resolveSupport = {
     properties = {
       "documentation",
