@@ -34,9 +34,9 @@ return {
     dependencies = {
       { "giuxtaposition/blink-cmp-copilot", enabled = Args.feature.copilot },
     },
-
     event = { "InsertEnter", "CmdlineEnter" },
     version = "*",
+    enabled = not Args.feature.vscode,
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config

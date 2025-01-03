@@ -110,10 +110,9 @@ return Args.feature.vscode and {}
       end,
       opts = {
         get_root = function(fname)
-          local util = require "lspconfig.util"
-          local root = util.find_git_ancestor(fname)
+          local root = vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
           if root == nil then
-            root = util.path.dirname(fname)
+            root = vim.fs.dirname(fname)
           end
           return root
         end,
