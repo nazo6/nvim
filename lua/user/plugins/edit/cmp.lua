@@ -62,7 +62,7 @@ return {
         kind_icons = {
           Copilot = "",
           Text = "󰉿",
-          Method = "󰊕",
+          Method = "",
           Function = "󰊕",
           Constructor = "󰒓",
 
@@ -70,15 +70,15 @@ return {
           Variable = "󰆦",
           Property = "󰖷",
 
-          Class = "󱡠",
-          Interface = "󱡠",
+          Class = "",
+          Interface = "",
           Struct = "󱡠",
           Module = "󰅩",
 
           Unit = "󰪚",
           Value = "󰦨",
-          Enum = "󰦨",
-          EnumMember = "󰦨",
+          Enum = "",
+          EnumMember = "",
 
           Keyword = "󰻾",
           Constant = "󰏿",
@@ -89,7 +89,7 @@ return {
           Reference = "󰬲",
           Folder = "󰉋",
           Event = "󱐋",
-          Operator = "󰪚",
+          Operator = "",
           TypeParameter = "󰬛",
         },
       },
@@ -105,6 +105,7 @@ return {
         },
         documentation = {
           auto_show = true,
+          auto_show_delay_ms = 100,
           window = {
             border = "rounded",
           },
