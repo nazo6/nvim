@@ -125,9 +125,8 @@ return Args.feature.vscode and {}
       ft = "lua",
       opts = {
         library = {
-          "luvit-meta/library",
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         },
       },
     },
-    { "Bilal2453/luvit-meta" },
   }

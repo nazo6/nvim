@@ -1,9 +1,15 @@
-local sources_default = { "lsp", "path", "luasnip", "buffer" }
+local sources_default = { "lazydev", "lsp", "path", "luasnip", "buffer" }
 if Args.feature.copilot then
   table.insert(sources_default, "copilot")
 end
 
-local sources_providers = {}
+local sources_providers = {
+  lazydev = {
+    name = "LazyDev",
+    module = "lazydev.integrations.blink",
+    score_offset = 10,
+  },
+}
 if Args.feature.copilot then
   sources_providers.copilot = {
     name = "copilot",
@@ -47,7 +53,6 @@ return {
           ["<C-n>"] = { "select_next", "fallback" },
           ["<S-Tab>"] = { "select_prev", "fallback" },
           ["<Tab>"] = { "select_next", "fallback" },
-          ["<CR>"] = { "accept", "fallback" },
         },
       },
       appearance = {
@@ -90,9 +95,8 @@ return {
       },
 
       completion = {
-        ghost_text = { enabled = true },
         list = {
-          selection = "manual",
+          selection = "auto_insert",
         },
         menu = {
           draw = {
@@ -124,6 +128,7 @@ return {
           require("luasnip").jump(direction)
         end,
       },
+      signature = { enabled = true },
     },
     opts_extend = { "sources.default" },
   },
