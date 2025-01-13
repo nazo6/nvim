@@ -1,4 +1,4 @@
-local sources_default = { "lazydev", "lsp", "path", "luasnip", "buffer" }
+local sources_default = { "lazydev", "lsp", "path", "snippets", "buffer" }
 if Args.feature.copilot then
   table.insert(sources_default, "copilot")
 end
@@ -96,7 +96,9 @@ return {
 
       completion = {
         list = {
-          selection = "auto_insert",
+          selection = {
+            auto_insert = true,
+          },
         },
         menu = {
           draw = {
@@ -116,18 +118,7 @@ return {
         providers = sources_providers,
       },
       snippets = {
-        expand = function(snippet)
-          require("luasnip").lsp_expand(snippet)
-        end,
-        active = function(filter)
-          if filter and filter.direction then
-            return require("luasnip").jumpable(filter.direction)
-          end
-          return require("luasnip").in_snippet()
-        end,
-        jump = function(direction)
-          require("luasnip").jump(direction)
-        end,
+        preset = "luasnip",
       },
       signature = { enabled = true },
     },
