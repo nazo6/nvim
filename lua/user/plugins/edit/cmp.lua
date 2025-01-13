@@ -3,6 +3,7 @@ if Args.feature.copilot then
   table.insert(sources_default, "copilot")
 end
 
+---@type table<string, blink.cmp.SourceProviderConfigPartial>
 local sources_providers = {
   lazydev = {
     name = "LazyDev",
@@ -100,9 +101,12 @@ return {
             auto_insert = true,
           },
         },
+        trigger = {
+          show_on_trigger_character = false,
+        },
         menu = {
           draw = {
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "source_name", gap = 1 } },
+            columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
           },
         },
         documentation = {
