@@ -99,6 +99,7 @@ return {
         list = {
           selection = {
             auto_insert = true,
+            preselect = false,
           },
         },
         trigger = {
