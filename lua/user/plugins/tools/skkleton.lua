@@ -8,7 +8,7 @@ return {
       vim.api.nvim_create_autocmd("User", {
         pattern = "skkeleton-initialize-pre",
         callback = function()
-          local server = "localhost"
+          local server = "127.0.0.1"
 
           if Args.feature.wsl_nat then
             if vim.fn.has "wsl" then
