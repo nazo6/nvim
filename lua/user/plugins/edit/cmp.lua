@@ -10,19 +10,20 @@ local sources_providers = {
     module = "lazydev.integrations.blink",
     score_offset = 10,
   },
+  lsp = {
+    fallbacks = {},
+    async = true,
+  },
 }
 if Args.feature.copilot then
   sources_providers.copilot = {
     name = "copilot",
     module = "blink-cmp-copilot",
-    score_offset = 100,
+    score_offset = 1,
     async = true,
     transform_items = function(_, items)
-      local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-      local kind_idx = #CompletionItemKind + 1
-      CompletionItemKind[kind_idx] = "Copilot"
       for _, item in ipairs(items) do
-        item.kind = kind_idx
+        item.copilot = true
       end
       return items
     end,
@@ -39,94 +40,81 @@ return {
     version = "*",
     enabled = not Args.feature.vscode,
 
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-      keymap = {
-        preset = "none",
-        ["<C-p>"] = { "select_prev", "fallback" },
-        ["<C-n>"] = { "select_next", "fallback" },
-        ["<CR>"] = { "accept", "fallback" },
-        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
-        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
-        cmdline = {
+    config = function()
+      require("blink.cmp").setup {
+        keymap = {
+          preset = "none",
           ["<C-p>"] = { "select_prev", "fallback" },
           ["<C-n>"] = { "select_next", "fallback" },
-          ["<S-Tab>"] = { "select_prev", "fallback" },
-          ["<Tab>"] = { "select_next", "fallback" },
-        },
-      },
-      appearance = {
-        use_nvim_cmp_as_default = true,
-        nerd_font_variant = "mono",
-
-        kind_icons = {
-          Copilot = "",
-          Text = "󰉿",
-          Method = "",
-          Function = "󰊕",
-          Constructor = "󰒓",
-
-          Field = "󰜢",
-          Variable = "󰆦",
-          Property = "󰖷",
-
-          Class = "",
-          Interface = "",
-          Struct = "󱡠",
-          Module = "󰅩",
-
-          Unit = "󰪚",
-          Value = "󰦨",
-          Enum = "",
-          EnumMember = "",
-
-          Keyword = "󰻾",
-          Constant = "󰏿",
-
-          Snippet = "󱄽",
-          Color = "󰏘",
-          File = "󰈔",
-          Reference = "󰬲",
-          Folder = "󰉋",
-          Event = "󱐋",
-          Operator = "",
-          TypeParameter = "󰬛",
-        },
-      },
-
-      completion = {
-        list = {
-          selection = {
-            auto_insert = true,
-            preselect = false,
+          ["<CR>"] = { "accept", "fallback" },
+          ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+          ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+          cmdline = {
+            ["<C-p>"] = { "select_prev", "fallback" },
+            ["<C-n>"] = { "select_next", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "fallback" },
+            ["<Tab>"] = { "select_next", "fallback" },
           },
         },
-        trigger = {
-          show_on_trigger_character = false,
+        appearance = {
+          use_nvim_cmp_as_default = true,
+          nerd_font_variant = "mono",
         },
-        menu = {
-          draw = {
-            columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
+
+        completion = {
+          list = {
+            selection = {
+              auto_insert = true,
+              preselect = false,
+            },
+          },
+          trigger = {
+            show_on_blocked_trigger_characters = function()
+              return {}
+            end,
+          },
+          menu = {
+            draw = {
+              columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
+              components = {
+                kind_icon = {
+                  text = function(ctx)
+                    local icon = ctx.kind_icon
+                    if ctx.item.copilot then
+                      icon = ""
+                    end
+                    return icon .. ctx.icon_gap
+                  end,
+                },
+                source_name = {
+                  text = function(ctx)
+                    if ctx.source_name == "LSP" then
+                      return "[" .. vim.lsp.get_client_by_id(ctx.item.client_id).name .. "]"
+                    else
+                      return ctx.source_name
+                    end
+                  end,
+                },
+              },
+            },
+          },
+          documentation = {
+            auto_show = true,
+            auto_show_delay_ms = 50,
+            window = {
+              border = "rounded",
+            },
           },
         },
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 100,
-          window = {
-            border = "rounded",
-          },
+        sources = {
+          default = sources_default,
+          providers = sources_providers,
         },
-      },
-      sources = {
-        default = sources_default,
-        providers = sources_providers,
-      },
-      snippets = {
-        preset = "luasnip",
-      },
-      signature = { enabled = true },
-    },
-    opts_extend = { "sources.default" },
+        snippets = {
+          preset = "luasnip",
+        },
+        signature = { enabled = true },
+      }
+    end,
   },
 }
