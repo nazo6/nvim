@@ -18,12 +18,17 @@ return {
             end
           end
 
+          local encoding = "utf-8"
+          if vim.fn.has "mac" then
+            encoding = "euc-jp"
+          end
+
           vim.fn["skkeleton#config"] {
             eggLikeNewline = true,
             registerConvertResult = true,
             sources = { "skk_server" },
-            skkServerReqEnc = "utf-8",
-            skkServerResEnc = "utf-8",
+            skkServerReqEnc = encoding,
+            skkServerResEnc = encoding,
             skkServerHost = server,
           }
         end,
