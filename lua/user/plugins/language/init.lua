@@ -110,11 +110,10 @@ return Args.feature.vscode and {}
       end,
       opts = {
         get_root = function(fname)
-          local root = vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-          if root == nil then
-            root = vim.fs.dirname(fname)
-          end
-          return root
+          return require("user.shared.utils.typst").get_typst_root_dir(fname)
+        end,
+        get_main_file = function(path)
+          return require("user.shared.utils.typst").get_typst_main_file(path)
         end,
       },
     },

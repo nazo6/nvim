@@ -1,22 +1,23 @@
+local utils = require "user.shared.utils.typst"
+
 return {
   name = "typst watch root",
   priority = 39,
   builder = function()
-    local util = require "lspconfig.util"
+    local fname = vim.api.nvim_buf_get_name(0)
+    local root_dir = utils.get_typst_root_dir(fname)
+    local main_file = utils.get_typst_main_file(fname)
 
-    local index_file_root_pattern = util.root_pattern "report.typ"
-    local root_dir = index_file_root_pattern(vim.api.nvim_buf_get_name(0))
-    if root_dir == nil then
-      return false, "Failed to find index typ file."
+    if main_file == nil then
+      return false, "Failed to find main typ file."
     end
-    local root_file = vim.fs.joinpath(root_dir, "report.typ")
-    local pdf_file = vim.fn.fnamemodify(root_file, ":r") .. ".pdf"
 
-    local args = { "watch", root_file, pdf_file }
+    local pdf_file = vim.fn.fnamemodify(main_file, ":r") .. ".pdf"
 
-    local root_dir = util.find_git_ancestor(root_file)
+    local args = { "watch", main_file, pdf_file }
+
     if root_dir == nil then
-      root_dir = util.path.dirname(root_file)
+      root_dir = vim.fs.dirname(main_file)
     end
 
     table.insert(args, "--root")

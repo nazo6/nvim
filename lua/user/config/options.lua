@@ -68,6 +68,13 @@ opt.exrc = true
 
 vim.cmd [[autocmd BufWinEnter * if &filetype == 'help' | wincmd L | endif]]
 
+-- I use nushell as shell and it sets env variable 'SHELL' to nushell.
+-- This cause problems when command is invoked in nvim.
+-- So, sets vim's shell to bash and only use nu in toggleterm
+if vim.fn.has "unix" == 1 then
+  opt.shell = "/bin/bash"
+end
+
 -- Key
 opt.timeoutlen = 400
 

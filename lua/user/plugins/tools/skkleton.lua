@@ -11,7 +11,7 @@ return {
           local server = "127.0.0.1"
 
           if Args.feature.wsl_nat then
-            if vim.fn.has "wsl" then
+            if vim.fn.has "wsl" == 1 then
               server =
                 vim.fn.system [[ip route | grep 'default via' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}']]
               server = server:gsub("%s+", "")
@@ -19,7 +19,7 @@ return {
           end
 
           local encoding = "utf-8"
-          if vim.fn.has "mac" then
+          if vim.fn.has "mac" == 1 then
             encoding = "euc-jp"
           end
 

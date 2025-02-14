@@ -1,5 +1,5 @@
-local util = require "lspconfig.util"
 local create_setup = require("user.plugins.lsp.lspconfig.config-builder").create_setup
+local utils = require "user.shared.utils.typst"
 
 local pinned = {}
 
@@ -26,11 +26,8 @@ return create_setup {
       typst_utils.unPinMain(client)
     end, {})
 
-    local root_pattern = require("lspconfig").util.root_pattern
-    local index_file_root_pattern = root_pattern "report.typ"
-    local root_dir = index_file_root_pattern(vim.api.nvim_buf_get_name(bufnr))
-    if root_dir ~= nil then
-      local root_file = vim.fs.joinpath(root_dir, "report.typ")
+    local root_file = utils.get_typst_main_file(vim.api.nvim_buf_get_name(bufnr))
+    if root_file ~= nil then
       if not pinned[root_file] then
         vim.defer_fn(function()
           typst_utils.pinMain(client, root_file)
@@ -41,14 +38,10 @@ return create_setup {
     end
   end,
   root_dir = function(fname)
-    local root = util.find_git_ancestor(fname)
-    if root == nil then
-      root = util.path.dirname(fname)
-    end
-    return root
+    return utils.get_typst_root_dir(fname)
   end,
   settings = {
     formatterMode = "typstyle",
-    compileStatus = "disable",
+    compileStatus = "enable",
   },
 }

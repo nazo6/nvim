@@ -60,7 +60,12 @@ return {
         end)
       end,
       shell = function()
-        local shell = require("user.shared.utils.system").is_win and "cmd.exe /c nu.exe" or vim.o.shell
+        local shell = vim.o.shell
+        if require("user.shared.utils.system").is_win then
+          shell = "cmd.exe /c nu.exe"
+        elseif vim.fn.has "mac" == 1 then
+          shell = "/opt/homebrew/bin/nu"
+        end
         return shell
       end,
     }
