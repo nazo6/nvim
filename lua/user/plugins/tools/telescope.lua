@@ -22,8 +22,8 @@ return {
       map("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "[telescope] Undo" })
 
       map("n", "<leader>te", "<cmd>Telescope<CR>", { desc = "[telescope] builtin" })
-      map("n", "<leader>tn", "<cmd>Telescope notify<CR>", { desc = "[telescope] Notifications" })
-      map("n", "<leader>tt", "<cmd>TodoTelescope<CR>", { desc = "[telescope] Noice history" })
+      map("n", "<leader>tn", "<cmd>Telescope fidget<CR>", { desc = "[telescope] Notifications" })
+      map("n", "<leader>tt", "<cmd>TodoTelescope<CR>", { desc = "[telescope] TODO list" })
     end,
     config = function()
       local actions = require "telescope.actions"
