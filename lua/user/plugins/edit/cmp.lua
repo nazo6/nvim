@@ -117,6 +117,7 @@ return {
           },
           completion = {
             menu = {
+              auto_show = true,
               draw = {
                 columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
               },
