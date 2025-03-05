@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           surql = "surrealdb",
           v = "systemverilog",
           cir = "ngspice",
+          mdx = "mdx",
         },
         filename = {
           [".swcrc"] = "json",
@@ -33,6 +34,8 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           end,
         },
       }
+
+      vim.treesitter.language.register("markdown", "mdx")
     end
   end,
 })
