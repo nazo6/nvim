@@ -27,4 +27,5 @@ return {
   clangd = srequire "clangd",
   pyright = srequire "pyright",
   tinymist = srequire "tinymist",
+  mdx_analyzer = srequire "mdx-analyzer",
 }

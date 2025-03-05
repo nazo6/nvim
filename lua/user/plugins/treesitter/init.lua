@@ -163,7 +163,7 @@ return Args.feature.vscode and {}
       event = { "BufRead" },
       opts = {
         aliases = {
-          ["mdx"] = "markdown",
+          ["mdx"] = "typescriptreact",
         },
       },
     },
