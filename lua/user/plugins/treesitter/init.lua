@@ -161,6 +161,10 @@ return Args.feature.vscode and {}
     {
       "windwp/nvim-ts-autotag",
       event = { "BufRead" },
-      opts = {},
+      opts = {
+        aliases = {
+          ["mdx"] = "markdown",
+        },
+      },
     },
   }
