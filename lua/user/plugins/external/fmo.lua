@@ -18,6 +18,15 @@ return Args.feature.vscode and {}
                   require_cwd = true,
                   condition = require("conform.util").root_file { "Dioxus.toml" },
                 },
+                deno_fmt_mdx = {
+                  command = "deno",
+                  args = {
+                    "fmt",
+                    "-",
+                    "--ext",
+                    "md",
+                  },
+                },
               },
             }
           end,
@@ -43,6 +52,7 @@ return Args.feature.vscode and {}
             },
           },
           deno_fmt = { type = "conform", name = "deno_fmt", root_pattern = { "deno.json", "deno.jsonc" } },
+          deno_fmt_mdx = { type = "conform", name = "deno_fmt_mdx", root_pattern = { "deno.json", "deno.jsonc" } },
           biome = { type = "conform", name = "biome", root_pattern = { "biome.json", "biome.jsonc" } },
           stylua = { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
           rust_analyzer = { type = "lsp", name = "rust_analyzer" },
@@ -103,6 +113,7 @@ return Args.feature.vscode and {}
             json = { groups = formatter_groups.web, default = formatters.deno_fmt },
             jsonc = { groups = formatter_groups.web, default = formatters.deno_fmt },
             markdown = { groups = formatter_groups.web, default = formatters.deno_fmt },
+            mdx = { groups = {}, default = formatters.deno_fmt_mdx },
             lua = { groups = formatter_groups.lua, default = formatters.stylua },
             rust = { groups = formatter_groups.rust, default = formatters.rust_analyzer },
           },
