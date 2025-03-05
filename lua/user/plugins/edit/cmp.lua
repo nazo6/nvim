@@ -116,6 +116,12 @@ return {
             ["<Tab>"] = { "select_next", "fallback" },
           },
           completion = {
+            list = {
+              selection = {
+                auto_insert = true,
+                preselect = false,
+              },
+            },
             menu = {
               auto_show = true,
               draw = {
