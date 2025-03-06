@@ -65,7 +65,8 @@ return create_setup {
     "tailwind.config.mjs",
     "tailwind.config.ts",
     "input.css",
-    "tailwind.css"
+    "tailwind.css",
+    "global.css",
   },
   init_options = {
     userLanguages = {
