@@ -61,11 +61,6 @@ return {
               preselect = false,
             },
           },
-          trigger = {
-            show_on_blocked_trigger_characters = function()
-              return {}
-            end,
-          },
           menu = {
             draw = {
               columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
