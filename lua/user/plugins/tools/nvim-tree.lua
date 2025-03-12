@@ -158,6 +158,7 @@ return {
             enable = true,
             chars = "FJDKSLA;CMRUEIWOQP",
           },
+          quit_on_open = true,
         },
       },
     }
