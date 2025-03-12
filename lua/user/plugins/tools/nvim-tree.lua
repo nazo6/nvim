@@ -51,6 +51,7 @@ local function on_attach(bufnr)
   map("n", "p", api.fs.paste, opts "Paste")
   map("n", "P", api.node.navigate.parent, opts "Parent Directory")
   map("n", "q", api.tree.close, opts "Close")
+  map("n", "<Esc>", api.tree.close, opts "Close")
   map("n", "r", api.fs.rename, opts "Rename")
   map("n", "R", api.tree.reload, opts "Refresh")
   map("n", "U", api.tree.toggle_custom_filter, opts "Toggle Hidden")
@@ -111,31 +112,14 @@ return {
         cmd = nil,
         args = {},
       },
-      view = {
-        float = {
-          enable = true,
-          open_win_config = function()
-            return {
-              relative = "win",
-              border = "rounded",
-              width = 45,
-              height = vim.o.lines - 3,
-              col = 2,
-              row = 0,
-            }
-          end,
-        },
-      },
       git = {
         ignore = false,
         timeout = 1000,
       },
       diagnostics = {
         enable = true,
-        severity = {
-          min = vim.diagnostic.severity.HINT,
-          max = vim.diagnostic.severity.ERROR,
-        },
+        show_on_dirs = true,
+        show_on_open_dirs = false,
         icons = {
           hint = "",
           info = "",
