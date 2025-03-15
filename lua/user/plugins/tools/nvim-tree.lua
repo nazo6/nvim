@@ -95,7 +95,7 @@ end
 
 return {
   "kyazdani42/nvim-tree.lua",
-  dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  dependencies = { "echasnovski/mini.icons" },
   cmd = { "NvimTreeToggle" },
   init = function()
     map("n", "<C-f>", "<cmd>NvimTreeToggle<CR>", { silent = true })
