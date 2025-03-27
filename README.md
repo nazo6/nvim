@@ -2,13 +2,6 @@
 
 My neovim config.
 
-## Concept
-
-- Multi-platform support (Windows/Linux)
-- Fast startup (About 25ms on Linux and 70ms on Windows)
-  - Most of plugins are lazy-loaded
-- Avoid external dependencies as much as possible
-
 ## Setup
 
 ```bash
@@ -18,9 +11,6 @@ nvim
 ```
 
 ## Profiling
-
-We can profile lua thanks to
-[https://github.com/stevearc/profile.nvim](https://github.com/stevearc/profile.nvim)
 
 1. `git clone https://github.com/stevearc/profile.nvim` to config root
 2.
@@ -41,18 +31,3 @@ We can profile lua thanks to
 - win32yank (wsl clipboard)
 
 #### Linux
-
-- xclip (clipboard)
-
-### TeX
-
-- TeX Live (latexmk, latexindent)
-- SumatraPDF
-
-### Format
-
-- deno
-
-### SATySFi
-
-- SATySFi
