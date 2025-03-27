@@ -24,15 +24,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     )
     map("n", "gr", "<cmd>Glance references<CR>", { buffer = bufnr, desc = "[LSP] Go references" })
 
-    map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = bufnr, desc = "[LSP] Hover" })
+    map("n", "K", "<cmd>lua vim.lsp.buf.hover({border='rounded'})<CR>", { buffer = bufnr, desc = "[LSP] Hover" })
     map(
       { "n", "i" },
       "<C-s>",
-      "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+      "<cmd>lua vim.lsp.buf.signature_help({border='rounded'})<CR>",
       { buffer = bufnr, desc = "[LSP] Signature help" }
     )
 
-    map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { buffer = bufnr, desc = "[LSP] Rename" })
+    map(
+      "n",
+      "<leader>rn",
+      "<cmd>lua vim.lsp.buf.rename({border='rounded'})<CR>",
+      { buffer = bufnr, desc = "[LSP] Rename" }
+    )
     map(
       { "n", "v" },
       "<leader>ca",
