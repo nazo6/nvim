@@ -32,12 +32,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       { buffer = bufnr, desc = "[LSP] Signature help" }
     )
 
-    map(
-      "n",
-      "<leader>rn",
-      "<cmd>lua vim.lsp.buf.rename({border='rounded'})<CR>",
-      { buffer = bufnr, desc = "[LSP] Rename" }
-    )
+    map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { buffer = bufnr, desc = "[LSP] Rename" })
     map(
       { "n", "v" },
       "<leader>ca",
