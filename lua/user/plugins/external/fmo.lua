@@ -56,6 +56,7 @@ return Args.feature.vscode and {}
           biome = { type = "conform", name = "biome", root_pattern = { "biome.json", "biome.jsonc" } },
           stylua = { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
           rust_analyzer = { type = "lsp", name = "rust_analyzer" },
+          mdx_analyzer = { type = "lsp", name = "rust_analyzer" },
         }
 
         ---@type table<string, fmo.FormatterSpecifierGroup>
@@ -113,7 +114,7 @@ return Args.feature.vscode and {}
             json = { groups = formatter_groups.web, default = formatters.deno_fmt },
             jsonc = { groups = formatter_groups.web, default = formatters.deno_fmt },
             markdown = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            mdx = { groups = {}, default = formatters.deno_fmt_mdx },
+            mdx = { groups = {}, default = formatters.prettierd },
             lua = { groups = formatter_groups.lua, default = formatters.stylua },
             rust = { groups = formatter_groups.rust, default = formatters.rust_analyzer },
           },
