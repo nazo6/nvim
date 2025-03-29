@@ -6,10 +6,6 @@ return {
     ft = { "markdown" },
     dependencies = {
       {
-        "willothy/wezterm.nvim",
-        config = true,
-      },
-      {
         "GCBallesteros/jupytext.nvim",
         config = true,
         opts = {
