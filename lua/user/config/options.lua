@@ -10,16 +10,22 @@ vim.cmd.aunmenu { "PopUp.-1-" }
 
 opt.clipboard:append "unnamedplus"
 if Args.feature.osc52 then
-  local empty_provider = function() end
+  local function paste()
+    return {
+      vim.split(vim.fn.getreg "", "\n"),
+      vim.fn.getregtype "",
+    }
+  end
+
   vim.g.clipboard = {
-    name = "OSC 52",
+    name = "osc52",
     copy = {
       ["+"] = require("vim.ui.clipboard.osc52").copy "+",
       ["*"] = require("vim.ui.clipboard.osc52").copy "*",
     },
     paste = {
-      ["+"] = empty_provider,
-      ["*"] = empty_provider,
+      ["+"] = paste,
+      ["*"] = paste,
     },
   }
 else
