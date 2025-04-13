@@ -1,4 +1,3 @@
-local root_pattern = require("lspconfig").util.root_pattern
 local create_setup = require("user.lsp.config-builder").create_setup
 
 return create_setup {
@@ -59,7 +58,7 @@ return create_setup {
     -- custom
     "rust",
   },
-  root_dir = root_pattern {
+  root_dir = vim.fs.root(0, {
     "tailwind.config.js",
     "tailwind.config.cjs",
     "tailwind.config.mjs",
@@ -67,7 +66,7 @@ return create_setup {
     "input.css",
     "tailwind.css",
     "global.css",
-  },
+  }),
   init_options = {
     userLanguages = {
       eelixir = "html-eex",
