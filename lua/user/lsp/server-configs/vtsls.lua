@@ -1,4 +1,4 @@
-local create_config = require("user.plugins.lsp.lspconfig.config-builder").create_config
+local create_config = require("user.lsp.config-builder").create_config
 local node_or_deno = require("user.shared.lsp-selector.web").judge
 
 return function()

@@ -30,6 +30,6 @@ return Args.feature.vscode and {}
     cmd = { "LspInfo", "LspLog" },
     event = { "BufRead", "BufNewFile" },
     config = function()
-      require "user.plugins.lsp.lspconfig.setup"
+      require("user.lsp").setup()
     end,
   }
