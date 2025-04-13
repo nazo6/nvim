@@ -1,4 +1,4 @@
-local create_setup = require("user.plugins.lsp.lspconfig.config-builder").create_setup
+local create_setup = require("user.lsp.config-builder").create_setup
 local utils = require "user.shared.utils.typst"
 
 local pinned = {}
