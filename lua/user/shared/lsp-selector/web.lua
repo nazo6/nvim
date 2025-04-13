@@ -8,12 +8,9 @@ local cache = {}
 
 return {
   judge = function(path)
-    local node_root_search = require("lspconfig").util.root_pattern("package.json", "tsconfig.json")
-    local deno_root_search = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")
-
     if cache[path] == nil then
-      local node_root = node_root_search(path)
-      local deno_root = deno_root_search(path)
+      local node_root = vim.fs.root(0, { "package.json", "tsconfig.json" })
+      local deno_root = vim.fs.root(0, { "deno.json", "deno.jsonc" })
 
       if node_root and deno_root then
         local _, node_count = string.gsub(node_root, "/", "")
