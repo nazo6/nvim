@@ -4,15 +4,24 @@
 Args = {
   --- "feature" provides way to easily disable/enable component of config.
   feature = {
-    --- Enables copilot related plugins
-    copilot = true,
+    --- Enables AI features
+    ai = {
+      enabled = true,
+      --- Enables copilot related plugins
+      copilot = true,
+    },
+
     --- Force enable osc52 clipboard. Useful in ssh environment.
     osc52 = vim.env.SSH_CLIENT ~= nil,
+
     --- Enables denops powered plugins. Useful in environment that deno is not available.
     denops = true,
+
     vscode = not not vim.g.vscode,
+
     --- Enables rest.nvim plugin. This is gated because it has dependencies that fails sometime.
     rest = false,
+
     --- Use resolved windows addreess instead of localhost for some config
     wsl_nat = false,
   },

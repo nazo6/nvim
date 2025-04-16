@@ -24,6 +24,10 @@ local spec = {
   { import = "user.plugins.treesitter" },
 }
 
+if Args.feature.ai.enabled then
+  table.insert(spec, { import = "user.plugins.ai" })
+end
+
 local available, local_spec = pcall(require, "user.local.plugins")
 if available then
   table.insert(spec, local_spec)
