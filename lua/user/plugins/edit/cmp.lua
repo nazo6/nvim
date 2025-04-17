@@ -1,5 +1,5 @@
 local sources_default = { "lazydev", "lsp", "path", "snippets", "buffer" }
-if Args.feature.copilot then
+if Args.feature.ai.copilot then
   table.insert(sources_default, "copilot")
 end
 
@@ -15,7 +15,7 @@ local sources_providers = {
     async = true,
   },
 }
-if Args.feature.copilot then
+if Args.feature.ai.copilot then
   sources_providers.copilot = {
     name = "copilot",
     module = "blink-cmp-copilot",
