@@ -7,7 +7,8 @@
 local cache = {}
 
 return {
-  judge = function(path)
+  judge = function(bufnr)
+    local path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
     if cache[path] == nil then
       local node_root = vim.fs.root(0, { "package.json", "tsconfig.json" })
       local deno_root = vim.fs.root(0, { "deno.json", "deno.jsonc" })

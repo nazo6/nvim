@@ -29,6 +29,9 @@ end
 
 M.create_setup = function(server_config)
   return function(server_name)
+    if type(server_config) == "function" then
+      server_config = server_config(server_name)
+    end
     vim.lsp.config(server_name, M.create_config(server_config))
     vim.lsp.enable(server_name)
   end
