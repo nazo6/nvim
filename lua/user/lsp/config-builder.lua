@@ -27,6 +27,7 @@ M.create_config = function(server_config)
   return vim.tbl_deep_extend("force", base_config, server_config)
 end
 
+--- @param server_config vim.lsp.Config|fun(server_name: string):vim.lsp.Config
 M.create_setup = function(server_config)
   return function(server_name)
     if type(server_config) == "function" then
