@@ -10,8 +10,8 @@ return {
   judge = function(bufnr)
     local path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
     if cache[path] == nil then
-      local node_root = vim.fs.root(0, { "package.json", "tsconfig.json" })
-      local deno_root = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+      local node_root = vim.fs.root(bufnr, { "package.json", "tsconfig.json" })
+      local deno_root = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
 
       if node_root and deno_root then
         local _, node_count = string.gsub(node_root, "/", "")

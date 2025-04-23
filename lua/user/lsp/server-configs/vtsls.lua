@@ -8,6 +8,5 @@ return create_setup(function()
         cb(node_or_deno(bufnr).root)
       end
     end,
-    single_file_support = false,
   }
 end)

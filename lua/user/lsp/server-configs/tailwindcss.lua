@@ -1,72 +1,21 @@
 local create_setup = require("user.lsp.config-builder").create_setup
 
+local filetypes = vim.lsp.config.tailwindcss.filetypes
+table.insert(filetypes, "rust")
+
 return create_setup {
-  filetypes = {
-    -- html
-    "aspnetcorerazor",
-    "astro",
-    "astro-markdown",
-    "blade",
-    "clojure",
-    "django-html",
-    "htmldjango",
-    "edge",
-    "eelixir", -- vim ft
-    "elixir",
-    "ejs",
-    "erb",
-    "eruby", -- vim ft
-    "gohtml",
-    "haml",
-    "handlebars",
-    "hbs",
-    "html",
-    -- 'HTML (Eex)',
-    -- 'HTML (EEx)',
-    "html-eex",
-    "heex",
-    "jade",
-    "leaf",
-    "liquid",
-    "markdown",
-    "mdx",
-    "mustache",
-    "njk",
-    "nunjucks",
-    "php",
-    "razor",
-    "slim",
-    "twig",
-    -- css
-    "css",
-    "less",
-    "postcss",
-    "sass",
-    "scss",
-    "stylus",
-    "sugarss",
-    -- js
-    "javascript",
-    "javascriptreact",
-    "reason",
-    "rescript",
-    "typescript",
-    "typescriptreact",
-    -- mixed
-    "vue",
-    "svelte",
-    -- custom
-    "rust",
-  },
-  root_dir = vim.fs.root(0, {
-    "tailwind.config.js",
-    "tailwind.config.cjs",
-    "tailwind.config.mjs",
-    "tailwind.config.ts",
-    "input.css",
-    "tailwind.css",
-    "global.css",
-  }),
+  filetypes = filetypes,
+  root_dir = function(bufnr, cb)
+    cb(vim.fs.root(bufnr, {
+      "tailwind.config.js",
+      "tailwind.config.cjs",
+      "tailwind.config.mjs",
+      "tailwind.config.ts",
+      "input.css",
+      "tailwind.css",
+      "global.css",
+    }))
+  end,
   init_options = {
     userLanguages = {
       eelixir = "html-eex",
