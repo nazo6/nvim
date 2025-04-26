@@ -6,6 +6,7 @@ return {
   {
     "OXY2DEV/helpview.nvim",
     ft = "help",
+    submodules = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
