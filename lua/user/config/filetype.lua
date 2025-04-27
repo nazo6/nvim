@@ -27,11 +27,17 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           [".eslintignore"] = "gitignore",
         },
         pattern = {
-          -- For chezmoi
-          ["dot_.*"] = function(_, _, ext)
-            local real_name = ext:gsub("dot_", ".")
-            return vim.filetype.match { filename = real_name } or ""
-          end,
+          ["${HOME}/.local/share/chezmoi/.*"] = {
+            function(path, buf)
+              if path:match "/dot_" then
+                return vim.filetype.match {
+                  filename = path:gsub("/dot_", "/."),
+                  buf = buf,
+                }
+              end
+            end,
+            { priority = -math.huge },
+          },
         },
       }
 
