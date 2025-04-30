@@ -1,4 +1,4 @@
-local create_setup = require("user.plugins.lsp.lspconfig.config-builder").create_setup
+local create_setup = require("user.lsp.config-builder").create_setup
 local node_or_deno = require("user.shared.lsp-selector.web").judge
 
 local deno_client = nil
@@ -36,7 +36,7 @@ local function virtual_text_document_handler(bufnr, res, client)
   vim.lsp.buf_attach_client(bufnr, client.id)
 end
 
-return function(...)
+return create_setup(function()
   local uri_to_bufnr_orig = vim.uri_to_bufnr
 
   vim.uri_to_bufnr = function(uri)
@@ -50,7 +50,7 @@ return function(...)
             uri = uri,
           },
         }
-        local result = client.request_sync("deno/virtualTextDocument", params)
+        local result = client:request_sync("deno/virtualTextDocument", params)
         virtual_text_document_handler(buf, result, client)
       end
     end
@@ -58,10 +58,10 @@ return function(...)
     return buf
   end
 
-  create_setup {
-    root_dir = function(path)
-      if node_or_deno(path).type == "deno" then
-        return node_or_deno(path).root
+  return {
+    root_dir = function(bufnr, cb)
+      if node_or_deno(bufnr).type == "deno" then
+        cb(node_or_deno(bufnr).root)
       end
     end,
     settings = {
@@ -72,5 +72,5 @@ return function(...)
     on_attach = function(client)
       client.server_capabilities.executeCommandProvider = true
     end,
-  }(...)
-end
+  }
+end)

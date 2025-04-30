@@ -23,9 +23,6 @@ return {
       require("mason-nvim-dap").setup {
         handlers = {},
       }
-      require("dap.ext.vscode").load_launchjs(nil, {
-        coreclr = { "cs" },
-      })
     end)
   end,
 }
