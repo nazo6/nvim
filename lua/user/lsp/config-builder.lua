@@ -19,6 +19,7 @@ local client_capabilities = require("blink.cmp").get_lsp_capabilities {
 }
 local base_config = {
   capabilities = client_capabilities,
+  before_init = require("user.lsp.settings-json").before_init,
 }
 
 local M = {}

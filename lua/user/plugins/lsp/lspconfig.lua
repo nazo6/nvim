@@ -12,20 +12,6 @@ return Args.feature.vscode and {}
         config = true,
       },
       { "j-hui/fidget.nvim" },
-      {
-        "folke/neoconf.nvim",
-        cmd = { "Neoconf" },
-        config = function()
-          require("neoconf").setup {
-            plugins = {
-              jsonls = {
-                enabled = true,
-                configured_servers_only = false,
-              },
-            },
-          }
-        end,
-      },
     },
     cmd = { "LspInfo", "LspLog" },
     event = { "BufRead", "BufNewFile" },

@@ -20,6 +20,7 @@ return {
       setup_server(server_name)
     end
 
+    require("user.lsp.settings-json").config()
     require "user.lsp.attach"
   end,
 }
