@@ -15,7 +15,7 @@ local sources_providers = {
     async = true,
   },
 }
-if Args.feature.ai.copilot then
+if Args.feature.ai.copilot == true then
   sources_providers.copilot = {
     name = "copilot",
     module = "blink-cmp-copilot",
