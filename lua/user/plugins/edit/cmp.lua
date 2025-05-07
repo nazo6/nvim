@@ -34,7 +34,7 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = {
-      { "giuxtaposition/blink-cmp-copilot", enabled = Args.feature.copilot },
+      { "giuxtaposition/blink-cmp-copilot", enabled = Args.feature.ai.copilot },
     },
     event = { "InsertEnter", "CmdlineEnter" },
     version = "*",
