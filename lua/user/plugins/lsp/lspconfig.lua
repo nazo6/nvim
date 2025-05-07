@@ -3,7 +3,7 @@ return Args.feature.vscode and {}
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         dependencies = { { "williamboman/mason.nvim" } },
         config = true,
       },

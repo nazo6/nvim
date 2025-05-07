@@ -10,11 +10,9 @@ return {
       config_fn(server_name)
     end
 
-    require("mason-lspconfig").setup_handlers {
-      function(server_name)
-        setup_server(server_name)
-      end,
-    }
+    for _, server_name in ipairs(require("mason-lspconfig").get_installed_servers()) do
+      setup_server(server_name)
+    end
 
     for _, server_name in ipairs(Args.lsp.local_servers) do
       setup_server(server_name)
