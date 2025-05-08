@@ -6,15 +6,28 @@ table.insert(filetypes, "rust")
 return create_setup {
   filetypes = filetypes,
   root_dir = function(bufnr, cb)
-    cb(vim.fs.root(bufnr, {
+    local root = vim.fs.root(bufnr, {
       "tailwind.config.js",
       "tailwind.config.cjs",
       "tailwind.config.mjs",
       "tailwind.config.ts",
-      "input.css",
-      "tailwind.css",
-      "global.css",
-    }))
+    })
+
+    if root ~= nil then
+      cb(root)
+    end
+
+    local package_json_dir = vim.fs.root(bufnr, { "package.json" })
+    if package_json_dir ~= nil then
+      local contents = vim.fn.readfile(vim.fs.joinpath(package_json_dir, "package.json"))
+      contents = table.concat(contents, "\n")
+      if contents then
+        local json = vim.json.decode(contents)
+        if json and json.devDependencies and json.devDependencies.tailwindcss then
+          cb(package_json_dir)
+        end
+      end
+    end
   end,
   init_options = {
     userLanguages = {
