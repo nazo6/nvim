@@ -121,10 +121,14 @@ return Args.feature.vscode and {}
     {
       "folke/lazydev.nvim",
       ft = "lua",
+      dependencies = {
+        { "gonstoll/wezterm-types", lazy = true },
+      },
       opts = {
         library = {
           { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           { path = "snacks.nvim", words = { "Snacks" } },
+          { path = "wezterm-types", mods = { "wezterm" } },
         },
       },
     },
