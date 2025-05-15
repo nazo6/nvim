@@ -28,7 +28,10 @@ end, {
   desc = "close window if it's a popup",
 })
 
-map("n", "<leader>f", "<cmd>silent! !explorer.exe .<CR>", { desc = "Open explorer.exe" })
+map("n", "<leader>f", function()
+  local cwd = vim.fn.getcwd()
+  vim.ui.open(cwd)
+end, { desc = "Open cwd" })
 
 map("n", "<leader>re", "<cmd>Restart<CR>", { desc = "Restart neovim" })
 
