@@ -14,10 +14,6 @@ return {
 
     local ensure_installed = {}
 
-    if require("user.shared.utils.system").is_win then
-      table.insert(ensure_installed, "sed")
-    end
-
     require("mason-tool-installer").setup {
       ensure_installed = ensure_installed,
       auto_update = false,
