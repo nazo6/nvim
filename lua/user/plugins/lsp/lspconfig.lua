@@ -14,7 +14,7 @@ return Args.feature.vscode and {}
       { "j-hui/fidget.nvim" },
     },
     cmd = { "LspInfo", "LspLog" },
-    event = { "BufRead", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("user.lsp").setup()
     end,
