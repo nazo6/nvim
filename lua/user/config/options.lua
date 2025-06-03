@@ -141,7 +141,31 @@ vim.g.markdown_fenced_languages = {
   "ts=typescript",
 }
 
-vim.api.nvim_create_user_command("LspLogClear", function(opts)
+vim.api.nvim_create_user_command("LspLogClear", function()
   local log_path = vim.fs.joinpath(vim.fn.stdpath "state", "lsp.log")
   vim.fn.delete(log_path)
+end, {})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  nested = true,
+  callback = function()
+    if vim.g.NVIM_RESTARTING then
+      vim.g.NVIM_RESTARTING = false
+      local session = require "possession.session"
+      local ok = pcall(session.load, "restart")
+      if ok then
+        require("possession.session").delete("restart", { no_confirm = true })
+        vim.opt.cmdheight = 1
+      end
+    end
+  end,
+})
+
+vim.api.nvim_create_user_command("Restart", function()
+  require("possession.session").save("restart", { no_confirm = true })
+  vim.cmd [[silent! bufdo bwipeout]]
+
+  vim.g.NVIM_RESTARTING = true
+
+  vim.cmd [[restart!]]
 end, {})
