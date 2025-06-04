@@ -67,30 +67,7 @@ local function on_attach(bufnr)
   map("n", "<C-w><C-s>", "<Nop>", opts "Nop")
   map("n", "<C-w><C-v>", "<Nop>", opts "Nop")
 
-  local is_wsl = vim.fn.has "wsl" == 1
-  local function get_node_path(node)
-    if node.name == ".." then
-      local utils = require "nvim-tree.utils"
-      local core = require "nvim-tree.core"
-      return utils.path_remove_trailing(core.get_cwd())
-    else
-      return node.absolute_path
-    end
-  end
-  map("n", "<leader>f", function()
-    local node = require("nvim-tree.lib").get_node_at_cursor()
-    if node.type == "file" then
-      node = node.parent
-    end
-    local path = get_node_path(node)
-    if is_wsl then
-      path = vim.fn.system('wslpath -w "' .. path .. '"')
-    end
-
-    vim.notify("Opening " .. path)
-
-    vim.fn.system { "explorer.exe", path }
-  end, opts "Open in explorer")
+  map("n", "<leader>f", api.node.run.system, opts "System open")
 end
 
 return {
