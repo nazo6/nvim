@@ -1,6 +1,22 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+if vim.fn.has "win32" == 1 then
+  -- HACK: For some reason, the default `vim.ui.open` function does not work correctly on my environment.
+  -- Prepending `cmd /c` to default cmd for `vim.ui.open` makes it work.
+  local o = vim.ui.open
+  vim.ui.open = function(...)
+    local args = { ... }
+    if args[2] == nil or (type(args[2]) == "table" and args[2].cmd == nil) then
+      if args[2] == nil then
+        args[2] = {}
+      end
+      args[2].cmd = { "cmd", "/c", "rundll32", "url.dll,FileProtocolHandler" }
+    end
+    o(unpack(args))
+  end
+end
+
 --- speeded up map function
 ---@param mode string|table
 ---
