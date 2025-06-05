@@ -41,6 +41,15 @@ return {
     enabled = not Args.feature.vscode,
 
     config = function()
+      -- HACK: I found that <C-n> and <C-p> mapping is not working after pressing <C-n> when there is no completion candidates (Maybe related to https://github.com/neovim/neovim/issues/9905).
+      -- By manually mapping them to blink.cmp functions, it works.
+      map("i", "<C-n>", function()
+        require("blink.cmp").select_next()
+      end)
+      map("i", "<C-p>", function()
+        require("blink.cmp").select_prev()
+      end)
+
       require("blink.cmp").setup {
         keymap = {
           preset = "none",
