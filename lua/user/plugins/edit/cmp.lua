@@ -37,7 +37,7 @@ return {
       { "giuxtaposition/blink-cmp-copilot", enabled = (Args.feature.ai.copilot == true) },
     },
     event = { "InsertEnter", "CmdlineEnter" },
-    version = "*",
+    version = "v1.*",
     enabled = not Args.feature.vscode,
 
     config = function()
@@ -49,6 +49,9 @@ return {
           ["<CR>"] = { "accept", "fallback" },
           ["<C-d>"] = { "scroll_documentation_down", "fallback" },
           ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+        },
+        fuzzy = {
+          implementation = "lua",
         },
         appearance = {
           use_nvim_cmp_as_default = true,
