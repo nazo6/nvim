@@ -4,6 +4,8 @@ if Args.feature.ai.copilot then
 end
 
 local source_priority = {
+  copilot = 6,
+  lazydev = 5,
   lsp = 4,
   snippets = 3,
   path = 2,
@@ -15,7 +17,6 @@ local sources_providers = {
   lazydev = {
     name = "LazyDev",
     module = "lazydev.integrations.blink",
-    score_offset = 10,
   },
   lsp = {
     fallbacks = {},
@@ -71,12 +72,17 @@ return {
           sorts = {
             function(a, b)
               local a_priority = source_priority[a.source_id]
+              if not a_priority then
+                a_priority = 0
+              end
               local b_priority = source_priority[b.source_id]
+              if not b_priority then
+                b_priority = 0
+              end
               if a_priority ~= b_priority then
                 return a_priority > b_priority
               end
             end,
-            -- defaults
             "score",
             "sort_text",
           },
