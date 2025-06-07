@@ -3,6 +3,13 @@ if Args.feature.ai.copilot then
   table.insert(sources_default, "copilot")
 end
 
+local source_priority = {
+  lsp = 4,
+  snippets = 3,
+  path = 2,
+  buffer = 1,
+}
+
 ---@type table<string, blink.cmp.SourceProviderConfigPartial>
 local sources_providers = {
   lazydev = {
@@ -61,6 +68,18 @@ return {
         },
         fuzzy = {
           implementation = "lua",
+          sorts = {
+            function(a, b)
+              local a_priority = source_priority[a.source_id]
+              local b_priority = source_priority[b.source_id]
+              if a_priority ~= b_priority then
+                return a_priority > b_priority
+              end
+            end,
+            -- defaults
+            "score",
+            "sort_text",
+          },
         },
         appearance = {
           use_nvim_cmp_as_default = true,
