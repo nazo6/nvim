@@ -42,10 +42,26 @@ return {
               ["<c-t>"] = open_with_trouble,
             },
           },
+          vimgrep_arguments = {
+            "rg",
+            -- Search hidden files but ignore .git dir
+            "--hidden",
+            "-g",
+            "!.git/",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+          },
         },
         pickers = {
           keymaps = {
             show_plug = false,
+          },
+          find_files = {
+            hidden = true,
           },
         },
         extensions = {

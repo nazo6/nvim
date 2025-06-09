@@ -7,8 +7,8 @@ local source_priority = {
   copilot = 6,
   lazydev = 5,
   lsp = 4,
-  snippets = 3,
-  path = 2,
+  path = 3,
+  snippets = 2,
   buffer = 1,
 }
 
