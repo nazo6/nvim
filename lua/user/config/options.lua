@@ -168,7 +168,7 @@ if vim.fn.has "nvim-0.12" == 1 then
 
     vim.g.NVIM_RESTARTING = true
 
-    vim.cmd [[restart!]]
+    vim.cmd [[restart qa!]]
   end, {})
 else
   vim.api.nvim_create_user_command("Restart", function()

@@ -1,7 +1,6 @@
 return Args.feature.vscode and {}
   or {
     { "onsails/lspkind-nvim" },
-    { "mhanberg/output-panel.nvim" },
     { "b0o/schemastore.nvim" },
     { "SmiteshP/nvim-navic", event = { "InsertEnter", "BufRead" } },
     { "aznhe21/actions-preview.nvim" },
