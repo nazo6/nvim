@@ -3,6 +3,11 @@ return {
     local default_setup = require("user.lsp.config-builder").default_setup
 
     local function setup_server(server_name)
+      if vim.tbl_contains(Args.lsp.disabled_servers, server_name) then
+        print("Skipping LSP server: " .. server_name)
+        return
+      end
+
       local ok, config_fn = pcall(require, "user.lsp.server-configs." .. server_name)
       if not ok then
         config_fn = default_setup

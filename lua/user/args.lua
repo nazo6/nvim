@@ -27,6 +27,7 @@ Args = {
   },
   lsp = {
     --- Defines `local server` that is configured even if server is not installed by mason.
-    local_servers = { "satysfi", "nushell" },
+    local_servers = {},
+    disabled_servers = {},
   },
 }

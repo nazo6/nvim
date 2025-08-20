@@ -59,15 +59,13 @@ return {
           vim.cmd "startinsert!"
         end)
       end,
-      shell = function()
-        local shell = vim.o.shell
-        if require("user.shared.utils.system").is_win then
-          shell = "cmd.exe /c nu.exe"
-        elseif vim.fn.has "mac" == 1 then
-          shell = "/opt/homebrew/bin/nu"
-        end
-        return shell
-      end,
+      -- shell = function()
+      --   local shell = vim.o.shell
+      --   if require("user.shared.utils.system").is_win then
+      --     shell = "cmd.exe /c nu.exe"
+      --   end
+      --   return shell
+      -- end,
     }
   end,
 }

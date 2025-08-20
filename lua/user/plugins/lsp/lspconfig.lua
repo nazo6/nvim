@@ -5,7 +5,9 @@ return Args.feature.vscode and {}
       {
         "mason-org/mason-lspconfig.nvim",
         dependencies = { { "williamboman/mason.nvim" } },
-        config = true,
+        opts = {
+          automatic_enable = false,
+        },
       },
       { "j-hui/fidget.nvim" },
     },
