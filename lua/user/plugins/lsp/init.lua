@@ -6,18 +6,25 @@ return Args.feature.vscode and {}
     { "aznhe21/actions-preview.nvim" },
     {
       "rachartier/tiny-inline-diagnostic.nvim",
-      event = "LspAttach", -- Or `LspAttach`
-      priority = 1000, -- needs to be loaded in first
+      event = "LspAttach",
+      priority = 1000,
       config = function()
         vim.diagnostic.config { virtual_text = false }
         require("tiny-inline-diagnostic").setup {
           options = {
             show_source = true,
+            add_messages = {
+              messages = true,
+              display_count = true,
+            },
+            multilines = {
+              enabled = true,
+              always_show = true,
+            },
           },
         }
       end,
     },
-
     {
       {
         "antosha417/nvim-lsp-file-operations",
