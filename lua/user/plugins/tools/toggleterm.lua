@@ -28,7 +28,14 @@ return {
 
   cmd = { "ToggleTerm", "ToggleTermOpen" },
   init = function()
-    map("n", [[<c-\>]], '<cmd>execute v:count1 . "ToggleTerm"<cr>', { desc = "[toggleterm] toggle" })
+    map("n", [[<c-\>]], function()
+      local tmp = vim.opt.shellcmdflag
+      if require("user.shared.utils.system").is_msys2 then
+        vim.opt.shellcmdflag = "-li"
+      end
+      vim.cmd 'execute v:count1 . "ToggleTerm"'
+      vim.opt.shellcmdflag = tmp
+    end, { desc = "[toggleterm] toggle" })
     map("t", [[<c-\>]], "<cmd>ToggleTerm<cr>", { desc = "[toggleterm] toggle" })
     map("t", "<ESC>", "<C-\\><C-n>")
 
@@ -61,8 +68,13 @@ return {
       end,
       shell = function()
         local shell = vim.o.shell
+
+        -- In windows native, SHELL env variable does not exist. So vim.opt.shell will be automatically set to 'cmd.exe'.
+        -- I would like to use pwsh instead, so set it.
         if require("user.shared.utils.system").is_win then
-          shell = "pwsh.exe"
+          if vim.env.SHELL == nil then
+            shell = "pwsh.exe"
+          end
         end
         return shell
       end,

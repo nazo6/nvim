@@ -3,6 +3,7 @@ local M = {}
 M.os = vim.loop.os_uname().sysname
 
 M.is_win = M.os == "Windows_NT"
+M.is_msys2 = M.is_win and vim.env.MINGW_PREFIX ~= nil
 
 local host_cached = nil
 M.get_host = function()

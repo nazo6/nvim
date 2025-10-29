@@ -74,6 +74,12 @@ opt.exrc = true
 
 vim.cmd [[autocmd BufWinEnter * if &filetype == 'help' | wincmd L | endif]]
 
+if require("user.shared.utils.system").is_msys2 then
+  vim.opt.shellcmdflag = "-c"
+  vim.opt.shellxquote = ""
+  vim.opt.shellquote = ""
+end
+
 -- Key
 opt.timeoutlen = 400
 
