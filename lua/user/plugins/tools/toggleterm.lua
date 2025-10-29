@@ -73,7 +73,11 @@ return {
         -- I would like to use pwsh instead, so set it.
         if require("user.shared.utils.system").is_win then
           if vim.env.SHELL == nil then
-            shell = "pwsh.exe"
+            if vim.env.NU_VERSION ~= nil then
+              shell = "nu.exe"
+            else
+              shell = "pwsh.exe"
+            end
           end
         end
         return shell
