@@ -33,7 +33,8 @@ return Args.feature.vscode and {}
         },
       },
       config = function()
-        local formatters = {
+        ---@type table<string, fmo.FormatterDef>
+        local f = {
           prettierd = {
             type = "conform",
             name = "prettierd",
@@ -57,66 +58,38 @@ return Args.feature.vscode and {}
           stylua = { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
           rust_analyzer = { type = "lsp", name = "rust_analyzer" },
           mdx_analyzer = { type = "lsp", name = "rust_analyzer" },
+          dioxus_fmt = { type = "conform", name = "dioxus_fmt", root_pattern = { "Dioxus.toml" } },
+          ruff = { type = "conform", name = "ruff_format", root_pattern = { "pyproject.toml" } },
         }
 
-        ---@type table<string, fmo.FormatterSpecifierGroup>
-        local formatter_groups = {
-          web = {
-            {
-              specs = {
-                { formatters.biome },
-                { { type = "lsp", name = "denols" } },
-                {
-                  formatters.prettierd,
-                  formatters.deno_fmt,
-                },
-              },
-            },
-          },
-          lua = {
-            {
-              specs = {
-                {
-                  formatters.stylua,
-                },
-              },
-            },
-          },
-          python = {
-            {
-              specs = {
-                { { type = "conform", name = "ruff_format", root_pattern = { "pyproject.toml" } } },
-              },
-            },
-          },
-          rust = {
-            {
-              specs = {
-                { { type = "conform", name = "dioxus_fmt", root_pattern = { "Dioxus.toml" } } },
-              },
-            },
-            {
-              specs = {
-                { formatters.rust_analyzer },
-              },
-            },
+        ---@type fmo.FormatterGroup
+        local common_web = {
+          f.biome,
+          { type = "lsp", name = "denols" },
+          {
+            f.prettierd,
+            f.deno_fmt,
           },
         }
-
         require("fmo").setup {
           filetypes = {
-            html = { groups = formatter_groups.web, default = formatters.prettierd },
-            css = { groups = formatter_groups.web, default = formatters.prettierd },
-            javascript = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            typescript = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            javascriptreact = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            typescriptreact = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            json = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            jsonc = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            markdown = { groups = formatter_groups.web, default = formatters.deno_fmt },
-            mdx = { groups = {}, default = formatters.prettierd },
-            lua = { groups = formatter_groups.lua, default = formatters.stylua },
-            rust = { groups = formatter_groups.rust, default = formatters.rust_analyzer },
+            html = { default = f.biome, common_web },
+            css = { default = f.biome, common_web },
+            javascript = { default = f.biome, common_web },
+            javascriptreact = { default = f.biome, common_web },
+            typescript = { default = f.biome, common_web },
+            typescriptreact = { default = f.biome, common_web },
+            json = { default = f.biome, common_web },
+            jsonc = { default = f.biome, common_web },
+            markdown = { default = f.prettierd, common_web },
+            mdx = { default = f.prettierd, common_web },
+            lua = { default = f.stylua },
+            python = { default = f.ruff },
+            rust = {
+              { f.dioxus_fmt },
+              { f.rust_analyzer },
+            },
+            nu = { default = { f.topiary_nu } },
           },
         }
 
