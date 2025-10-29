@@ -72,6 +72,9 @@ return Args.feature.vscode and {}
           },
         }
         require("fmo").setup {
+          fallback_lsp = {
+            no_formatter = true,
+          },
           filetypes = {
             html = { default = f.biome, common_web },
             css = { default = f.biome, common_web },
