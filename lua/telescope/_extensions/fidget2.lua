@@ -1,12 +1,12 @@
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 local conf = require("telescope.config").values
-local entry_display = require "telescope.pickers.entry_display"
-local finders = require "telescope.finders"
-local notification = require "fidget.notification"
-local pickers = require "telescope.pickers"
-local telescope = require "telescope"
-local previewers = require "telescope.previewers"
+local entry_display = require("telescope.pickers.entry_display")
+local finders = require("telescope.finders")
+local notification = require("fidget.notification")
+local pickers = require("telescope.pickers")
+local telescope = require("telescope")
+local previewers = require("telescope.previewers")
 
 --- Format HistoryItem, used in Telescope or Neovim messages.
 ---
@@ -31,13 +31,13 @@ local format_entry = function(entry)
     table.insert(chunks, { " ", "MsgArea" })
   end
 
-  table.insert(chunks, { entry.message, "MsgArea" })
+  table.insert(chunks, { entry.message:match "([^\n]*)", "MsgArea" })
 
   return chunks
 end
 
 local notification_previewer = function()
-  return previewers.new_buffer_previewer {
+  return previewers.new_buffer_previewer({
     title = "Notification Details",
     define_preview = function(self, entry, _)
       local notification_entry = entry.value
@@ -65,7 +65,7 @@ local notification_previewer = function()
 
       vim.api.nvim_buf_set_option(bufnr, "filetype", "markdown")
 
-      local ns_id = vim.api.nvim_create_namespace "fidget_preview"
+      local ns_id = vim.api.nvim_create_namespace("fidget_preview")
 
       vim.api.nvim_buf_add_highlight(bufnr, ns_id, "Title", 0, 0, 10)
       vim.api.nvim_buf_add_highlight(bufnr, ns_id, "Title", 1, 0, 6)
@@ -87,7 +87,7 @@ local notification_previewer = function()
         end
       end
     end,
-  }
+  })
 end
 
 local create_entry_maker = function(wrap)
@@ -108,7 +108,7 @@ local create_entry_maker = function(wrap)
           display_content[#display_content] = { msg, "MsgArea" }
         end
 
-        return entry_display.create {
+        return entry_display.create({
           separator = " ",
           items = {
             {},
@@ -117,7 +117,7 @@ local create_entry_maker = function(wrap)
             { width = 2 },
             { remaining = true },
           },
-        }(display_content)
+        })(display_content)
       end,
       ordinal = entry.message,
     }
@@ -136,10 +136,10 @@ local fidget_picker = function(opts)
 
   local picker_opts = {
     prompt_title = "Notifications",
-    finder = finders.new_table {
+    finder = finders.new_table({
       results = notification.get_history(),
       entry_maker = create_entry_maker(config.wrap_text),
-    },
+    }),
     sorter = conf.generic_sorter(opts),
   }
 
@@ -177,14 +177,18 @@ local fidget_picker = function(opts)
   pickers.new(opts, picker_opts):find()
 end
 
-return telescope.register_extension {
+return telescope.register_extension({
   setup = function(ext_config)
     _G.__fidget_telescope_config = ext_config or {}
   end,
   exports = {
     fidget2 = function(opts)
-      local config = vim.tbl_deep_extend("force", _G.__fidget_telescope_config or {}, opts or {})
+      local config = vim.tbl_deep_extend(
+        "force",
+        _G.__fidget_telescope_config or {},
+        opts or {}
+      )
       fidget_picker(config)
     end,
   },
-}
+})
