@@ -182,7 +182,7 @@ return telescope.register_extension {
     _G.__fidget_telescope_config = ext_config or {}
   end,
   exports = {
-    fidget = function(opts)
+    fidget2 = function(opts)
       local config = vim.tbl_deep_extend("force", _G.__fidget_telescope_config or {}, opts or {})
       fidget_picker(config)
     end,
