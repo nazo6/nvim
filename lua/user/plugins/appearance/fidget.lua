@@ -41,35 +41,6 @@ return {
           },
         },
       }
-
-      local banned_messages = { "EPERM" }
-      local notify = vim.notify
-      _G.notify_history = {}
-      local id = 0
-      vim.notify = function(msg, level, opts)
-        for _, banned in ipairs(banned_messages) do
-          if string.find(msg, banned) then
-            return
-          end
-        end
-        if not (opts and opts.hide_from_history) then
-          table.insert(_G.notify_history, 1, {
-            msg = msg,
-            level = level or vim.log.levels.INFO,
-            opts = opts,
-            time = os.time(),
-          })
-        end
-        local new_opts = opts or {}
-        if opts and opts.replace then
-          new_opts.key = opts.replace
-        else
-          id = id + 1
-          new_opts.key = id
-        end
-        notify(msg, level, new_opts)
-        return { id = new_opts.key }
-      end
     end,
   },
 }
