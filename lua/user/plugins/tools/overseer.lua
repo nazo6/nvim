@@ -1,6 +1,7 @@
 return {
   "stevearc/overseer.nvim",
   cmd = { "OverseerRun", "OverseerToggle" },
+  version = "v1.6.0",
   init = function()
     map("n", "<F4>", "<cmd>OverseerRun<CR>")
     map("n", "<C-t>", "<cmd>OverseerRun<CR>")
