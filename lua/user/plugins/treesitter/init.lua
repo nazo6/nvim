@@ -23,6 +23,7 @@ return Args.feature.vscode and {}
             }
           end,
         },
+        { "williamboman/mason.nvim" },
       },
       config = function()
         vim.api.nvim_create_autocmd("FileType", {
