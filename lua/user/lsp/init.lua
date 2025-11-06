@@ -4,7 +4,6 @@ return {
 
     local function setup_server(server_name)
       if vim.tbl_contains(Args.lsp.disabled_servers, server_name) then
-        print("Skipping LSP server: " .. server_name)
         return
       end
 
