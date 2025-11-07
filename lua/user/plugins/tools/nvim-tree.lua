@@ -81,17 +81,25 @@ return {
     require("nvim-tree").setup {
       disable_netrw = true,
       hijack_netrw = true,
-      open_on_tab = false,
       hijack_cursor = true,
-      update_cwd = false,
       sync_root_with_cwd = true,
       system_open = {
         cmd = nil,
         args = {},
       },
       git = {
-        ignore = false,
         timeout = 1000,
+      },
+      filters = {
+        git_ignored = false,
+      },
+      filesystem_watchers = {
+        ignore_dirs = {
+          ".ccls-cache",
+          "build",
+          "node_modules",
+          "target",
+        },
       },
       diagnostics = {
         enable = true,
