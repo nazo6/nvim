@@ -55,6 +55,7 @@ return Args.feature.vscode and {}
           deno_fmt = { type = "conform", name = "deno_fmt", root_pattern = { "deno.json", "deno.jsonc" } },
           deno_fmt_mdx = { type = "conform", name = "deno_fmt_mdx", root_pattern = { "deno.json", "deno.jsonc" } },
           biome = { type = "conform", name = "biome", root_pattern = { "biome.json", "biome.jsonc" } },
+          biome_check = { type = "conform", name = "biome-check", root_pattern = { "biome.json", "biome.jsonc" } },
           stylua = { type = "conform", name = "stylua", root_pattern = { "stylua.toml" } },
           rust_analyzer = { type = "lsp", name = "rust_analyzer" },
           mdx_analyzer = { type = "lsp", name = "rust_analyzer" },
@@ -62,36 +63,42 @@ return Args.feature.vscode and {}
           ruff = { type = "conform", name = "ruff_format", root_pattern = { "pyproject.toml" } },
         }
 
-        ---@type fmo.FormatterGroup
+        ---@type fmo.FormatterGroup[]
         local common_web = {
-          f.biome,
-          { type = "lsp", name = "denols" },
+          { f.biome_check },
           {
-            f.prettierd,
-            f.deno_fmt,
+            f.biome,
+            { type = "lsp", name = "denols" },
+            {
+              f.prettierd,
+              f.deno_fmt,
+            },
           },
         }
+        local web_default = { f.biome, f.biome_check }
+
         require("fmo").setup {
           fallback_lsp = {
             no_formatter = true,
           },
           filetypes = {
-            html = { default = f.biome, common_web },
-            css = { default = f.biome, common_web },
-            javascript = { default = f.biome, common_web },
-            javascriptreact = { default = f.biome, common_web },
-            typescript = { default = f.biome, common_web },
-            typescriptreact = { default = f.biome, common_web },
-            json = { default = f.biome, common_web },
-            jsonc = { default = f.biome, common_web },
-            markdown = { default = f.prettierd, common_web },
-            mdx = { default = f.prettierd, common_web },
+            html = { default = web_default, unpack(common_web) },
+            css = { default = web_default, unpack(common_web) },
+            javascript = { default = web_default, unpack(common_web) },
+            javascriptreact = { default = web_default, unpack(common_web) },
+            typescript = { default = web_default, unpack(common_web) },
+            typescriptreact = { default = web_default, unpack(common_web) },
+            json = { default = web_default, unpack(common_web) },
+            jsonc = { default = web_default, unpack(common_web) },
+            markdown = { default = f.prettierd, unpack(common_web) },
+            mdx = { default = f.prettierd, unpack(common_web) },
             lua = { default = f.stylua },
             python = { default = f.ruff },
             rust = {
               { f.dioxus_fmt },
               { f.rust_analyzer },
             },
+            svelte = { default = web_default },
             nu = { default = { f.topiary_nu } },
           },
         }

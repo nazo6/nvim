@@ -17,7 +17,7 @@ return {
         local _, node_count = string.gsub(node_root, "/", "")
         local _, deno_count = string.gsub(deno_root, "/", "")
 
-        if node_count > deno_count then
+        if node_count < deno_count then
           deno_root = nil
         else
           node_root = nil
