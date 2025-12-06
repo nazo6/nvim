@@ -1,6 +1,5 @@
 return {
   name = "gnuplot",
-  priority = 40,
   builder = function()
     local filename = vim.fn.expand "%:t"
 

@@ -2,7 +2,6 @@ local utils = require "user.shared.utils.typst"
 
 return {
   name = "typst watch root",
-  priority = 39,
   builder = function()
     local fname = vim.api.nvim_buf_get_name(0)
     local root_dir = utils.get_typst_root_dir(fname)
