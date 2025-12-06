@@ -29,7 +29,7 @@ return {
         dap = true,
         close_windows = {
           match = {
-            filetype = { "no-neck-pain" },
+            filetype = { "no-neck-pain", "OverseerList" },
             buftype = { "terminal" },
           },
           preserve_layout = false,
