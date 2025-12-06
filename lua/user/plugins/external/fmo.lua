@@ -67,12 +67,12 @@ return Args.feature.vscode and {}
         local common_web = {
           { f.biome_check },
           {
-            f.biome,
             { type = "lsp", name = "denols" },
             {
               f.prettierd,
               f.deno_fmt,
             },
+            f.biome,
           },
         }
         local web_default = { f.biome, f.biome_check }
@@ -98,7 +98,7 @@ return Args.feature.vscode and {}
               { f.dioxus_fmt },
               { f.rust_analyzer },
             },
-            svelte = { default = web_default },
+            svelte = { default = web_default, unpack(common_web) },
             nu = { default = { f.topiary_nu } },
           },
         }
