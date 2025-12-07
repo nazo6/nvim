@@ -18,14 +18,9 @@ return Args.feature.vscode and {}
                   require_cwd = true,
                   condition = require("conform.util").root_file { "Dioxus.toml" },
                 },
-                deno_fmt_mdx = {
-                  command = "deno",
-                  args = {
-                    "fmt",
-                    "-",
-                    "--ext",
-                    "md",
-                  },
+                deno_fmt = {
+                  stdin = false,
+                  args = { "fmt", "$FILENAME" },
                 },
               },
             }
