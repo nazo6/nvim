@@ -47,13 +47,22 @@ stl:add_item(nut.buf.diagnostic_count {
 })
 stl:add_item(nut.lsp.servers {
   hl = { fg = color.fg },
+  config = {
+    content = function(client)
+      if client.name == "copilot" then
+        return "  "
+      end
+    end,
+  },
+})
+stl:add_item(nut.lsp.servers {
+  hl = { fg = color.fg },
   prefix = "  ",
   config = {
     content = function(client)
       if client.name ~= "copilot" then
         return client.name
       end
-      return nil
     end,
   },
 })

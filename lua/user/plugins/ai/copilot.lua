@@ -5,7 +5,11 @@ end
 return {
   {
     "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
+    dependencies = {
+      { "neovim/nvim-lspconfig" },
+      { "copilotlsp-nvim/copilot-lsp" },
+    },
+    event = { "FileType", "BufNewFile" },
     cmd = { "Copilot" },
     keys = {
       { mode = "n", "<leader>cp", "<cmd>Copilot panel<CR>" },
@@ -18,6 +22,14 @@ return {
         filetypes = {
           yaml = true,
           markdown = true,
+        },
+        nes = {
+          enabled = true,
+          keymap = {
+            accept_and_goto = "<leader>p",
+            accept = false,
+            dismiss = "<Esc>",
+          },
         },
       }
     end,
