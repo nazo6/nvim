@@ -26,7 +26,7 @@ local sources_providers = {
 if Args.feature.ai.copilot == true then
   sources_providers.copilot = {
     name = "copilot",
-    module = "blink-cmp-copilot",
+    module = "blink-copilot",
     score_offset = 1,
     async = true,
     transform_items = function(_, items)
@@ -41,9 +41,7 @@ end
 return {
   {
     "saghen/blink.cmp",
-    dependencies = {
-      { "giuxtaposition/blink-cmp-copilot", enabled = (Args.feature.ai.copilot == true) },
-    },
+    dependencies = { "fang2hou/blink-copilot", enabled = (Args.feature.ai.copilot == true) },
     event = { "InsertEnter", "CmdlineEnter" },
     version = "v1.*",
     enabled = not Args.feature.vscode,
@@ -106,7 +104,7 @@ return {
                   text = function(ctx)
                     local icon = ctx.kind_icon
                     if ctx.item.copilot then
-                      icon = ""
+                      icon = " "
                     end
                     return icon .. ctx.icon_gap
                   end,

@@ -23,14 +23,14 @@ return {
           yaml = true,
           markdown = true,
         },
-        nes = {
-          enabled = true,
-          keymap = {
-            accept_and_goto = "<leader>p",
-            accept = false,
-            dismiss = "<Esc>",
-          },
-        },
+        -- nes = {
+        --   enabled = true,
+        --   keymap = {
+        --     accept_and_goto = "<leader>p",
+        --     accept = false,
+        --     dismiss = "<Esc>",
+        --   },
+        -- },
       }
     end,
   },
