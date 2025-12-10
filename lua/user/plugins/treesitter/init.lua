@@ -3,7 +3,7 @@ return Args.feature.vscode and {}
   or {
     {
       "nvim-treesitter/nvim-treesitter",
-      event = { "FileType", "BufNewFile" },
+      event = { "BufReadPre", "BufNewFile" },
       build = ":TSUpdate",
       cmd = { "TSInstall", "TSUpdate", "TSUninstall" },
       branch = "main",

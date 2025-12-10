@@ -10,6 +10,7 @@ return {
       fileformat = require("user.plugins.appearance.nougat.nut.buf.fileformat").create,
       encoding = require("user.plugins.appearance.nougat.nut.buf.encoding").create,
       fmo = require("user.plugins.appearance.nougat.nut.buf.fmo").create,
+      copilot = require("user.plugins.appearance.nougat.nut.buf.copilot").create,
     },
     git = {
       branch = require("user.plugins.appearance.nougat.nut.git.branch").create,

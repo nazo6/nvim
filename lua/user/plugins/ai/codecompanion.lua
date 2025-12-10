@@ -13,17 +13,30 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {
-    opts = {
-      language = "Japanese",
-    },
-    strategies = {
-      chat = {
-        adapter = "copilot",
+  config = function()
+    require("user.plugins.ai.codecompanion.fidget"):init()
+    require("codecompanion").setup {
+      opts = {
+        language = "Japanese",
       },
-      inline = {
-        adapter = "copilot",
+      display = {
+        chat = {
+          window = {
+            width = 0.25,
+            position = "right",
+          },
+        },
       },
-    },
-  },
+      strategies = {
+        chat = {
+          roles = {
+            llm = function(adapter)
+              return "  CodeCompanion (" .. adapter.formatted_name .. ", " .. adapter.model.name .. ")"
+            end,
+            user = "  Me",
+          },
+        },
+      },
+    }
+  end,
 }

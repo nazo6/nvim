@@ -9,7 +9,7 @@ return {
       { "neovim/nvim-lspconfig" },
       { "copilotlsp-nvim/copilot-lsp" },
     },
-    event = { "FileType", "BufNewFile" },
+    event = { "BufRead", "BufNewFile" },
     cmd = { "Copilot" },
     keys = {
       { mode = "n", "<leader>cp", "<cmd>Copilot panel<CR>" },
@@ -33,14 +33,5 @@ return {
         },
       }
     end,
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim" },
-    },
-    cmd = { "CopilotChat" },
-    opts = {},
   },
 }
