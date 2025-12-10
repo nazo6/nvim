@@ -50,7 +50,7 @@ return {
         insx.with(delete_pair.strings { open_pat = esc(quote[1]), close_pat = esc(quote[1]) }, quote[2])
       )
 
-      insx.add("<C-]>", insx.with(fast_wrap { close = quote[1] }, quote[2]))
+      insx.add("<C-l>", insx.with(fast_wrap { close = quote[1] }, quote[2]))
     end
 
     -- pairs
