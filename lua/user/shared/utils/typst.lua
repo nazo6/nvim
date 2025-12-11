@@ -3,7 +3,7 @@ local M = {}
 
 --- Main file of the given typst file.
 M.get_typst_main_file = function(path)
-  for _, pattern in ipairs { "root.typ", "report.typ" } do
+  for _, pattern in ipairs { "root.typ", "report.typ", "main.typ" } do
     local dir = vim.fs.root(path, pattern)
     if dir ~= nil then
       return vim.fs.joinpath(dir, pattern)
