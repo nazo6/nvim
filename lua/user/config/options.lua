@@ -155,6 +155,19 @@ vim.api.nvim_create_autocmd("VimEnter", {
       if ok then
         require("possession.session").delete("restart", { no_confirm = true })
         vim.opt.cmdheight = 1
+        vim.schedule(function()
+          for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+            if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].filetype == "" then
+              local name = vim.api.nvim_buf_get_name(buf)
+              if name ~= "" then
+                local ft = vim.filetype.match { filename = name, buf = buf }
+                if ft then
+                  vim.bo[buf].filetype = ft
+                end
+              end
+            end
+          end
+        end)
       end
     end
   end,
