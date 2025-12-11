@@ -14,7 +14,16 @@ return {
     -- Toggle the profiler highlights
     Snacks.toggle.profiler_highlights():map "<leader>sph"
 
+    ---@type snacks.Config
     return {
+      indent = {
+        enable = true,
+        animate = {
+          duration = {
+            total = 200,
+          },
+        },
+      },
       bigfile = {
         setup = function(ctx)
           vim.cmd [[NoMatchParen]]
