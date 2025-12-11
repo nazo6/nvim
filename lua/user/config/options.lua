@@ -151,12 +151,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     if vim.g.NVIM_RESTARTING then
       vim.g.NVIM_RESTARTING = false
-      local session = require "possession.session"
-      local ok = pcall(session.load, "restart")
-      if ok then
-        require("possession.session").delete("restart", { no_confirm = true })
-        vim.opt.cmdheight = 1
-      end
+      vim.schedule(function()
+        local session = require "possession.session"
+        local ok = pcall(session.load, "restart")
+        if ok then
+          require("possession.session").delete("restart", { no_confirm = true })
+        end
+      end)
     end
   end,
 })
