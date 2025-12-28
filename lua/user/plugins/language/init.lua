@@ -109,6 +109,7 @@ return Args.feature.vscode and {}
         require("typst-preview").update()
       end,
       opts = {
+        dependencies_bin = { ["tinymist"] = "tinymist" },
         get_root = function(fname)
           return require("user.shared.utils.typst").get_typst_root_dir(fname)
         end,
