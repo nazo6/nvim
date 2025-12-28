@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
           mdx = "mdx",
         },
         filename = {
+          ["Caddyfile"] = "caddy",
           [".swcrc"] = "json",
           [".latexmkrc"] = "perl",
           -- Technitium DNS Server app
