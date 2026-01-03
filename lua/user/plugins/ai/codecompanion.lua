@@ -12,10 +12,13 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "franco-ruggeri/codecompanion-spinner.nvim",
   },
   config = function()
-    require("user.plugins.ai.codecompanion.fidget"):init()
     require("codecompanion").setup {
+      extensions = {
+        spinner = {},
+      },
       opts = {
         language = "Japanese",
       },
