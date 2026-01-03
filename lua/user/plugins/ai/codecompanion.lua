@@ -30,8 +30,17 @@ return {
           },
         },
       },
-      strategies = {
+      interactions = {
         chat = {
+          tools = {
+            opts = {
+              default_tools = { "full_stack_dev" },
+              system_prompt = {
+                enabled = true,
+                replace_main_system_prompt = false,
+              },
+            },
+          },
           roles = {
             llm = function(adapter)
               return "  CodeCompanion (" .. adapter.formatted_name .. ", " .. adapter.model.name .. ")"
