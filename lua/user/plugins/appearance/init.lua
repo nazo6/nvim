@@ -16,7 +16,7 @@ return {
     cmd = { "NoNeckPain" },
     keys = { { "<leader>n", mode = { "n" }, "<cmd>NoNeckPain<CR>" } },
     opts = {
-      width = 120,
+      width = 180,
     },
   },
 }

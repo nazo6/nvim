@@ -1,4 +1,4 @@
-local sources_default = { "codecompanion", "lazydev", "lsp", "path", "snippets", "buffer" }
+local sources_default = { "lazydev", "lsp", "path", "snippets", "buffer" }
 if Args.feature.ai.copilot then
   table.insert(sources_default, "copilot")
 end
