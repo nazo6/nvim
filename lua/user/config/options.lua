@@ -75,8 +75,10 @@ opt.exrc = true
 vim.cmd [[autocmd BufWinEnter * if &filetype == 'help' | wincmd L | endif]]
 
 if require("user.shared.utils.system").is_msys2 then
+  vim.opt.shell = vim.o.shell:gsub("\\", "/")
   vim.opt.shellcmdflag = "-c"
   vim.opt.shellxquote = ""
+  vim.opt.shellxescape = ""
   vim.opt.shellquote = ""
 end
 
