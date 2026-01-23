@@ -31,6 +31,6 @@ Args = {
     --- Defines `local server` that is configured even if server is not installed by mason.
     local_servers = {},
     disabled_servers = {},
-    inlay_hints = false,
+    inlay_hint = false,
   },
 }
