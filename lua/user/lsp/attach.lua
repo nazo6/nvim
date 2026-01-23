@@ -5,7 +5,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     assert(client, "No client found")
     local bufnr = ctx.buf
 
-    vim.lsp.inlay_hint.enable(true)
+    if not Args.lsp.inlay_hints then
+      vim.lsp.inlay_hint.enable(true)
+    end
 
     if client.name == "copilot" then
       return

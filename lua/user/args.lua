@@ -9,6 +9,8 @@ Args = {
       enabled = true,
       --- Enables copilot related plugins
       copilot = true,
+      --- Enabled sidekick.nvim plugin for copilot nes
+      sidekick = false,
     },
 
     --- Force enable osc52 clipboard. Useful in ssh environment.
@@ -29,5 +31,6 @@ Args = {
     --- Defines `local server` that is configured even if server is not installed by mason.
     local_servers = {},
     disabled_servers = {},
+    inlay_hints = false,
   },
 }

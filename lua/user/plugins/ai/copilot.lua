@@ -32,6 +32,7 @@ return {
     dependencies = {
       { "zbirenbaum/copilot.lua" },
     },
+    enabled = Args.feature.ai.sidekick,
     keys = {
       {
         "<tab>",
