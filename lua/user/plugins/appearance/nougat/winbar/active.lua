@@ -3,23 +3,23 @@ local sep = require "nougat.separator"
 
 local c = require "user.plugins.appearance.nougat.common"
 local nut = c.nut
-local color = c.color
+local colors = require("user.config.colors").get()
 
 local wbr = Bar("winbar", {
-  hl = { bg = color.palette.winterRed, fg = color.palette.fujiWhite },
+  hl = colors.winbar.active.other,
 })
 
 wbr:add_item(nut.buf.icon {
-  hl = { bg = color.palette.waveRed },
+  hl = { bg = colors.winbar.active.title.bg },
   prefix = " ",
 })
 wbr:add_item(nut.buf.filename {
-  hl = { bg = color.palette.waveRed, fg = "white" },
+  hl = colors.winbar.active.title,
   prefix = " ",
   suffix = " ",
 })
 wbr:add_item(nut.buf.filestatus {
-  hl = { bg = color.palette.waveRed, fg = "white" },
+  hl = colors.winbar.active.title,
   suffix = " ",
   sep_right = sep.right_lower_triangle_solid(true),
   config = {

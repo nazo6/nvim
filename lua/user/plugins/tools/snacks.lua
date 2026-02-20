@@ -5,7 +5,7 @@ return {
     "<C-g><C-g>",
     mode = { "n" },
     function()
-      Snacks.lazygit.open(opts)
+      Snacks.lazygit.open()
     end,
   } },
   opts = function()

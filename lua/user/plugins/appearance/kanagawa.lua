@@ -20,13 +20,11 @@ return {
     local colors = require("kanagawa.colors").setup { theme = "wave" }
     local theme = colors.theme
     local palette = colors.palette
-    _G.color_palette = palette
 
     local overrides = {
       Visual = { bg = "#2b4960" },
-
-      -- DiffAdd = { bg = palette.autumnGreen },
-      -- DiffChange = { bg = palette.waveBlue2 },
+      Folded = { bg = "#342e4f" },
+      CursorLineNr = { fg = theme.diag.warning, bg = theme.ui.bg_p2, bold = true },
 
       DiagnosticVirtualTextError = { link = "DiagnosticError" },
       DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
@@ -36,34 +34,37 @@ return {
       DiagnosticSignInfo = { fg = palette.dragonBlue },
       DiagnosticSignWarn = { fg = palette.roninYellow },
 
-      NeoTreeNormal = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
-      NeoTreeNormalNC = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
-      NeoTreeCursorLine = { bg = palette.sumiInk4 },
-
-      ScrollView = { bg = "#342e4f" },
-
-      IlluminatedWordText = { fg = "NONE", bg = "#472739" },
-      IlluminatedWordRead = { fg = "NONE", bg = "#472739" },
-      IlluminatedWordWrite = { fg = "NONE", bg = "#472739" },
-
-      GitSignsAddNr = { link = "DiffAdd" },
-      GitSignsChangeNr = { link = "DiffChange" },
-      GitSignsDeleteNr = { link = "DiffDelete" },
-
-      NeoTreeGitModified = { fg = palette.autumnYellow, bg = "NONE" },
-      Folded = { bg = "#342e4f" },
-
       FidgetTitle = { fg = palette.fujiWhite },
       FidgetTask = { fg = palette.oldWhite },
 
+      GitSignsAdd = { fg = theme.vcs.added },
+      GitSignsChange = { fg = theme.vcs.changed },
+      GitSignsDelete = { fg = theme.vcs.removed },
+
+      NeoTreeNormal = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
+      NeoTreeNormalNC = { fg = palette.fujiWhite, bg = palette.sumiInk2 },
+      NeoTreeCursorLine = { bg = palette.sumiInk4 },
+      NeoTreeGitModified = { fg = palette.autumnYellow, bg = "NONE" },
+
+      NvimTreeWindowPicker = { bg = palette.autumnRed },
+
       PackageInfoOutdatedVersion = { link = "DiagnosticWarn" },
       PackageInfoUpToDateVersion = { link = "DiagnosticInfo" },
-
-      IblIndent = { fg = theme.ui.whitespace },
-      IblWhitespace = { fg = theme.ui.whitespace },
-      IblScope = { fg = theme.ui.special },
-      NvimTreeWindowPicker = { bg = palette.autumnRed },
     }
+
+    require("user.config.colors").set {
+      winbar = {
+        active = {
+          title = { fg = "white", bg = palette.waveRed },
+          other = { fg = palette.fujiWhite, bg = palette.winterRed },
+        },
+        inactive = {
+          title = { bg = palette.sumiInk0 },
+          other = { bg = palette.sumiInk4 },
+        },
+      },
+    }
+
     vim.api.nvim_create_autocmd("ColorScheme", {
       pattern = "*",
       callback = function()
