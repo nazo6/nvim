@@ -26,7 +26,7 @@ return {
       Visual = { bg = "#2b4960" },
 
       -- DiffAdd = { bg = palette.autumnGreen },
-      DiffChange = { bg = palette.waveBlue2 },
+      -- DiffChange = { bg = palette.waveBlue2 },
 
       DiagnosticVirtualTextError = { link = "DiagnosticError" },
       DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },

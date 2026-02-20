@@ -106,6 +106,7 @@ opt.signcolumn = "yes"
 opt.cursorline = true
 opt.sidescrolloff = 16
 opt.list = true
+opt.fillchars:append { diff = " " }
 
 opt.winblend = 15
 opt.pumblend = 15
