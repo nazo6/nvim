@@ -25,7 +25,8 @@ return {
     local overrides = {
       Visual = { bg = "#2b4960" },
 
-      DiffAdd = { bg = palette.autumnGreen },
+      -- DiffAdd = { bg = palette.autumnGreen },
+      DiffChange = { bg = palette.waveBlue2 },
 
       DiagnosticVirtualTextError = { link = "DiagnosticError" },
       DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
@@ -44,8 +45,6 @@ return {
       IlluminatedWordText = { fg = "NONE", bg = "#472739" },
       IlluminatedWordRead = { fg = "NONE", bg = "#472739" },
       IlluminatedWordWrite = { fg = "NONE", bg = "#472739" },
-
-      DiffChange = { bg = palette.waveBlue2 },
 
       GitSignsAddNr = { link = "DiffAdd" },
       GitSignsChangeNr = { link = "DiffChange" },
