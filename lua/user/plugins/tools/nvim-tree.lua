@@ -58,7 +58,7 @@ return {
       },
       on_attach = on_attach,
       renderer = {
-        highlight_git = true,
+        highlight_git = "name",
         icons = {
           show = {
             folder_arrow = false,
