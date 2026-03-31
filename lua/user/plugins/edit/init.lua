@@ -16,7 +16,7 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    dependencies = { { "JoosepAlviste/nvim-ts-context-commentstring" } },
+    dependencies = { { "faergeek/nvim-ts-context-commentstring", branch = "nvim-0.12-compatibility" } },
     event = { "BufRead" },
     config = function()
       require("Comment").setup {
