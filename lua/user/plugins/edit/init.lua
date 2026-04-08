@@ -14,16 +14,7 @@ return {
       require("todo-comments").setup {}
     end,
   },
-  {
-    "numToStr/Comment.nvim",
-    dependencies = { { "JoosepAlviste/nvim-ts-context-commentstring" } },
-    event = { "BufRead" },
-    config = function()
-      require("Comment").setup {
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-      }
-    end,
-  },
+  { "nvim-mini/mini.comment", version = "*", event = { "BufRead" } },
   {
     "danymat/neogen",
     config = true,
