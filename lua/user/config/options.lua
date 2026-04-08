@@ -148,43 +148,19 @@ vim.api.nvim_create_user_command("LspLogClear", function()
   vim.fn.delete(log_path)
 end, {})
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  nested = true,
-  once = true,
-  callback = function()
-    if vim.g.NVIM_RESTARTING then
-      vim.g.NVIM_RESTARTING = false
-      vim.schedule(function()
-        local session = require "possession.session"
-        local ok = pcall(session.load, "restart")
-        if ok then
-          require("possession.session").delete("restart", { no_confirm = true })
-        end
-      end)
+vim.api.nvim_create_user_command("LoadRestart", function()
+  vim.schedule(function()
+    print "loading"
+    local session = require "possession.session"
+    local ok = pcall(session.load, "restart")
+    if ok then
+      require("possession.session").delete("restart", { no_confirm = true })
     end
-  end,
-})
+  end)
+end, {})
 
-if vim.fn.has "nvim-0.12" == 1 then
-  vim.api.nvim_create_user_command("Restart", function()
-    require("possession.session").save("restart", { no_confirm = true })
-    vim.cmd [[silent! bufdo bwipeout]]
-
-    vim.g.NVIM_RESTARTING = true
-
-    vim.cmd [[restart]]
-  end, {})
-else
-  vim.api.nvim_create_user_command("Restart", function()
-    if vim.fn.has "gui_running" then
-      vim.notify("GUI is not supported", vim.log.levels.WARN)
-    end
-
-    require("possession.session").save("restart", { no_confirm = true })
-    vim.cmd [[silent! bufdo bwipeout]]
-
-    vim.g.NVIM_RESTARTING = true
-
-    vim.cmd [[qa!]]
-  end, {})
-end
+vim.api.nvim_create_user_command("Restart", function()
+  require("possession.session").save("restart", { no_confirm = true })
+  vim.cmd [[silent! bufdo bwipeout]]
+  vim.cmd [[restart LoadRestart]]
+end, {})
