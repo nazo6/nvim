@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+require("vim._core.ui2").enable {}
+
 if vim.fn.has "win32" == 1 then
   -- HACK: For some reason, the default `vim.ui.open` function does not work correctly on my environment.
   -- Prepending `cmd /c` to default cmd for `vim.ui.open` makes it work.

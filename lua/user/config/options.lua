@@ -95,6 +95,7 @@ if vim.fn.has "termguicolors" == 1 then
   opt.termguicolors = true
 end
 
+opt.cmdheight = 0
 opt.laststatus = 3
 
 opt.title = true
@@ -150,7 +151,6 @@ end, {})
 
 vim.api.nvim_create_user_command("LoadRestart", function()
   vim.schedule(function()
-    print "loading"
     local session = require "possession.session"
     local ok = pcall(session.load, "restart")
     if ok then
