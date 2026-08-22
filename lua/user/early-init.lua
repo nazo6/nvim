@@ -1,7 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-require("vim._core.ui2").enable {}
+if not vim.g.vscode then
+  require("vim._core.ui2").enable {}
+end
 
 if vim.fn.has "win32" == 1 then
   -- HACK: For some reason, the default `vim.ui.open` function does not work correctly on my environment.

@@ -1,5 +1,6 @@
 return {
   "mrjones2014/smart-splits.nvim",
+  enabled = not Args.feature.vscode,
   init = function()
     map("n", "<A-h>", "<cmd>lua require('smart-splits').resize_left()<CR>")
     map("n", "<A-j>", "<cmd>lua require('smart-splits').resize_down()<CR>")

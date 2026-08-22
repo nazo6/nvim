@@ -95,7 +95,9 @@ if vim.fn.has "termguicolors" == 1 then
   opt.termguicolors = true
 end
 
-opt.cmdheight = 0
+if not Args.feature.vscode then
+  opt.cmdheight = 0
+end
 opt.laststatus = 3
 
 opt.title = true
